@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SnapTXT - 이미지에서 텍스트 추출</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            padding: 2rem;
+            max-width: 800px;
+            width: 90%;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .header h1 {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        
+        .header p {
+            color: #666;
+        }
+        
+        .control-buttons {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .control-btn {
+            background: #6c757d;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: background 0.3s ease;
+        }
+        
+        .control-btn:hover {
+            background: #5a6268;
+        }
+        
+        .control-btn.refresh {
+            background: #17a2b8;
+        }
+        
+        .control-btn.refresh:hover {
+            background: #138496;
+        }
+        
+        .control-btn.status {
+            background: #28a745;
+        }
+        
+        .control-btn.status:hover {
+            background: #1e7e34;
+        }
+        
+        .upload-area {
+            border: 3px dashed #ddd;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .upload-area:hover {
+            border-color: #667eea;
+            background: #f8f9ff;
+        }
+        
+        .upload-area.dragover {
+            border-color: #667eea;
+            background: #f0f2ff;
+        }
+        
+        #fileInput {
+            display: none;
+        }
+        
+        .upload-btn {
+            background: #667eea;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s ease;
+        }
+        
+        .upload-btn:hover {
+            background: #5a6fd8;
+        }
+        
+        .result-area {
+            margin-top: 2rem;
+        }
+        
+        .result-text {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1rem;
+            min-height: 150px;
+            white-space: pre-wrap;
+            font-family: 'Courier New', monospace;
+            line-height: 1.5;
+        }
+        
+        .action-buttons {
+            margin-top: 1rem;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: #007bff;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #0056b3;
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #545b62;
+        }
+        
+        .btn-success {
+            background: #28a745;
+            color: white;
+        }
+        
+        .btn-success:hover {
+            background: #1e7e34;
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            margin: 1rem 0;
+        }
+        
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+        }
+        
+        .success {
+            background: #d4edda;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+            border: 1px solid #c3e6cb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="control-buttons">
+                <button class="control-btn status" onclick="checkServerStatus()" title="서버 상태 확인">
+                    🟢 상태
+                </button>
+                <button class="control-btn refresh" onclick="refreshPage()" title="페이지 새로고침">
+                    🔄 새로고침
+                </button>
+            </div>
+            <h1>📸 SnapTXT</h1>
+            <p>이미지나 스크린샷에서 텍스트를 추출하고 TTS로 듣고 공부하세요</p>
+        </div>
+        
+        <div class="upload-area" id="uploadArea">
+            <p>이미지를 드래그하여 놓거나 클릭하여 선택하세요</p>
+            <button class="upload-btn" onclick="document.getElementById('fileInput').click()">
+                📁 파일 선택
+            </button>
+            <input type="file" id="fileInput" accept="image/*" onchange="handleFileSelect(this.files[0])">
+            <p style="margin-top: 10px; font-size: 12px; color: #666;">
+                지원 형식: PNG, JPG, JPEG, GIF, BMP, TIFF
+            </p>
+        </div>
+        
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>이미지에서 텍스트를 추출 중입니다...</p>
+        </div>
+        
+        <div class="result-area" id="resultArea" style="display: none;">
+            <h3>추출된 텍스트:</h3>
+            <textarea class="result-text" id="extractedText" readonly></textarea>
+            
+            <div class="action-buttons">
+                <button class="btn btn-primary" onclick="speakText()">🔊 텍스트 읽기</button>
+                <button class="btn btn-secondary" onclick="speakTextBrowser()">📢 브라우저 음성 읽기</button>
+                <button class="btn btn-secondary" onclick="copyText()">📋 복사</button>
+                <button class="btn btn-success" onclick="downloadText()">💾 다운로드</button>
+                <button class="btn btn-secondary" onclick="clearAll()">🗑️ 초기화</button>
+            </div>
+        </div>
+        
+        <div id="errorArea"></div>
+    </div>
+
+    <script>
+        let extractedTextContent = '';
+        
+        // 드래그 앤 드롭 기능
+        const uploadArea = document.getElementById('uploadArea');
+        
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+        
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+        });
+        
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                handleFileSelect(files[0]);
+            }
+        });
+        
+        function handleFileSelect(file) {
+            if (!file) return;
+            
+            // 파일 유효성 검사
+            const allowedTypes = ['image/png', 'image/jpg', 'image/jpeg', 'image/gif', 'image/bmp', 'image/tiff'];
+            if (!allowedTypes.includes(file.type)) {
+                showError('지원하지 않는 파일 형식입니다. 이미지 파일을 선택해주세요.');
+                return;
+            }
+            
+            // 파일 크기 검사 (16MB)
+            if (file.size > 16 * 1024 * 1024) {
+                showError('파일 크기가 너무 큽니다. 16MB 이하의 파일을 선택해주세요.');
+                return;
+            }
+            
+            uploadFile(file);
+        }
+        
+        function uploadFile(file) {
+            const formData = new FormData();
+            formData.append('file', file);
+            
+            // 로딩 표시
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('resultArea').style.display = 'none';
+            clearError();
+            
+            fetch('/upload', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                document.getElementById('loading').style.display = 'none';
+                
+                if (data.success) {
+                    extractedTextContent = data.text;
+                    document.getElementById('extractedText').value = extractedTextContent;
+                    document.getElementById('resultArea').style.display = 'block';
+                } else {
+                    showError(data.error || 'OCR 처리 중 오류가 발생했습니다.');
+                }
+            })
+            .catch(error => {
+                document.getElementById('loading').style.display = 'none';
+                console.error('업로드 오류:', error);
+                
+                if (error.message.includes('Failed to fetch')) {
+                    showError('서버에 연결할 수 없습니다. 서버가 실행 중인지 확인해주세요.');
+                } else if (error.message.includes('HTTP')) {
+                    showError('서버 오류: ' + error.message);
+                } else {
+                    showError('업로드 중 오류가 발생했습니다: ' + error.message);
+                }
+            });
+        }
+        
+        function speakText() {
+            if (!extractedTextContent.trim()) {
+                showError('읽을 텍스트가 없습니다.');
+                return;
+            }
+            
+            // Google TTS 사용 시도
+            fetch('/tts_audio', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    text: extractedTextContent
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Base64 오디오 데이터를 재생
+                    const audioData = 'data:audio/mp3;base64,' + data.audio_data;
+                    const audio = new Audio(audioData);
+                    audio.play();
+                    showMessage('고품질 음성으로 재생 시작');
+                } else {
+                    // Google TTS 실패 시 브라우저 TTS로 폴백
+                    showMessage('고품질 음성을 사용할 수 없어 브라우저 음성으로 재생합니다.');
+                    speakTextBrowser();
+                }
+            })
+            .catch(error => {
+                // 오류 시 브라우저 TTS로 폴백
+                console.error('TTS 오류:', error);
+                showMessage('고품질 음성을 사용할 수 없어 브라우저 음성으로 재생합니다.');
+                speakTextBrowser();
+            });
+        }
+        
+        function speakTextBrowser() {
+            if (!extractedTextContent.trim()) {
+                showError('읽을 텍스트가 없습니다.');
+                return;
+            }
+            
+            // Web Speech API 사용 (개선된 설정)
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel(); // 이전 음성 중지
+                
+                const utterance = new SpeechSynthesisUtterance(extractedTextContent);
+                utterance.lang = 'ko-KR'; // 한국어 설정
+                utterance.rate = 0.7; // 읽기 속도 (조금 더 느리게)
+                utterance.pitch = 1; // 음성 높이
+                utterance.volume = 1; // 볼륨
+                
+                // 음성 이벤트 핸들러
+                utterance.onstart = () => {
+                    showMessage('브라우저 음성으로 읽기 시작');
+                };
+                
+                utterance.onend = () => {
+                    showMessage('음성 읽기 완료');
+                };
+                
+                utterance.onerror = (event) => {
+                    showError('음성 읽기 중 오류가 발생했습니다: ' + event.error);
+                };
+                
+                window.speechSynthesis.speak(utterance);
+            } else {
+                showError('이 브라우저는 TTS 기능을 지원하지 않습니다.');
+            }
+        }
+        
+        function copyText() {
+            if (!extractedTextContent.trim()) {
+                showError('복사할 텍스트가 없습니다.');
+                return;
+            }
+            
+            // 최신 브라우저에서 Clipboard API 사용
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(extractedTextContent).then(() => {
+                    showMessage('텍스트가 클립보드에 복사되었습니다.');
+                }).catch(err => {
+                    fallbackCopyText();
+                });
+            } else {
+                // 낙백 방법
+                fallbackCopyText();
+            }
+        }
+        
+        function fallbackCopyText() {
+            // 기존 브라우저를 위한 낙백 방법
+            const textArea = document.createElement('textarea');
+            textArea.value = extractedTextContent;
+            textArea.style.position = 'fixed';
+            textArea.style.opacity = '0';
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            
+            try {
+                const successful = document.execCommand('copy');
+                if (successful) {
+                    showMessage('텍스트가 클립보드에 복사되었습니다.');
+                } else {
+                    showError('텍스트 복사에 실패했습니다.');
+                }
+            } catch (err) {
+                showError('텍스트 복사에 실패했습니다: ' + err.message);
+            } finally {
+                document.body.removeChild(textArea);
+            }
+        }
+        
+        function downloadText() {
+            if (!extractedTextContent.trim()) {
+                showError('다운로드할 텍스트가 없습니다.');
+                return;
+            }
+            
+            const blob = new Blob([extractedTextContent], { type: 'text/plain;charset=utf-8' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'extracted_text.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+        
+        function clearAll() {
+            extractedTextContent = '';
+            document.getElementById('extractedText').value = '';
+            document.getElementById('resultArea').style.display = 'none';
+            document.getElementById('fileInput').value = '';
+            clearError();
+        }
+        
+        function showError(message) {
+            const errorArea = document.getElementById('errorArea');
+            errorArea.innerHTML = `<div class="error">${message}</div>`;
+        }
+        
+        function showMessage(message) {
+            const errorArea = document.getElementById('errorArea');
+            errorArea.innerHTML = `<div class="success">${message}</div>`;
+            // 3초 후 자동으로 메시지 제거
+            setTimeout(() => {
+                clearError();
+            }, 3000);
+        }
+        
+        function clearError() {
+            document.getElementById('errorArea').innerHTML = '';
+        }
+        
+        function checkServerStatus() {
+            fetch('/status')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'running') {
+                        showStatus('✅ 서버가 정상 작동 중입니다!', 'success');
+                    } else {
+                        showStatus('❌ 서버 상태를 확인할 수 없습니다.', 'error');
+                    }
+                })
+                .catch(error => {
+                    showStatus('❌ 서버에 연결할 수 없습니다. 서버를 재시작해주세요.', 'error');
+                });
+        }
+        
+        function refreshPage() {
+            showStatus('🔄 페이지를 새로고침합니다...', 'info');
+            setTimeout(() => {
+                window.location.reload();
+            }, 1000);
+        }
+        
+        function showStatus(message, type) {
+            const statusDiv = document.createElement('div');
+            statusDiv.className = `status ${type}`;
+            statusDiv.textContent = message;
+            statusDiv.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                z-index: 1000;
+                padding: 12px 20px;
+                border-radius: 5px;
+                color: white;
+                font-weight: bold;
+                animation: slideIn 0.3s ease;
+            `;
+            
+            if (type === 'success') statusDiv.style.background = '#28a745';
+            else if (type === 'error') statusDiv.style.background = '#dc3545';
+            else if (type === 'info') statusDiv.style.background = '#17a2b8';
+            
+            document.body.appendChild(statusDiv);
+            
+            setTimeout(() => {
+                statusDiv.remove();
+            }, 3000);
+        }
+        
+        // 페이지 로드 시 서버 상태 자동 확인
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                checkServerStatus();
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

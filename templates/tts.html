@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SnapTXT TTS - 텍스트 음성 변환</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            padding: 2rem;
+            max-width: 800px;
+            width: 90%;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .header h1 {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        
+        .header p {
+            color: #666;
+        }
+        
+        .control-buttons {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .control-btn {
+            background: #6c757d;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: background 0.3s ease;
+        }
+        
+        .control-btn:hover {
+            background: #5a6268;
+        }
+        
+        .control-btn.refresh {
+            background: #17a2b8;
+        }
+        
+        .control-btn.refresh:hover {
+            background: #138496;
+        }
+        
+        .control-btn.status {
+            background: #28a745;
+        }
+        
+        .control-btn.status:hover {
+            background: #1e7e34;
+        }
+        
+        .text-input {
+            margin-bottom: 2rem;
+        }
+        
+        .text-input textarea {
+            width: 100%;
+            min-height: 200px;
+            padding: 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            resize: vertical;
+        }
+        
+        .text-input textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .controls {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+        
+        .control-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .control-group label {
+            min-width: 100px;
+            margin-right: 1rem;
+            font-weight: 500;
+        }
+        
+        .control-group input,
+        .control-group select {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        
+        .buttons {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            margin: 0 8px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: #28a745;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #1e7e34;
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #545b62;
+        }
+        
+        .btn-danger {
+            background: #dc3545;
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            background: #bd2130;
+        }
+        
+        .status {
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            text-align: center;
+            display: none;
+        }
+        
+        .status.playing {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: block;
+        }
+        
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            display: block;
+        }
+        
+        .progress {
+            background: #e9ecef;
+            border-radius: 10px;
+            height: 20px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+        
+        .progress-bar {
+            background: #667eea;
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link {
+            color: #667eea;
+            text-decoration: none;
+            margin-top: 1rem;
+            display: inline-block;
+        }
+        
+        .nav-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="control-buttons">
+                <button class="control-btn status" onclick="checkServerStatus()" title="서버 상태 확인">
+                    🟢 상태
+                </button>
+                <button class="control-btn refresh" onclick="refreshPage()" title="페이지 새로고침">
+                    🔄 새로고침
+                </button>
+            </div>
+            <h1>🔊 SnapTXT TTS</h1>
+            <p>텍스트를 음성으로 변환하여 듣고 공부하세요</p>
+            <a href="/" class="nav-link">← 이미지에서 텍스트 추출하기</a>
+        </div>
+        
+        <div class="text-input">
+            <textarea id="textToSpeak" placeholder="읽을 텍스트를 입력하세요..."></textarea>
+        </div>
+        
+        <div class="controls">
+            <h3 style="margin-bottom: 1rem;">음성 설정</h3>
+            
+            <div class="control-group">
+                <label for="voiceSelect">음성:</label>
+                <select id="voiceSelect" onchange="updateVoiceSettings()">
+                    <option value="">기본 음성</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label for="rateRange">속도:</label>
+                <input type="range" id="rateRange" min="0.1" max="2" step="0.1" value="1" onchange="updateVoiceSettings()">
+                <span id="rateValue">1.0x</span>
+            </div>
+            
+            <div class="control-group">
+                <label for="pitchRange">음높이:</label>
+                <input type="range" id="pitchRange" min="0.1" max="2" step="0.1" value="1" onchange="updateVoiceSettings()">
+                <span id="pitchValue">1.0</span>
+            </div>
+            
+            <div class="control-group">
+                <label for="volumeRange">음량:</label>
+                <input type="range" id="volumeRange" min="0" max="1" step="0.1" value="1" onchange="updateVoiceSettings()">
+                <span id="volumeValue">100%</span>
+            </div>
+        </div>
+        
+        <div class="status" id="status"></div>
+        
+        <div class="progress" style="display: none;" id="progressContainer">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        
+        <div class="buttons">
+            <button class="btn btn-primary" onclick="speakText()" id="speakBtn">
+                ▶️ 재생
+            </button>
+            <button class="btn btn-secondary" onclick="pauseText()" id="pauseBtn" disabled>
+                ⏸️ 일시정지
+            </button>
+            <button class="btn btn-secondary" onclick="resumeText()" id="resumeBtn" disabled>
+                ▶️ 재개
+            </button>
+            <button class="btn btn-danger" onclick="stopText()" id="stopBtn" disabled>
+                ⏹️ 정지
+            </button>
+        </div>
+        
+        <div style="text-align: center; margin-top: 1rem;">
+            <button class="btn btn-secondary" onclick="loadSampleText()">
+                📝 샘플 텍스트 불러오기
+            </button>
+            <button class="btn btn-secondary" onclick="clearText()">
+                🗑️ 텍스트 지우기
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let currentUtterance = null;
+        let isPlaying = false;
+        let isPaused = false;
+        let voices = [];
+        
+        // 페이지 로드 시 음성 목록 로드
+        window.addEventListener('load', () => {
+            loadVoices();
+            
+            // 음성 목록이 비동기로 로드될 수 있으므로 이벤트 리스너 추가
+            if (speechSynthesis.onvoiceschanged !== undefined) {
+                speechSynthesis.onvoiceschanged = loadVoices;
+            }
+        });
+        
+        function loadVoices() {
+            voices = speechSynthesis.getVoices();
+            const voiceSelect = document.getElementById('voiceSelect');
+            
+            // 기존 옵션 제거 (기본값 제외)
+            while (voiceSelect.children.length > 1) {
+                voiceSelect.removeChild(voiceSelect.lastChild);
+            }
+            
+            // 한국어 음성 우선 표시
+            voices.forEach((voice, index) => {
+                const option = document.createElement('option');
+                option.value = index;
+                option.textContent = `${voice.name} (${voice.lang})`;
+                
+                if (voice.lang.includes('ko')) {
+                    option.textContent += ' 🇰🇷';
+                    voiceSelect.insertBefore(option, voiceSelect.children[1]);
+                } else {
+                    voiceSelect.appendChild(option);
+                }
+            });
+        }
+        
+        function updateVoiceSettings() {
+            const rate = document.getElementById('rateRange').value;
+            const pitch = document.getElementById('pitchRange').value;
+            const volume = document.getElementById('volumeRange').value;
+            
+            document.getElementById('rateValue').textContent = rate + 'x';
+            document.getElementById('pitchValue').textContent = pitch;
+            document.getElementById('volumeValue').textContent = Math.round(volume * 100) + '%';
+        }
+        
+        function speakText() {
+            const text = document.getElementById('textToSpeak').value.trim();
+            
+            if (!text) {
+                showStatus('읽을 텍스트를 입력해주세요.', 'error');
+                return;
+            }
+            
+            if (!('speechSynthesis' in window)) {
+                showStatus('이 브라우저는 TTS 기능을 지원하지 않습니다.', 'error');
+                return;
+            }
+            
+            // 기존 음성 중지
+            speechSynthesis.cancel();
+            
+            // 새로운 utterance 생성
+            currentUtterance = new SpeechSynthesisUtterance(text);
+            
+            // 설정 적용
+            const voiceIndex = document.getElementById('voiceSelect').value;
+            if (voiceIndex !== '') {
+                currentUtterance.voice = voices[voiceIndex];
+            }
+            
+            currentUtterance.rate = parseFloat(document.getElementById('rateRange').value);
+            currentUtterance.pitch = parseFloat(document.getElementById('pitchRange').value);
+            currentUtterance.volume = parseFloat(document.getElementById('volumeRange').value);
+            
+            // 이벤트 리스너 추가
+            currentUtterance.onstart = () => {
+                isPlaying = true;
+                isPaused = false;
+                updateButtons();
+                showStatus('음성 재생 중...', 'playing');
+                showProgress();
+            };
+            
+            currentUtterance.onend = () => {
+                isPlaying = false;
+                isPaused = false;
+                updateButtons();
+                hideStatus();
+                hideProgress();
+            };
+            
+            currentUtterance.onerror = (event) => {
+                showStatus(`오류가 발생했습니다: ${event.error}`, 'error');
+                isPlaying = false;
+                isPaused = false;
+                updateButtons();
+                hideProgress();
+            };
+            
+            currentUtterance.onpause = () => {
+                isPaused = true;
+                updateButtons();
+                showStatus('음성 재생이 일시정지되었습니다.', 'playing');
+            };
+            
+            currentUtterance.onresume = () => {
+                isPaused = false;
+                updateButtons();
+                showStatus('음성 재생 중...', 'playing');
+            };
+            
+            // 음성 재생 시작
+            speechSynthesis.speak(currentUtterance);
+        }
+        
+        function pauseText() {
+            if (speechSynthesis.speaking && !speechSynthesis.paused) {
+                speechSynthesis.pause();
+            }
+        }
+        
+        function resumeText() {
+            if (speechSynthesis.paused) {
+                speechSynthesis.resume();
+            }
+        }
+        
+        function stopText() {
+            speechSynthesis.cancel();
+            isPlaying = false;
+            isPaused = false;
+            updateButtons();
+            hideStatus();
+            hideProgress();
+        }
+        
+        function updateButtons() {
+            const speakBtn = document.getElementById('speakBtn');
+            const pauseBtn = document.getElementById('pauseBtn');
+            const resumeBtn = document.getElementById('resumeBtn');
+            const stopBtn = document.getElementById('stopBtn');
+            
+            speakBtn.disabled = isPlaying;
+            pauseBtn.disabled = !isPlaying || isPaused;
+            resumeBtn.disabled = !isPaused;
+            stopBtn.disabled = !isPlaying && !isPaused;
+        }
+        
+        function showStatus(message, type) {
+            const status = document.getElementById('status');
+            status.textContent = message;
+            status.className = `status ${type}`;
+        }
+        
+        function hideStatus() {
+            const status = document.getElementById('status');
+            status.style.display = 'none';
+        }
+        
+        function showProgress() {
+            document.getElementById('progressContainer').style.display = 'block';
+            // 간단한 진행률 시뮬레이션 (실제 진행률은 Web Speech API에서 제공하지 않음)
+            // 대신 시각적 피드백을 위한 애니메이션
+        }
+        
+        function hideProgress() {
+            document.getElementById('progressContainer').style.display = 'none';
+        }
+        
+        function loadSampleText() {
+            const sampleTexts = [
+                "안녕하세요! SnapTXT를 사용해 주셔서 감사합니다. 이 도구는 이미지에서 텍스트를 추출하고 음성으로 들을 수 있게 해줍니다.",
+                "머신러닝과 인공지능 기술의 발전으로 우리 생활이 더욱 편리해지고 있습니다. 특히 OCR과 TTS 기술은 접근성을 크게 향상시켜 주었습니다.",
+                "텍스트를 음성으로 변환하는 기술은 시각 장애인뿐만 아니라 학습자들에게도 매우 유용한 도구입니다. 듣기를 통한 학습은 기억력 향상에도 도움이 됩니다."
+            ];
+            
+            const randomText = sampleTexts[Math.floor(Math.random() * sampleTexts.length)];
+            document.getElementById('textToSpeak').value = randomText;
+        }
+        
+        function clearText() {
+            document.getElementById('textToSpeak').value = '';
+            stopText();
+        }
+        
+        // 초기 설정값 표시
+        updateVoiceSettings();
+        
+        function checkServerStatus() {
+            fetch('/status')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'running') {
+                        showStatus('✅ 서버가 정상 작동 중입니다!', 'success');
+                    } else {
+                        showStatus('❌ 서버 상태를 확인할 수 없습니다.', 'error');
+                    }
+                })
+                .catch(error => {
+                    showStatus('❌ 서버에 연결할 수 없습니다. 서버를 재시작해주세요.', 'error');
+                });
+        }
+        
+        function refreshPage() {
+            showStatus('🔄 페이지를 새로고침합니다...', 'info');
+            setTimeout(() => {
+                window.location.reload();
+            }, 1000);
+        }
+        
+        function showStatus(message, type) {
+            const statusDiv = document.createElement('div');
+            statusDiv.textContent = message;
+            statusDiv.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                z-index: 1000;
+                padding: 12px 20px;
+                border-radius: 5px;
+                color: white;
+                font-weight: bold;
+                animation: slideIn 0.3s ease;
+            `;
+            
+            if (type === 'success') statusDiv.style.background = '#28a745';
+            else if (type === 'error') statusDiv.style.background = '#dc3545';
+            else if (type === 'info') statusDiv.style.background = '#17a2b8';
+            
+            document.body.appendChild(statusDiv);
+            
+            setTimeout(() => {
+                statusDiv.remove();
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
