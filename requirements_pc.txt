@@ -1,0 +1,29 @@
+# SnapTXT PC 애플리케이션 의존성
+# 기본 패키지들은 기존 requirements.txt와 동일
+
+# GUI 프레임워크
+PyQt5>=5.15.7
+
+# OCR 엔진들
+easyocr>=1.6.2
+pytesseract>=0.3.10
+paddlepaddle>=2.4.0
+paddleocr>=2.6.0
+
+# 이미지 처리
+opencv-python>=4.7.0
+opencv-contrib-python>=4.7.0
+Pillow>=9.5.0
+
+# 기존 웹 버전 의존성
+Flask>=2.3.2
+
+# 유틸리티
+pathlib2>=2.3.7
+numpy>=1.24.0
+
+# Windows 전용 (선택사항)
+# pywin32>=306  # Windows API 접근이 필요한 경우
+
+# 개발/디버깅 도구
+logging>=0.4.9.6

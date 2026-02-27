@@ -1,0 +1,90 @@
+{
+  "summary": {
+    "test_overview": {
+      "total_tests": 2,
+      "both_systems_success": 0,
+      "legacy_only_success": 0,
+      "ultimate_only_success": 2,
+      "both_systems_failed": 0,
+      "success_rate": {
+        "legacy": 0.0,
+        "ultimate": 100.0
+      }
+    },
+    "performance_analysis": {
+      "average_time_difference": 0,
+      "speed_improvements": 0,
+      "speed_improvement_rate": 0,
+      "average_confidence": 0,
+      "average_text_similarity": 0
+    },
+    "system_availability": {
+      "legacy_available": true,
+      "ultimate_available": true
+    },
+    "recommendations": []
+  },
+  "detailed_results": [
+    {
+      "test_image": "debug_1_gray.jpg",
+      "timestamp": "2026-02-27T01:33:27.995565",
+      "legacy": {
+        "success": false,
+        "system": "legacy",
+        "error": "'dict' object has no attribute 'split'",
+        "processing_time": 0.0
+      },
+      "ultimate": {
+        "success": true,
+        "system": "ultimate",
+        "text": "",
+        "processing_time": 42.17,
+        "confidence": 0.357,
+        "text_length": 0,
+        "word_count": 0,
+        "detailed_info": {
+          "raw_text": "",
+          "corrections": 0,
+          "blocks_count": 0
+        }
+      },
+      "comparison": {
+        "both_success": false,
+        "legacy_only": false,
+        "ultimate_only": true,
+        "both_failed": false
+      }
+    },
+    {
+      "test_image": "debug_2_resized.jpg",
+      "timestamp": "2026-02-27T01:34:47.511307",
+      "legacy": {
+        "success": false,
+        "system": "legacy",
+        "error": "'dict' object has no attribute 'split'",
+        "processing_time": 0.0
+      },
+      "ultimate": {
+        "success": true,
+        "system": "ultimate",
+        "text": "",
+        "processing_time": 39.61,
+        "confidence": 0.357,
+        "text_length": 0,
+        "word_count": 0,
+        "detailed_info": {
+          "raw_text": "",
+          "corrections": 0,
+          "blocks_count": 0
+        }
+      },
+      "comparison": {
+        "both_success": false,
+        "legacy_only": false,
+        "ultimate_only": true,
+        "both_failed": false
+      }
+    }
+  ],
+  "test_timestamp": "2026-02-27T01:34:47.515755"
+}
