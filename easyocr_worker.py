@@ -4,89 +4,16 @@
 EasyOCR 전용 워커 스크립트 - PyQt5와 완전 분리
 """
 
-import sys
-import json
-import os
-from pathlib import Path
-import time
-
-def setup_environment():
-    """EasyOCR 실행 환경 최적화"""
-    try:
-        # 환경 변수 최적화
-        os.environ['PYTHONIOENCODING'] = 'utf-8'
-        
-        # PyTorch CPU 전용 모드
-        os.environ['CUDA_VISIBLE_DEVICES'] = ''
-        
-        return True
-    except Exception as e:
-        print(f"ERROR: 환경 설정 실패: {e}", file=sys.stderr)
-        return False
-
 def apply_dynamic_ocr_patterns(text):
-    """정규식 기반 동적 OCR 오류 패턴 처리 - Stage 2"""
-    import re
-    
-    # 숫자+단위 조합 오류 (예: "3년전" → "3년 전")
-    text = re.sub(r'([0-9]+)([가-힣]{1,3})(전|후|간|째|번|개|명|일|년|월|시|분|초)(?![가-힣])', r'\1\2 \3', text)
-    
-    # 영문+한글 조합 오류 (예: "AI시대" → "AI 시대")
-    text = re.sub(r'([A-Za-z]+)([가-힣]{2,})(?![가-힣])', r'\1 \2', text)
-    text = re.sub(r'([가-힣]{2,})([A-Z]{2,})(?![A-Za-z])', r'\1 \2', text)
-    
-    # 특수문자 주변 공백 정리
-    text = re.sub(r'([가-힣])([\(\)\[\]{}])([가-힣])', r'\1 \2 \3', text)
-    text = re.sub(r'([\(\)\[\]{}])([가-힣])', r'\1 \2', text)
-    text = re.sub(r'([가-힣])([\(\)\[\]{}])', r'\1 \2', text)
-    
-    # 문장 부호 앞뒤 공백 정리
-    text = re.sub(r'([가-힣])\s*([.!?])\s*([가-힣])', r'\1\2 \3', text)
-    
-    # 따옴표 처리
-    text = re.sub(r'([가-힣])\s*(["\'""])\s*([가-힣])', r'\1 \2\3', text)
-    text = re.sub(r'([가-힣])\s*(["\'""])\s*([가-힣])', r'\1\2 \3', text)
-    
-    # 연속된 같은 문자 정리 (OCR 특유의 오류)
-    text = re.sub(r'(.)\1{3,}', r'\1\1', text)  # 4개 이상 연속을 2개로
-    
-    # 한글+숫자+한글 패턴 정리
-    text = re.sub(r'([가-힣]+)([0-9]+)([가-힣]+)', lambda m: f"{m.group(1)} {m.group(2)} {m.group(3)}" if len(m.group(1)) > 1 and len(m.group(3)) > 1 else m.group(0), text)
-    
-    return text
+    """정규식 기반 동적 OCR 오류 패턴 처리 - Stage 2 (legacy proxy)."""
+
+    return stage2_dynamic_patterns(text)
+
 
 def apply_contextual_corrections(text):
-    """문맥 기반 지능형 오류 교정 - Stage 2"""
-    import re
-    
-    # 문장별로 처리
-    sentences = re.split(r'[.!?]+', text)
-    corrected_sentences = []
-    
-    for sentence in sentences:
-        if sentence.strip():
-            # 문장 길이에 따른 조건부 교정
-            if len(sentence) > 100:  # 긴 문장에서만 적용
-                # 복잡한 조사 분리 (긴 문장에서만)
-                sentence = re.sub(r'([가-힣]{3,})(에서는|로부터는|에게서는|로써는)', r'\1 \2', sentence)
-                
-            # 문장 시작 패턴 교정
-            sentence = sentence.strip()
-            if sentence:
-                # 문장 시작이 특정 패턴인 경우 교정
-                if sentence.startswith('그래서'):
-                    sentence = re.sub(r'^그래서([가-힣])', r'그래서 \1', sentence)
-                elif sentence.startswith('하지만'):
-                    sentence = re.sub(r'^하지만([가-힣])', r'하지만 \1', sentence)
-                elif sentence.startswith('따라서'):
-                    sentence = re.sub(r'^따라서([가-힣])', r'따라서 \1', sentence)
-                elif sentence.startswith('즉'):
-                    sentence = re.sub(r'^즉([가-힣])', r'즉 \1', sentence)
-            
-            # 문맥별 자주 혼동되는 단어들
-            contextual_fixes = {
-                # 철학/종교 문맥
-                '하느님': '하나님' if '기독교' in text or '성경' in text else '하느님',
+    """문맥 기반 지능형 오류 교정 - Stage 2 (legacy proxy)."""
+
+    return stage2_contextual_patterns(text)
                 '부처님': '부처님' if '불교' in text or '절' in text else '부처님',
                 
                 # 시간 표현 문맥
@@ -120,7 +47,73 @@ def apply_contextual_corrections(text):
     
     return result
 
-def normalize_spacing_overseparation(text):
+_STAGE2_LOGGER = logging.getLogger("easyocr_worker.stage2")
+_STAGE3_LOGGER = logging.getLogger("easyocr_worker.postprocess")
+
+
+def _run_stage2(text: str) -> str:
+    config = Stage2Config(logger=_STAGE2_LOGGER)
+    return apply_stage2_rules(text, config)
+
+
+def _run_stage3_slice(
+    text: str,
+    *,
+    spacing: bool = False,
+    characters: bool = False,
+    endings: bool = False,
+) -> str:
+    config = Stage3Config(
+        enable_spacing_normalization=spacing,
+        enable_character_fixes=characters,
+        enable_ending_normalization=endings,
+        logger=_STAGE3_LOGGER,
+    )
+    return apply_stage3_rules(text, config)
+
+
+def normalize_spacing_overseparation(text: str) -> str:
+    """Stage 3-1 wrapper backed by snaptxt.postprocess.stage3."""
+
+    print("🚀 Stage 3-1: 띄어쓰기 과분리 해결 시작", file=sys.stderr)
+    original = text
+    result = _run_stage3_slice(text, spacing=True)
+    if result != original:
+        print(
+            f"🔄 Stage 3-1: 띄어쓰기 정규화 적용됨 ({len(original)}→{len(result)} 글자)",
+            file=sys.stderr,
+        )
+    else:
+        print("✨ Stage 3-1: 띄어쓰기 정규화 변경사항 없음", file=sys.stderr)
+    return result
+
+
+def fix_clear_character_errors(text: str) -> str:
+    """Stage 3-2 wrapper backed by snaptxt.postprocess.stage3."""
+
+    print("🎯 Stage 3-2: 명확한 글자 오류 교정 시작", file=sys.stderr)
+    original = text
+    result = _run_stage3_slice(text, characters=True)
+    if result != original:
+        print("🔧 Stage 3-2: 글자 오류 교정 적용", file=sys.stderr)
+    else:
+        print("✨ Stage 3-2: 교정 대상 글자 오류 없음", file=sys.stderr)
+    return result
+
+
+def normalize_korean_endings(text: str) -> str:
+    """Stage 3-3 wrapper backed by snaptxt.postprocess.stage3."""
+
+    print("📝 Stage 3-3: 한국어 어미 정규화 시작", file=sys.stderr)
+    original = text
+    result = _run_stage3_slice(text, endings=True)
+    if result != original:
+        print("✅ Stage 3-3: 한국어 어미 정규화 완료", file=sys.stderr)
+    else:
+        print("✨ Stage 3-3: 정규화 대상 어미 없음", file=sys.stderr)
+    return result
+
+def _legacy_normalize_spacing_overseparation(text):
     """Stage 3-1: EasyOCR 띄어쓰기 과분리 정규화 - 정교한 버전"""
     import re
     
@@ -251,7 +244,7 @@ def normalize_spacing_overseparation(text):
     
     return text
 
-def fix_clear_character_errors(text):
+def _legacy_fix_clear_character_errors(text):
     """Stage 3-2: 명확한 글자 오류 교정 - 안전한 OCR 글자 오타 수정"""
     import re
     
@@ -390,7 +383,7 @@ def fix_clear_character_errors(text):
     
     return text
 
-def normalize_korean_endings(text):
+def _legacy_normalize_korean_endings(text):
     """Stage 3-3: 한국어 어미 정규화 - 표준화된 어미 스타일 적용"""
     import re
     
@@ -551,152 +544,12 @@ def advanced_korean_text_processor(text):
         text = re.sub(r'\.{2,}', '.', text)  # 연속된 점들을 하나로
         text = re.sub(r'\s+', ' ', text)     # 연속된 공백을 하나로
         
-        # 2. OCR 오류 패턴 수정 (책 OCR 특화 대폭 확장 - Stage 2)
-        ocr_fixes = {
-            # === 기존 영문 이름 수정 ===
-            '마이름상어': '마이클 싱어', '마이클 상어': '마이클 싱어', '마이칼 심어': '마이클 싱어',
-            '마이름생어': '마이클 싱어', '원프리': '윈프리', '소율': '소울', '곧경': '곤경', '상어든': '싱어는',
-            
-            # === 새로운 인명/고유명사 패턴 (40개 추가) ===
-            '토니 페반스': '토니 에반스', '플라톤': '플라톤', '소크라테스': '소크라테스',
-            '아리스토딸레스': '아리스토텔레스', '니채': '니체', '스플노자': '스피노자',
-            '데카르트': '데카르트', '로크': '록', '휴럼': '흄', '컨트': '칸트',
-            '헤겔': '헤겔', '키에르케고르': '키에르케고르', '샤르트르': '사르트르',
-            '하이데거': '하이데거', '비트겐슈나인': '비트겐슈타인', '러설': '러셀',
-            '프롯드': '프로이트', '융': '융', '아들러': '아들러', '스키너': '스키너',
-            '매슬로우': '매슬로', '로져스': '로저스', '피아제': '피아제',
-            '다든': '다윈', '아인슈나인': '아인슈타인', '뉴튼': '뉴턴', '갈릴래이': '갈릴레이',
-            '쏘크라딱': '소크라테스', '프랏톤': '플라톤', '데이빗': '데이비드', '존': '존',
-            '마이클': '마이클', '제임스': '제임스', '로버트': '로버트', '윌리엄': '윌리엄',
-            '리차드': '리처드', '토머스': '토머스', '찰스': '찰스', '크리스토퍼': '크리스토퍼',
-            '대니얼': '대니얼', '매튜': '매튜', '앤드류': '앤드류', '조슈아': '조슈아',
-            '케네스': '케네스', '스티븐': '스티븐', '에드워드': '에드워드', '브라이언': '브라이언',
-            
-            # === 기존 조사/어미 오류 + 확장 ===
-            '기틀': '기를', '부탁울': '부탁을', '이기 지': '이기지',
-            '자유로위지': '자유로워지', '을컷고': '올랐고', '소개되워': '소개되었',
-            '두없던': '두었던', '우리튼': '우리를', '그이후': '그 이후',
-            '돌두했': '돌입했', '깊은내면': '깊은 내면', '드러넷': '드러냈',
-            '알려저': '알려져', '지처': '지쳐',
-            
-            # === 복잡한 조사 결합 패턴 (30개 추가) ===
-            '에게는': '에게는', '에서는': '에서는', '로부터의': '로부터의', '에게서는': '에게서는',
-            '로써의': '로써의', '에대한': '에 대한', '에관한': '에 관한', '에따른': '에 따른',
-            '에의한': '에 의한', '에있어서': '에 있어서', '에비해': '에 비해', '에반해': '에 반해',
-            '으로인한': '으로 인한', '에도불구하고': '에도 불구하고', '임에도': '임에도',
-            '이기때문에': '이기 때문에', '하기때문에': '하기 때문에', '되기때문에': '되기 때문에',
-            '할수있는': '할 수 있는', '될수있는': '될 수 있는', '갈수있는': '갈 수 있는',
-            '오고있는': '오고 있는', '가고있는': '가고 있는', '하고있는': '하고 있는',
-            '되어있는': '되어 있는', '되어지는': '되어지는', '이루어지는': '이루어지는',
-            '만들어지는': '만들어지는', '생각되어지는': '생각되어지는', '여겨지는': '여겨지는',
-            '고려되어지는': '고려되어지는', '받아들여지는': '받아들여지는',
-            
-            # === 높임법/문체 오류 (25개 추가) ===
-            '습니짜': '습니다', '슴니다': '습니다', '습니까': '습니까', '십니까': '십니까',
-            '하십시요': '하십시오', '해주십시요': '해주십시오', '말씀하십시요': '말씀하십시오',
-            '드리겠솜': '드리겠습', '드리겠습니다': '드리겠습니다', '해드리겠습니다': '해드리겠습니다',
-            '되십니다': '되십니다', '계십니다': '계십니다', '있으십니다': '있으십니다',
-            '하겠슴니다': '하겠습니다', '되겠슴니다': '되겠습니다', '있겠솜니다': '있겠습니다',
-            '이겠솜니다': '이겠습니다', '그럽니다': '그럽니다', '그렇솜니다': '그렇습니다',
-            '맞솜니다': '맞습니다', '좋솜니다': '좋습니다', '감사함니다': '감사합니다',
-            '고맙솜니다': '고맙습니다', '죄송합니다': '죄송합니다', '미안함니다': '미안합니다',
-            '안녕하십니까': '안녕하십니까', '어떻게지내십니까': '어떻게 지내십니까',
-            
-            # === 시제/문법 표현 (20개 추가) ===
-            '했었솜니다': '했었습니다', '했었던': '했었던', '했었을': '했었을',
-            '하겠다고': '하겠다고', '하겠다는': '하겠다는', '하겠다면': '하겠다면',
-            '할것이다': '할 것이다', '될것이다': '될 것이다', '갈것이다': '갈 것이다',
-            '할것일까': '할 것일까', '할것인가': '할 것인가', '할것같다': '할 것 같다',
-            '할지도모른다': '할지도 모른다', '할지모른다': '할지 모른다',
-            '하지않을': '하지 않을', '하지않는': '하지 않는', '하지않았': '하지 않았',
-            '하지못한': '하지 못한', '하지못했': '하지 못했', '할수없는': '할 수 없는',
-            '할수없다': '할 수 없다',
-            
-            # === 기존 기본 조사/어미 오류 ===
-            '오-': '으', '울-': '을', '블': '를', '엔': '에', '올': '을',
-            '느-': '는', '겨-': '게', '끠': '께', '웁': '위', '셨': '세',
-            
-            # === 일반적인 한국어 오인식 패턴 + 확장 (30개 추가) ===
-            '함들은': '람들은', '쾌습니다': '했습니다', '햇습니다': '했습니다',
-            '국업는': '숭배의', '토록': '도록', '빋다': '빚다',
-            '살펴봐야함': '살펴봐야 함', '해야합': '해야 함', '될것같': '될 것 같',
-            '할것같': '할 것 같', '갈것같': '갈 것 같', '올것같': '올 것 같',
-            '보여주긴': '보여주길', '해주길': '해주길', '되어주길': '되어주길',
-            '가져다주': '가져다 주', '해드릴게': '해드릴게', '드릴게요': '드릴게요',
-            '그렇하니': '그렇다니', '그렇잖아': '그렇잖아', '그렇네요': '그렇네요',
-            '맞네요': '맞네요', '좋네요': '좋네요', '예쁘네요': '예쁘네요',
-            '고마워요': '고마워요', '미안해요': '미안해요', '죄송해요': '죄송해요',
-            '안녕히가세요': '안녕히 가세요', '안녕히계세요': '안녕히 계세요',
-            '잘지내세요': '잘 지내세요', '건강하세요': '건강하세요', '행복하세요': '행복하세요',
-            '성공하세요': '성공하세요', '화이팅하세요': '화이팅 하세요',
-            
-            # === 기존 자주 틀리는 단어들 + 확장 ===
-            '하나너': '하나님', '사악': '사람', '내숭': '내용', '세제': '세계',
-            '인갑': '인간', '부족': '부족', '쳬험': '체험', '현젠': '현실',
-            
-            # === 전문용어/학술용어 (25개 추가) ===
-            '철혁': '철학', '심러학': '심리학', '사회혁': '사회학', '경제혁': '경제학',
-            '정치혁': '정치학', '역사혁': '역사학', '문화혁': '문학', '예술혁': '예술학',
-            '종교혁': '종교학', '논러학': '논리학', '윤러학': '윤리학', '미해학': '미학',
-            '인식론': '인식론', '존재론': '존재론', '형이상학': '형이상학', '현상학': '현상학',
-            '실존주의': '실존주의', '구조주의': '구조주의', '포스트모더니즘': '포스트모더니즘',
-            '이성주의': '이성주의', '경험주의': '경험주의', '실용주의': '실용주의',
-            '유물론': '유물론', '관념론': '관념론', '회의주의': '회의주의',
-            
-            # === 영문 단어 수정 + 확장 ===
-            'Michacl': 'Michael', 'Sinyer': 'Singer', 'Uniyerse': 'Universe',
-            'teh': 'the', 'adn': 'and', 'hte': 'the', 'OGettylmages': '@GettyImages',
-            'Philosophly': 'Philosophy', 'Psycholgoy': 'Psychology', 'Sociolgoy': 'Sociology',
-            'Politcal': 'Political', 'Histroy': 'History', 'Literatrue': 'Literature',
-            'Scienec': 'Science', 'Religon': 'Religion', 'Economcs': 'Economics'
-        }
-        
-        # Stage 2 패턴 적용 로그
-        print(f"📊 Stage 2: {len(ocr_fixes)}개 OCR 오류 패턴 적용 중", file=sys.stderr)
-        
-        for wrong, correct in ocr_fixes.items():
-            text = text.replace(wrong, correct)
-        
+        # 2. OCR 오류 패턴 수정 (Stage 2 공통 모듈)
+        print("🚀 Stage 2: OCR 오류 패턴 교정 파이프라인 시작", file=sys.stderr)
+        text = _run_stage2(text)
         print("✅ Stage 2: OCR 오류 패턴 교정 완료", file=sys.stderr)
         
-        # 2.1. 정규식 기반 동적 OCR 오류 패턴 처리 (Stage 2 추가)
-        print("🔧 Stage 2: 정규식 기반 동적 패턴 처리", file=sys.stderr)
-        text = apply_dynamic_ocr_patterns(text)
-        
-        # 2.2. 문맥 기반 지능형 오류 교정 (Stage 2 추가)
-        print("🧠 Stage 2: 문맥 기반 지능형 교정", file=sys.stderr)
-        text = apply_contextual_corrections(text)
-        
-        # 2.5. 정규표현식 기반 띄어쓰기 개선 (고급 버전)
-        import re
-        
-        # 한글+숫자 분리 (명확한 경우만)
-        text = re.sub(r'([가-힣]{2,})([0-9]{4})', r'\1 \2', text)  # 단어+년도
-        text = re.sub(r'([0-9]{1,})([가-힣]{2,})', r'\1 \2', text)  # 숫자+단어
-        
-        # 조사 분리 (더 정교한 패턴)
-        text = re.sub(r'([가-힣]{2,})(은|는|이|가|을|를|과|와|에|에서|에게|로|으로|의|도|만|부터|까지|처럼|같이)', r'\1 \2', text)
-        
-        # 어미 분리 (확장된 패턴)
-        text = re.sub(r'([가-힣]{2,})(했습니다|합니다|됩니다|입니다|있습니다|없습니다)', r'\1 \2', text)
-        text = re.sub(r'([가-힣]{2,})(지만|에서|에도|에게|로서|로써|이나|거나)', r'\1 \2', text)
-        
-        # 시제 표현 분리 (책에서 자주 발생)
-        text = re.sub(r'([가-힣]+)(고있[는다습니까])(?![가-힣])', r'\1고 있\2', text)
-        text = re.sub(r'([가-힣]+)(어있[는다습니까])(?![가-힣])', r'\1어 있\2', text)
-        text = re.sub(r'([가-힣]+)(아있[는다습니까])(?![가-힣])', r'\1아 있\2', text)
-        
-        # 연결어미 분리
-        text = re.sub(r'([가-힣]{2,})(하면서|하거나|하지만|한다면|했다면)', r'\1 \2', text)
-        
-        # 복합어 분리 (일반적 패턴)
-        text = re.sub(r'([가-힣]{2,})(하기|되기|없이|있게|하게|되게)', r'\1 \2', text)
-        
-        # 관형사/부사 분리
-        text = re.sub(r'(매우|정말|아주|너무|특히|항상|절대|전혀|모든|각각|여러)([가-힣]{2,})', r'\1 \2', text)
-        
-        # 접속사 분리
-        text = re.sub(r'([가-힣]{2,})(그리고|또한|하지만|그러나|따라서|즉|예를들어)', r'\1 \2', text)
+        # Stage 2 spacing refinements가 내부에서 실행되므로 추가 분리는 생략
         
         # 2.6. Stage 3-1: 띄어쓰기 과분리 정규화 (GitHub 성공 사례 적용)
         print("🎯 Stage 3-1: 띄어쓰기 과분리 정규화 처리", file=sys.stderr)

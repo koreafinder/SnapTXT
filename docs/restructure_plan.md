@@ -93,4 +93,14 @@ docs/
 | 패키지 스켈레톤 작성 | ✅ | `snaptxt/` 기본 구조 커밋 완료 |
 | 공통 OCR 파이프라인 초안 | ✅ | `snaptxt/backend/ocr_pipeline.py` 구현 완료 |
 | 전처리 모듈 이관 | ✅ | `snaptxt/preprocess/image_filters.py`로 이전 |
-| 후처리 모듈 분리 | ⏳ | Stage 2/3 모듈화 예정 |
+| 후처리 모듈 분리 | ✅ | Stage 2/3 모듈 EasyOCR 워커·공통 OCR 파이프라인 연동, Stage 2 룰 YAML 외부화, Stage 2/3 pytest 회귀 확보 |
+| 후처리 룰 핫스왑·스모크 러너 | ✅ | Stage 2 YAML 핫리로드, `tests/smoke/test_postprocess_entrypoints.py`로 파이프라인·EasyOCR 워커 경로 검증 |
+| Stage 3 룰 YAML 외부화/핫리로드 | ✅ | `snaptxt/postprocess/patterns/stage3_rules.yaml`, `reload_stage3_rules()`로 런타임 교체 지원 |
+| Stage 3 룰 핫리로드 회귀 테스트 | ✅ | `tests/postprocess/test_stage3_reload.py`에서 임시 YAML·캐시 복원 플로우 검증 |
+
+## 8. 후처리 룰 관리 현황
+
+| Stage | 룰 파일 | 환경 변수 Override | 핫리로드 API | 회귀 테스트 |
+| --- | --- | --- | --- | --- |
+| Stage 2 | `snaptxt/postprocess/patterns/stage2_rules.yaml` | `SNAPTXT_STAGE2_RULES_FILE` | `reload_stage2_rules()` (`snaptxt.postprocess`) | `tests/postprocess/test_stage2_reload.py` |
+| Stage 3 | `snaptxt/postprocess/patterns/stage3_rules.yaml` | `SNAPTXT_STAGE3_RULES_FILE` | `reload_stage3_rules()` (`snaptxt.postprocess`) | `tests/postprocess/test_stage3_reload.py`, `tests/postprocess/test_stage3_*` |
