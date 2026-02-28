@@ -6,15 +6,15 @@ EasyOCR, Tesseract, PaddleOCR 등을 통합하여 최고의 텍스트 추출 결
 
 import cv2
 import numpy as np
+import cv2
+import numpy as np
 import os
 from PIL import Image
 import logging
 from typing import Dict, List, Union, Optional
 from pathlib import Path
 
-logger = logging.getLogger(__name__)
-
-class MultiOCRProcessor:
+from snaptxt.preprocess import apply_default_filters
     """다중 OCR 엔진을 통합한 텍스트 추출 프로세서"""
     
     def __init__(self):
@@ -121,110 +121,12 @@ class MultiOCRProcessor:
     def preprocess_image(self, image: Union[np.ndarray, Image.Image], 
                         preprocessing_level: int = 1) -> np.ndarray:
         """이미지 전처리를 통한 OCR 정확도 향상"""
-        
-        # PIL to OpenCV 변환
-        if isinstance(image, Image.Image):
-            image = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2BGR)
-        
-        # 원본 크기 저장
-        original = image.copy()
-        
-        try:
-            # 입력 이미지 정보
-            logger.info(f"   입력 이미지 크기: {image.shape}")
-            
-            if preprocessing_level >= 1:
-                # 효과적인 3단계 전처리 (CLAHE → Median Blur → Gentle Sharpening)
-                # 1. 그레이스케일 변환
-                gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-                
-                # 2. 크기 조정 (너무 작으면 확대)
-                h, w = gray.shape
-                if h < 600 or w < 600:
-                    scale_factor = max(600/h, 600/w)
-                    new_h, new_w = int(h * scale_factor), int(w * scale_factor)
-                    gray = cv2.resize(gray, (new_w, new_h), interpolation=cv2.INTER_CUBIC)
-                    logger.info(f"   이미지 확대: {w}x{h} → {new_w}x{new_h}")
-                
-                # 3. CLAHE로 대비 개선
-                clahe = cv2.createCLAHE(clipLimit=4.0, tileGridSize=(8,8))
-                enhanced = clahe.apply(gray)
-                
-                # 4. Median Blur로 노이즈 제거 (가우시안 블러보다 텍스트 경계 보존 우수)
-                denoised = cv2.medianBlur(enhanced, 3)
-                
-                # 5. Gentle Sharpening (언샤프 마스킹)
-                blurred = cv2.GaussianBlur(denoised, (5, 5), 1.5)
-                sharpened = cv2.addWeighted(denoised, 1.5, blurred, -0.5, 0)
-                
-                image = sharpened
-                logger.info("   전처리 완료: 효과적인 3단계 (CLAHE → Median Blur → Gentle Sharpening)")
-                
-            if preprocessing_level >= 2:
-                # 고급 전처리 - 배경 분리 강화
-                
-                # 5. 배경과 전경 분리 (Multiple Otsu)
-                # 그라데이션 배경이 있는 경우를 위한 다중 임계값
-                
-                # 먼저 기본 OTSU 시도
-                _, thresh_otsu = cv2.threshold(image, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
-                
-                # 적응형 이진화 (국소적 임계값)
-                thresh_adaptive_gaussian = cv2.adaptiveThreshold(
-                    image, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 21, 10
-                )
-                
-                thresh_adaptive_mean = cv2.adaptiveThreshold(
-                    image, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 21, 10
-                )
-                
-                # 여러 이진화 결과를 결합 (OR 연산으로 텍스트 영역 최대한 보존)
-                combined = cv2.bitwise_or(cv2.bitwise_or(thresh_otsu, thresh_adaptive_gaussian), thresh_adaptive_mean)
-                
-                # 6. 언샤프 마스킹으로 텍스트 경계 강화
-                unsharp_strength = 2.0
-                blurred = cv2.GaussianBlur(combined, (5, 5), 0)
-                sharpened = cv2.addWeighted(combined, 1 + unsharp_strength, blurred, -unsharp_strength, 0)
-                
-                image = sharpened
-                logger.info("   전처리 완료: 고급 책 페이지 최적화 적용")
-                
-            if preprocessing_level >= 3:
-                # 최고급 전처리 - 한국어 글자 최적화
-                
-                # 7. 한글 자소 연결 강화
-                # 한글은 자소 조합이 복잡하므로 연결 강화
-                kernel_horizontal = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 1))
-                kernel_vertical = cv2.getStructuringElement(cv2.MORPH_RECT, (1, 3))
-                
-                # 가로 방향 연결 (한글 자소 간 연결)
-                h_connected = cv2.morphologyEx(image, cv2.MORPH_CLOSE, kernel_horizontal)
-                
-                # 세로 방향 연결 (한글 자소 상하 연결)
-                v_connected = cv2.morphologyEx(h_connected, cv2.MORPH_CLOSE, kernel_vertical)
-                
-                # 8. 작은 노이즈 제거
-                kernel_clean = cv2.getStructuringElement(cv2.MORPH_RECT, (2, 2))
-                cleaned = cv2.morphologyEx(v_connected, cv2.MORPH_OPEN, kernel_clean)
-                
-                # 9. 최종 대비 강화
-                final_enhanced = cv2.equalizeHist(cleaned)
-                
-                image = final_enhanced
-                
-                logger.info("   전처리 완료: 최고급 한국어 텍스트 최적화 적용")
-                
-            # 전처리 레벨별 완료 메시지가 없는 경우 기본 메시지 출력
-            if preprocessing_level == 0:
-                logger.info("   전처리 완료: 웹 버전과 동일한 원본 이미지 사용")
-            elif preprocessing_level < 1:
-                logger.info("   전처리 완료: 원본 이미지 사용")
-                
-            return image
-            
-        except Exception as e:
-            logger.warning(f"⚠️ 이미지 전처리 실패, 원본 사용: {e}")
-            return cv2.cvtColor(original, cv2.COLOR_BGR2GRAY)
+
+        return apply_default_filters(
+            image,
+            level=preprocessing_level,
+            logger_override=logger,
+        )
     
     def extract_text_easyocr(self, image: np.ndarray, language: str = 'ko,en') -> str:
         """EasyOCR을 사용한 텍스트 추출 (프로세스 분리 방식)"""

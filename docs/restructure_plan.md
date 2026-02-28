@@ -91,4 +91,6 @@ docs/
 | 계획 문서 정리 | ✅ | `docs/restructure_plan.md` 작성 완료 |
 | 리팩토링 브랜치 생성 | ✅ | `refactor/layout` 생성 및 push 예정 |
 | 패키지 스켈레톤 작성 | ✅ | `snaptxt/` 기본 구조 커밋 완료 |
-| 공통 OCR 파이프라인 초안 | ⏳ | `snaptxt/backend/ocr_pipeline.py` 구현 예정 |
+| 공통 OCR 파이프라인 초안 | ✅ | `snaptxt/backend/ocr_pipeline.py` 구현 완료 |
+| 전처리 모듈 이관 | ✅ | `snaptxt/preprocess/image_filters.py`로 이전 |
+| 후처리 모듈 분리 | ⏳ | Stage 2/3 모듈화 예정 |
