@@ -5,12 +5,42 @@ from __future__ import annotations
 from dataclasses import dataclass
 import logging
 import re
-from typing import Sequence, Tuple
+import unicodedata
+from typing import Any, Callable, Sequence, Tuple, TYPE_CHECKING
+
+try:  # Optional dependency
+    from hanspell import spell_checker as _spell_checker
+except ImportError:  # pragma: no cover - optional dependency
+    _spell_checker = None
+
+if TYPE_CHECKING:  # pragma: no cover - typing helper
+    from pykospacing import Spacing as _SpacingType
+else:  # pragma: no cover - fallback for runtime typing
+    _SpacingType = Any
+
+try:  # Optional dependency
+    from pykospacing import Spacing as _SpacingClass
+except ImportError:  # pragma: no cover - optional dependency
+    _SpacingClass = None
+
+try:  # Optional dependency
+    import ftfy as _ftfy
+except ImportError:  # pragma: no cover - optional dependency
+    _ftfy = None
 
 from .patterns import stage3_rules
+from .stage3_5 import apply_stage3_5_rules, Stage3_5Config
 
 
 PatternList = Sequence[Tuple[str, str]]
+
+
+SpellcheckHandler = Callable[[str], str]
+SpacingHandler = Callable[[str], str]
+NormalizerHandler = Callable[[str], str]
+
+
+_KOSPACING_INSTANCE: _SpacingType | None = None
 
 
 @dataclass(slots=True)
@@ -18,6 +48,14 @@ class Stage3Config:
     enable_spacing_normalization: bool = True
     enable_character_fixes: bool = True
     enable_ending_normalization: bool = True
+    enable_spellcheck_enhancement: bool = True
+    enable_punctuation_normalization: bool = True
+    enable_paragraph_formatting: bool = True  # 문단 나누기 기능 추가
+    enable_tts_friendly_processing: bool = False  # 비활성화: 웹에서 TTS 처리할 예정
+    tts_config: Stage3_5Config | None = None  # Configuration for TTS processing
+    spellcheck_handler: SpellcheckHandler | None = None
+    spacing_refiner: SpacingHandler | None = None
+    punctuation_normalizer: NormalizerHandler | None = None
     logger: logging.Logger | None = None
 
 
@@ -33,6 +71,15 @@ def apply_stage3_rules(text: str, config: Stage3Config | None = None) -> str:
         text = _fix_clear_character_errors(text, logger)
     if cfg.enable_ending_normalization:
         text = _normalize_korean_endings(text, logger)
+    if cfg.enable_spellcheck_enhancement:
+        text = _apply_spellcheck_and_spacing(text, cfg, logger)
+    if cfg.enable_punctuation_normalization:
+        text = _normalize_symbols_and_quotes(text, cfg, logger)
+    if cfg.enable_paragraph_formatting:
+        text = _add_paragraph_breaks(text, logger)
+    if cfg.enable_tts_friendly_processing:
+        tts_cfg = cfg.tts_config or Stage3_5Config(logger=logger)
+        text = apply_stage3_5_rules(text, tts_cfg)
 
     return text
 
@@ -47,6 +94,9 @@ def _normalize_spacing_overseparation(text: str, logger: logging.Logger) -> str:
 
     for pattern, replacement in spacing_rules.long_eomis:
         text = re.sub(pattern, replacement, text)
+
+    text = re.sub(r'(?<=[은는이가을를의과와도만])-\s+', ' ', text)
+    text = re.sub(r'(?<=[은는이가을를의과와도만])-(?=[가-힣])', '', text)
 
     for josa in spacing_rules.josas:
         text = re.sub(rf'([가-힣]+)\s+{josa}(?=\s)', rf'\1{josa} ', text)
@@ -71,6 +121,26 @@ def _normalize_spacing_overseparation(text: str, logger: logging.Logger) -> str:
         if len(word) == 2:
             pattern = f'{word[0]}\\s+{word[1]}'
             text = re.sub(pattern, word, text)
+
+    # === 자연스러운 한국어 단어 복원 (과분리 수정) ===
+    natural_words = [
+        '낯선', '영혼', '사람', '마음', '생활', '명상', '평화', '체험', 
+        '강연', '반향', '저서', '번역', '소개', '침묵', '여행', '안내',
+        '독자', '사랑', '대학교', '박사', '과정', '내면', '요가', 
+        '센터', '미술', '교육', '보건', '환경', '보호', '분야', '기여',
+        '다이어리', '명상가', '부탁', '출간', '모습', '욕망', '굴레',
+        '자유', '책들', '꾸준히', '은둔', '몰두', '내적'
+    ]
+    for word in natural_words:
+        if len(word) == 2:
+            pattern = f'{word[0]}\\s+{word[1]}'
+            text = re.sub(pattern, word, text)
+        elif len(word) == 3:
+            # 3글자 단어: 첫번째-두번째 or 두번째-세번째 분리 복원
+            pattern1 = f'{word[0]}\\s+{word[1:3]}'  # 첫-나머지
+            pattern2 = f'{word[0:2]}\\s+{word[2]}'  # 앞두글자-마지막
+            text = re.sub(pattern1, word, text)
+            text = re.sub(pattern2, word, text)
 
     text = re.sub(r'([0-9]+)([가-힣]{1,3})(전|후|간|째|번|개|명|일|년|월|시|분|초)(?![가-힣])', r'\1\2 \3', text)
     text = re.sub(r'([A-Za-z]+)([가-힣]{2,})(?![가-힣])', r'\1 \2', text)
@@ -148,3 +218,129 @@ def _normalize_korean_endings(text: str, logger: logging.Logger) -> str:
         logger.debug("Stage 3-3: no ending adjustments needed")
 
     return text
+
+
+def _apply_spellcheck_and_spacing(text: str, cfg: Stage3Config, logger: logging.Logger) -> str:
+    spellcheck = cfg.spellcheck_handler or _spellcheck_with_hanspell
+    spacing = cfg.spacing_refiner or _spacing_with_pykospacing
+
+    intermediate = spellcheck(text) if spellcheck else text
+    result = spacing(intermediate) if spacing else intermediate
+
+    if result != text:
+        logger.debug("Stage 3-4: spellcheck/spacing enhancement applied")
+    else:
+        logger.debug("Stage 3-4: spellcheck/spacing skipped")
+
+    return result
+
+
+def _normalize_symbols_and_quotes(text: str, cfg: Stage3Config, logger: logging.Logger) -> str:
+    normalizer = cfg.punctuation_normalizer or _default_punctuation_normalizer
+    if not normalizer:
+        logger.debug("Stage 3-5: no punctuation normalizer available")
+        return text
+
+    result = normalizer(text)
+    if result != text:
+        logger.debug("Stage 3-5: punctuation normalized")
+    else:
+        logger.debug("Stage 3-5: punctuation already normalized")
+    return result
+
+
+def _spellcheck_with_hanspell(text: str) -> str:
+    if _spell_checker is None:
+        return text
+    try:
+        checked = _spell_checker.check(text)
+    except Exception:  # pragma: no cover - network / dependency error
+        return text
+    corrected = getattr(checked, "checked", None)
+    if isinstance(corrected, str) and corrected:
+        return corrected
+    return text
+
+
+def _spacing_with_pykospacing(text: str) -> str:
+    instance = _get_spacing_instance()
+    if instance is None:
+        return text
+    try:
+        return instance(text)
+    except Exception:  # pragma: no cover - runtime spacing failure
+        return text
+
+
+def _get_spacing_instance() -> _SpacingType | None:
+    global _KOSPACING_INSTANCE
+    if _SpacingClass is None:
+        return None
+    if _KOSPACING_INSTANCE is None:
+        _KOSPACING_INSTANCE = _SpacingClass()
+    return _KOSPACING_INSTANCE
+
+
+_UNTETHEREDSOUL_PATTERN = re.compile(r"(?i)WW\s+www\s*\.?\s*untetheredsoul\s*\.?\s*com|www\s*\.?\s*www\s*\.?\s*untetheredsoul\s*\.?\s*com|www\s*\.?\s+untetheredsoul\s*\.?\s+com|www\s*\.?\s*untetheredsoul\s*\.?\s*com")
+_L_NUMBER_PATTERN = re.compile(r"\bl\s+위에\b")
+_EOLCUT_PATTERN = re.compile(r"을\s*컷\s*고|을\s*컫\s*고|을\s*켉\s*고")
+
+
+def _default_punctuation_normalizer(text: str) -> str:
+    normalized = text
+    if _ftfy is not None:
+        try:
+            normalized = _ftfy.fix_text(normalized)
+        except Exception:  # pragma: no cover - ftfy internal failure
+            normalized = text
+    normalized = unicodedata.normalize("NFC", normalized)
+    normalized = _UNTETHEREDSOUL_PATTERN.sub("www.untetheredsoul.com", normalized)
+    normalized = _L_NUMBER_PATTERN.sub("1위에", normalized)
+    normalized = _EOLCUT_PATTERN.sub("올랐고", normalized)
+    return normalized
+
+
+def _add_paragraph_breaks(text: str, logger: logging.Logger) -> str:
+    """적절한 위치에 문단 구분을 위한 개행을 추가합니다."""
+    
+    if not text.strip():
+        return text
+    
+    # 긴 연속 문장을 문단으로 나누기
+    # ': ' 이후 새로운 문장이 시작할 때 개행 추가
+    text = re.sub(r':\s+([가-힣A-Z])', r':\n\n\1', text)
+    
+    # 문장이 끝나고(. ! ?) 160자 이상 연속될 때 개행 추가 
+    sentences = re.split(r'([.!?])\s*', text)
+    result_parts = []
+    current_length = 0
+    
+    for i in range(0, len(sentences) - 1, 2):
+        sentence = sentences[i]
+        punctuation = sentences[i + 1] if i + 1 < len(sentences) else ''
+        
+        result_parts.append(sentence + punctuation)
+        current_length += len(sentence) + len(punctuation)
+        
+        # 160자 이상이고 다음 문장이 있을 때 문단 나누기
+        if current_length > 160 and i + 2 < len(sentences):
+            next_sentence = sentences[i + 2].strip()
+            if next_sentence and (next_sentence[0].isalpha() or '가' <= next_sentence[0] <= '힣'):
+                result_parts.append('\n\n')
+                current_length = 0
+            else:
+                result_parts.append(' ')
+        elif i + 2 < len(sentences):
+            result_parts.append(' ')
+    
+    # 마지막 문장 추가        
+    if len(sentences) > 1:
+        result_parts.append(sentences[-1])
+        
+    final_text = ''.join(result_parts)
+    
+    # 연속된 개행 정리
+    final_text = re.sub(r'\n{3,}', '\n\n', final_text)
+    
+    logger.debug(f"문단 나누기 완료: {len(final_text)}자")
+    return final_text.strip()

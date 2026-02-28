@@ -6,27 +6,77 @@ SnapTXT PC App - OCR 전용 데스크톱 애플리케이션
 
 import sys
 import os
+import re
 from pathlib import Path
-from PyQt5.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout, 
-                            QHBoxLayout, QPushButton, QTextEdit, QLabel, 
-                            QFileDialog, QListWidget, QProgressBar, QTabWidget,
-                            QGroupBox, QCheckBox, QSpinBox, QComboBox, QMessageBox)
-import PyQt5
-from PyQt5.QtCore import Qt, QThread, pyqtSignal, QTimer, QLibraryInfo
-from PyQt5.QtGui import QFont, QPixmap
 import logging
 
 # OCR 프로세서 import
-from multi_ocr_processor import MultiOCRProcessor
+from snaptxt.backend.multi_engine import MultiOCRProcessor, load_default_engine
+
+def ensure_utf8_console():
+    """Force UTF-8 console output on Windows so Korean logs stay readable."""
+
+    if os.environ.get("SNAPTXT_ENABLE_UTF8_CONSOLE", "1") != "1":
+        return
+
+    if os.name != "nt":  # pragma: no cover - Windows only
+        return
+
+    try:
+        import ctypes
+
+        kernel32 = ctypes.windll.kernel32
+        kernel32.SetConsoleCP(65001)
+        kernel32.SetConsoleOutputCP(65001)
+    except Exception:
+        pass
+
+    os.environ.setdefault("PYTHONIOENCODING", "utf-8")
+    os.environ.setdefault("PYTHONLEGACYWINDOWSSTDIO", "0")
+
+    for stream in (sys.stdout, sys.stderr):
+        try:
+            if hasattr(stream, "reconfigure"):
+                stream.reconfigure(encoding="utf-8", errors="replace")
+        except Exception:
+            continue
+
+
+ensure_utf8_console()
+
+
+LOG_FORMAT = "%(asctime)s - %(levelname)s - %(name)s - %(message)s"
+ALLOW_CONSOLE_EMOJI = os.environ.get("SNAPTXT_ALLOW_CONSOLE_EMOJI", "0") == "1"
+EMOJI_PATTERN = re.compile(
+    "["  # 넓은 범위의 이모지/픽토그램 코드를 ASCII로만 대체
+    "\U0001F300-\U0001F6FF"
+    "\U0001F900-\U0001F9FF"
+    "\U0001FA70-\U0001FAFF"
+    "\u2600-\u27BF"
+    "]"
+)
+
+
+class ConsoleFormatter(logging.Formatter):
+    """Strip emoji-like glyphs for consoles that fall back to serif fonts."""
+
+    def format(self, record):
+        message = super().format(record)
+        if ALLOW_CONSOLE_EMOJI:
+            return message
+        return EMOJI_PATTERN.sub("", message)
+
+
+console_handler = logging.StreamHandler(sys.stdout)
+console_handler.setFormatter(ConsoleFormatter(LOG_FORMAT))
+
+file_handler = logging.FileHandler('snaptxt_debug.log', encoding='utf-8')
+file_handler.setFormatter(logging.Formatter(LOG_FORMAT))
 
 # 🔍 터미널 디버깅 활성화 - 상세한 로깅 설정
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(name)s - %(message)s',
-    handlers=[
-        logging.StreamHandler(sys.stdout),  # 터미널 출력
-        logging.FileHandler('snaptxt_debug.log', encoding='utf-8')  # 파일 로그
-    ]
+    handlers=[console_handler, file_handler]
 )
 
 logger = logging.getLogger(__name__)
@@ -35,6 +85,28 @@ logger = logging.getLogger(__name__)
 logger.info("=" * 60)
 logger.info("🚀 SnapTXT PC App 시작 - 가상환경에서 실행 중")
 logger.info("=" * 60)
+
+
+def prewarm_pytorch_stack():
+    """Qt GUI 이전에 PyTorch DLL을 사전 로드해 WinError 1114를 예방."""
+
+    try:
+        load_default_engine()
+        logger.info("🔥 PyTorch DLL 사전 로드 완료 - Qt 초기화 전에 완료")
+    except Exception as exc:  # pragma: no cover - 환경 의존
+        logger.error("❌ PyTorch DLL 사전 로드 실패: %s", exc)
+
+
+prewarm_pytorch_stack()
+
+
+import PyQt5
+from PyQt5.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout, 
+                            QHBoxLayout, QPushButton, QTextEdit, QLabel, 
+                            QFileDialog, QListWidget, QProgressBar, QTabWidget,
+                            QGroupBox, QCheckBox, QSpinBox, QComboBox, QMessageBox)
+from PyQt5.QtCore import Qt, QThread, pyqtSignal, QTimer, QLibraryInfo
+from PyQt5.QtGui import QFont, QPixmap
 
 
 def configure_qt_plugin_path():
@@ -80,7 +152,8 @@ class OCRWorkerThread(QThread):
         super().__init__()
         self.file_paths = file_paths
         self.ocr_settings = ocr_settings
-        self.ocr_processor = MultiOCRProcessor()
+        # Qt가 올라오기 전에 load_default_engine()으로 DLL을 사전 로드한다.
+        self.ocr_processor = load_default_engine()
         
     def run(self):
         """배치 OCR 처리 실행"""
@@ -191,6 +264,8 @@ class SnapTXTMainWindow(QMainWindow):
         self.spin_threads.setValue(2)
         perf_layout.addWidget(self.spin_threads)
         ocr_layout.addLayout(perf_layout)
+        
+        # TTS는 웹에서 처리하므로 PC 앱에서는 제거
         
         # 하드코딩된 옵션들 표시
         features_label = QLabel("✨ 자동 적용: PyKoSpacing 띠어쓰기 교정, 한글 오류 수정, TTS 최적화")
@@ -314,6 +389,7 @@ class SnapTXTMainWindow(QMainWindow):
         logger.info(f"  - EasyOCR: True (전용 모드)")
         logger.info(f"  - 언어: {ocr_settings['language']}")
         logger.info(f"  - 스레드: {ocr_settings['threads']}")
+
         logger.info(f"📁 처리할 파일 수: {len(self.file_list)}")
         for i, filepath in enumerate(self.file_list, 1):
             logger.info(f"  {i}. {Path(filepath).name}")
@@ -394,11 +470,11 @@ class SnapTXTMainWindow(QMainWindow):
         """OCR 엔진들 다시 로드"""
         try:
             # 새로운 OCR 프로세서 생성
-            from multi_ocr_processor import MultiOCRProcessor
-            new_processor = MultiOCRProcessor()
+            processor = load_default_engine()
+            processor.init_engines()
             
             # 엔진 정보 확인
-            engine_info = new_processor.get_engine_info()
+            engine_info = processor.get_engine_info()
             
             info_text = "🔄 OCR 엔진 재로드 완료!\n\n"
             for engine, available in engine_info.items():

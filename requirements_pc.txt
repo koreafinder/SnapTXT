@@ -22,6 +22,9 @@ Flask>=2.3.2
 pathlib2>=2.3.7
 numpy>=1.24.0
 PyYAML>=6.0
+py-hanspell>=1.1
+pykospacing>=0.5
+ftfy>=6.2.0
 
 # Windows 전용 (선택사항)
 # pywin32>=306  # Windows API 접근이 필요한 경우

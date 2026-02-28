@@ -6,3 +6,6 @@ torchvision
 opencv-python-headless
 numpy
 PyYAML>=6.0
+py-hanspell>=1.1
+pykospacing>=0.5
+ftfy>=6.2.0

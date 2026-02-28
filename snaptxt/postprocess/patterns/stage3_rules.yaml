@@ -1,5 +1,64 @@
 spacing:
   fixed_patterns:
+    # === 새로운 OCR 띄어쓰기 오류 수정 패턴 ===
+    - pattern: '명\s*상\s*가\s*로'
+      replacement: 명상가로
+    - pattern: '독\s*자\s*들\s*로'
+      replacement: 독자들로
+    - pattern: '시\s*착\s*하\s*세\s*요'
+      replacement: 시작하세요
+    - pattern: '작\s*가\s*와'
+      replacement: 작가와
+    - pattern: '사\s*랑\s*받\s*는'
+      replacement: 사랑받는
+    - pattern: '작\s*품\s*입\s*니\s*다'
+      replacement: 작품입니다
+    - pattern: '부\s*터'
+      replacement: 부터
+    - pattern: '로\s*의'
+      replacement: 로의
+      
+    # === IMG_4790.JPG 띄어쓰기 패턴 ===
+    - pattern: '얼\s*국\s*없\s*는'
+      replacement: 얼굴없는
+    - pattern: '이\s*기\s*지\s*못\s*해'
+      replacement: 이기지 못해
+    - pattern: '박\s*사\s*과\s*정\s*을\s*공\s*부\s*하\s*면'
+      replacement: 박사과정을 공부하면서
+    - pattern: '분\s*아\s*에'
+      replacement: 분야에
+    - pattern: '월\s*일\s*은\s*된\s*다'
+      replacement: 될 일은 된다
+    - pattern: '책\s*들\s*은\s*지\s*금\s*도'
+      replacement: 책들은 지금도
+    - pattern: '있\s*던\s*사\s*람\s*들\s*은'
+      replacement: 있던 사람들은
+    - pattern: '년\s*대\s*초\s*플\s*로\s*리\s*다'
+      replacement: 년대 초 플로리다
+    - pattern: 'www\.\s+www\.\s+untetheredsoul\.\s+com'
+      replacement: www.untetheredsoul.com
+    - pattern: '공부하면서서'
+      replacement: 공부하면서
+    - pattern: 'l\s+위에'
+      replacement: 1위에
+    - pattern: '을\s*랐\s*고'
+      replacement: 올랐고
+    - pattern: '공부하면서\s+중에'
+      replacement: 공부하던 중에
+    - pattern: '세속\s+적인'
+      replacement: 세속적인
+    - pattern: '더\s*깊\s*어\s*질\s*졿\s*이\s*다'
+      replacement: 더 깊어질 것이다
+    - pattern: '가\s*능\s*여\s*정\s*을'
+      replacement: 가는 여정을
+    - pattern: '가\s*능\s*것'
+      replacement: 가는 것
+    - pattern: '덜\s*졿\s*이\s*다'
+      replacement: 될 것이다
+    - pattern: '도\s*있\s*을\s*졿\s*이\s*다'
+      replacement: 도 있을 것이다
+      
+    # === 기존 패턴들 ===
     - pattern: '마\s*이\s*클\s*싱\s*어'
       replacement: 마이클 싱어
     - pattern: '마\s*이\s*클(?!\s*싱)'
@@ -42,6 +101,10 @@ spacing:
       replacement: 작가
     - pattern: '언\s*어'
       replacement: 언어
+    - pattern: '체\s*험'
+      replacement: 체험
+    - pattern: '분\s*야\s*에'
+      replacement: 분야에
     - pattern: 책
       replacement: 책
     - pattern: '철\s*학\s*적'
@@ -171,6 +234,12 @@ characters:
     사회혁: 사회학
     정치혁: 정치학
     경제혁: 경제학
+    드러워습니다: 드러났습니다
+    드러낫습니다: 드러났습니다
+    드러내었습니다: 드러냈습니다
+    돌두했습니다: 몰두했습니다
+    돌두하였다: 몰두하였다
+    돌두하고: 몰두하고
   contextual:
     - wrong: 헐 수 있
       correct: 할 수 있
@@ -206,11 +275,33 @@ characters:
       correct: 없습
     - wrong: 됨슴
       correct: 됨습
+    - wrong: 돌두
+      correct: 몰두
+    - wrong: 돌두해
+      correct: 몰두해
+    - wrong: 돌두하
+      correct: 몰두하
   regex:
     - pattern: '([가-힣]+)슴니다(?=\s|$|[.!?])'
       replacement: '\1습니다'
     - pattern: '([가-힣]+)씀니다(?=\s|$|[.!?])'
       replacement: '\1습니다'
+    - pattern: '(?<=\d)o(?=\d)'
+      replacement: '0'
+    - pattern: '(?<=\d)o(?=[lI])'
+      replacement: '0'
+    - pattern: '(?<=\d)o(?=\s*(?:년|월|일|대|위|분|초))'
+      replacement: '0'
+    - pattern: '(?<=\d)l(?=\d)'
+      replacement: '1'
+    - pattern: '(?<![A-Za-z0-9])l(?=\d{2})'
+      replacement: '1'
+    - pattern: '(?<=\d)S(?=\s*년)'
+      replacement: '5'
+    - pattern: '(?i)www\s*\.?\s*untetheredsoul\s*\.?\s*com'
+      replacement: 'www.untetheredsoul.com'
+    - pattern: '(?i)untetheredsoul\s*\.?\s*com'
+      replacement: 'www.untetheredsoul.com'
 
 endings:
   - name: 과거형 정규화

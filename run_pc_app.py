@@ -124,7 +124,7 @@ def main():
         
     except ImportError as e:
         print(f"❌ 모듈 import 오류: {e}")
-        print("pc_app.py와 multi_ocr_processor.py가 같은 폴더에 있는지 확인해주세요.")
+        print("pc_app.py와 snaptxt/backend/multi_engine.py 경로 구성이 올바른지 확인해주세요.")
     except Exception as e:
         print(f"❌ 실행 오류: {e}")
     

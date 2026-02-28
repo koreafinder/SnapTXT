@@ -1,0 +1,28 @@
+{
+  "uploads/IMG_4790.JPG": {
+    "success": true,
+    "text_length": 710,
+    "text_preview": "마이클 싱어 (Michael A. Singer) 숲속의 명상가로 불리는 마이클 싱어는 대중 앞에 나서기를 꺼려' 얼 숭배의 저자로 알려져 있다가 오프라 윈프리의 간곡한 부탁을 이기지 못해 2012년 <슈퍼 소울 선데이>에 출연하여 사람들 앞에 처음으로 모습을 드러났습니다:\n온갖 욕망들을 끌어당기기에 지쳐 있던 사람들은 마음의 곤경에서 자유로워지는 법을 알려...",
+    "processing_time": "N/A",
+    "confidence": "N/A"
+  },
+  "uploads/IMG_4790_optimized.JPG": {
+    "success": true,
+    "text_length": 711,
+    "text_preview": "마이클 싱어 Michael A Singer 숲속의 명상가로 불리는 마이클 싱어는 대중 앞에 나서기를 꺼려' 얼굴없는 저자로 알려져 있다가 오프라 윈프리의 간곡한 부탁을 이기지 못해 2012년 ( 슈퍼 소울 선데이>에 출연하여 사람들 앞에 처음으로 모습을 드러났습니다:\n온갖 욕망들을 끌어당기기에 지쳐 있년 사 감들은 마음의 곤경에서 자유로워지는 법을 알려주는...",
+    "processing_time": "N/A",
+    "confidence": "N/A"
+  },
+  "uploads/test_korean_clean.png": {
+    "success": false,
+    "error": "OCR 처리 실패",
+    "result": ""
+  },
+  "uploads/lowlight_note_sample.png": {
+    "success": true,
+    "text_length": 145,
+    "text_preview": "밤늦게 촬영한 메모 - 전기 검침 결과 조명은 불균일하고 노이즈가 있습니다:\n하지만 중요한 전화번호와 금액을 기록했습니다:\nTel: o2-123-4S67 합계 l,98o,ooo원 다음 방문: 3월 l8일 l4. oo SnapTXT Low-Light Sample",
+    "processing_time": "N/A",
+    "confidence": "N/A"
+  }
+}

@@ -17,7 +17,7 @@ logging.basicConfig(
 print("🔍 MultiOCRProcessor 디버깅 시작...")
 
 try:
-    from multi_ocr_processor import MultiOCRProcessor
+    from snaptxt.backend.multi_engine import MultiOCRProcessor
     
     print("📦 MultiOCRProcessor 클래스 import 성공")
     

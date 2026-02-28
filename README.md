@@ -30,6 +30,19 @@ python main.py
 http://127.0.0.1:5000
 ```
 
+## 🧪 테스트 & 회귀
+
+- Stage 3 후처리 회귀 테스트는 PowerShell에서 `powershell -NoProfile -ExecutionPolicy Bypass -File scripts/run_regression.ps1` 명령으로 실행합니다. 이 스크립트가 `.venv_new`를 자동 활성화하고 `python -m pytest -m stage3`를 호출합니다.
+- `-Smoke` 스위치를 추가하면 Stage 3 후 `pytest -m smoke`도 연달아 수행합니다.
+- Windows 이외 환경에서는 `.venv_new/Scripts/python.exe -m pytest -m stage3` 혹은 `python -m pytest -m stage3 -k stage3` 형태로 직접 실행해도 동일한 결과를 얻을 수 있습니다.
+- 회귀 결과는 콘솔에 요약되며, 실패 시 첫 번째 오류에서 즉시 중단(`--maxfail 1`)합니다.
+
+## 🧾 JSON 로깅
+
+- 공통 파이프라인과 MultiOCRProcessor는 `logs/snaptxt_ocr.jsonl` 파일에 JSON 라인 포맷으로 처리 이력을 남깁니다.
+- `SNAPTXT_LOG_DIR` 또는 `SNAPTXT_JSON_LOG` 환경 변수를 지정하면 로그 경로를 원하는 위치로 바꿀 수 있습니다.
+- 각 이벤트에는 타임스탬프, 처리 대상 경로, 소요 시간, 추출된 텍스트 길이 등이 포함되며, 배치 품질 분석이나 경향 파악에 활용할 수 있습니다.
+
 ## 📁 프로젝트 구조
 
 ```

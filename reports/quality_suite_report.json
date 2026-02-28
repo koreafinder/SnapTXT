@@ -1,0 +1,114 @@
+{
+  "samples": 11,
+  "success_rate": 1.0,
+  "average_confidence": 0.982,
+  "average_text_length": 464,
+  "average_processing_time": 30.21,
+  "overall_quality": 0.991,
+  "success_count": 11,
+  "failure_count": 0,
+  "timestamp": "2026-02-28T17:58:21Z",
+  "tag_summaries": {
+    "article": {
+      "samples": 7,
+      "success_rate": 1.0,
+      "average_confidence": 0.972,
+      "average_text_length": 657.3,
+      "average_processing_time": 34.163,
+      "overall_quality": 0.986,
+      "success_count": 7,
+      "failure_count": 0
+    },
+    "baseline": {
+      "samples": 2,
+      "success_rate": 1.0,
+      "average_confidence": 0.997,
+      "average_text_length": 704.5,
+      "average_processing_time": 40.779,
+      "overall_quality": 0.998,
+      "success_count": 2,
+      "failure_count": 0
+    },
+    "hangul": {
+      "samples": 1,
+      "success_rate": 1.0,
+      "average_confidence": 1.0,
+      "average_text_length": 85,
+      "average_processing_time": 21.265,
+      "overall_quality": 1.0,
+      "success_count": 1,
+      "failure_count": 0
+    },
+    "hires": {
+      "samples": 2,
+      "success_rate": 1.0,
+      "average_confidence": 0.951,
+      "average_text_length": 668,
+      "average_processing_time": 32.641,
+      "overall_quality": 0.976,
+      "success_count": 2,
+      "failure_count": 0
+    },
+    "lowlight": {
+      "samples": 1,
+      "success_rate": 1.0,
+      "average_confidence": 1.0,
+      "average_text_length": 143,
+      "average_processing_time": 23.543,
+      "overall_quality": 1.0,
+      "success_count": 1,
+      "failure_count": 0
+    },
+    "midres": {
+      "samples": 1,
+      "success_rate": 1.0,
+      "average_confidence": 0.916,
+      "average_text_length": 623,
+      "average_processing_time": 30.125,
+      "overall_quality": 0.958,
+      "success_count": 1,
+      "failure_count": 0
+    },
+    "mixed": {
+      "samples": 1,
+      "success_rate": 1.0,
+      "average_confidence": 1.0,
+      "average_text_length": 85,
+      "average_processing_time": 20.479,
+      "overall_quality": 1.0,
+      "success_count": 1,
+      "failure_count": 0
+    },
+    "stress": {
+      "samples": 3,
+      "success_rate": 1.0,
+      "average_confidence": 0.997,
+      "average_text_length": 458.7,
+      "average_processing_time": 28.573,
+      "overall_quality": 0.999,
+      "success_count": 3,
+      "failure_count": 0
+    },
+    "synthetic": {
+      "samples": 3,
+      "success_rate": 1.0,
+      "average_confidence": 1.0,
+      "average_text_length": 120,
+      "average_processing_time": 23.21,
+      "overall_quality": 1.0,
+      "success_count": 3,
+      "failure_count": 0
+    },
+    "table": {
+      "samples": 1,
+      "success_rate": 1.0,
+      "average_confidence": 1.0,
+      "average_text_length": 190,
+      "average_processing_time": 27.887,
+      "overall_quality": 1.0,
+      "success_count": 1,
+      "failure_count": 0
+    }
+  },
+  "source": "C:\\Users\\USER\\OneDrive - 한국사이게이트 (1)\\개발부\\회사\\Python\\SnapTXT\\experiments\\results\\quality_samples.json"
+}

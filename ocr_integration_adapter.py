@@ -40,7 +40,7 @@ class OCRSystemAdapter:
         # 기존 시스템들 호환성 체크
         try:
             # easyocr_worker 확인
-            import easyocr_worker
+            from snaptxt.backend.worker import easyocr_worker
             self.legacy_available = True
             logger.info("✅ 기존 EasyOCR 시스템 확인 완료")
         except Exception as e:

@@ -43,7 +43,7 @@ try:
             raise cpu_error
     
     print("\n🔧 4. MultiOCRProcessor 클래스 테스트")
-    from multi_ocr_processor import MultiOCRProcessor
+    from snaptxt.backend.multi_engine import MultiOCRProcessor
     print("✅ MultiOCRProcessor import 성공")
     
     print("  - MultiOCRProcessor 인스턴스 생성 중...")

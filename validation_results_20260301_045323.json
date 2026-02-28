@@ -1,0 +1,18 @@
+{
+  "uploads/IMG_4790.JPG": {
+    "success": false,
+    "error": "'MultiOCRProcessor' object has no attribute 'extract_text'"
+  },
+  "uploads/IMG_4790_optimized.JPG": {
+    "success": false,
+    "error": "'MultiOCRProcessor' object has no attribute 'extract_text'"
+  },
+  "uploads/test_korean_clean.png": {
+    "success": false,
+    "error": "'MultiOCRProcessor' object has no attribute 'extract_text'"
+  },
+  "uploads/lowlight_note_sample.png": {
+    "success": false,
+    "error": "'MultiOCRProcessor' object has no attribute 'extract_text'"
+  }
+}

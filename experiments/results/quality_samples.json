@@ -1,0 +1,263 @@
+{
+  "generated_at": "2026-02-28T17:58:09+00:00",
+  "samples": [
+    {
+      "sample_id": "img4790_stage3",
+      "source": "uploads/IMG_4790.JPG",
+      "success": true,
+      "processing_time": 49.174,
+      "text_length": 713,
+      "timestamp": "2026-02-28T17:53:26+00:00",
+      "expected_length": 700,
+      "tags": [
+        "article",
+        "baseline"
+      ],
+      "description": "Stage3 benchmark article image",
+      "confidence": 1.0,
+      "quality_components": {
+        "length_ratio": 1.0,
+        "keyword_hit_rate": 1.0
+      },
+      "quality_gate": {
+        "threshold": 0.9,
+        "passed": true
+      },
+      "text": "마이클생어 Michael A Singer 숲속의 명상가로 불리는 마이클 싱어는 대중 앞에 나서기를 꺼려' 얼 국없는 저자로 알려져 있다가 오프라 윈프리의 간곡한 부탁을 이기지 못해 2012년 <슈퍼 소울 선데 이>에 출연하여 사람들 앞에 처음으로 모습을 드러났습니다 온갖 욕망들을 끌어당기기에 지쳐 있던사람들은 마음의 곤경에서 자유로워지는 법을 알려주는 그의 강연에 폭발적으로 반응 했습니다: 방송 직후 그의 책 ( 상처받지 않는 영혼) 은 뉴욕타임스 베스트설러 l 위에 을랐고 한국을 포함한 십여 개 국의 언어로 번역되어 전 세계에 소개됐습니다 스스로 만든 마음의 감옥 속에 방치해 두엇던 참 자아을 찾는 여정으로 우리를 안내하는 그의 책들은지금도 꾸준히 독자들에게 사랑받고 있습니다: 마이클 싱어는 1970 년대 초플 로리다 대학교에서 경제학 박사 과정 을공부하면 중에 우연히 깊은 내면적 체험을 하게 되어 그 이후세속 적인 생활을 접고 은둔하여 요가와 명상에 몰두 했습니다: 1975 년에 명상 요가 센터 Temple of the Universe를 세우고 내적 평화의 체험을 전하기 시작 했습니다 또한 미술; 교육; 보건, 환경보호 등의 분야에 크게 기여 했습니다 저서로는 <상처받지 않는 영혼> ( 월 일은 된다) <마이클 싱어 명상 다이어리> 등이 있습니다 표지사진 @GettyImages 디자인 식운디자인 WW www. www. untetheredsoul. com"
+    },
+    {
+      "sample_id": "img4790_optimized",
+      "source": "uploads/IMG_4790_optimized.JPG",
+      "success": true,
+      "processing_time": 32.385,
+      "text_length": 696,
+      "timestamp": "2026-02-28T17:53:58+00:00",
+      "expected_length": 700,
+      "tags": [
+        "article",
+        "baseline"
+      ],
+      "description": "Optimized JPG with sharpened edges",
+      "confidence": 0.994,
+      "quality_components": {
+        "length_ratio": 0.994
+      },
+      "quality_gate": {
+        "threshold": 0.9,
+        "passed": true
+      },
+      "text": "마이글상어 Michael A Singer 소숙의 망상 가보 불리논 마이규 싫어느 대중 있어 나서기를 꺼러 업 국없는 저자' 모 안려저 있다가 오프라 언프리외 간꾸현 부악움 이기지 못혀 2012년 <슈퍼 소을 선언 이어 출연하다 사라득 앞어 거용으도 모습을 드러싸속니다 온갖 악망문을 깊어당기기어 시처 외면 사 감물은 마음외 곤처어서 자유보위지논 법음 안려주논 그외 강연에 국방적오로 반용없슈니다; 방송 지후 그외 적 ( 상치반지 암논 영혼) 온 뉴욕다입스 버스드설러. 위어 을자고 한국음 모험한 십여 개 국 외 인어보 먼어되어 전 서계어 소기되 있습니다 스스로 만든 마음외 갑옥 숙어 방치터 두엇면 참 자아을 횟는 여정으로 우리을 안니하는 그외 적품은 지금도 꾸준히 독자들어기 사랑반고 있습니다 마이닭 싱어논 1970 년대 소 놀로리다 대학고어서 경제앉 바사 과정 음 공부하번 중어 우연히 깊은 내면적 체업을 하계 되어 그 이후 서속 좌인 생활을 접고 요눈하여 요가외 명상어 골두퍼습니다 1975 년어 명상 요가 신터 Tempk of tc Universe틀- 서우고 내적 평페의 서 업음 전하기 시작-속니다 도한 미e; 교육; 보전 환경보호 농의 본 아 크거 기여워습니다 저서로는 <상처 만지 양논 영혼; { 덜 임온 되다) <마이금 상어 명상 다이어리> 둥이 외습니다 WWW Lritet ctcdsoul com 4- 가o버++ iut 예-하다"
+    },
+    {
+      "sample_id": "img4790_1000px",
+      "source": "uploads/IMG_4790_1000px.JPG",
+      "success": true,
+      "processing_time": 34.944,
+      "text_length": 676,
+      "timestamp": "2026-02-28T17:54:33+00:00",
+      "expected_length": 705,
+      "tags": [
+        "article",
+        "hires"
+      ],
+      "description": "1000px export for hi-res verification",
+      "confidence": 0.959,
+      "quality_components": {
+        "length_ratio": 0.959
+      },
+      "quality_gate": {
+        "threshold": 0.9,
+        "passed": true
+      },
+      "text": "마이 를싱어 Mrhid A Snfr 소속- 텅상 가: 불리논 바이금 심어 { 43 아어 나서기들 거러 벌 국없논 저사' 도 안리저 있다가. 오u다 원꾸리위 간격안 부타을 이기지컷례 2012S <수 스울 선어이) 어 출인아 시람들 일에 처음으 도요습을 드러낫하니다 온}} 방부 움 풀어당기기어 지제 외터 사 담물안 마유외 2 강서서 사유 & 위지논 법음 안터. ' = 그외 거어어 국발려으도 만응차; 니다 망중 직+ 그위 쥐 <상처반시 &: 임혼) 은; 욕파입스 네스' 컬러 l 위어 을S고 안국을 포함산 십여 거 축 외 언어도 버어되어 전 서거어 소거되워; 니다 스스: 만은 가유외 갑요 숙어 방시혀 두퍼면 참 자아을 첫논 여정 의요 우리틀 언리하논 그의 거물은 자급도 무준히 목자플어거사방적고 아사나다 마이람 상어논 197o 선선대 코 불로 리다 더학_어서 경계력 바사다경 흙 공부하언 굽어 후신히 직은나면적 제험을 하거 피어 그이 로-세속 여인 생하음 집고 으문 하여 요가와, 상어 끝두 치; 니다 197S 런어 텅상 요사 센터 Tcmpk ctz Unirtit불 서우고니히 집y의 -을 선하기 시라다속니다 또한 미술 l육 보전 창경보 * 공의 뿐이 = 가이 없습니다 서서. { <상처반지 안Y_ 임혼) ( 월 입은 되다) ( 마이금 상어 켓상 다이어리) 끓이 외숙니다 WAw UrilcUictcusMcin"
+    },
+    {
+      "sample_id": "img4790_800px",
+      "source": "uploads/IMG_4790_800px.JPG",
+      "success": true,
+      "processing_time": 30.338,
+      "text_length": 660,
+      "timestamp": "2026-02-28T17:55:03+00:00",
+      "expected_length": 700,
+      "tags": [
+        "article",
+        "hires"
+      ],
+      "description": "800px export for hi-res verification",
+      "confidence": 0.943,
+      "quality_components": {
+        "length_ratio": 0.943
+      },
+      "quality_gate": {
+        "threshold": 0.9,
+        "passed": true
+      },
+      "text": "마이금 싱이 n 나저d^ Srtrt 소소칙 버신가 #라e 라사루 시어e 다구 오p 나시 가다 거여 면 국어문 *자l 버러지 쇠녀가 오르다 현끄디터 {. t 부엌울 어기 지 x혀 20l <구리 소유 선하 [ 서 순진하터 사청물; 어 서듭으 금 모사 { L 리다숙내다 오진 4 정물 운 팔어당가 가H 지시 오러 사 대불온 아음무 근#예서 자4음-지난 비# 달리주= 그서 강업에 구#석오: 반용고스나다 향소 각+ 그석 턱 <사처날시 방 현애) 손 #교사입스 계스 로전터 [ 위| 울탕교 @구물 포함다 십어 끼 국 벼 입어로 넘어 과어 검 세처적 소기다워습다다 스스로 안문 마음벼 갑4 서 바처에 구처다 # 자아& 횟슨 어청요요 +과t @사하는 끄 #류분 온 자구모 주준혀 학저움-계 사랑밥고 외습니다 아이를 싫어논 197089 쇼 슬료되다 터학그다서 경치# 박사구경 # 주부하런 국세 +산히 집안나전기 거앉움 학기 피서 그이+사수 여인 성사 운 경고 온손다이 요기화 어상적 #수차소나다 197S8 제데 뵈사 오기 언너 Tomk d Ac Urrtrwt 세+고 나문 겁화의 체 벼 { 선굽기 사각켓숙다 또한 타소 고육 l전 @겨보요 동식 뿐 얘 국 기뻐싸; 나다 지서도는 <상처 [ 지 입느. 혼) @ 일은 `다) <어이a 상o; 명사 더어어다) { 이 요나다 없Ww Ldttrholcon"
+    },
+    {
+      "sample_id": "img4790_600px",
+      "source": "uploads/IMG_4790_600px.JPG",
+      "success": true,
+      "processing_time": 30.125,
+      "text_length": 623,
+      "timestamp": "2026-02-28T17:55:33+00:00",
+      "expected_length": 680,
+      "tags": [
+        "article",
+        "midres"
+      ],
+      "description": "600px export to observe quality cliff",
+      "confidence": 0.916,
+      "quality_components": {
+        "length_ratio": 0.916
+      },
+      "quality_gate": {
+        "threshold": 0.85,
+        "passed": true
+      },
+      "text": "마이금성어Mdi^ Smn 소소리 다실 가고 #기. 마서극 상어S 겨구 ( 외 내시기& 거러 벼 굽여거자표 V 리지 없다가 오고다 어따리어자; 신 부다 { 어기 시* l 20123 ( 유거 소& 선아 UA 승리다 사물: 외듭으 요요습움 도기보스나다 8. 4uS움 잡어용거기 | 기기 오시 사무슨 바입위 존경 서 자#소하지논 벼 { f 겨구논 천 가임- {#오l 법 {#; 다 l소 기우 꺼 석 ( 사시 물지 &산 영혼 손 +X 청스 -스선서 l 거기 {4고 한구8 포n 십서 거 구 댁 어어보 넘k 다서 점어t 소기하화 시다 스스요 단손 다; 리' 서 버사 다 { 싶다} 자서 { 찾르어 7 오오 +다& 안학논 끄 자&손 저구도 부슨벼 { 자며 버사다 금고건사다다 아이탕 상어E 197o선9 소 i 요하다 더어고-서 경기: 바사다y { 공부 업 { 기 우쩐어진습 버티거 시선 { 학서피니 그어+계; 오다 시#+ 철고 손문하씨 오기4 W #무소니다 I93S9 작사 요거 선리Tomk dtcUrvetw{ 기4 고나 편지벼 ~ l4 전n기 사랑되; 니다 포염 미: 74 보전 *7n{ 증 분 얘 국 거어고아나다 지시서요손 <실처들지 빗e 영:) @ 색논 `) <이a 성어 업시 더어어; 서 2 나다 MCLAdvrdicen"
+    },
+    {
+      "sample_id": "img4790_mobile_small",
+      "source": "uploads/IMG_4790_small.JPG",
+      "success": true,
+      "processing_time": 31.775,
+      "text_length": 638,
+      "timestamp": "2026-02-28T17:56:05+00:00",
+      "expected_length": 630,
+      "tags": [
+        "article",
+        "stress"
+      ],
+      "description": "Mobile-captured variant (small resolution)",
+      "confidence": 1.0,
+      "quality_components": {
+        "length_ratio": 1.0
+      },
+      "quality_gate": {
+        "threshold": 0.6,
+        "passed": true
+      },
+      "text": "마이국 싱이n 나저^ Srtrt 메상기- #수논 타사금 싫어e 터놓 다네 나시기다 꺼미 면 국어, 자자 I 빨레지 치9가 오르다 한프리더 다석t 부엌울 어기 지 방제 20lN4 ( 유리 소움 선타 [HA 솜것하적 사름말 입소 처듭으 S 86{ 오리석; 나다 오 4 탁물 { 팔어당기 가| 지시 여사 대온 마음여 근경세서 자#요#지난 미# 총리주본 그여 강국데 구나석오요 k 용차스니다. 수 쥐+ 그석 턱 <상치받시 남e 업e) 손 #4다U스 계스전터 [ 뼈 육화교 반구물 포사다 십어 끼 국 벼 언어: 넘어피어 천 세거기 소거디워; 다다 스스 만문 아음z 갑우서 바사벼 구청다 & 자 { 횟온 어청오요 +다& @하논 i #뉴 온 사구표 구준히 학지움 다지사다다고 외숙니다 아이를 십어논 197089 쇼 금요리다 터#그저서 경치하 박사-구숲 # 주부하끼 숙세 우선히 진은나건기 사#움 사기 피서 그이+세; 거인 시44 경고 온문사이 요기석 어 #수릎사나다 l9lS남 버사 오가 샌거Tom* dtc Untrwa 시+고녀석 없다다 체 없+ 선화기 사; 차숙나 { 또양 마. 24, w전 e경\" 요 통: 본 얘 국 가워; 다 지시도는 <상시다지 입_ 영혼} @ 일은 손다) <어이공 십어 명사 더이어다) { 이와 나니다 없WVuk tttckolco"
+    },
+    {
+      "sample_id": "img4790_compressed",
+      "source": "uploads/IMG_4790_480px.JPG",
+      "success": true,
+      "processing_time": 30.4,
+      "text_length": 595,
+      "timestamp": "2026-02-28T17:56:36+00:00",
+      "expected_length": 600,
+      "tags": [
+        "article",
+        "stress"
+      ],
+      "description": "Heavily compressed 480px export to stress denoise",
+      "confidence": 0.992,
+      "quality_components": {
+        "length_ratio": 0.992
+      },
+      "quality_gate": {
+        "threshold": 0.55,
+        "passed": true
+      },
+      "text": "아이근상어MdA Srrt + 정상기소 Y 리느나 이다 스어논터. 낚서 나서거. 거려 면 3 녀논거 가보 다리거오다거 오르다 { 디거 자무 부어: 이기 #. ulru 서머소. 선세-DA { 처터니 시사금 서서건오 요요하 { 드러M 습니다 & 433{ 사어가 U_ 기녀 모사 집급은 마; 니 근어 ( 서 자유고뒤시= 벼 { 례 수 논 그리 강리 수 -오교 돌어d 스다 방. 4+ 그러 - <) 시난지 &스 영e} { 규4 구쇼 스도4리 [ 하 44고 o3+ 요남한 십어기 국 서선어다 넘어더어 친 A-d 소#l 습나다 스요 단E 나S- o44l 버씨 무며다} 자랑 청심다지의 +리: 안하논 꽤 + 순 자근도 구' 서 주 { 버시다 고되숙니다 나이 사어논 l9N2d 소 { 요c다 나학고 -시 경l라 박사 y { #부사민 수시 우티터 좌스니브적 기섭 { 여피어 그이*++ 거입 44{ 점고 난 { 서 오기라다 &구요숙기다 I399 여o{ 사서어Tmrt dur Uretw& 사고니석 부어v씨 e: 처어기 시사워산니다 요e 순4 고4 보전 { 하 { 두 분 어 v 가어 니다 기시R손 <사시간지 &산 de) ( 청스 8다) ( 어다 싫어 퇴심 나아a 상서서나구 uowkuo"
+    },
+    {
+      "sample_id": "test_korean_clean",
+      "source": "uploads/test_korean_clean.png",
+      "success": true,
+      "processing_time": 21.265,
+      "text_length": 85,
+      "timestamp": "2026-02-28T17:56:57+00:00",
+      "expected_length": 85,
+      "tags": [
+        "synthetic",
+        "hangul"
+      ],
+      "description": "Synthetic Hangul block text for spacing accuracy",
+      "confidence": 1.0,
+      "quality_components": {
+        "length_ratio": 1.0,
+        "keyword_hit_rate": 1.0
+      },
+      "quality_gate": {
+        "threshold": 0.95,
+        "passed": true
+      },
+      "text": "마이름 싱어의 철학 내면의 목소리를 들어보세요 자유 로운 마음의 여행 Numbers: 1234S Mixed: Testl23 성공적인 한국어 OCR 테스트"
+    },
+    {
+      "sample_id": "test_ocr_mixed",
+      "source": "uploads/test_ocr_image.png",
+      "success": true,
+      "processing_time": 20.479,
+      "text_length": 85,
+      "timestamp": "2026-02-28T17:57:17+00:00",
+      "expected_length": 85,
+      "tags": [
+        "synthetic",
+        "mixed"
+      ],
+      "description": "Mixed-language test card with numerics",
+      "confidence": 1.0,
+      "quality_components": {
+        "length_ratio": 1.0,
+        "keyword_hit_rate": 1.0
+      },
+      "quality_gate": {
+        "threshold": 0.95,
+        "passed": true
+      },
+      "text": "SnapTXT OCR 테스트 HELLO EASYOCR 안녕하세요 한글 테스트 Numbers: 1234S Mixed: Testl23 성공적으로 작동 합니다"
+    },
+    {
+      "sample_id": "quality_table_sample",
+      "source": "uploads/quality_table_sample.png",
+      "success": true,
+      "processing_time": 27.887,
+      "text_length": 190,
+      "timestamp": "2026-02-28T17:57:45+00:00",
+      "expected_length": 120,
+      "tags": [
+        "table",
+        "synthetic"
+      ],
+      "description": "Synthetic KPI table with alternating rows",
+      "confidence": 1.0,
+      "quality_components": {
+        "length_ratio": 1.0,
+        "keyword_hit_rate": 1.0
+      },
+      "quality_gate": {
+        "threshold": 0.92,
+        "passed": true
+      },
+      "text": "항목 l 분기 2 분기 3 분기 4 분기 총 매출 ( 억원) l2o 134 lS8 l9o 신규 고객 23o 24S 312 377 환불둘 2. l% l. 89 l. 4% l. 2% OCR 정확도 9l. S% 92. 7% 94. l% 9S. 3% 모바일 비중 489 S29 S69 S99 SnapTXT 분기별 OCR 성능 추세 ( 테이를 셈들)"
+    },
+    {
+      "sample_id": "lowlight_note_sample",
+      "source": "uploads/lowlight_note_sample.png",
+      "success": true,
+      "processing_time": 23.543,
+      "text_length": 143,
+      "timestamp": "2026-02-28T17:58:09+00:00",
+      "expected_length": 110,
+      "tags": [
+        "lowlight",
+        "stress"
+      ],
+      "description": "Low-light memo with uneven lighting",
+      "confidence": 1.0,
+      "quality_components": {
+        "length_ratio": 1.0,
+        "keyword_hit_rate": 1.0
+      },
+      "quality_gate": {
+        "threshold": 0.8,
+        "passed": true
+      },
+      "text": "밤늦게 촬영한 메모 전기 검침 결과 조명은 불균일하고 노이즈가 있습니다 하지만 중요한 전화번호와 금액을 기록행습니다 Tel: o2-123-4S67 합계 l, 98o, ooo원 다음 방문: 3원 l8일 l4. oo SnapTXT Low-Light Sample"
+    }
+  ]
+}

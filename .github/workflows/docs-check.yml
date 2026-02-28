@@ -1,0 +1,108 @@
+name: 📋 Documentation Check
+
+on:
+  # 매일 오전 9시 (UTC 0:00, 한국시간 9:00) 자동 실행
+  schedule:
+    - cron: '0 0 * * *'
+  
+  # Pull Request 시에도 실행
+  pull_request:
+    paths:
+      - 'docs/**'
+      - 'tools/check_docs.py'
+      - 'scripts/check_docs_ci.ps1'
+      - '.github/workflows/docs-check.yml'
+  
+  # 수동 트리거도 가능
+  workflow_dispatch:
+    inputs:
+      include_optional:
+        description: '선택 문서(plans/reference)도 검사'
+        required: false
+        default: true
+        type: boolean
+      verbose:
+        description: '자세한 로그 출력'
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  check-docs:
+    name: 필수 문서 존재 확인
+    runs-on: windows-latest
+    
+    steps:
+      - name: 📥 소스코드 체크아웃
+        uses: actions/checkout@v4
+        
+      - name: 🐍 Python 환경 설정
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          cache: pip
+          
+      - name: 📦 의존성 설치
+        run: |
+          python -m pip install --upgrade pip
+          if (Test-Path "requirements.txt") {
+            pip install -r requirements.txt
+          }
+          if (Test-Path "requirements_pc.txt") {
+            pip install -r requirements_pc.txt
+          }
+        shell: pwsh
+        
+      - name: 📋 문서 검증 (필수 문서만)
+        run: |
+          python tools/check_docs.py --ci --no-open
+        shell: pwsh
+        
+      - name: 📋 문서 검증 (선택 문서 포함)
+        if: ${{ github.event.inputs.include_optional == 'true' || github.event_name == 'schedule' }}
+        run: |
+          python tools/check_docs.py --ci --no-open --show-optional
+        shell: pwsh
+        
+      - name: 📊 문서 상태 요약
+        if: always()
+        run: |
+          Write-Host "=== 📋 SnapTXT 문서 상태 요약 ===" -ForegroundColor Cyan
+          Write-Host ""
+          
+          if (${{ github.event.inputs.verbose == 'true' }}) {
+            python tools/check_docs.py --show-optional
+          } else {
+            python tools/check_docs.py
+          }
+          
+          Write-Host ""
+          Write-Host "워크플로 트리거: ${{ github.event_name }}" -ForegroundColor DarkGray
+          Write-Host "실행 시각: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss K')" -ForegroundColor DarkGray
+          
+          if ("${{ github.event_name }}" -eq "schedule") {
+            Write-Host "📅 정기 검사: 매일 한국시간 오전 9시" -ForegroundColor Blue
+            Write-Host "🔗 문서 규칙: https://github.com/${{ github.repository }}/blob/main/docs/README.md" -ForegroundColor Blue
+          }
+        shell: pwsh
+        
+  notify-status:
+    name: 검사 결과 알림
+    runs-on: ubuntu-latest
+    needs: check-docs
+    if: always() && github.event_name == 'schedule'
+    
+    steps:
+      - name: 📨 검사 성공 알림
+        if: needs.check-docs.result == 'success'
+        run: |
+          echo "✅ SnapTXT 문서 상태: 정상"
+          echo "모든 필수 문서가 존재하며 최신 상태입니다."
+          
+      - name: 🚨 검사 실패 알림  
+        if: needs.check-docs.result == 'failure'
+        run: |
+          echo "❌ SnapTXT 문서 상태: 문제 발견"
+          echo "누락되거나 오래된 문서가 있습니다."
+          echo "🔗 액션 로그: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          exit 1

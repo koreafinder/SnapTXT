@@ -6,8 +6,13 @@ import sys
 import subprocess
 import json
 import time
-sys.path.append('.')
-from easyocr_worker import process_image_easyocr
+from pathlib import Path
+
+from snaptxt.backend.worker.easyocr_worker import process_image_easyocr
+
+WORKER_SCRIPT = (
+    Path(__file__).resolve().parent / "snaptxt" / "backend" / "worker" / "easyocr_worker.py"
+)
 
 def analyze_gui_difference():
     print('🔍 GUI vs 명령줄 Stage 2 결과 정확 분석')
@@ -35,7 +40,7 @@ def analyze_gui_difference():
     try:
         result = subprocess.run([
             sys.executable,
-            'easyocr_worker.py', 
+            str(WORKER_SCRIPT), 
             image_path, 
             'ko+en'
         ], capture_output=True, text=True, timeout=60)
@@ -83,7 +88,7 @@ def analyze_gui_difference():
             print('   💡 가능한 원인:')
             print('     - 임시 파일 처리 차이')
             print('     - JSON 파싱/전달 과정 차이')
-            print('     - multi_ocr_processor.py의 추가 처리')
+            print('     - snaptxt/backend/multi_engine.py의 추가 처리')
     else:
         print('   ⚠️ 모든 결과가 다름')
     

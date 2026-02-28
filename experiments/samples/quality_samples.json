@@ -1,0 +1,95 @@
+[
+  {
+    "id": "img4790_stage3",
+    "path": "uploads/IMG_4790.JPG",
+    "description": "Stage3 benchmark article image",
+    "tags": ["article", "baseline"],
+    "expected_length": 700,
+    "keywords": ["Michael", "Singer", "untethered"],
+    "min_confidence": 0.9
+  },
+  {
+    "id": "img4790_optimized",
+    "path": "uploads/IMG_4790_optimized.JPG",
+    "description": "Optimized JPG with sharpened edges",
+    "tags": ["article", "baseline"],
+    "expected_length": 700,
+    "min_confidence": 0.9
+  },
+  {
+    "id": "img4790_1000px",
+    "path": "uploads/IMG_4790_1000px.JPG",
+    "description": "1000px export for hi-res verification",
+    "tags": ["article", "hires"],
+    "expected_length": 705,
+    "min_confidence": 0.9
+  },
+  {
+    "id": "img4790_800px",
+    "path": "uploads/IMG_4790_800px.JPG",
+    "description": "800px export for hi-res verification",
+    "tags": ["article", "hires"],
+    "expected_length": 700,
+    "min_confidence": 0.9
+  },
+  {
+    "id": "img4790_600px",
+    "path": "uploads/IMG_4790_600px.JPG",
+    "description": "600px export to observe quality cliff",
+    "tags": ["article", "midres"],
+    "expected_length": 680,
+    "min_confidence": 0.85
+  },
+  {
+    "id": "img4790_mobile_small",
+    "path": "uploads/IMG_4790_small.JPG",
+    "description": "Mobile-captured variant (small resolution)",
+    "tags": ["article", "stress"],
+    "expected_length": 630,
+    "min_confidence": 0.6
+  },
+  {
+    "id": "img4790_compressed",
+    "path": "uploads/IMG_4790_480px.JPG",
+    "description": "Heavily compressed 480px export to stress denoise",
+    "tags": ["article", "stress"],
+    "expected_length": 600,
+    "min_confidence": 0.55
+  },
+  {
+    "id": "test_korean_clean",
+    "path": "uploads/test_korean_clean.png",
+    "description": "Synthetic Hangul block text for spacing accuracy",
+    "tags": ["synthetic", "hangul"],
+    "expected_length": 85,
+    "keywords": ["Numbers", "Mixed", "Testl23"],
+    "min_confidence": 0.95
+  },
+  {
+    "id": "test_ocr_mixed",
+    "path": "uploads/test_ocr_image.png",
+    "description": "Mixed-language test card with numerics",
+    "tags": ["synthetic", "mixed"],
+    "expected_length": 85,
+    "keywords": ["SnapTXT", "HELLO", "Numbers", "Mixed"],
+    "min_confidence": 0.95
+  },
+  {
+    "id": "quality_table_sample",
+    "path": "uploads/quality_table_sample.png",
+    "description": "Synthetic KPI table with alternating rows",
+    "tags": ["table", "synthetic"],
+    "expected_length": 120,
+    "keywords": ["SnapTXT", "OCR", "분기", "정확도"],
+    "min_confidence": 0.92
+  },
+  {
+    "id": "lowlight_note_sample",
+    "path": "uploads/lowlight_note_sample.png",
+    "description": "Low-light memo with uneven lighting",
+    "tags": ["lowlight", "stress"],
+    "expected_length": 110,
+    "keywords": ["Tel", "합계", "SnapTXT"],
+    "min_confidence": 0.8
+  }
+]

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import logging
+import time
 
 from dataclasses import dataclass, asdict, replace
 from pathlib import Path
@@ -11,6 +12,7 @@ from typing import Any, Dict, Optional, Union
 from snaptxt.postprocess import Stage2Config, Stage3Config, run_pipeline as run_postprocess
 
 from . import multi_engine
+from .logging import get_json_logger, log_event
 
 
 PathLike = Union[str, Path]
@@ -45,12 +47,22 @@ class OCRPipeline:
         self.config = config or OCRPipelineConfig()
         self._engine = multi_engine.load_default_engine()
         self.logger = logging.getLogger(__name__)
+        self.audit_logger = get_json_logger("snaptxt.backend.pipeline")
 
     def process_path(self, file_path: PathLike) -> PipelineResult:
         """Process a single image path and return structured output."""
 
         normalized_path = str(Path(file_path))
+        start_time = time.perf_counter()
         engine_settings = self._build_engine_settings()
+        log_event(
+            self.audit_logger,
+            "pipeline.process.start",
+            source=normalized_path,
+            languages=list(self.config.languages),
+            preprocessing_level=self.config.preprocessing_level,
+            enable_postprocess=self.config.enable_postprocess,
+        )
         raw_text = self._engine.process_file(normalized_path, engine_settings)
         final_text = self._apply_postprocess(raw_text)
         success = self._infer_success(final_text)
@@ -59,6 +71,14 @@ class OCRPipeline:
             "config": asdict(self.config),
             "postprocess": {"enabled": self.config.enable_postprocess},
         }
+        log_event(
+            self.audit_logger,
+            "pipeline.process.complete",
+            source=normalized_path,
+            success=success,
+            text_length=len(final_text),
+            duration=round(time.perf_counter() - start_time, 3),
+        )
         return PipelineResult(
             success=success,
             text=final_text,

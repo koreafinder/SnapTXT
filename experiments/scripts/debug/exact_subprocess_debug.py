@@ -9,6 +9,12 @@ import tempfile
 import os
 from pathlib import Path
 
+from snaptxt.backend.worker.easyocr_worker import process_image_easyocr
+
+WORKER_SCRIPT = (
+    Path(__file__).resolve().parent / "snaptxt" / "backend" / "worker" / "easyocr_worker.py"
+)
+
 def debug_exact_subprocess():
     print('🔍 GUI Subprocess 정확한 디버깅')
     print('='*50)
@@ -28,7 +34,7 @@ def debug_exact_subprocess():
         # GUI와 완전히 동일한 subprocess 호출
         result = subprocess.run([
             sys.executable,
-            'easyocr_worker.py',
+            str(WORKER_SCRIPT),
             tmp_path,
             'ko+en'
         ], capture_output=True, text=True, timeout=60)
@@ -48,9 +54,6 @@ def debug_exact_subprocess():
 def debug_direct_call():
     print('📊 직접 함수 호출 테스트')
     try:
-        sys.path.append('.')
-        from easyocr_worker import process_image_easyocr
-        
         result = process_image_easyocr('IMG_4790_test.jpg')
         if result['success']:
             return len(result['text']), result['text'][:100]
@@ -76,7 +79,7 @@ def main():
     
     if sub_len == 791 and dir_len == 797:
         print('\n🔍 문제 확인됨: Subprocess 환경에서 다른 결과')
-        print('💡 해결책: easyocr_worker.py에 환경별 디버깅 추가')
+        print('💡 해결책: snaptxt/backend/worker/easyocr_worker.py에 환경별 디버깅 추가')
 
 if __name__ == '__main__':
     main()

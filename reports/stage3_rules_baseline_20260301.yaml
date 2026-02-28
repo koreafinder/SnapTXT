@@ -1,0 +1,397 @@
+spacing:
+  fixed_patterns:
+    - pattern: '마\s*이\s*클\s*싱\s*어'
+      replacement: 마이클 싱어
+    - pattern: '마\s*이\s*클(?!\s*싱)'
+      replacement: 마이클
+    - pattern: '오\s*프\s*라\s*윈\s*프\s*리'
+      replacement: 오프라 윈프리
+    - pattern: '사\s*람\s*들'
+      replacement: 사람들
+    - pattern: '사\s*람'
+      replacement: 사람
+    - pattern: '한\s*국\s*어'
+      replacement: 한국어
+    - pattern: '철\s*학'
+      replacement: 철학
+    - pattern: '심\s*리\s*학'
+      replacement: 심리학
+    - pattern: '중\s*요\s*한'
+      replacement: 중요한
+    - pattern: '어\s*려\s*운'
+      replacement: 어려운
+    - pattern: '새\s*로\s*운'
+      replacement: 새로운
+    - pattern: '유\s*명\s*한'
+      replacement: 유명한
+    - pattern: '완\s*전\s*히'
+      replacement: 완전히
+    - pattern: '정\s*말'
+      replacement: 정말
+    - pattern: '내\s*용'
+      replacement: 내용
+    - pattern: '방\s*법'
+      replacement: 방법
+    - pattern: '핵\s*심'
+      replacement: 핵심
+    - pattern: '바\s*로'
+      replacement: 바로
+    - pattern: '연\s*구'
+      replacement: 연구
+    - pattern: '작\s*가'
+      replacement: 작가
+    - pattern: '언\s*어'
+      replacement: 언어
+    - pattern: '체\s*험'
+      replacement: 체험
+    - pattern: '분\s*야\s*에'
+      replacement: 분야에
+    - pattern: 책
+      replacement: 책
+    - pattern: '철\s*학\s*적'
+      replacement: 철학적
+    - pattern: '사\s*고\s*방\s*식'
+      replacement: 사고 방식
+    - pattern: '처\s*음\s*으\s*로'
+      replacement: 처음으로
+    - pattern: '폭\s*발\s*적\s*으\s*로'
+      replacement: 폭발적으로
+    - pattern: '그\s*래\s*서'
+      replacement: 그래서
+    - pattern: '따\s*라\s*서'
+      replacement: 따라서
+    - pattern: '하\s*지\s*만'
+      replacement: 하지만
+    - pattern: '그\s*러\s*나'
+      replacement: 그러나
+    - pattern: '그\s*러\s*면'
+      replacement: 그러면
+    - pattern: '그\s*것(?=\s*이)'
+      replacement: 그것
+    - pattern: '이\s*것(?=\s*이)'
+      replacement: 이것
+    - pattern: '그\s*의(?=\s)'
+      replacement: '그의 '
+    - pattern: '시\s*작'
+      replacement: 시작
+    - pattern: '증\s*가'
+      replacement: 증가
+    - pattern: '감\s*동'
+      replacement: 감동
+    - pattern: '이\s*해'
+      replacement: 이해
+    - pattern: '다\s*룹'
+      replacement: 다룹
+    - pattern: '사\s*고(?=\s*(?:를|을|이|가|은|는|에|와|과|로|으로|도|만))'
+      replacement: 사고
+  long_eomis:
+    - pattern: '하\s*겠\s*습\s*니\s*다'
+      replacement: 하겠습니다
+    - pattern: '해\s*보\s*겠\s*습\s*니\s*다'
+      replacement: 해보겠습니다
+    - pattern: '했\s*습\s*니\s*다'
+      replacement: 했습니다
+    - pattern: '있\s*습\s*니\s*다'
+      replacement: 있습니다
+    - pattern: '없\s*습\s*니\s*다'
+      replacement: 없습니다
+    - pattern: '됩\s*니\s*다'
+      replacement: 됩니다
+    - pattern: '입\s*니\s*다'
+      replacement: 입니다
+    - pattern: '습\s*니\s*다'
+      replacement: 습니다
+    - pattern: '모\s*였\s*습\s*니\s*다'
+      replacement: 모였습니다
+    - pattern: '받\s*았\s*습\s*니\s*다'
+      replacement: 받았습니다
+    - pattern: '증\s*가\s*했\s*습\s*니\s*다'
+      replacement: 증가했습니다
+  josas:
+    - 은
+    - 는
+    - 이
+    - 가
+    - 을
+    - 를
+    - 의
+    - 에
+    - 에서
+    - 에게
+    - 로
+    - 으로
+    - 와
+    - 과
+    - 도
+    - 만
+  safe_two_char_words:
+    - 그의
+    - 이것
+    - 그것
+    - 모든
+    - 다른
+    - 같은
+    - 이런
+    - 그런
+    - 어떤
+
+characters:
+  replacements:
+    헬: 할
+    듀: 두
+    옷: 것
+    든: 든
+    른: 른
+    픈: 픈
+    내숭: 내용
+    세제: 세계
+    했슴니다: 했습니다
+    있슴니다: 있습니다
+    없슴니다: 없습니다
+    됨슴니다: 됩니다
+    됩슴니다: 됩니다
+    됩니다: 됩니다
+    합니다: 합니다
+    이다: 이다
+    입니다: 입니다
+    니다: 니다
+    몽: 목
+    뜨: 때
+    롱: 로
+    묘: 며
+    휴: 휘
+    '0': o
+    '1': l
+    '5': S
+    업다: 없다
+    잆다: 있다
+    갔다: 갔다
+    왔다: 왔다
+    죄: 좌
+    좌: 좌
+    우: 우
+    철학: 철학
+    심리혁: 심리학
+    사회혁: 사회학
+    정치혁: 정치학
+    경제혁: 경제학
+    드러워습니다: 드러났습니다
+    드러낫습니다: 드러났습니다
+    드러내었습니다: 드러냈습니다
+    돌두했습니다: 몰두했습니다
+    돌두하였다: 몰두하였다
+    돌두하고: 몰두하고
+  contextual:
+    - wrong: 헐 수 있
+      correct: 할 수 있
+    - wrong: 헤 수 있
+      correct: 할 수 있
+    - wrong: 혼 수 있
+      correct: 할 수 있
+    - wrong: 그옷은
+      correct: 그것은
+    - wrong: 그옷이
+      correct: 그것이
+    - wrong: 그옷을
+      correct: 그것을
+    - wrong: 뜨문에
+      correct: 때문에
+    - wrong: 때운에
+      correct: 때문에
+    - wrong: 때분에
+      correct: 때문에
+    - wrong: 몽적
+      correct: 목적
+    - wrong: 목젹
+      correct: 목적
+    - wrong: 사앰들
+      correct: 사람들
+    - wrong: 사럼들
+      correct: 사람들
+    - wrong: 했슴
+      correct: 했습
+    - wrong: 있슴
+      correct: 있습
+    - wrong: 없슴
+      correct: 없습
+    - wrong: 됨슴
+      correct: 됨습
+    - wrong: 돌두
+      correct: 몰두
+    - wrong: 돌두해
+      correct: 몰두해
+    - wrong: 돌두하
+      correct: 몰두하
+  regex:
+    - pattern: '([가-힣]+)슴니다(?=\s|$|[.!?])'
+      replacement: '\1습니다'
+    - pattern: '([가-힣]+)씀니다(?=\s|$|[.!?])'
+      replacement: '\1습니다'
+    - pattern: '(?<=\d)o(?=\d)'
+      replacement: '0'
+    - pattern: '(?<=\d)o(?=[lI])'
+      replacement: '0'
+    - pattern: '(?<=\d)o(?=\s*(?:년|월|일|대|위|분|초))'
+      replacement: '0'
+    - pattern: '(?<=\d)l(?=\d)'
+      replacement: '1'
+    - pattern: '(?<![A-Za-z0-9])l(?=\d{2})'
+      replacement: '1'
+    - pattern: '(?<=\d)S(?=\s*년)'
+      replacement: '5'
+    - pattern: '(?i)www\s*\.?\s*untetheredsoul\s*\.?\s*com'
+      replacement: 'www.untetheredsoul.com'
+    - pattern: '(?i)untetheredsoul\s*\.?\s*com'
+      replacement: 'www.untetheredsoul.com'
+
+endings:
+  - name: 과거형 정규화
+    patterns:
+      - pattern: '했었다(?=\s|$|[.!?])'
+        replacement: 했다
+      - pattern: '([가-힣]+)했었다(?=\s|$|[.!?])'
+        replacement: '\1했다'
+      - pattern: '갔었다(?=\s|$|[.!?])'
+        replacement: 갔다
+      - pattern: '([가-힣]+)갔었다(?=\s|$|[.!?])'
+        replacement: '\1갔다'
+      - pattern: '왔었다(?=\s|$|[.!?])'
+        replacement: 왔다
+      - pattern: '([가-힣]+)왔었다(?=\s|$|[.!?])'
+        replacement: '\1왔다'
+      - pattern: '봤었다(?=\s|$|[.!?])'
+        replacement: 봤다
+      - pattern: '([가-힣]+)봤었다(?=\s|$|[.!?])'
+        replacement: '\1봤다'
+      - pattern: '살았었다(?=\s|$|[.!?])'
+        replacement: 살았다
+      - pattern: '([가-힣]+)살았었다(?=\s|$|[.!?])'
+        replacement: '\1살았다'
+      - pattern: '있었었다(?=\s|$|[.!?])'
+        replacement: 있었다
+      - pattern: '([가-힣]+)있었었다(?=\s|$|[.!?])'
+        replacement: '\1있었다'
+      - pattern: '없었었다(?=\s|$|[.!?])'
+        replacement: 없었다
+      - pattern: '([가-힣]+)없었었다(?=\s|$|[.!?])'
+        replacement: '\1없었다'
+      - pattern: '읽었었다(?=\s|$|[.!?])'
+        replacement: 읽었다
+      - pattern: '([가-힣]+)읽었었다(?=\s|$|[.!?])'
+        replacement: '\1읽었다'
+      - pattern: '썼었다(?=\s|$|[.!?])'
+        replacement: 썼다
+      - pattern: '([가-힣]+)썼었다(?=\s|$|[.!?])'
+        replacement: '\1썼다'
+      - pattern: '받았었다(?=\s|$|[.!?])'
+        replacement: 받았다
+      - pattern: '([가-힣]+)받았었다(?=\s|$|[.!?])'
+        replacement: '\1받았다'
+      - pattern: '갔었고(?=\s|$|[.!?])'
+        replacement: 갔고
+      - pattern: '왔었고(?=\s|$|[.!?])'
+        replacement: 왔고
+      - pattern: '했었고(?=\s|$|[.!?])'
+        replacement: 했고
+      - pattern: '봤었고(?=\s|$|[.!?])'
+        replacement: 봤고
+      - pattern: '읽었었고(?=\s|$|[.!?])'
+        replacement: 읽었고
+      - pattern: '받았었고(?=\s|$|[.!?])'
+        replacement: 받았고
+      - pattern: '했었습니다(?=\s|$|[.!?])'
+        replacement: 했습니다
+      - pattern: '갔었습니다(?=\s|$|[.!?])'
+        replacement: 갔습니다
+      - pattern: '왔었습니다(?=\s|$|[.!?])'
+        replacement: 왔습니다
+      - pattern: '있었었습니다(?=\s|$|[.!?])'
+        replacement: 있었습니다
+      - pattern: '썼었습니다(?=\s|$|[.!?])'
+        replacement: 썼습니다
+      - pattern: '읽었었습니다(?=\s|$|[.!?])'
+        replacement: 읽었습니다
+      - pattern: '받았었습니다(?=\s|$|[.!?])'
+        replacement: 받았습니다
+  - name: 축약형 정규화
+    patterns:
+      - pattern: '되었다(?=\s|$|[.!?])'
+        replacement: 됐다
+      - pattern: '되었습니다(?=\s|$|[.!?])'
+        replacement: 됐습니다
+      - pattern: '되었던(?=\s|$|[.!?])'
+        replacement: 됐던
+      - pattern: '하였다(?=\s|$|[.!?])'
+        replacement: 했다
+      - pattern: '하였습니다(?=\s|$|[.!?])'
+        replacement: 했습니다
+      - pattern: '이었다(?=\s|$|[.!?])'
+        replacement: 였다
+      - pattern: '이었습니다(?=\s|$|[.!?])'
+        replacement: 였습니다
+      - pattern: '했댔다(?=\s|$|[.!?])'
+        replacement: 했다
+      - pattern: '갔댔다(?=\s|$|[.!?])'
+        replacement: 갔다
+      - pattern: '([가-힣]+)엤다(?=\s|$|[.!?])'
+        replacement: '\1었다'
+  - name: 존댓말 정규화
+    patterns:
+      - pattern: '하슴니다(?=\s|$|[.!?])'
+        replacement: 합니다
+      - pattern: '해슴니다(?=\s|$|[.!?])'
+        replacement: 합니다
+      - pattern: '하십니다(?=\s|$|[.!?])'
+        replacement: 합니다
+      - pattern: '계십니다(?=\s|$|[.!?])'
+        replacement: 있습니다
+      - pattern: '([가-힣]+)읍니다(?=\s|$|[.!?])'
+        replacement: '\1습니다'
+      - pattern: '([가-힣]+)ㅂ니다(?=\s|$|[.!?])'
+        replacement: '\1습니다'
+      - pattern: '([가-힣]+)슴니다(?=\s|$|[.!?])'
+        replacement: '\1습니다'
+  - name: 어미 연결
+    patterns:
+      - pattern: '할\s+거\s+다(?=\s|$|[.!?])'
+        replacement: 할 거다
+      - pattern: '할\s+수\s+있\s+다(?=\s|$|[.!?])'
+        replacement: 할 수 있다
+      - pattern: '될\s+수\s+있\s+다(?=\s|$|[.!?])'
+        replacement: 될 수 있다
+      - pattern: '([가-힣]+)\s+을\s+것(?=\s|$|[.!?])'
+        replacement: '\1을 것'
+      - pattern: '([가-힣]+)\s+을\s+때(?=\s|$|[.!?])'
+        replacement: '\1을 때'
+      - pattern: '([가-힣]+)\s+을\s+수(?=\s|$|[.!?])'
+        replacement: '\1을 수'
+      - pattern: '읽\s+을\s+것(?=\s|$|[.!?])'
+        replacement: 읽을 것
+      - pattern: '쓸\s+것(?=\s|$|[.!?])'
+        replacement: 쓸 것
+      - pattern: '([가-힣]+)\s+면\s+서(?=\s|$|[.!?])'
+        replacement: '\1면서'
+      - pattern: '([가-힣]+)\s+지\s+만(?=\s|$|[.!?])'
+        replacement: '\1지만'
+      - pattern: '([가-힣]+)\s+기\s+때\s+문에(?=\s|$|[.!?])'
+        replacement: '\1기 때문에'
+  - name: 문체 일관성
+    patterns:
+      - pattern: '([가-힣]+)거야(?=\s|$|[.!?])'
+        replacement: '\1것이다'
+      - pattern: '([가-힣]+)걸(?=\s|$|[.!?])'
+        replacement: '\1것을'
+      - pattern: '좋네요(?=\s|$|[.!?])'
+        replacement: 좋습니다
+      - pattern: '그래요(?=\s|$|[.!?])'
+        replacement: 그렇습니다
+      - pattern: '([가-힣]+)네요(?=\s|$|[.!?])'
+        replacement: '\1습니다'
+      - pattern: '([가-힣]+)에요(?=\s|$|[.!?])'
+        replacement: '\1입니다'
+      - pattern: '맞아요(?=\s|$|[.!?])'
+        replacement: 맞습니다
+      - pattern: '아니에요(?=\s|$|[.!?])'
+        replacement: 아닙니다
+      - pattern: '괜찮아요(?=\s|$|[.!?])'
+        replacement: 괜찮습니다
