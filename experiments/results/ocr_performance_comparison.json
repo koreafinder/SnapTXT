@@ -1,0 +1,88 @@
+{
+  "test_date": "2026-03-02 05:08:37",
+  "summary": {
+    "avg_lengths": {
+      "original": 0.0,
+      "adaptive": 0.0,
+      "legacy": 0.0
+    },
+    "avg_confidence": {
+      "original": 0.0,
+      "adaptive": 0.0,
+      "legacy": 0.0
+    },
+    "improvement": {
+      "vs_original": 0,
+      "vs_legacy": 0
+    },
+    "consistency": {
+      "adaptive_cv": 0,
+      "legacy_cv": 0
+    }
+  },
+  "detailed_results": [
+    {
+      "filename": "IMG_4793.JPG",
+      "methods": {
+        "원본": {
+          "text_length": 0,
+          "confidence": 0.0,
+          "text_preview": ""
+        },
+        "Adaptive": {
+          "text_length": 0,
+          "confidence": 0.0,
+          "text_preview": "",
+          "page_type": "TYPE_C"
+        },
+        "레거시": {
+          "text_length": 0,
+          "confidence": 0.0,
+          "text_preview": ""
+        }
+      }
+    },
+    {
+      "filename": "IMG_4794.JPG",
+      "methods": {
+        "원본": {
+          "text_length": 0,
+          "confidence": 0.0,
+          "text_preview": ""
+        },
+        "Adaptive": {
+          "text_length": 0,
+          "confidence": 0.0,
+          "text_preview": "",
+          "page_type": "TYPE_C"
+        },
+        "레거시": {
+          "text_length": 0,
+          "confidence": 0.0,
+          "text_preview": ""
+        }
+      }
+    },
+    {
+      "filename": "IMG_4795.JPG",
+      "methods": {
+        "원본": {
+          "text_length": 0,
+          "confidence": 0.0,
+          "text_preview": ""
+        },
+        "Adaptive": {
+          "text_length": 0,
+          "confidence": 0.0,
+          "text_preview": "",
+          "page_type": "TYPE_C"
+        },
+        "레거시": {
+          "text_length": 0,
+          "confidence": 0.0,
+          "text_preview": ""
+        }
+      }
+    }
+  ]
+}

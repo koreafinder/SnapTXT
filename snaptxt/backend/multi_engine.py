@@ -14,6 +14,19 @@ from pathlib import Path
 from snaptxt.preprocess import apply_default_filters, smart_preprocess_image
 from .logging import get_json_logger, log_event
 
+# Adaptive 전처리 시스템 import
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
+try:
+    from minimal_adaptive_preprocessor import MinimalAdaptivePreprocessor
+    ADAPTIVE_PREPROCESSING_AVAILABLE = True
+    _adaptive_preprocessor = MinimalAdaptivePreprocessor()
+    logging.getLogger(__name__).info("✅ Adaptive 전처리 시스템 로드 성공")
+except ImportError as e:
+    ADAPTIVE_PREPROCESSING_AVAILABLE = False
+    _adaptive_preprocessor = None
+    logging.getLogger(__name__).warning(f"⚠️ Adaptive 전처리 시스템 로드 실패: {e}")
+
 logger = logging.getLogger(__name__)
 
 
@@ -131,37 +144,62 @@ class MultiOCRProcessor:
         logger.info("✅ EasyOCR 전용 모드로 초기화 완료 - 단순화된 고성능 OCR 시스템")
     
     def preprocess_image(self, image: Union[np.ndarray, Image.Image], 
-                        preprocessing_level: int = 1, use_scientific: bool = False) -> np.ndarray:
+                        preprocessing_level: int = 1, use_adaptive: bool = True) -> np.ndarray:
         """
         이미지 전처리를 통한 OCR 정확도 향상
         
         Args:
             image: 입력 이미지
-            preprocessing_level: 레거시 전처리 레벨 (1-3)
-            use_scientific: 과학적 전처리 시스템 사용 여부
+            preprocessing_level: 레거시 전처리 레벨 (1-3) - Adaptive 실패시에만 사용
+            use_adaptive: Adaptive 전처리 시스템 사용 여부
             
         Returns:
             전처리된 이미지
         """
-        if use_scientific:
-            logger.info("🔬 과학적 전처리 시스템 사용")
-            processed_image, metrics, plan = smart_preprocess_image(image)
+        # PIL Image를 numpy array로 변환
+        if isinstance(image, Image.Image):
+            image = np.array(image)
             
-            # 품질 정보 로깅
-            logger.info(f"   품질 점수: {metrics.overall_quality:.3f}")
-            logger.info(f"   적용 액션: {len(plan.actions)}개")
-            logger.info(f"   근거: {plan.rationale}")
-            logger.info(f"   신뢰도: {plan.confidence:.3f}")
+        if use_adaptive and ADAPTIVE_PREPROCESSING_AVAILABLE and _adaptive_preprocessor:
+            logger.info("🎯 Adaptive 전처리 시스템 사용")
             
-            return processed_image
-        else:
-            logger.info(f"🏗️ 레거시 전처리 시스템 사용 (레벨 {preprocessing_level})")
+            try:
+                result = _adaptive_preprocessor.process(image)
+                
+                # 전처리 정보 로깅
+                logger.info(f"   🏆 분류된 타입: {result.page_type.value}")
+                logger.info(f"   📊 처리 시간: {result.processing_time:.3f}초")
+                logger.info(f"   🔧 밝기표준편차: {result.metrics.brightness_std:.1f}")
+                logger.info(f"   📈 좌우차이: {result.metrics.lr_gradient:.1f}")
+                
+                # SKIP 타입인 경우 원본 반환
+                if result.page_type.value == 'SKIP':
+                    logger.warning("   ⚠️ 텍스트 없는 페이지로 분류됨 - 원본 사용")
+                    return image
+                    
+                logger.info(f"   ✅ Adaptive 전처리 완료")
+                return result.processed_image
+                
+            except Exception as e:
+                logger.warning(f"⚠️ Adaptive 전처리 실패, 레거시 시스템 사용: {e}")
+                # Adaptive 실패시 레거시 시스템으로 fallback
+                return apply_default_filters(
+                    image,
+                    level=preprocessing_level,
+                    logger_override=logger,
+                )
+                
+        elif use_adaptive and not ADAPTIVE_PREPROCESSING_AVAILABLE:
+            logger.warning("⚠️ Adaptive 전처리 시스템을 사용할 수 없습니다. 레거시 시스템 사용")
             
-            return apply_default_filters(
-                image,
-                level=preprocessing_level,
-                logger_override=logger,
-            )
+        # 레거시 전처리 시스템 (Adaptive disable이거나 사용 불가시)
+        logger.info(f"🏗️ 레거시 전처리 시스템 사용 (레벨 {preprocessing_level})")
+        
+        return apply_default_filters(
+            image,
+            level=preprocessing_level,
+            logger_override=logger,
+        )
     
     def extract_text_easyocr(self, image: np.ndarray, language: str = 'ko,en') -> str:
         """EasyOCR을 사용한 텍스트 추출 (프로세스 분리 방식)"""
@@ -195,15 +233,19 @@ class MultiOCRProcessor:
                 mod_time = datetime.datetime.fromtimestamp(mtime)
                 logger.info(f"🔍 워커 스크립트 수정 시간: {mod_time}")
             
-            # 가상환경 우선 순위로 워커 해상도 결정 (필요 시 현재 해석기 사용)
+            # 현재 Python 환경 우선 사용 (snaptxt 모듈이 설치된 환경)
             import os
             import sys
             project_dir = Path(__file__).resolve().parents[2]
+            
+            # 현재 Python을 우선으로, venv_new는 백업으로 사용
+            python_candidates = [
+                ("current", sys.executable),
+            ]
             venv_python = project_dir / '.venv_new' / 'Scripts' / 'python.exe'
-            python_candidates = []
             if venv_python.exists():
                 python_candidates.append(("venv_new", str(venv_python)))
-            python_candidates.append(("current", sys.executable))
+                
             python_executable = None
             for label, candidate in python_candidates:
                 if candidate and os.path.exists(candidate):
@@ -217,14 +259,14 @@ class MultiOCRProcessor:
             env = os.environ.copy()
             env["PYTHONIOENCODING"] = "utf-8"
             project_root = project_dir
-            env_path = env.get("PYTHONPATH", "")
-            if str(project_root) not in env_path.split(os.pathsep):
-                env["PYTHONPATH"] = f"{project_root}{os.pathsep}{env_path}" if env_path else str(project_root)
+            
+            # PYTHONPATH 강제 설정 - 가상환경에서도 snaptxt 모듈 인식 보장
+            env["PYTHONPATH"] = str(project_root)
+            logger.info(f"🔧 subprocess PYTHONPATH 설정: {project_root}")
 
             result = subprocess.run([
                 python_executable,
-                "-m",
-                worker_module,
+                str(worker_script),  # 직접 스크립트 파일 실행
                 tmp_path,
                 language
             ], capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=120, cwd=str(project_root), env=env)
@@ -238,7 +280,13 @@ class MultiOCRProcessor:
             
             if result.returncode == 0:
                 try:
+                    # 디버깅: 워커 응답 전체 확인
+                    logger.info(f"🔍 워커 stdout 전체: {result.stdout}")
+                    logger.info(f"🔍 워커 stdout 길이: {len(result.stdout)}")
+                    
                     response = json.loads(result.stdout)
+                    logger.info(f"🔍 파싱된 JSON: success={response.get('success')}, text_len={len(response.get('text', ''))}")
+                    
                     if response['success']:
                         response_text = response['text']
                         response_len = len(response_text)
@@ -254,7 +302,9 @@ class MultiOCRProcessor:
                     logger.error(f"원본 stdout: {result.stdout[:500]}...")
                     return ""
             else:
-                logger.error(f"EasyOCR 워커 프로세스 실패 (코드 {result.returncode}): {result.stderr}")
+                logger.error(f"🚨 EasyOCR 워커 프로세스 실패 (코드 {result.returncode})")
+                logger.error(f"🚨 stderr: {result.stderr}")
+                logger.error(f"🚨 stdout: {result.stdout}")
                 return ""
                 
         except subprocess.TimeoutExpired:
@@ -328,16 +378,16 @@ class MultiOCRProcessor:
             else:
                 cv_image = image_array
             
-            # 이미지 전처리 - 과학적 전처리 시스템 활성화
-            use_scientific = settings.get('use_scientific', True)  # 기본값: 과학적 전처리 사용
+            # 이미지 전처리 - Adaptive 전처리 시스템 활성화
+            use_adaptive = settings.get('use_adaptive', True)  # 기본값: Adaptive 전처리 사용
             preprocessing_level = settings.get('preprocessing_level', 2)  # 기본값: 중간 레벨
             
-            if use_scientific:
-                logger.info("🔬 과학적 전처리 시스템으로 이미지 처리 중...")
-                processed_image = self.preprocess_image(cv_image, use_scientific=True)
+            if use_adaptive:
+                logger.info("🎯 Adaptive 전처리 시스템으로 이미지 처리 중...")
+                processed_image = self.preprocess_image(cv_image, use_adaptive=True)
             elif preprocessing_level > 0:
                 logger.info(f"🏗️ 레거시 전처리 시스템으로 이미지 처리 중 (레벨 {preprocessing_level})...")
-                processed_image = self.preprocess_image(cv_image, preprocessing_level=preprocessing_level, use_scientific=False)
+                processed_image = self.preprocess_image(cv_image, preprocessing_level=preprocessing_level, use_adaptive=False)
             else:
                 logger.info("🔧 원본 이미지 사용 (전처리 비활성화)...")
                 processed_image = cv_image

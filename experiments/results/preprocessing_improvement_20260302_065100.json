@@ -1,0 +1,100 @@
+{
+  "timestamp": "20260302_065100",
+  "summary": {
+    "avg_previous_score": 7.040000000000001,
+    "avg_current_score": 7.127148151791374,
+    "avg_improvement": 0.08714815179137325,
+    "improved_count": 4,
+    "unchanged_count": 0,
+    "worsened_count": 1
+  },
+  "detailed_results": [
+    {
+      "file": "IMG_4790.JPG",
+      "success": true,
+      "length": 706,
+      "processing_time": 49.95060181617737,
+      "current_score": 7.619437340153453,
+      "previous_score": 7.9,
+      "improvement": -0.28056265984654694,
+      "score_data": {
+        "total_score": 7.619437340153453,
+        "keyword_score": 3.2,
+        "length_score": 3.0,
+        "structure_score": 1.4194373401534528,
+        "details": "키워드 4/5, 길이비율 0.88, 구조유사도 0.47"
+      }
+    },
+    {
+      "file": "IMG_4791.JPG",
+      "success": true,
+      "length": 143,
+      "processing_time": 41.34669232368469,
+      "current_score": 7.275,
+      "previous_score": 7.0,
+      "improvement": 0.27500000000000036,
+      "score_data": {
+        "total_score": 7.275,
+        "keyword_score": 2.4,
+        "length_score": 3.0,
+        "structure_score": 1.875,
+        "details": "키워드 3/5, 길이비율 1.43, 구조유사도 0.62"
+      }
+    },
+    {
+      "file": "IMG_4792.JPG",
+      "success": true,
+      "length": 105,
+      "processing_time": 42.61507058143616,
+      "current_score": 6.716666666666667,
+      "previous_score": 6.3,
+      "improvement": 0.41666666666666696,
+      "score_data": {
+        "total_score": 6.716666666666667,
+        "keyword_score": 2.6666666666666665,
+        "length_score": 2.4,
+        "structure_score": 1.6500000000000001,
+        "details": "키워드 4/6, 길이비율 2.10, 구조유사도 0.55"
+      }
+    },
+    {
+      "file": "IMG_4793.JPG",
+      "success": true,
+      "length": 624,
+      "processing_time": 48.36038327217102,
+      "current_score": 7.004444444444445,
+      "previous_score": 7.0,
+      "improvement": 0.004444444444445139,
+      "score_data": {
+        "total_score": 7.004444444444445,
+        "keyword_score": 2.4,
+        "length_score": 3.0,
+        "structure_score": 1.6044444444444446,
+        "details": "키워드 3/5, 길이비율 1.25, 구조유사도 0.53"
+      }
+    },
+    {
+      "file": "IMG_4794.JPG",
+      "success": true,
+      "length": 825,
+      "processing_time": 49.71021580696106,
+      "current_score": 7.020192307692308,
+      "previous_score": 7.0,
+      "improvement": 0.020192307692307843,
+      "score_data": {
+        "total_score": 7.020192307692308,
+        "keyword_score": 2.4,
+        "length_score": 3.0,
+        "structure_score": 1.6201923076923075,
+        "details": "키워드 3/5, 길이비율 1.38, 구조유사도 0.54"
+      }
+    }
+  ],
+  "gpt_improvements": [
+    "상/하 그라데이션 감지 추가",
+    "분류 순서 최적화 (TYPE_C 우선)",
+    "cv2.divide 평탄화 안정화",
+    "CLAHE clipLimit 1.5로 약화",
+    "Fallback 전략 세분화"
+  ]
+}

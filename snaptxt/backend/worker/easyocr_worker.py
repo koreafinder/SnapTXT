@@ -58,41 +58,45 @@ def _run_stage2(text: str) -> str:
 
 
 def _run_stage3(text: str) -> str:
+    """안전한 Stage3: paragraph_formatting만 비활성화한 버전"""
     cfg = Stage3Config(
-        enable_spacing_normalization=True,
-        enable_character_fixes=True,
-        enable_ending_normalization=True,
-        enable_paragraph_formatting=True,  # 문단 나누기 활성화
+        enable_spacing_normalization=True,    # ✅ 안전
+        enable_character_fixes=True,          # ✅ 안전  
+        enable_ending_normalization=True,     # ✅ 안전
+        enable_paragraph_formatting=False,    # 🚨 비활성화 - 텍스트 삭제 방지
+        enable_spellcheck_enhancement=True,   # ✅ 안전
+        enable_punctuation_normalization=True, # ✅ 안전
         logger=_STAGE3_LOGGER,
     )
     return apply_stage3_rules(text, cfg)
 
 
 def advanced_korean_text_processor(text: str) -> str:
-    """Stage 2 + Stage 3 파이프라인을 실행하고 기본 정리를 적용한다."""
+    """안전한 Stage2 + Stage3 파이프라인 (paragraph_formatting 비활성화)"""
 
     if not text:
+        print(f"🔍 [DEBUG] 빈 텍스트 입력", file=sys.stderr)
         return ""
 
+    print(f"🔍 [DEBUG] 처리 전: {len(text)}자", file=sys.stderr)
+    
+    # 기본 정규화
     text = text.replace("\r\n", "\n").replace("\r", "\n")
-    text = _run_stage2(text)
-    text = _run_stage3(text)
     
-    # 추가적인 직접 수정
-    import re
-    text = re.sub(r'을\s*컷\s*고', '올랐고', text)
-    text = re.sub(r'WW\s+www\.\s*untetheredsoul\.\s*com', 'www.untetheredsoul.com', text)
-    text = re.sub(r'두\s*엇\s*던', '두었던', text)
-    text = re.sub(r'자아\s*을', '자아를', text) 
-    text = re.sub(r'이후세속적인', '이후 세속적인', text)
-    text = re.sub(r'젓이다', '것이다', text)  # 핵심 패턴
-    text = re.sub(r'수앍게', '수 있게', text)
-    text = re.sub(r'되므로이', '되므로 이', text)
-    text = re.sub(r'일지률', '일지를', text)
-    text = re.sub(r'일지롭다', '일지를 다', text)
+    # Stage2 실행
+    stage2_result = _run_stage2(text)
+    print(f"🔍 [DEBUG] Stage2 후: {len(stage2_result)}자", file=sys.stderr)
     
-    lines = [line.strip() for line in text.split("\n") if line.strip()]
-    return "\n".join(lines)
+    # 안전한 Stage3 실행 (paragraph_formatting 비활성화)
+    stage3_result = _run_stage3(stage2_result)
+    print(f"🔍 [DEBUG] 안전한 Stage3 후: {len(stage3_result)}자", file=sys.stderr)
+    
+    # 라인 정리
+    lines = [line.strip() for line in stage3_result.split("\n") if line.strip()]
+    result = "\n".join(lines)
+    print(f"🔍 [DEBUG] 최종 결과: {len(result)}자", file=sys.stderr)
+    
+    return result
 
 
 def normalize_spacing_overseparation(text: str) -> str:
@@ -137,7 +141,15 @@ def _build_reader(languages: Iterable[str]) -> easyocr.Reader:
 
 def _postprocess_blocks(blocks: Iterable[str]) -> str:
     joined = "\n".join(block.strip() for block in blocks if isinstance(block, str) and block.strip())
-    return advanced_korean_text_processor(joined)
+    print(f"🔍 [DEBUG] joined text 길이: {len(joined)}", file=sys.stderr)
+    print(f"🔍 [DEBUG] joined text 미리보기: {joined[:100]}...", file=sys.stderr)
+    
+    # 안전한 Stage2 + Stage3 후처리 (paragraph_formatting 비활성화)
+    processed = advanced_korean_text_processor(joined)
+    print(f"🔍 [DEBUG] 후처리 완료: {len(processed)}자", file=sys.stderr)
+    print(f"🔍 [DEBUG] 후처리 결과 미리보기: {processed[:100]}...", file=sys.stderr)
+    
+    return processed
 
 
 def process_image_easyocr(image_path: str, languages: List[str] | None = None) -> dict:

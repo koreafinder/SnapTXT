@@ -1,0 +1,145 @@
+{
+  "test_date": "2026-03-02 05:03:11",
+  "total_images": 10,
+  "type_distribution": {
+    "TYPE_C": 10
+  },
+  "performance": {
+    "avg_processing_time": 0.49379999999999996,
+    "max_processing_time": 0.552,
+    "min_processing_time": 0.461,
+    "total_processing_time": 4.9375574588775635
+  },
+  "detailed_results": [
+    {
+      "filename": "IMG_4790.JPG",
+      "size": "1804x2573",
+      "page_type": "TYPE_C",
+      "metrics": {
+        "brightness_mean": 202.3,
+        "brightness_std": 51.8,
+        "edge_density": 0.0813,
+        "lr_gradient": 38.1,
+        "blur_variance": 3558.0
+      },
+      "processing_time": 0.552
+    },
+    {
+      "filename": "IMG_4791.JPG",
+      "size": "1819x2519",
+      "page_type": "TYPE_C",
+      "metrics": {
+        "brightness_mean": 209.1,
+        "brightness_std": 48.9,
+        "edge_density": 0.02,
+        "lr_gradient": 38.3,
+        "blur_variance": 365.4
+      },
+      "processing_time": 0.493
+    },
+    {
+      "filename": "IMG_4792.JPG",
+      "size": "1814x2573",
+      "page_type": "TYPE_C",
+      "metrics": {
+        "brightness_mean": 215.8,
+        "brightness_std": 43.5,
+        "edge_density": 0.0444,
+        "lr_gradient": 30.7,
+        "blur_variance": 1192.9
+      },
+      "processing_time": 0.49
+    },
+    {
+      "filename": "IMG_4793.JPG",
+      "size": "1754x2573",
+      "page_type": "TYPE_C",
+      "metrics": {
+        "brightness_mean": 207.3,
+        "brightness_std": 50.6,
+        "edge_density": 0.0784,
+        "lr_gradient": 38.7,
+        "blur_variance": 3164.3
+      },
+      "processing_time": 0.461
+    },
+    {
+      "filename": "IMG_4794.JPG",
+      "size": "1819x2562",
+      "page_type": "TYPE_C",
+      "metrics": {
+        "brightness_mean": 210.9,
+        "brightness_std": 50.8,
+        "edge_density": 0.1025,
+        "lr_gradient": 34.7,
+        "blur_variance": 5662.6
+      },
+      "processing_time": 0.481
+    },
+    {
+      "filename": "IMG_4795.JPG",
+      "size": "1624x2573",
+      "page_type": "TYPE_C",
+      "metrics": {
+        "brightness_mean": 215.9,
+        "brightness_std": 40.3,
+        "edge_density": 0.0103,
+        "lr_gradient": 38.6,
+        "blur_variance": 281.7
+      },
+      "processing_time": 0.49
+    },
+    {
+      "filename": "IMG_4796.JPG",
+      "size": "1812x2573",
+      "page_type": "TYPE_C",
+      "metrics": {
+        "brightness_mean": 214.3,
+        "brightness_std": 48.0,
+        "edge_density": 0.0435,
+        "lr_gradient": 37.0,
+        "blur_variance": 642.6
+      },
+      "processing_time": 0.502
+    },
+    {
+      "filename": "IMG_4797.JPG",
+      "size": "1789x2573",
+      "page_type": "TYPE_C",
+      "metrics": {
+        "brightness_mean": 214.9,
+        "brightness_std": 46.0,
+        "edge_density": 0.0307,
+        "lr_gradient": 32.4,
+        "blur_variance": 29.7
+      },
+      "processing_time": 0.483
+    },
+    {
+      "filename": "IMG_4798.JPG",
+      "size": "1790x2573",
+      "page_type": "TYPE_C",
+      "metrics": {
+        "brightness_mean": 219.4,
+        "brightness_std": 49.0,
+        "edge_density": 0.0126,
+        "lr_gradient": 35.3,
+        "blur_variance": 137.0
+      },
+      "processing_time": 0.504
+    },
+    {
+      "filename": "IMG_4799.JPG",
+      "size": "1789x2573",
+      "page_type": "TYPE_C",
+      "metrics": {
+        "brightness_mean": 207.1,
+        "brightness_std": 50.4,
+        "edge_density": 0.0736,
+        "lr_gradient": 36.1,
+        "blur_variance": 2732.8
+      },
+      "processing_time": 0.482
+    }
+  ]
+}
