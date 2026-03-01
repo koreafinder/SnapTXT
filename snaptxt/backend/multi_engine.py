@@ -11,7 +11,7 @@ from functools import lru_cache
 from typing import Dict, List, Union, Optional
 from pathlib import Path
 
-from snaptxt.preprocess import apply_default_filters
+from snaptxt.preprocess import apply_default_filters, smart_preprocess_image
 from .logging import get_json_logger, log_event
 
 logger = logging.getLogger(__name__)
@@ -131,14 +131,37 @@ class MultiOCRProcessor:
         logger.info("✅ EasyOCR 전용 모드로 초기화 완료 - 단순화된 고성능 OCR 시스템")
     
     def preprocess_image(self, image: Union[np.ndarray, Image.Image], 
-                        preprocessing_level: int = 1) -> np.ndarray:
-        """이미지 전처리를 통한 OCR 정확도 향상"""
-
-        return apply_default_filters(
-            image,
-            level=preprocessing_level,
-            logger_override=logger,
-        )
+                        preprocessing_level: int = 1, use_scientific: bool = False) -> np.ndarray:
+        """
+        이미지 전처리를 통한 OCR 정확도 향상
+        
+        Args:
+            image: 입력 이미지
+            preprocessing_level: 레거시 전처리 레벨 (1-3)
+            use_scientific: 과학적 전처리 시스템 사용 여부
+            
+        Returns:
+            전처리된 이미지
+        """
+        if use_scientific:
+            logger.info("🔬 과학적 전처리 시스템 사용")
+            processed_image, metrics, plan = smart_preprocess_image(image)
+            
+            # 품질 정보 로깅
+            logger.info(f"   품질 점수: {metrics.overall_quality:.3f}")
+            logger.info(f"   적용 액션: {len(plan.actions)}개")
+            logger.info(f"   근거: {plan.rationale}")
+            logger.info(f"   신뢰도: {plan.confidence:.3f}")
+            
+            return processed_image
+        else:
+            logger.info(f"🏗️ 레거시 전처리 시스템 사용 (레벨 {preprocessing_level})")
+            
+            return apply_default_filters(
+                image,
+                level=preprocessing_level,
+                logger_override=logger,
+            )
     
     def extract_text_easyocr(self, image: np.ndarray, language: str = 'ko,en') -> str:
         """EasyOCR을 사용한 텍스트 추출 (프로세스 분리 방식)"""
@@ -305,10 +328,19 @@ class MultiOCRProcessor:
             else:
                 cv_image = image_array
             
-            # 이미지 전처리 - 원본 그대로 사용 (전처리가 오히려 해로움)
-            logger.info("🔧 원본 이미지 사용 (전처리 비활성화)...")
-            # 전처리 없이 원본 그대로 사용 - 더 선명함!
-            processed_image = cv_image
+            # 이미지 전처리 - 과학적 전처리 시스템 활성화
+            use_scientific = settings.get('use_scientific', True)  # 기본값: 과학적 전처리 사용
+            preprocessing_level = settings.get('preprocessing_level', 2)  # 기본값: 중간 레벨
+            
+            if use_scientific:
+                logger.info("🔬 과학적 전처리 시스템으로 이미지 처리 중...")
+                processed_image = self.preprocess_image(cv_image, use_scientific=True)
+            elif preprocessing_level > 0:
+                logger.info(f"🏗️ 레거시 전처리 시스템으로 이미지 처리 중 (레벨 {preprocessing_level})...")
+                processed_image = self.preprocess_image(cv_image, preprocessing_level=preprocessing_level, use_scientific=False)
+            else:
+                logger.info("🔧 원본 이미지 사용 (전처리 비활성화)...")
+                processed_image = cv_image
             
             # 선택된 OCR 엔진들로 처리
             results = {}

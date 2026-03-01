@@ -108,6 +108,7 @@ docs/
 | Stage 3 회귀 실행 스크립트 | ✅ | `scripts/run_regression.ps1`에서 `.venv_new` 활성화 후 `pytest -m stage3` (+`-Smoke` 옵션 시 `-m smoke`) 실행 |
 | JSON 로깅 헬퍼 & 문서 | ✅ | `snaptxt/backend/logging.py`에서 JSON 라인 로거 제공, `ocr_pipeline`·`multi_engine` 이벤트 기록 및 README에 활용법 기재 |
 | Stage 3 교정 체인 강화 | ✅ | `py-hanspell` + `pykospacing` + `ftfy` 레이어를 Stage3 뒤에 연결하고 YAML 룰/pytest 케이스로 회귀 고정 |
+| 과학적 전처리 시스템 통합 | ⚠️ | `snaptxt/preprocess/scientific_assessor.py` pc_app.py 통합 완료하나 IMG_4793 실패로 근본 문제 발견. 부정확한 측정과 경험적 임계값으로 인한 과처리 문제 확인. 진정한 적응형 시스템으로 재설계 필요 |
 
 ## 8. 후처리 룰 관리 현황
 

@@ -381,7 +381,9 @@ class SnapTXTMainWindow(QMainWindow):
         
         ocr_settings = {
             'language': language_map.get(selected_lang, 'ko+en'),
-            'threads': self.spin_threads.value()
+            'threads': self.spin_threads.value(),
+            'use_scientific': True,  # 과학적 전처리 시스템 활성화
+            'preprocessing_level': 2  # 레거시 시스템용 기본 레벨
         }
         
         # 🔍 OCR 설정 로그
@@ -389,6 +391,8 @@ class SnapTXTMainWindow(QMainWindow):
         logger.info(f"  - EasyOCR: True (전용 모드)")
         logger.info(f"  - 언어: {ocr_settings['language']}")
         logger.info(f"  - 스레드: {ocr_settings['threads']}")
+        logger.info(f"  - 과학적 전처리: {ocr_settings['use_scientific']}")
+        logger.info(f"  - 전처리 레벨: {ocr_settings['preprocessing_level']}")
 
         logger.info(f"📁 처리할 파일 수: {len(self.file_list)}")
         for i, filepath in enumerate(self.file_list, 1):
