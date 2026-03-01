@@ -5,7 +5,7 @@ _최종 업데이트: 2026-03-02_
 ## ⚙️ 활성 기획서들 (AI 참고용)
 - 📋 [ai_workflow_automation.md](../plans/ai_workflow_automation.md) - AI 협업 워크플로우 자동화 시스템 구축 (진행중 - P1)
 - 📋 [개선 필요] 과학적 전처리 시스템 재설계 기획서 (예정)
-- 📋 [후처리 회귀 테스트 수정](../plans/후처리_회귀_테스트_수정.md) - 후처리 _run_character_fixes 빈 문자열 반환 원인 분석 (완료)
+- 📋 [후처리 회귀 테스트 수정](../plans/후처리_회귀_테스트_수정.md) - 후처리 _run_character_fixes 빈 문자열 반환 원인 분석 (보류 - 낮은 우선순위)
 
 ## 🎯 이번 주 메인 목표 (2026-03-02 기준)
 - [x] **P1**: AI 워크플로우 자동화 시스템 구축 (start_work.bat 등) → **"start_work.bat 실행해줘" 완벽 구현 완료!**

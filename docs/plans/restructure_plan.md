@@ -90,25 +90,25 @@ docs/
 
 각 단계 종료 시 GitHub에 push하여 필요 시 즉시 롤백할 수 있게 한다.
 
-## 7. 진행 현황
-| 항목 | 상태 | 비고 |
+## 7. 계획 수립 당시 일정표 (참고용)
+| 항목 | 계획된 결과물 | 비고 |
 | --- | --- | --- |
-| 계획 문서 정리 | ✅ | `docs/plans/restructure_plan.md` 작성 완료 |
-| 리팩토링 브랜치 생성 | ✅ | `refactor/layout` 생성 및 push 예정 |
-| 패키지 스켈레톤 작성 | ✅ | `snaptxt/` 기본 구조 커밋 완료 |
-| 공통 OCR 파이프라인 초안 | ✅ | `snaptxt/backend/ocr_pipeline.py` 구현 완료 |
-| 전처리 모듈 이관 | ✅ | `snaptxt/preprocess/image_filters.py`로 이전 |
-| 후처리 모듈 분리 | ✅ | Stage 2/3 모듈 EasyOCR 워커·공통 OCR 파이프라인 연동, Stage 2 룰 YAML 외부화, Stage 2/3 pytest 회귀 확보 |
-| 후처리 룰 핫스왑·스모크 러너 | ✅ | Stage 2 YAML 핫리로드, `tests/smoke/test_postprocess_entrypoints.py`로 파이프라인·EasyOCR 워커 경로 검증 |
-| Stage 3 룰 YAML 외부화/핫리로드 | ✅ | `snaptxt/postprocess/patterns/stage3_rules.yaml`, `reload_stage3_rules()`로 런타임 교체 지원 |
-| Stage 3 룰 핫리로드 회귀 테스트 | ✅ | `tests/postprocess/test_stage3_reload.py`에서 임시 YAML·캐시 복원 플로우 검증 |
-| EasyOCR 워커·멀티엔진 backend 이관 | ✅ | `snaptxt/backend/{multi_engine.py,worker/easyocr_worker.py}`로 이동, 루트 파일은 호환 레이어로 유지, 주요 진입점(import·subprocess) 경로 갱신 |
-| 실험/백업 아티팩트 정리 | ✅ | `experiments/` 하위에 `scripts/{research,debug}`·`assets/debug_images`를 추가하고, 관련 `.py`/이미지/결과물을 전부 이동하여 루트 경량화 및 실행 가이드(`python -m experiments...`) 정리 완료 |
-| Stage 3 회귀 테스트 체계화 | ✅ | `tests/postprocess/test_stage3_*.py` 전반에 `@pytest.mark.stage3` 적용, `pytest -m stage3` 단일 진입점 확보 |
-| Stage 3 회귀 실행 스크립트 | ✅ | `scripts/run_regression.ps1`에서 `.venv_new` 활성화 후 `pytest -m stage3` (+`-Smoke` 옵션 시 `-m smoke`) 실행 |
-| JSON 로깅 헬퍼 & 문서 | ✅ | `snaptxt/backend/logging.py`에서 JSON 라인 로거 제공, `ocr_pipeline`·`multi_engine` 이벤트 기록 및 README에 활용법 기재 |
-| Stage 3 교정 체인 강화 | ✅ | `py-hanspell` + `pykospacing` + `ftfy` 레이어를 Stage3 뒤에 연결하고 YAML 룰/pytest 케이스로 회귀 고정 |
-| 과학적 전처리 시스템 통합 | ⚠️ | `snaptxt/preprocess/scientific_assessor.py` pc_app.py 통합 완료하나 IMG_4793 실패로 근본 문제 발견. 부정확한 측정과 경험적 임계값으로 인한 과처리 문제 확인. 진정한 적응형 시스템으로 재설계 필요 |
+| 계획 문서 정리 | `docs/plans/restructure_plan.md` 작성 | ✅ 2026-02-28 완료 |
+| 리팩토링 브랜치 생성 | `refactor/layout` 브랜치 | ✅ 생성됨 |
+| 패키지 스켈레톤 작성 | `snaptxt/` 기본 구조 | ✅ 커밋 완료 |
+| 공통 OCR 파이프라인 초안 | `snaptxt/backend/ocr_pipeline.py` | ✅ 구현 완료 |
+| 전처리 모듈 이관 | `snaptxt/preprocess/image_filters.py` | ✅ 이전 완료 |
+| 후처리 모듈 분리 | Stage 2/3 모듈 외부화 | ✅ YAML 룰 시스템 완료 |
+| 후처리 룰 핫스왑 | Stage 2 YAML 핫리로드 | ✅ 런타임 규칙 교체 지원 |
+| Stage 3 룰 YAML 외부화 | `snaptxt/postprocess/patterns/` | ✅ 외부화 및 핫리로드 완료 |
+| Stage 3 룰 회귀 테스트 | pytest 마크 기반 테스트 | ✅ `pytest -m stage3` 확립 |
+| EasyOCR 워커 backend 이관 | `snaptxt/backend/worker/` | ✅ 프로세스 분리 완료 |
+| 실험 아티팩트 정리 | `experiments/` 디렉토리 | ✅ 루트 경량화 완료 |
+| Stage 3 회귀 스크립트 | `scripts/run_regression.ps1` | ✅ CI 파이프라인 완료 |
+| JSON 로깅 헬퍼 | `snaptxt/backend/logging.py` | ✅ 구조화 로깅 완료 |
+| Stage 3 교정 체인 강화 | 스펠링 체크 통합 | ✅ 복합 교정 레이어 완료 |
+
+> **현재 진행 상황 및 최신 이슈는 [docs/status/Current_Work.md](../status/Current_Work.md)를 참조하세요.**
 
 ## 8. 후처리 룰 관리 현황
 

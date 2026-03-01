@@ -1,4 +1,5 @@
 @echo off
+chcp 65001 >nul 2>&1
 REM SnapTXT 문서 상태 빠른 확인 스크립트
 REM 사용법: 
 REM   check_docs.bat          - 필수 문서만 확인

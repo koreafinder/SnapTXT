@@ -14,23 +14,23 @@ from typing import Iterable, List, Tuple
 DOCS_ROOT = Path(__file__).resolve().parents[1] / "docs"
 
 REQUIRED_FILES: List[Tuple[str, str]] = [
-    ("foundation", "foundation/Project_Memory.md"),
-    ("foundation", "foundation/Architecture.md"),
-    ("status", "status/Current_Work.md"),
+    ("foundation", "foundation/project_memory.md"),
+    ("foundation", "foundation/architecture.md"),
+    ("status", "status/current_work.md"),
     ("status", "status/progress_flow.md"),
-    ("reference", "README.md"),
+    ("reference", "reference/docs_guide.md"),
 ]
 
 OPTIONAL_FILES: List[Tuple[str, str]] = [
     ("plans", "plans/restructure_plan.md"),
     ("plans", "plans/future_improvement_plan.md"),
-    ("reference", "PRACTICAL_GUIDE.md"),
+    ("reference", "reference/practical_guide.md"),
 ]
 
 CONTEXT_FLOW: List[Tuple[str, str]] = [
-    ("철학", "foundation/Project_Memory.md"),
-    ("아키텍처", "foundation/Architecture.md"),
-    ("진행 현황", "status/Current_Work.md"),
+    ("철학", "foundation/project_memory.md"),
+    ("아키텍처", "foundation/architecture.md"),
+    ("진행 현황", "status/current_work.md"),
     ("세부 계획", "plans/restructure_plan.md"),
 ]
 
@@ -129,7 +129,7 @@ def main() -> None:
         if not args.no_open:
             open_plan_file("plans/restructure_plan.md")
 
-    print("\n가이드: docs/README.md 를 먼저 열어 문서 작성 규칙을 확인하세요.")
+    print("\n가이드: docs/reference/docs_guide.md 를 먼저 열어 문서 작성 규칙을 확인하세요.")
     
     # CI mode: exit with error if any required files are missing
     if args.ci and missing_required:

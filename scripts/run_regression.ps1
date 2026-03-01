@@ -2,6 +2,10 @@ param(
     [switch]$Smoke
 )
 
+# UTF-8 인코딩 설정
+chcp 65001 > $null
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+
 $ErrorActionPreference = "Stop"
 $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 if (-not $scriptDir) {
