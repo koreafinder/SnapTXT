@@ -1,0 +1,9 @@
+{
+  "feedback_id": "img_4803_feedback",
+  "image_path": "samples/IMG_4803.JPG",
+  "original_ocr": "감사하는 마음을 기르세요 . 작은 것에서부터 감사를 찾는 연습을 하면 인생 전체가 달라집니다 .",
+  "corrected_text": "감사하는 마음을 기르세요. 작은 것에서부터 감사를 찾는 연습을 하면 인생 전체가 달라집니다.",
+  "timestamp": "2026-03-02T09:08:16.617896",
+  "user_id": "test_user",
+  "correction_type": "manual_edit"
+}

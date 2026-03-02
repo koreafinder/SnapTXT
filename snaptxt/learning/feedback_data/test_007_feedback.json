@@ -1,0 +1,13 @@
+{
+  "feedback_id": "test_007_feedback",
+  "image_path": "samples/test_007.jpg",
+  "original_ocr": "일상생활에서도명상적의식을유지할수있습니다 .걸을때,먹을때조심하세요.",
+  "corrected_text": "일상생활에서도 명상적 의식을 유지할 수 있습니다. 걸을 때, 먹을 때 조심하세요.",
+  "timestamp": "2026-03-02T09:09:45.329756",
+  "user_id": "learning_tester",
+  "correction_type": "manual_edit",
+  "error_types": [
+    "spacing",
+    "punctuation"
+  ]
+}

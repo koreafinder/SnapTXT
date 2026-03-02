@@ -1,0 +1,9 @@
+{
+  "feedback_id": "img_4801_feedback",
+  "image_path": "samples/IMG_4801.JPG",
+  "original_ocr": "서두르지 마세요. 영적 성장은 하나의 여정이며, 각자의 속도가 다릅니다. 자신만의 리듬을 찾아 꾸준히 나아가세요.",
+  "corrected_text": "서두르지 마세요. 영적 성장은 하나의 여정이며, 각자의 속도가 다릅니다. 자신만의 리듬을 찾아 꾸준히 나아가세요.",
+  "timestamp": "2026-03-02T09:08:16.615211",
+  "user_id": "test_user",
+  "correction_type": "manual_edit"
+}

@@ -1,0 +1,9 @@
+{
+  "feedback_id": "img_4799_feedback",
+  "image_path": "samples/IMG_4799.JPG",
+  "original_ocr": "에고의목소리와영혼의목소리를구분하는법을배워야합니다. 에고는두려움을만들어내지만영혼은사랑을전합니다.",
+  "corrected_text": "에고의 목소리와 영혼의 목소리를 구분하는 법을 배워야 합니다. 에고는 두려움을 만들어내지만 영혼은 사랑을 전합니다.",
+  "timestamp": "2026-03-02T09:08:16.612641",
+  "user_id": "test_user",
+  "correction_type": "manual_edit"
+}

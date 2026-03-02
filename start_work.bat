@@ -48,6 +48,42 @@ echo.
 echo 📦 주요 패키지 버전:
 "%PYTHON_EXE%" -c "import easyocr; print(f'  EasyOCR: {easyocr.__version__}')" 2>nul || echo "  EasyOCR: 미설치"
 "%PYTHON_EXE%" -c "import cv2; print(f'  OpenCV: {cv2.__version__}')" 2>nul || echo "  OpenCV: 미설치"
+
+echo.
+echo 📂 작업 파일 열기...
+echo ------------------------------------------
+echo 문서 정책에 따라 Current_Work.md를 VS Code에서 자동으로 엽니다...
+
+REM VS Code Workspace로 깔끔하게 시작
+if exist "SnapTXT.code-workspace" (
+    echo ✅ SnapTXT workspace 발견, 깔끔한 세션으로 시작...
+    code SnapTXT.code-workspace 2>nul && (
+        echo ✅ SnapTXT workspace가 VS Code에서 열렸습니다.
+        echo 💡 이제 세션 복원 문제가 해결됩니다.
+    ) || (
+        echo ⚠️ Workspace 열기 실패, 기본 방법으로 시작...
+        code "docs\status\current_work.md" 2>nul
+    )
+    
+    REM current_work.md 자동으로 열기
+    timeout /t 2 /nobreak >nul 2>&1
+    code "docs\status\current_work.md" 2>nul
+    
+) else if exist "docs\status\current_work.md" (
+    echo ✅ Current_Work.md 발견, 기존 방법으로 열기...
+    code "docs\status\current_work.md" 2>nul && (
+        echo ✅ Current_Work.md가 VS Code에서 열렸습니다.
+        echo 💡 Ctrl+W로 불필요한 restructure_plan.md 탭을 닫아주세요.
+    )
+) else (
+    echo ❌ 필요한 파일들이 존재하지 않습니다.
+)
+
+echo.
+echo 💡 문서 읽기 순서: Project_Memory.md → Architecture.md → Current_Work.md → progress_flow.md
+echo 💡 현재 단계: P2 문서 시스템 정리 및 AI 협업 최적화
+echo.
+echo ✨ 작업 환경 준비 완료!
 "%PYTHON_EXE%" -c "import torch; print(f'  PyTorch: {torch.__version__}')" 2>nul || echo "  PyTorch: 미설치"
 
 echo.

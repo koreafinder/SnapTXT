@@ -46,6 +46,34 @@ http://127.0.0.1:5000
 - Windows 이외 환경에서는 `.venv_new/Scripts/python.exe -m pytest -m stage3` 혹은 `python -m pytest -m stage3 -k stage3` 형태로 직접 실행해도 동일한 결과를 얻을 수 있습니다.
 - 회귀 결과는 콘솔에 요약되며, 실패 시 첫 번째 오류에서 즉시 중단(`--maxfail 1`)합니다.
 
+## 📝 후처리 시스템 가이드
+
+SnapTXT는 3단계 후처리 파이프라인과 지능형 학습 시스템으로 OCR 결과를 자연스러운 한국어로 변환합니다:
+
+- **[📖 후처리 사용자 가이드](docs/reference/postprocessing_guide.md)**: Stage2/Stage3/Stage3.5 사용법과 설정 옵션
+- **[⚙️ 규칙 관리 가이드](docs/reference/rules_management.md)**: YAML 규칙 추가/수정 및 Hot-Reload 사용법  
+- **[🔧 트러블슈팅 가이드](docs/reference/postprocessing_troubleshooting.md)**: 문제 해결, 성능 최적화, 디버깅 방법
+
+### 🧠 지능형 학습 시스템 (Phase 2)
+
+- **29개 Ground Truth 데이터**: 완전 정답 텍스트 기반 자동 학습
+- **고급 패턴 발견**: 150회 시뮬레이션으로 285개→39개 고품질 규칙 생성
+- **Context-aware 처리**: 무차별 치환 방지, 안전한 패턴만 적용
+- **성능 검증**: 통합 테스트로 12.6% 품질 향상 달성
+
+### 빠른 사용법
+```python
+from snaptxt.postprocess import run_pipeline
+
+# 기본 설정으로 전체 후처리 실행 (Phase 2 학습 규칙 포함)
+clean_text = run_pipeline(ocr_text)
+
+# 개별 설정
+from snaptxt.postprocess import Stage3Config, apply_stage3_rules
+config = Stage3Config(enable_spellcheck_enhancement=False)  # 빠른 처리
+result = apply_stage3_rules(ocr_text, config)
+```
+
 ## 🧾 JSON 로깅
 
 - 공통 파이프라인과 MultiOCRProcessor는 `logs/snaptxt_ocr.jsonl` 파일에 JSON 라인 포맷으로 처리 이력을 남깁니다.

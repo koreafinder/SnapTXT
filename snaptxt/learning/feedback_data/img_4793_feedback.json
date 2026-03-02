@@ -1,0 +1,9 @@
+{
+  "feedback_id": "img_4793_feedback",
+  "image_path": "samples/IMG_4793.JPG",
+  "original_ocr": "진 정한 자 유는 외 부 상 황에 좌 우되 지 않 는 내 면의 평 온에 서 나 옵니 다. 이 를 위 해 꾸 준한 명 상 수 행이 필 요합 니다.",
+  "corrected_text": "진정한 자유는 외부 상황에 좌우되지 않는 내면의 평온에서 나옵니다. 이를 위해 꾸준한 명상 수행이 필요합니다.",
+  "timestamp": "2026-03-02T09:08:16.602787",
+  "user_id": "test_user",
+  "correction_type": "manual_edit"
+}

@@ -1,0 +1,135 @@
+{
+  "report_date": "2026-03-02T08:50:15.717300",
+  "analysis": {
+    "ready_rules": [
+      {
+        "category": "spacing",
+        "rule": {
+          "pattern": "([,.])([가-힣A-Za-z])",
+          "replacement": "\\1 \\2",
+          "description": "구두점과 문자 사이 공백 추가",
+          "confidence": 0.92,
+          "frequency": 8,
+          "learned_at": "2026-03-01T08:15:00",
+          "source_feedbacks": [
+            "feedback_002.json",
+            "feedback_005.json",
+            "feedback_007.json"
+          ]
+        },
+        "confidence": 0.92,
+        "frequency": 8,
+        "age_hours": 24.58769620777778,
+        "ready_score": 0.802448734199074
+      }
+    ],
+    "pending_rules": [
+      {
+        "category": "spacing",
+        "rule": {
+          "pattern": "([a-zA-Z가-힣])([0-9])",
+          "replacement": "\\1 \\2",
+          "description": "문자와 숫자 사이 공백 추가",
+          "confidence": 0.88,
+          "frequency": 5,
+          "learned_at": "2026-03-01T10:30:00",
+          "source_feedbacks": [
+            "feedback_001.json",
+            "feedback_003.json"
+          ]
+        },
+        "confidence": 0.88,
+        "frequency": 5,
+        "age_hours": 22.33769620777778,
+        "ready_score": 0.683073734199074
+      },
+      {
+        "category": "characters",
+        "rule": {
+          "pattern": "([ㄱ-ㅎㅏ-ㅣ])\\s*([ㄱ-ㅎㅏ-ㅣ])",
+          "replacement": "\\1\\2",
+          "description": "분리된 한글 자모 결합",
+          "confidence": 0.95,
+          "frequency": 6,
+          "learned_at": "2026-03-01T14:20:00",
+          "source_feedbacks": [
+            "feedback_004.json",
+            "feedback_006.json"
+          ]
+        },
+        "confidence": 0.95,
+        "frequency": 6,
+        "age_hours": 18.504362874444446,
+        "ready_score": 0.7321015119768519
+      },
+      {
+        "category": "characters",
+        "rule": {
+          "pattern": "０",
+          "replacement": "0",
+          "description": "전각 0을 반각 0으로 변환",
+          "confidence": 0.89,
+          "frequency": 4,
+          "learned_at": "2026-03-01T16:45:00",
+          "source_feedbacks": [
+            "feedback_008.json",
+            "feedback_009.json"
+          ]
+        },
+        "confidence": 0.89,
+        "frequency": 4,
+        "age_hours": 16.08769620777778,
+        "ready_score": 0.6320320675324074
+      },
+      {
+        "category": "punctuation",
+        "rule": {
+          "pattern": "\\s*\\.\\s*",
+          "replacement": ". ",
+          "description": "마침표 뒤 공백 정규화",
+          "confidence": 0.91,
+          "frequency": 7,
+          "learned_at": "2026-03-01T12:00:00",
+          "source_feedbacks": [
+            "feedback_010.json",
+            "feedback_011.json"
+          ]
+        },
+        "confidence": 0.91,
+        "frequency": 7,
+        "age_hours": 20.83769620777778,
+        "ready_score": 0.7518237341990741
+      }
+    ],
+    "total": 5
+  },
+  "application_result": {
+    "applied": 1,
+    "skipped": 0,
+    "errors": 0,
+    "total_processed": 1,
+    "dry_run": true,
+    "details": [
+      {
+        "action": "added",
+        "category": "spacing",
+        "pattern": "([,.])([가-힣A-Za-z])",
+        "confidence": 0.92,
+        "frequency": 8
+      }
+    ]
+  },
+  "validation": {
+    "valid": true,
+    "total_rules": 4,
+    "auto_applied_rules": 0,
+    "validation_errors": [],
+    "yaml_valid": true
+  },
+  "summary": {
+    "total_learned_rules": 5,
+    "ready_for_application": 1,
+    "successfully_applied": 1,
+    "validation_passed": true
+  }
+}

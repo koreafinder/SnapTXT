@@ -1,0 +1,9 @@
+{
+  "feedback_id": "img_4814_feedback",
+  "image_path": "samples/IMG_4814.JPG",
+  "original_ocr": "용서는 상대방을 위한 것이 아니라 자신을 위한 것입니 다. 용서를 통해 자신을 과거의 짐으로부터 해방시키세요.",
+  "corrected_text": "용서는 상대방을 위한 것이 아니라 자신을 위한 것입니다. 용서를 통해 자신을 과거의 짐으로부터 해방시키세요.",
+  "timestamp": "2026-03-02T09:08:16.635181",
+  "user_id": "test_user",
+  "correction_type": "manual_edit"
+}

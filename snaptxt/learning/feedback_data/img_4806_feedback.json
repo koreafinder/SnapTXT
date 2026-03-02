@@ -1,0 +1,9 @@
+{
+  "feedback_id": "img_4806_feedback",
+  "image_path": "samples/IMG_4806.JPG",
+  "original_ocr": "사랑은 조건이 없어야 합니다. 상대방이 내 기대에 부응할 때만 사랑하는 것은 진정한 사랑이 아닙니다.",
+  "corrected_text": "사랑은 조건이 없어야 합니다. 상대방이 내 기대에 부응할 때만 사랑하는 것은 진정한 사랑이 아닙니다.",
+  "timestamp": "2026-03-02T09:08:16.623283",
+  "user_id": "test_user",
+  "correction_type": "manual_edit"
+}

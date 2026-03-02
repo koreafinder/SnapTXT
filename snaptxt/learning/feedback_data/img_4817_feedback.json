@@ -1,0 +1,9 @@
+{
+  "feedback_id": "img_4817_feedback",
+  "image_path": "samples/IMG_4817.JPG",
+  "original_ocr": "사랑과 두려움, 이 두 에너지 중 어느 것에서 행동하느냐에 따라 인생이 달라집니다 . 항상 사랑을 선택하세요 .",
+  "corrected_text": "사랑과 두려움, 이 두 에너지 중 어느 것에서 행동하느냐에 따라 인생이 달라집니다. 항상 사랑을 선택하세요.",
+  "timestamp": "2026-03-02T09:08:16.639692",
+  "user_id": "test_user",
+  "correction_type": "manual_edit"
+}

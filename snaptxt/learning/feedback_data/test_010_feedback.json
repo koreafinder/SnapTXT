@@ -1,0 +1,13 @@
+{
+  "feedback_id": "test_010_feedback",
+  "image_path": "samples/test_010.jpg",
+  "original_ocr": "에고의목소리와영혼의목소리를구분하는법을배워야합니다 .에고는두려움을만들어냅니다.",
+  "corrected_text": "에고의 목소리와 영혼의 목소리를 구분하는 법을 배워야 합니다. 에고는 두려움을 만들어냅니다.",
+  "timestamp": "2026-03-02T09:09:45.333768",
+  "user_id": "learning_tester",
+  "correction_type": "manual_edit",
+  "error_types": [
+    "spacing",
+    "punctuation"
+  ]
+}

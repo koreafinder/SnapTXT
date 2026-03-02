@@ -1,0 +1,13 @@
+{
+  "feedback_id": "test_005_feedback",
+  "image_path": "samples/test_005.jpg",
+  "original_ocr": "호흡에집중하는 것은 가장 기본적이면서도 강력한 명상법입니 다 .",
+  "corrected_text": "호흡에 집중하는 것은 가장 기본적이면서도 강력한 명상법입니다.",
+  "timestamp": "2026-03-02T09:09:45.326848",
+  "user_id": "learning_tester",
+  "correction_type": "manual_edit",
+  "error_types": [
+    "spacing",
+    "punctuation"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "feedback_id": "img_4798_feedback",
+  "image_path": "samples/IMG_4798.JPG",
+  "original_ocr": "진실을추구하는것은용기가필요한일입니다. 때로는불편한진실과마주해야하지만 , 그것이진정한성장의길입니다.",
+  "corrected_text": "진실을 추구하는 것은 용기가 필요한 일입니다. 때로는 불편한 진실과 마주해야 하지만, 그것이 진정한 성장의 길입니다.",
+  "timestamp": "2026-03-02T09:08:16.611295",
+  "user_id": "test_user",
+  "correction_type": "manual_edit"
+}

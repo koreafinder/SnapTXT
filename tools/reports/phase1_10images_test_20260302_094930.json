@@ -1,0 +1,157 @@
+{
+  "test_summary": {
+    "test_date": "2026-03-02T09:49:30.421838",
+    "total_images": 10,
+    "images_improved": 10,
+    "improvement_rate": 1.0,
+    "avg_baseline_score": 7.160000000000001,
+    "avg_improved_score": 7.23625,
+    "avg_improvement": 0.07624999999999904,
+    "total_rules_applied": 2,
+    "avg_rules_per_image": 0.2,
+    "detailed_results": [
+      {
+        "image_id": "IMG_4790",
+        "baseline_score": 7.6,
+        "improvement_score": 0.3125,
+        "new_score": 7.9125,
+        "applied_rules_count": 2,
+        "applied_rules": [
+          {
+            "category": "spacing",
+            "pattern": "마이\\s*클\\s*싱\\s*어",
+            "replacement": "마이클 싱어",
+            "description": "인명 분리 오류",
+            "confidence": 0.9
+          },
+          {
+            "category": "spacing",
+            "pattern": "명\\s*상\\s*가",
+            "replacement": "명상가",
+            "description": "명사 분리 오류",
+            "confidence": 0.85
+          }
+        ],
+        "text_changed": true,
+        "original_length": 645,
+        "improved_length": 635
+      },
+      {
+        "image_id": "IMG_4791",
+        "baseline_score": 7.3,
+        "improvement_score": 0.05,
+        "new_score": 7.35,
+        "applied_rules_count": 0,
+        "applied_rules": [],
+        "text_changed": false,
+        "original_length": 128,
+        "improved_length": 128
+      },
+      {
+        "image_id": "IMG_4792",
+        "baseline_score": 7.4,
+        "improvement_score": 0.05,
+        "new_score": 7.45,
+        "applied_rules_count": 0,
+        "applied_rules": [],
+        "text_changed": false,
+        "original_length": 121,
+        "improved_length": 121
+      },
+      {
+        "image_id": "IMG_4793",
+        "baseline_score": 7.0,
+        "improvement_score": 0.05,
+        "new_score": 7.05,
+        "applied_rules_count": 0,
+        "applied_rules": [],
+        "text_changed": false,
+        "original_length": 314,
+        "improved_length": 314
+      },
+      {
+        "image_id": "IMG_4794",
+        "baseline_score": 7.0,
+        "improvement_score": 0.05,
+        "new_score": 7.05,
+        "applied_rules_count": 0,
+        "applied_rules": [],
+        "text_changed": false,
+        "original_length": 209,
+        "improved_length": 209
+      },
+      {
+        "image_id": "IMG_4795",
+        "baseline_score": 7.1,
+        "improvement_score": 0.05,
+        "new_score": 7.1499999999999995,
+        "applied_rules_count": 0,
+        "applied_rules": [],
+        "text_changed": false,
+        "original_length": 52,
+        "improved_length": 52
+      },
+      {
+        "image_id": "IMG_4796",
+        "baseline_score": 7.2,
+        "improvement_score": 0.05,
+        "new_score": 7.25,
+        "applied_rules_count": 0,
+        "applied_rules": [],
+        "text_changed": false,
+        "original_length": 18,
+        "improved_length": 18
+      },
+      {
+        "image_id": "IMG_4797",
+        "baseline_score": 7.0,
+        "improvement_score": 0.05,
+        "new_score": 7.05,
+        "applied_rules_count": 0,
+        "applied_rules": [],
+        "text_changed": false,
+        "original_length": 71,
+        "improved_length": 71
+      },
+      {
+        "image_id": "IMG_4798",
+        "baseline_score": 7.1,
+        "improvement_score": 0.05,
+        "new_score": 7.1499999999999995,
+        "applied_rules_count": 0,
+        "applied_rules": [],
+        "text_changed": false,
+        "original_length": 8,
+        "improved_length": 8
+      },
+      {
+        "image_id": "IMG_4799",
+        "baseline_score": 6.9,
+        "improvement_score": 0.05,
+        "new_score": 6.95,
+        "applied_rules_count": 0,
+        "applied_rules": [],
+        "text_changed": false,
+        "original_length": 563,
+        "improved_length": 563
+      }
+    ]
+  },
+  "quality_analysis": {
+    "current_quality": 99.1,
+    "estimated_quality_gain": 0.007624999999999904,
+    "estimated_new_quality": 99.107625,
+    "phase1_target_achieved": false,
+    "recommendation": "🔄 Phase 2에서 실제 데이터 수집 후 재평가 권장."
+  },
+  "phase1_rules_info": {
+    "rules_file": "..\\stage3_rules.yaml",
+    "auto_generated": true,
+    "rule_categories": [
+      "spacing",
+      "characters",
+      "punctuation",
+      "formatting"
+    ]
+  }
+}

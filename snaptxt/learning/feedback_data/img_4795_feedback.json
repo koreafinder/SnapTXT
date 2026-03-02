@@ -1,0 +1,9 @@
+{
+  "feedback_id": "img_4795_feedback",
+  "image_path": "samples/IMG_4795.JPG",
+  "original_ocr": "생각과 자아를 분리하는 연습을 해보세요. 생각이 떠오를 때마다 '이것은 단지 생각일 뿐이다'라고 인식하는 것입니 다.",
+  "corrected_text": "생각과 자아를 분리하는 연습을 해보세요. 생각이 떠오를 때마다 '이것은 단지 생각일 뿐이다'라고 인식하는 것입니다.",
+  "timestamp": "2026-03-02T09:08:16.606998",
+  "user_id": "test_user",
+  "correction_type": "manual_edit"
+}

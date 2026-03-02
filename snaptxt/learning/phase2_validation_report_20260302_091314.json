@@ -1,0 +1,54 @@
+{
+  "validation_date": "2026-03-02T09:13:14.561465",
+  "overall_score": {
+    "percentage": 52.0,
+    "passed_checks": 13,
+    "total_checks": 25
+  },
+  "component_results": {
+    "feedback_system": {
+      "status": "❌",
+      "error": "cannot import name 'FeedbackCollector' from 'feedback_collector' (C:\\Users\\USER\\OneDrive - 한국사이게이트 (1)\\개발부\\회사\\Python\\SnapTXT\\snaptxt\\learning\\feedback_collector.py)",
+      "score": "0/5"
+    },
+    "realtime_engine": {
+      "status": "❌",
+      "checks": {
+        "엔진 초기화": true,
+        "학습 기능": false,
+        "패턴 병합": false,
+        "백그라운드 스레드": false,
+        "학습 데이터 폴더": true
+      },
+      "score": "2/5"
+    },
+    "auto_applicator": {
+      "status": "✅",
+      "checks": {
+        "시스템 초기화": true,
+        "규칙 분석": true,
+        "자동 적용": true,
+        "백업 시스템": true,
+        "검증 기능": true,
+        "stage3_rules 존재": true,
+        "적용된 규칙 확인": true
+      },
+      "score": "7/7"
+    },
+    "gui_integration": {
+      "status": "❌",
+      "error": "No module named 'snaptxt'",
+      "score": "0/4"
+    },
+    "data_consistency": {
+      "status": "✅",
+      "checks": {
+        "학습 규칙 파일": true,
+        "백업 디렉토리": true,
+        "로그 시스템": true,
+        "리포트 생성": true
+      },
+      "score": "4/4"
+    }
+  }
+}

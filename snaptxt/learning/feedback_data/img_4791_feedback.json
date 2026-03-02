@@ -1,0 +1,9 @@
+{
+  "feedback_id": "img_4791_feedback",
+  "image_path": "samples/IMG_4791.JPG",
+  "original_ocr": "현재 순간에 집중하는 것이 무엇보다 중요합니다 . 과거에 얽매이거나 미래를 걱정하지 말고, 지금 이 순간에 온전히 존재하세요 .",
+  "corrected_text": "현재 순간에 집중하는 것이 무엇보다 중요합니다. 과거에 얽매이거나 미래를 걱정하지 말고, 지금 이 순간에 온전히 존재하세요.",
+  "timestamp": "2026-03-02T09:08:16.598802",
+  "user_id": "test_user",
+  "correction_type": "manual_edit"
+}

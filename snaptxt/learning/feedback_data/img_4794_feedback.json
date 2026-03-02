@@ -1,0 +1,9 @@
+{
+  "feedback_id": "img_4794_feedback",
+  "image_path": "samples/IMG_4794.JPG",
+  "original_ocr": "호흡에집중하는것은가장기본적이면서도강력한명상법입니다 . 들숨과날숨을자연스럽게관찰하며마음을고요히하세요 .",
+  "corrected_text": "호흡에 집중하는 것은 가장 기본적이면서도 강력한 명상법입니다. 들숨과 날숨을 자연스럽게 관찰하며 마음을 고요히 하세요.",
+  "timestamp": "2026-03-02T09:08:16.605384",
+  "user_id": "test_user",
+  "correction_type": "manual_edit"
+}

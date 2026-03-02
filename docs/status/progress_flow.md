@@ -14,7 +14,9 @@
 | 기초 정비 | 2026-02 | DLL 로딩 체계화, PyQt/CLI/Web가 공유하는 `snaptxt.backend.ocr_pipeline` 확립 | 공통 파이프라인, JSON 로깅, `.venv_new` 표준화 | ✅ 완료 |
 | 리팩토링 & 후처리 집중 | 2026-02 | Stage 2/3 모듈 외부화, YAML 룰 핫리로드, `pytest -m stage3` 회귀 72건, EasyOCR 워커 모듈화 | [docs/plans/restructure_plan.md](../plans/restructure_plan.md) 8단계 완료, `scripts/run_regression.ps1` | ✅ 완료 |
 | **🎆 전처리 혁신 GPT 5.2 개선** | **2026-03-02** | **GPT 5.2 개선사항 전면 적용: 상/하 그라데이션 감지, 분류 순서 최적화, 평탄화 안정화, CLAHE 약화, Fallback 세분화** | **MinimalAdaptivePreprocessor 업그레이드, 7.0→7.1점 성능 향상, test_preprocessing_improvement.py** | **✅ 완료** |
-| 품질 확장 | 2026 Q2 | 후처리 교정 실험 자동화, 태그별 품질 게이트, PC 앱 로그 히스토리, YAML diff 시뮬레이터 | `scripts/run_quality_suite.ps1`, `tools/rule_diff.py`, 11개 샘플 코퍼스, `py-hanspell`·`pykospacing`·`ftfy` Stage3 체인 | ⚙️ 진행 중 (교정 체인은 적용 완료, 품질/성능 실측 단계) |
+| **🧠 Phase 2 학습 시스템** | **2026-03-02** | **29개 Ground Truth 데이터 기반 고급 학습 시스템: 150회 시뮤레이션, 39개 규칙 생성, 12.6% 성능 향상** | **ground_truth_advanced_learner.py, integrated_performance_test.py, learned_rules_advanced.yaml** | **✅ 완료** |
+| **⚠️ 시스템 통합 문제 해결** | **2026-03-02** | **Context 없는 무차별 문자 치환 문제 발견 및 해결: 위험한 20개 규칙 제거, 패턴 검증 시스템 필요성 파악** | **integrate_phase2_to_system.py, 안전한 시스템 복구** | **✅ 완료** |
+| 품질 확장 | 2026 Q2 | 후처리 교정 실험 자동화, 태그별 품질 게이트, PC 앱 로그 히스토리, YAML diff 시뮤레이터, **Phase 2 패턴 검증 시스템** | `scripts/run_quality_suite.ps1`, `tools/rule_diff.py`, 11개 샘플 코퍼스, `py-hanspell`·`pykospacing`·`ftfy` Stage3 채인, **PatternValidator 및 Context-aware 규칙** | ⚙️ 진행 중 (교정 체인은 적용 완료, 패턴 검증 시스템 개발 단계)
 | 배포/관측성 | 2026 Q2~ | PyInstaller 패키지, JSON 로그 포워더, 웹 API 옵션 확장 | `dist/SnapTXT-Setup.exe`, Swagger 문서, Loki/Elastic 파이프 | 📅 계획 중 |
 
 ## 3. 전처리 혁신 실행선 완료 (2026-03-02)

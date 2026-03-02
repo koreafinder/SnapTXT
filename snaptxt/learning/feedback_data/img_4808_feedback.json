@@ -1,0 +1,9 @@
+{
+  "feedback_id": "img_4808_feedback",
+  "image_path": "samples/IMG_4808.JPG",
+  "original_ocr": "물질적성공에만매달리지마세요 . 진정한풍요로움은내면의평화와만족에서나옵니다 .",
+  "corrected_text": "물질적 성공에만 매달리지 마세요. 진정한 풍요로움은 내면의 평화와 만족에서 나옵니다.",
+  "timestamp": "2026-03-02T09:08:16.626956",
+  "user_id": "test_user",
+  "correction_type": "manual_edit"
+}

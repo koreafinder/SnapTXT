@@ -1,0 +1,9 @@
+{
+  "feedback_id": "img_4797_feedback",
+  "image_path": "samples/IMG_4797.JPG",
+  "original_ocr": "타인과의 갈등에서 벗어나려면 먼저 자신의 마음을 평온히 해야 합니다. 상대방을 바꾸려 하지 말고 자신의 반응을 바꿔보세요.",
+  "corrected_text": "타인과의 갈등에서 벗어나려면 먼저 자신의 마음을 평온히 해야 합니다. 상대방을 바꾸려 하지 말고 자신의 반응을 바꿔보세요.",
+  "timestamp": "2026-03-02T09:08:16.609986",
+  "user_id": "test_user",
+  "correction_type": "manual_edit"
+}

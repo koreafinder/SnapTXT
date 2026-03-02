@@ -1,0 +1,9 @@
+{
+  "feedback_id": "img_4812_feedback",
+  "image_path": "samples/IMG_4812.JPG",
+  "original_ocr": "침묵의 힘을 알아보세요. 때로는 말보다 침묵이 더 큰 지혜를 전할 수 있습니다.",
+  "corrected_text": "침묵의 힘을 알아보세요. 때로는 말보다 침묵이 더 큰 지혜를 전할 수 있습니다.",
+  "timestamp": "2026-03-02T09:08:16.632680",
+  "user_id": "test_user",
+  "correction_type": "manual_edit"
+}

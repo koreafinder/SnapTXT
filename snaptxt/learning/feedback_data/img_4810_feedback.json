@@ -1,0 +1,9 @@
+{
+  "feedback_id": "img_4810_feedback",
+  "image_path": "samples/IMG_4810.JPG",
+  "original_ocr": "변화를두려워하지마세요. 변화는성장의기회이며, 새로운가능성을열어주는문입니다.",
+  "corrected_text": "변화를 두려워하지 마세요. 변화는 성장의 기회이며, 새로운 가능성을 열어주는 문입니다.",
+  "timestamp": "2026-03-02T09:08:16.630124",
+  "user_id": "test_user",
+  "correction_type": "manual_edit"
+}

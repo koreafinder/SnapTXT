@@ -1,0 +1,14 @@
+{
+  "feedback_id": "test_006_feedback",
+  "image_path": "samples/test_006.jpg",
+  "original_ocr": "생각과자아를분리하는연습을해보세도.생각이떠오를때마다인식하세요.",
+  "corrected_text": "생각과 자아를 분리하는 연습을 해보세요. 생각이 떠오를 때마다 인식하세요.",
+  "timestamp": "2026-03-02T09:09:45.328231",
+  "user_id": "learning_tester",
+  "correction_type": "manual_edit",
+  "error_types": [
+    "spacing",
+    "characters",
+    "punctuation"
+  ]
+}

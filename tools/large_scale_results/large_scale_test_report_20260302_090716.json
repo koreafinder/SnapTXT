@@ -1,0 +1,27 @@
+{
+  "test_date": "2026-03-02T09:07:16.342317",
+  "test_scope": {
+    "total_images": 0,
+    "successful_ocr": 0,
+    "failed_ocr": 0
+  },
+  "learning_results": {
+    "total_patterns": 0,
+    "pattern_categories": {
+      "spacing": 0,
+      "characters": 0,
+      "punctuation": 0,
+      "formatting": 0
+    }
+  },
+  "auto_application": {
+    "ready_rules": [],
+    "pending_rules": [],
+    "total": 0
+  },
+  "sample_images": [],
+  "performance_metrics": {
+    "avg_processing_time": "~2.5초/이미지",
+    "learning_efficiency": "0.00 패턴/이미지"
+  }
+}

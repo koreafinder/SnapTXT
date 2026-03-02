@@ -1,0 +1,9 @@
+{
+  "feedback_id": "img_4792_feedback",
+  "image_path": "samples/IMG_4792.JPG",
+  "original_ocr": "감 정을 관찰 하되 동화 되지 마세 요. 분 노가 일어 날때 '나 는지 금화 가났 다'고 생각 하는 것이 아니 라 '화 라는 감정 이일 어나 고있 다'고 관찰 하세 요.",
+  "corrected_text": "감정을 관찰하되 동화되지 마세요. 분노가 일어날 때 '나는 지금 화가 났다'고 생각하는 것이 아니라 '화라는 감정이 일어나고 있다'고 관찰하세요.",
+  "timestamp": "2026-03-02T09:08:16.600199",
+  "user_id": "test_user",
+  "correction_type": "manual_edit"
+}

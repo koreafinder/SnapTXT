@@ -1,0 +1,288 @@
+metadata:
+  version: 2.0_advanced
+  created_at: '2026-03-02T09:56:28.673440'
+  total_patterns: 39
+  source: Ground Truth 기반 고급 학습
+  training_images: 29
+  quality_threshold:
+    min_frequency: 3
+    min_confidence: 0.6
+    min_sources: 2
+stage3_postprocessing:
+  spacing: []
+  characters:
+  - pattern: 는
+    replacement: 능
+    confidence: 0.88
+    frequency: 6
+    description: 'character_substitution 오류: ''는'' → ''능'''
+    learned: true
+    source_count: 5
+  - pattern: 기
+    replacement: 가
+    confidence: 0.88
+    frequency: 6
+    description: 'character_substitution 오류: ''기'' → ''가'''
+    learned: true
+    source_count: 5
+  - pattern: 어
+    replacement: 여
+    confidence: 0.88
+    frequency: 6
+    description: 'character_substitution 오류: ''어'' → ''여'''
+    learned: true
+    source_count: 6
+  - pattern: 할
+    replacement: 향
+    confidence: 0.88
+    frequency: 6
+    description: 'character_substitution 오류: ''할'' → ''향'''
+    learned: true
+    source_count: 5
+  - pattern: 과
+    replacement: 광
+    confidence: 0.88
+    frequency: 3
+    description: 'character_substitution 오류: ''과'' → ''광'''
+    learned: true
+    source_count: 3
+  - pattern: 다
+    replacement: 도
+    confidence: 0.88
+    frequency: 3
+    description: 'character_substitution 오류: ''다'' → ''도'''
+    learned: true
+    source_count: 3
+  - pattern: 든
+    replacement: 들
+    confidence: 0.88
+    frequency: 3
+    description: 'character_substitution 오류: ''든'' → ''들'''
+    learned: true
+    source_count: 2
+  - pattern: 든
+    replacement: 돈
+    confidence: 0.88
+    frequency: 3
+    description: 'character_substitution 오류: ''든'' → ''돈'''
+    learned: true
+    source_count: 2
+  - pattern: 그
+    replacement: 글
+    confidence: 0.88
+    frequency: 3
+    description: 'character_substitution 오류: ''그'' → ''글'''
+    learned: true
+    source_count: 3
+  - pattern: 가
+    replacement: 고
+    confidence: 0.88
+    frequency: 3
+    description: 'character_substitution 오류: ''가'' → ''고'''
+    learned: true
+    source_count: 3
+  - pattern: 로
+    replacement: 노
+    confidence: 0.88
+    frequency: 3
+    description: 'character_substitution 오류: ''로'' → ''노'''
+    learned: true
+    source_count: 3
+  - pattern: 다
+    replacement: 더
+    confidence: 0.88
+    frequency: 13
+    description: 'character_substitution 오류: ''다'' → ''더'''
+    learned: true
+    source_count: 9
+  - pattern: 어
+    replacement: 오
+    confidence: 0.88
+    frequency: 13
+    description: 'character_substitution 오류: ''어'' → ''오'''
+    learned: true
+    source_count: 10
+  - pattern: 이
+    replacement: 리
+    confidence: 0.88
+    frequency: 11
+    description: 'character_substitution 오류: ''이'' → ''리'''
+    learned: true
+    source_count: 7
+  - pattern: 의
+    replacement: 어
+    confidence: 0.88
+    frequency: 10
+    description: 'character_substitution 오류: ''의'' → ''어'''
+    learned: true
+    source_count: 7
+  - pattern: 마
+    replacement: 머
+    confidence: 0.88
+    frequency: 9
+    description: 'character_substitution 오류: ''마'' → ''머'''
+    learned: true
+    source_count: 8
+  - pattern: 에
+    replacement: 어
+    confidence: 0.88
+    frequency: 9
+    description: 'character_substitution 오류: ''에'' → ''어'''
+    learned: true
+    source_count: 7
+  - pattern: 을
+    replacement: 올
+    confidence: 0.88
+    frequency: 8
+    description: 'character_substitution 오류: ''을'' → ''올'''
+    learned: true
+    source_count: 8
+  - pattern: 마
+    replacement: 모
+    confidence: 0.88
+    frequency: 8
+    description: 'character_substitution 오류: ''마'' → ''모'''
+    learned: true
+    source_count: 5
+  - pattern: 에
+    replacement: 예
+    confidence: 0.88
+    frequency: 7
+    description: 'character_substitution 오류: ''에'' → ''예'''
+    learned: true
+    source_count: 5
+  - pattern: 상
+    replacement: 샹
+    confidence: 0.88
+    frequency: 7
+    description: 'character_substitution 오류: ''상'' → ''샹'''
+    learned: true
+    source_count: 4
+  - pattern: 있
+    replacement: 잇
+    confidence: 0.88
+    frequency: 7
+    description: 'character_substitution 오류: ''있'' → ''잇'''
+    learned: true
+    source_count: 6
+  - pattern: 하
+    replacement: 호
+    confidence: 0.88
+    frequency: 5
+    description: 'character_substitution 오류: ''하'' → ''호'''
+    learned: true
+    source_count: 4
+  - pattern: 것
+    replacement: 걷
+    confidence: 0.88
+    frequency: 5
+    description: 'character_substitution 오류: ''것'' → ''걷'''
+    learned: true
+    source_count: 4
+  - pattern: 자
+    replacement: 저
+    confidence: 0.88
+    frequency: 5
+    description: 'character_substitution 오류: ''자'' → ''저'''
+    learned: true
+    source_count: 5
+  - pattern: 을
+    replacement: 일
+    confidence: 0.88
+    frequency: 5
+    description: 'character_substitution 오류: ''을'' → ''일'''
+    learned: true
+    source_count: 5
+  - pattern: 의
+    replacement: 에
+    confidence: 0.88
+    frequency: 5
+    description: 'character_substitution 오류: ''의'' → ''에'''
+    learned: true
+    source_count: 5
+  - pattern: 기
+    replacement: 고
+    confidence: 0.88
+    frequency: 5
+    description: 'character_substitution 오류: ''기'' → ''고'''
+    learned: true
+    source_count: 5
+  - pattern: 수
+    replacement: 소
+    confidence: 0.88
+    frequency: 5
+    description: 'character_substitution 오류: ''수'' → ''소'''
+    learned: true
+    source_count: 5
+  - pattern: 는
+    replacement: 늘
+    confidence: 0.88
+    frequency: 4
+    description: 'character_substitution 오류: ''는'' → ''늘'''
+    learned: true
+    source_count: 4
+  - pattern: 로
+    replacement: 료
+    confidence: 0.88
+    frequency: 4
+    description: 'character_substitution 오류: ''로'' → ''료'''
+    learned: true
+    source_count: 3
+  - pattern: 가
+    replacement: 거
+    confidence: 0.88
+    frequency: 4
+    description: 'character_substitution 오류: ''가'' → ''거'''
+    learned: true
+    source_count: 4
+  - pattern: 할
+    replacement: 한
+    confidence: 0.88
+    frequency: 4
+    description: 'character_substitution 오류: ''할'' → ''한'''
+    learned: true
+    source_count: 4
+  - pattern: 그
+    replacement: 긍
+    confidence: 0.88
+    frequency: 4
+    description: 'character_substitution 오류: ''그'' → ''긍'''
+    learned: true
+    source_count: 4
+  - pattern: 이
+    replacement: 기
+    confidence: 0.88
+    frequency: 4
+    description: 'character_substitution 오류: ''이'' → ''기'''
+    learned: true
+    source_count: 4
+  - pattern: 것
+    replacement: 겷
+    confidence: 0.88
+    frequency: 4
+    description: 'character_substitution 오류: ''것'' → ''겷'''
+    learned: true
+    source_count: 4
+  - pattern: 자
+    replacement: 조
+    confidence: 0.88
+    frequency: 4
+    description: 'character_substitution 오류: ''자'' → ''조'''
+    learned: true
+    source_count: 3
+  - pattern: 상
+    replacement: 강
+    confidence: 0.88
+    frequency: 4
+    description: 'character_substitution 오류: ''상'' → ''강'''
+    learned: true
+    source_count: 3
+  punctuation:
+  - pattern: .
+    replacement: ' .'
+    confidence: 0.88
+    frequency: 13
+    description: 'character_substitution 오류: ''.'' → '' .'''
+    learned: true
+    source_count: 6
+  formatting: []

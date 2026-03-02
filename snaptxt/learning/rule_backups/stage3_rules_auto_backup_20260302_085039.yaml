@@ -1,0 +1,37 @@
+stage3_postprocessing:
+  spacing:
+  - pattern: 마이\s*클\s*싱\s*어
+    replacement: 마이클 싱어
+    description: 인명 분리 오류
+    frequency: 15
+    confidence: 0.9
+    auto_generated: true
+    generated_at: '2026-03-02T08:22:24.031151'
+  - pattern: 명\s*상\s*가
+    replacement: 명상가
+    description: 명사 분리 오류
+    frequency: 12
+    confidence: 0.85
+    auto_generated: true
+    generated_at: '2026-03-02T08:22:24.031183'
+  characters:
+  - pattern: 드러워습니다
+    replacement: 드러났습니다
+    description: 어미 오인식
+    frequency: 8
+    confidence: 0.95
+    auto_generated: true
+    generated_at: '2026-03-02T08:22:24.031189'
+  - pattern: 돌두했습니다
+    replacement: 몰두했습니다
+    description: 초성 오인식
+    frequency: 6
+    confidence: 0.9
+    auto_generated: true
+    generated_at: '2026-03-02T08:22:24.031193'
+  punctuation: []
+  formatting: []
+metadata:
+  last_updated: '2026-03-02T08:22:24.032352'
+  auto_generated_rules: true
+  generator_version: '1.0'

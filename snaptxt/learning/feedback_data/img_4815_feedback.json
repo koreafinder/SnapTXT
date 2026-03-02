@@ -1,0 +1,9 @@
+{
+  "feedback_id": "img_4815_feedback",
+  "image_path": "samples/IMG_4815.JPG",
+  "original_ocr": "지금 이 순간이 모든 것입니 다. 과거는 이미 지나갔고 미래는 아직 오지 않았습니다. 현재에 완전히 집중하세요.",
+  "corrected_text": "지금 이 순간이 모든 것입니다. 과거는 이미 지나갔고 미래는 아직 오지 않았습니다. 현재에 완전히 집중하세요.",
+  "timestamp": "2026-03-02T09:08:16.636686",
+  "user_id": "test_user",
+  "correction_type": "manual_edit"
+}

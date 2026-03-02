@@ -1,0 +1,9 @@
+{
+  "feedback_id": "img_4789_feedback",
+  "image_path": "samples/IMG_4789.JPG",
+  "original_ocr": "마이클 싱어는 세계적으로 유명한 명상가이자 영적 지도자입니다. 그는 30년이 넘는 기간 동안 명상과 영적 성장에 대해 연구하고 가르쳐왔습니다.",
+  "corrected_text": "마이클 싱어는 세계적으로 유명한 명상가이자 영적 지도자입니다. 그는 30년이 넘는 기간 동안 명상과 영적 성장에 대해 연구하고 가르쳐왔습니다.",
+  "timestamp": "2026-03-02T09:08:16.595312",
+  "user_id": "test_user",
+  "correction_type": "manual_edit"
+}

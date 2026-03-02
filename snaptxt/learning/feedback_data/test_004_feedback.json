@@ -1,0 +1,12 @@
+{
+  "feedback_id": "test_004_feedback",
+  "image_path": "samples/test_004.jpg",
+  "original_ocr": "진정한자유는외부상황에좌우되지않는내면의평온에서나옵니다.",
+  "corrected_text": "진정한 자유는 외부상황에 좌우되지 않는 내면의 평온에서 나옵니다.",
+  "timestamp": "2026-03-02T09:09:45.325697",
+  "user_id": "learning_tester",
+  "correction_type": "manual_edit",
+  "error_types": [
+    "spacing"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "feedback_id": "img_4802_feedback",
+  "image_path": "samples/IMG_4802.JPG",
+  "original_ocr": "과거의 상처에서 벗어나는 것은 쉽지 않습니 다 . 하지만 그 상처를 통해 배울 수 있는 교훈이 반드시 있습니 다 .",
+  "corrected_text": "과거의 상처에서 벗어나는 것은 쉽지 않습니다. 하지만 그 상처를 통해 배울 수 있는 교훈이 반드시 있습니다.",
+  "timestamp": "2026-03-02T09:08:16.616567",
+  "user_id": "test_user",
+  "correction_type": "manual_edit"
+}

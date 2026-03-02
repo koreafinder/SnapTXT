@@ -1,0 +1,22 @@
+{
+  "\\b도\\b→요": {
+    "pattern": "\\b도\\b",
+    "replacement": "요",
+    "category": "characters",
+    "original_example": "도",
+    "confidence": 0.6,
+    "learned_at": "2026-03-02T09:09:45.411413",
+    "frequency": 2,
+    "correction_type": "word_replacement"
+  },
+  "\\bㅏ\\b→.": {
+    "pattern": "\\bㅏ\\b",
+    "replacement": ".",
+    "category": "characters",
+    "original_example": "ㅏ",
+    "confidence": 0.5,
+    "learned_at": "2026-03-02T09:10:49.002282",
+    "frequency": 1,
+    "correction_type": "word_replacement"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "feedback_id": "img_4807_feedback",
+  "image_path": "samples/IMG_4807.JPG",
+  "original_ocr": "고통을 피하려 하지 마세요 . 고통도 삶의 일부이며 , 그것을 통해 더 깊은 이해와 자비를 배울 수 있습니다 .",
+  "corrected_text": "고통을 피하려 하지 마세요. 고통도 삶의 일부이며, 그것을 통해 더 깊은 이해와 자비를 배울 수 있습니다.",
+  "timestamp": "2026-03-02T09:08:16.624783",
+  "user_id": "test_user",
+  "correction_type": "manual_edit"
+}

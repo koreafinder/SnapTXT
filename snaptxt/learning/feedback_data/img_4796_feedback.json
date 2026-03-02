@@ -1,0 +1,9 @@
+{
+  "feedback_id": "img_4796_feedback",
+  "image_path": "samples/IMG_4796.JPG",
+  "original_ocr": "일상생활에서도명상적의식을유지할수 있습니다. 걸을때, 먹을때, 말할때 모든순간에깨어있으려노력하세요.",
+  "corrected_text": "일상생활에서도 명상적 의식을 유지할 수 있습니다. 걸을 때, 먹을 때, 말할 때 모든 순간에 깨어있으려 노력하세요.",
+  "timestamp": "2026-03-02T09:08:16.608395",
+  "user_id": "test_user",
+  "correction_type": "manual_edit"
+}

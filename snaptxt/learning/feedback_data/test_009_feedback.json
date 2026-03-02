@@ -1,0 +1,13 @@
+{
+  "feedback_id": "test_009_feedback",
+  "image_path": "samples/test_009.jpg",
+  "original_ocr": "진실을추구하는것은용기가필요한일입니다 .때로는불편한진실과마주해야합니다.",
+  "corrected_text": "진실을 추구하는 것은 용기가 필요한 일입니다. 때로는 불편한 진실과 마주해야 합니다.",
+  "timestamp": "2026-03-02T09:09:45.332536",
+  "user_id": "learning_tester",
+  "correction_type": "manual_edit",
+  "error_types": [
+    "spacing",
+    "punctuation"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "feedback_id": "img_4809_feedback",
+  "image_path": "samples/IMG_4809.JPG",
+  "original_ocr": "다른 사람을 판단하지 마세요. 모든 사람은 자신만의 여정을 걷고 있으며, 그들의 상황을 완전히 이해할 수는 없습니다.",
+  "corrected_text": "다른 사람을 판단하지 마세요. 모든 사람은 자신만의 여정을 걷고 있으며, 그들의 상황을 완전히 이해할 수는 없습니다.",
+  "timestamp": "2026-03-02T09:08:16.628762",
+  "user_id": "test_user",
+  "correction_type": "manual_edit"
+}

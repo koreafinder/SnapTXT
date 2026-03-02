@@ -1,0 +1,9 @@
+{
+  "feedback_id": "img_4804_feedback",
+  "image_path": "samples/IMG_4804.JPG",
+  "original_ocr": "명 상은 도 피가 아 닙니 다. 오 히려 현 실을 더 명 확히 보 고 지 혜롭 게 대 처할 수 있 는 힘 을 기 르는 것 입니 다.",
+  "corrected_text": "명상은 도피가 아닙니다. 오히려 현실을 더 명확히 보고 지혜롭게 대처할 수 있는 힘을 기르는 것입니다.",
+  "timestamp": "2026-03-02T09:08:16.619341",
+  "user_id": "test_user",
+  "correction_type": "manual_edit"
+}

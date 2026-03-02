@@ -1,0 +1,13 @@
+{
+  "feedback_id": "test_001_feedback",
+  "image_path": "samples/test_001.jpg",
+  "original_ocr": "마이 클 싱 어는 세계적으로 유명한 명상 가이자 영적 지도자입니 다.",
+  "corrected_text": "마이클 싱어는 세계적으로 유명한 명상가이자 영적 지도자입니다.",
+  "timestamp": "2026-03-02T09:09:45.321706",
+  "user_id": "learning_tester",
+  "correction_type": "manual_edit",
+  "error_types": [
+    "spacing",
+    "characters"
+  ]
+}

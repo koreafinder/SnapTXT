@@ -1,0 +1,19 @@
+{
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "workbench.startupEditor": "none",
+        "workbench.editor.restoreViewState": false,
+        "workbench.editor.enablePreview": false,
+        "files.hotExit": "off"
+    },
+    "extensions": {
+        "recommendations": [
+            "ms-python.python",
+            "ms-python.pylint"
+        ]
+    }
+}

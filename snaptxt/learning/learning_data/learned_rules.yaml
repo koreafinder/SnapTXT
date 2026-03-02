@@ -1,0 +1,42 @@
+metadata:
+  created_at: '2026-03-02T09:12:29.467358'
+  learning_source: 29_sample_images
+  pattern_count: 4
+  phase2_learning: true
+stage3_postprocessing:
+  characters:
+  - category: characters
+    confidence: 0.9
+    description: '문자 교체: 도 → 다'
+    frequency: 2
+    learned_at: '2026-03-02T09:12:29.460484'
+    pattern: \b도\b
+    replacement: 다
+    source_type: simple_replacement
+  - category: characters
+    confidence: 0.85
+    description: '문자 교체: 청 → 정'
+    frequency: 1
+    learned_at: '2026-03-02T09:12:29.461592'
+    pattern: \b청\b
+    replacement: 정
+    source_type: simple_replacement
+  - category: characters
+    confidence: 0.85
+    description: '문자 교체: 여 → 요'
+    frequency: 1
+    learned_at: '2026-03-02T09:12:29.464087'
+    pattern: \b여\b
+    replacement: 요
+    source_type: simple_replacement
+  formatting: []
+  punctuation: []
+  spacing:
+  - category: spacing
+    confidence: 0.95
+    description: 구두점 앞 불필요한 공백 제거
+    frequency: 22
+    learned_at: '2026-03-02T09:12:29.457816'
+    pattern: \s+([.!?,:;])
+    replacement: \1
+    source_type: punctuation_spacing

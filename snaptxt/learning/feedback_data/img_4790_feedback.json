@@ -1,0 +1,9 @@
+{
+  "feedback_id": "img_4790_feedback",
+  "image_path": "samples/IMG_4790.JPG",
+  "original_ocr": "내면의평화를찾기위해서는일상의작은습관부터바꿔나가야합니다. 매일아침10분씩명상하는것만으로도큰 변화를경험할수 있습니 다.",
+  "corrected_text": "내면의 평화를 찾기 위해서는 일상의 작은 습관부터 바꿔나가야 합니다. 매일 아침 10분씩 명상하는 것만으로도 큰 변화를 경험할 수 있습니다.",
+  "timestamp": "2026-03-02T09:08:16.596932",
+  "user_id": "test_user",
+  "correction_type": "manual_edit"
+}

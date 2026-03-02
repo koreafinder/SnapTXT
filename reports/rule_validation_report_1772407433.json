@@ -1,0 +1,160 @@
+{
+  "validation_date": "2026-03-02 08:23:53",
+  "rules_file": "stage3_rules.yaml",
+  "test_summary": {
+    "total_tests": 7,
+    "passed": 7,
+    "failed": 0,
+    "pass_rate": 1.0
+  },
+  "performance": {
+    "avg_processing_time": 1.6469955444335937e-05,
+    "processing_speed_chars_per_sec": 3035830.920671685,
+    "avg_rules_applied": 4.0
+  },
+  "syntax_validation": {
+    "total_issues": 0,
+    "errors": 0,
+    "warnings": 0
+  },
+  "overall_status": "PASS",
+  "detailed_results": {
+    "test_cases": [
+      {
+        "input": "마이 클 싱 어의 책을 읽었습니다.",
+        "expected": "마이클 싱어의 책을 읽었습니다.",
+        "actual": "마이클 싱어의 책을 읽었습니다.",
+        "passed": true,
+        "duration": 4.506111145019531e-05,
+        "applied_rules": [
+          {
+            "category": "spacing",
+            "pattern": "마이\\s*클\\s*싱\\s*어",
+            "replacement": "마이클 싱어",
+            "description": "인명 분리 오류"
+          }
+        ],
+        "rule_type": "spacing",
+        "description": "인명 분리 오류 수정"
+      },
+      {
+        "input": "명 상 가처럼 살고 싶습니다.",
+        "expected": "명상가처럼 살고 싶습니다.",
+        "actual": "명상가처럼 살고 싶습니다.",
+        "passed": true,
+        "duration": 2.6226043701171875e-05,
+        "applied_rules": [
+          {
+            "category": "spacing",
+            "pattern": "명\\s*상\\s*가",
+            "replacement": "명상가",
+            "description": "명사 분리 오류"
+          }
+        ],
+        "rule_type": "spacing",
+        "description": "명사 분리 오류 수정"
+      },
+      {
+        "input": "그것이 드러워습니다.",
+        "expected": "그것이 드러났습니다.",
+        "actual": "그것이 드러났습니다.",
+        "passed": true,
+        "duration": 2.1219253540039062e-05,
+        "applied_rules": [
+          {
+            "category": "characters",
+            "pattern": "드러워습니다",
+            "replacement": "드러났습니다",
+            "description": "어미 오인식"
+          }
+        ],
+        "rule_type": "characters",
+        "description": "어미 오인식 수정"
+      },
+      {
+        "input": "깊이 돌두했습니다.",
+        "expected": "깊이 몰두했습니다.",
+        "actual": "깊이 몰두했습니다.",
+        "passed": true,
+        "duration": 2.0742416381835938e-05,
+        "applied_rules": [
+          {
+            "category": "characters",
+            "pattern": "돌두했습니다",
+            "replacement": "몰두했습니다",
+            "description": "초성 오인식"
+          }
+        ],
+        "rule_type": "characters",
+        "description": "초성 오인식 수정"
+      },
+      {
+        "input": "마이 클 싱 어는 유명한 명 상 가입니다.",
+        "expected": "마이클 싱어는 유명한 명상가입니다.",
+        "actual": "마이클 싱어는 유명한 명상가입니다.",
+        "passed": true,
+        "duration": 2.6464462280273438e-05,
+        "applied_rules": [
+          {
+            "category": "spacing",
+            "pattern": "마이\\s*클\\s*싱\\s*어",
+            "replacement": "마이클 싱어",
+            "description": "인명 분리 오류"
+          },
+          {
+            "category": "spacing",
+            "pattern": "명\\s*상\\s*가",
+            "replacement": "명상가",
+            "description": "명사 분리 오류"
+          }
+        ],
+        "rule_type": "mixed",
+        "description": "복합 오류 수정"
+      },
+      {
+        "input": "연구에 돌두했습니다. 결과가 드러워습니다.",
+        "expected": "연구에 몰두했습니다. 결과가 드러났습니다.",
+        "actual": "연구에 몰두했습니다. 결과가 드러났습니다.",
+        "passed": true,
+        "duration": 2.47955322265625e-05,
+        "applied_rules": [
+          {
+            "category": "characters",
+            "pattern": "드러워습니다",
+            "replacement": "드러났습니다",
+            "description": "어미 오인식"
+          },
+          {
+            "category": "characters",
+            "pattern": "돌두했습니다",
+            "replacement": "몰두했습니다",
+            "description": "초성 오인식"
+          }
+        ],
+        "rule_type": "mixed",
+        "description": "다중 문장 수정"
+      },
+      {
+        "input": "정상적인 텍스트입니다.",
+        "expected": "정상적인 텍스트입니다.",
+        "actual": "정상적인 텍스트입니다.",
+        "passed": true,
+        "duration": 2.0742416381835938e-05,
+        "applied_rules": [],
+        "rule_type": "negative",
+        "description": "정상 텍스트는 변경되지 않아야 함"
+      }
+    ],
+    "benchmark_data": {
+      "iterations": 50,
+      "avg_time": 1.6469955444335937e-05,
+      "min_time": 1.3589859008789062e-05,
+      "max_time": 3.075599670410156e-05,
+      "total_time": 0.0008234977722167969,
+      "avg_rules_applied": 4.0,
+      "chars_per_second": 3035830.920671685,
+      "text_length": 50
+    },
+    "syntax_issues": []
+  }
+}

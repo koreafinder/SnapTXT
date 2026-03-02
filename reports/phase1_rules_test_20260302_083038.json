@@ -1,0 +1,215 @@
+{
+  "test_summary": {
+    "test_date": "2026-03-02T08:30:37.570705",
+    "total_tests": 6,
+    "successful_tests": 6,
+    "success_rate": 1.0,
+    "texts_changed": 5,
+    "change_rate": 0.8333333333333334,
+    "overall_improvement_rate": 1.0,
+    "total_improvements_found": 10,
+    "total_expected_improvements": 10,
+    "detailed_results": [
+      {
+        "test_id": "spacing_name_error",
+        "category": "spacing_error",
+        "input": "마이 클 싱 어의 저서를 읽었습니다. 그는 유명한 명 상 가입니다.",
+        "output": "마이클 싱어의 저서를 읽었습니다. 그는 유명한 명상가입니다.",
+        "changed": true,
+        "expected_improvements": [
+          "마이클 싱어",
+          "명상가"
+        ],
+        "improvements_found": [
+          "마이클 싱어",
+          "명상가"
+        ],
+        "improvement_rate": 1.0,
+        "applied_rules": [
+          {
+            "category": "spacing",
+            "pattern": "마이\\s*클\\s*싱\\s*어",
+            "replacement": "마이클 싱어",
+            "description": "인명 분리 오류",
+            "auto_generated": true,
+            "confidence": 0.9
+          },
+          {
+            "category": "spacing",
+            "pattern": "명\\s*상\\s*가",
+            "replacement": "명상가",
+            "description": "명사 분리 오류",
+            "auto_generated": true,
+            "confidence": 0.85
+          }
+        ],
+        "success": true
+      },
+      {
+        "test_id": "character_recognition_error",
+        "category": "character_error",
+        "input": "연구 결과가 드러워습니다. 학자들이 이 문제에 돌두했습니다.",
+        "output": "연구 결과가 드러났습니다. 학자들이 이 문제에 몰두했습니다.",
+        "changed": true,
+        "expected_improvements": [
+          "드러났습니다",
+          "몰두했습니다"
+        ],
+        "improvements_found": [
+          "드러났습니다",
+          "몰두했습니다"
+        ],
+        "improvement_rate": 1.0,
+        "applied_rules": [
+          {
+            "category": "characters",
+            "pattern": "드러워습니다",
+            "replacement": "드러났습니다",
+            "description": "어미 오인식",
+            "auto_generated": true,
+            "confidence": 0.95
+          },
+          {
+            "category": "characters",
+            "pattern": "돌두했습니다",
+            "replacement": "몰두했습니다",
+            "description": "초성 오인식",
+            "auto_generated": true,
+            "confidence": 0.9
+          }
+        ],
+        "success": true
+      },
+      {
+        "test_id": "mixed_error",
+        "category": "mixed_error",
+        "input": "마이 클 싱 어는 영적인 스승입니다. 그의 가르침이 드러워습니다.",
+        "output": "마이클 싱어는 영적인 스승입니다. 그의 가르침이 드러났습니다.",
+        "changed": true,
+        "expected_improvements": [
+          "마이클 싱어",
+          "드러났습니다"
+        ],
+        "improvements_found": [
+          "마이클 싱어",
+          "드러났습니다"
+        ],
+        "improvement_rate": 1.0,
+        "applied_rules": [
+          {
+            "category": "spacing",
+            "pattern": "마이\\s*클\\s*싱\\s*어",
+            "replacement": "마이클 싱어",
+            "description": "인명 분리 오류",
+            "auto_generated": true,
+            "confidence": 0.9
+          },
+          {
+            "category": "characters",
+            "pattern": "드러워습니다",
+            "replacement": "드러났습니다",
+            "description": "어미 오인식",
+            "auto_generated": true,
+            "confidence": 0.95
+          }
+        ],
+        "success": true
+      },
+      {
+        "test_id": "book_content_1",
+        "category": "book_content",
+        "input": "명 상 가들은 내면의 평화를 추구합니다. 이것이 드러워습니다.",
+        "output": "명상가들은 내면의 평화를 추구합니다. 이것이 드러났습니다.",
+        "changed": true,
+        "expected_improvements": [
+          "명상가",
+          "드러났습니다"
+        ],
+        "improvements_found": [
+          "명상가",
+          "드러났습니다"
+        ],
+        "improvement_rate": 1.0,
+        "applied_rules": [
+          {
+            "category": "spacing",
+            "pattern": "명\\s*상\\s*가",
+            "replacement": "명상가",
+            "description": "명사 분리 오류",
+            "auto_generated": true,
+            "confidence": 0.85
+          },
+          {
+            "category": "characters",
+            "pattern": "드러워습니다",
+            "replacement": "드러났습니다",
+            "description": "어미 오인식",
+            "auto_generated": true,
+            "confidence": 0.95
+          }
+        ],
+        "success": true
+      },
+      {
+        "test_id": "academic_text",
+        "category": "academic",
+        "input": "연구진이 이 문제에 깊이 돌두했습니다. 결론이 명확히 드러워습니다.",
+        "output": "연구진이 이 문제에 깊이 몰두했습니다. 결론이 명확히 드러났습니다.",
+        "changed": true,
+        "expected_improvements": [
+          "몰두했습니다",
+          "드러났습니다"
+        ],
+        "improvements_found": [
+          "몰두했습니다",
+          "드러났습니다"
+        ],
+        "improvement_rate": 1.0,
+        "applied_rules": [
+          {
+            "category": "characters",
+            "pattern": "드러워습니다",
+            "replacement": "드러났습니다",
+            "description": "어미 오인식",
+            "auto_generated": true,
+            "confidence": 0.95
+          },
+          {
+            "category": "characters",
+            "pattern": "돌두했습니다",
+            "replacement": "몰두했습니다",
+            "description": "초성 오인식",
+            "auto_generated": true,
+            "confidence": 0.9
+          }
+        ],
+        "success": true
+      },
+      {
+        "test_id": "correct_text",
+        "category": "negative_test",
+        "input": "정상적인 텍스트입니다. 올바른 문장 구조를 유지해야 합니다.",
+        "output": "정상적인 텍스트입니다. 올바른 문장 구조를 유지해야 합니다.",
+        "changed": false,
+        "expected_improvements": [],
+        "improvements_found": [],
+        "improvement_rate": 1.0,
+        "applied_rules": [],
+        "success": true
+      }
+    ]
+  },
+  "performance_impact": {
+    "iterations": 100,
+    "avg_time": 0.006258270740509033,
+    "min_time": 0.004645109176635742,
+    "max_time": 0.011644124984741211,
+    "chars_per_second": 6071.964856686461,
+    "overhead_per_char": 0.0001646913352765535
+  },
+  "conclusion": {
+    "ready_for_production": true,
+    "performance_acceptable": false,
+    "recommendation": "✅ 실제 시스템에 적용 권장. 뚜렷한 개선 효과 확인됨."
+  }
+}

@@ -1,0 +1,4147 @@
+{
+  "test_metadata": {
+    "test_date": "2026-03-02T10:00:08.792116",
+    "total_images": 29,
+    "valid_results": 29,
+    "test_duration": 0.03,
+    "phase1_rules": 5,
+    "phase2_rules": 39
+  },
+  "performance_summary": {
+    "avg_baseline_score": 7.093,
+    "avg_improved_score": 7.987,
+    "avg_improvement": 0.894,
+    "improvement_rate": 1.0,
+    "significant_improvement_rate": 1.0,
+    "total_phase1_applications": 1,
+    "total_phase2_applications": 397,
+    "avg_phase1_per_image": 0.03,
+    "avg_phase2_per_image": 13.69
+  },
+  "difficulty_analysis": {
+    "easy": {
+      "count": 9,
+      "avg_improvement": 0.6918702222222222,
+      "improved_count": 9
+    },
+    "medium": {
+      "count": 6,
+      "avg_improvement": 1.0,
+      "improved_count": 6
+    },
+    "hard": {
+      "count": 10,
+      "avg_improvement": 0.9708944,
+      "improved_count": 10
+    },
+    "very_hard": {
+      "count": 4,
+      "avg_improvement": 1.0,
+      "improved_count": 4
+    }
+  },
+  "content_type_analysis": {
+    "title": {
+      "count": 1,
+      "avg_improvement": 0.544208,
+      "improved_count": 1
+    },
+    "body_text": {
+      "count": 17,
+      "avg_improvement": 1.0,
+      "improved_count": 17
+    },
+    "preface": {
+      "count": 2,
+      "avg_improvement": 1.0,
+      "improved_count": 2
+    },
+    "blank": {
+      "count": 3,
+      "avg_improvement": 0.26964799999999994,
+      "improved_count": 3
+    },
+    "note": {
+      "count": 1,
+      "avg_improvement": 1.0,
+      "improved_count": 1
+    }
+  },
+  "detailed_results": [
+    {
+      "image_id": "IMG_4789",
+      "content_type": "title",
+      "difficulty": "easy",
+      "baseline_score": 8.0,
+      "improvement_score": 0.544208,
+      "new_score": 8.544208,
+      "applied_rules_count": 3,
+      "phase1_rules_count": 0,
+      "phase2_rules_count": 3,
+      "applied_rules": [
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "이",
+          "replacement": "리",
+          "description": "character_substitution 오류: '이' → '리'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "을",
+          "replacement": "올",
+          "description": "character_substitution 오류: '을' → '올'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "상",
+          "replacement": "샹",
+          "description": "character_substitution 오류: '상' → '샹'",
+          "confidence": 0.88,
+          "learned": true
+        }
+      ],
+      "text_changed": true,
+      "original_length": 25,
+      "corrupted_length": 25,
+      "improved_length": 25
+    },
+    {
+      "image_id": "IMG_4790",
+      "content_type": "biography",
+      "difficulty": "hard",
+      "baseline_score": 7.6,
+      "improvement_score": 1.0,
+      "new_score": 8.6,
+      "applied_rules_count": 20,
+      "phase1_rules_count": 1,
+      "phase2_rules_count": 19,
+      "applied_rules": [
+        {
+          "phase": "Phase 1",
+          "category": "characters",
+          "pattern": "돌두했습니다",
+          "replacement": "몰두했습니다",
+          "description": "초성 오인식",
+          "confidence": 0.9,
+          "learned": false
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "는",
+          "replacement": "능",
+          "description": "character_substitution 오류: '는' → '능'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "기",
+          "replacement": "가",
+          "description": "character_substitution 오류: '기' → '가'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "어",
+          "replacement": "여",
+          "description": "character_substitution 오류: '어' → '여'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "과",
+          "replacement": "광",
+          "description": "character_substitution 오류: '과' → '광'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "다",
+          "replacement": "도",
+          "description": "character_substitution 오류: '다' → '도'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "든",
+          "replacement": "들",
+          "description": "character_substitution 오류: '든' → '들'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "그",
+          "replacement": "글",
+          "description": "character_substitution 오류: '그' → '글'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "가",
+          "replacement": "고",
+          "description": "character_substitution 오류: '가' → '고'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "로",
+          "replacement": "노",
+          "description": "character_substitution 오류: '로' → '노'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "이",
+          "replacement": "리",
+          "description": "character_substitution 오류: '이' → '리'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "의",
+          "replacement": "어",
+          "description": "character_substitution 오류: '의' → '어'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "마",
+          "replacement": "머",
+          "description": "character_substitution 오류: '마' → '머'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "에",
+          "replacement": "어",
+          "description": "character_substitution 오류: '에' → '어'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "을",
+          "replacement": "올",
+          "description": "character_substitution 오류: '을' → '올'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "상",
+          "replacement": "샹",
+          "description": "character_substitution 오류: '상' → '샹'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "있",
+          "replacement": "잇",
+          "description": "character_substitution 오류: '있' → '잇'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "하",
+          "replacement": "호",
+          "description": "character_substitution 오류: '하' → '호'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "자",
+          "replacement": "저",
+          "description": "character_substitution 오류: '자' → '저'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "punctuation",
+          "pattern": ".",
+          "replacement": " .",
+          "description": "character_substitution 오류: '.' → ' .'",
+          "confidence": 0.88,
+          "learned": true
+        }
+      ],
+      "text_changed": true,
+      "original_length": 622,
+      "corrupted_length": 645,
+      "improved_length": 653
+    },
+    {
+      "image_id": "IMG_4791",
+      "content_type": "note",
+      "difficulty": "medium",
+      "baseline_score": 7.3,
+      "improvement_score": 1.0,
+      "new_score": 8.3,
+      "applied_rules_count": 16,
+      "phase1_rules_count": 0,
+      "phase2_rules_count": 16,
+      "applied_rules": [
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "는",
+          "replacement": "능",
+          "description": "character_substitution 오류: '는' → '능'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "기",
+          "replacement": "가",
+          "description": "character_substitution 오류: '기' → '가'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "어",
+          "replacement": "여",
+          "description": "character_substitution 오류: '어' → '여'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "과",
+          "replacement": "광",
+          "description": "character_substitution 오류: '과' → '광'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "다",
+          "replacement": "도",
+          "description": "character_substitution 오류: '다' → '도'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "가",
+          "replacement": "고",
+          "description": "character_substitution 오류: '가' → '고'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "로",
+          "replacement": "노",
+          "description": "character_substitution 오류: '로' → '노'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "이",
+          "replacement": "리",
+          "description": "character_substitution 오류: '이' → '리'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "의",
+          "replacement": "어",
+          "description": "character_substitution 오류: '의' → '어'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "에",
+          "replacement": "어",
+          "description": "character_substitution 오류: '에' → '어'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "을",
+          "replacement": "올",
+          "description": "character_substitution 오류: '을' → '올'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "상",
+          "replacement": "샹",
+          "description": "character_substitution 오류: '상' → '샹'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "있",
+          "replacement": "잇",
+          "description": "character_substitution 오류: '있' → '잇'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "하",
+          "replacement": "호",
+          "description": "character_substitution 오류: '하' → '호'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "자",
+          "replacement": "저",
+          "description": "character_substitution 오류: '자' → '저'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "punctuation",
+          "pattern": ".",
+          "replacement": " .",
+          "description": "character_substitution 오류: '.' → ' .'",
+          "confidence": 0.88,
+          "learned": true
+        }
+      ],
+      "text_changed": true,
+      "original_length": 126,
+      "corrupted_length": 128,
+      "improved_length": 129
+    },
+    {
+      "image_id": "IMG_4792",
+      "content_type": "table_of_contents",
+      "difficulty": "medium",
+      "baseline_score": 7.4,
+      "improvement_score": 1.0,
+      "new_score": 8.4,
+      "applied_rules_count": 10,
+      "phase1_rules_count": 0,
+      "phase2_rules_count": 10,
+      "applied_rules": [
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "기",
+          "replacement": "가",
+          "description": "character_substitution 오류: '기' → '가'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "든",
+          "replacement": "들",
+          "description": "character_substitution 오류: '든' → '들'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "그",
+          "replacement": "글",
+          "description": "character_substitution 오류: '그' → '글'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "가",
+          "replacement": "고",
+          "description": "character_substitution 오류: '가' → '고'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "로",
+          "replacement": "노",
+          "description": "character_substitution 오류: '로' → '노'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "의",
+          "replacement": "어",
+          "description": "character_substitution 오류: '의' → '어'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "에",
+          "replacement": "어",
+          "description": "character_substitution 오류: '에' → '어'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "을",
+          "replacement": "올",
+          "description": "character_substitution 오류: '을' → '올'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "하",
+          "replacement": "호",
+          "description": "character_substitution 오류: '하' → '호'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "자",
+          "replacement": "저",
+          "description": "character_substitution 오류: '자' → '저'",
+          "confidence": 0.88,
+          "learned": true
+        }
+      ],
+      "text_changed": true,
+      "original_length": 121,
+      "corrupted_length": 121,
+      "improved_length": 121
+    },
+    {
+      "image_id": "IMG_4793",
+      "content_type": "preface",
+      "difficulty": "hard",
+      "baseline_score": 7.0,
+      "improvement_score": 1.0,
+      "new_score": 8.0,
+      "applied_rules_count": 21,
+      "phase1_rules_count": 0,
+      "phase2_rules_count": 21,
+      "applied_rules": [
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "는",
+          "replacement": "능",
+          "description": "character_substitution 오류: '는' → '능'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "기",
+          "replacement": "가",
+          "description": "character_substitution 오류: '기' → '가'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "어",
+          "replacement": "여",
+          "description": "character_substitution 오류: '어' → '여'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "과",
+          "replacement": "광",
+          "description": "character_substitution 오류: '과' → '광'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "다",
+          "replacement": "도",
+          "description": "character_substitution 오류: '다' → '도'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "든",
+          "replacement": "들",
+          "description": "character_substitution 오류: '든' → '들'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "그",
+          "replacement": "글",
+          "description": "character_substitution 오류: '그' → '글'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "가",
+          "replacement": "고",
+          "description": "character_substitution 오류: '가' → '고'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "로",
+          "replacement": "노",
+          "description": "character_substitution 오류: '로' → '노'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "이",
+          "replacement": "리",
+          "description": "character_substitution 오류: '이' → '리'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "의",
+          "replacement": "어",
+          "description": "character_substitution 오류: '의' → '어'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "마",
+          "replacement": "머",
+          "description": "character_substitution 오류: '마' → '머'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "에",
+          "replacement": "어",
+          "description": "character_substitution 오류: '에' → '어'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "을",
+          "replacement": "올",
+          "description": "character_substitution 오류: '을' → '올'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "상",
+          "replacement": "샹",
+          "description": "character_substitution 오류: '상' → '샹'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "있",
+          "replacement": "잇",
+          "description": "character_substitution 오류: '있' → '잇'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "하",
+          "replacement": "호",
+          "description": "character_substitution 오류: '하' → '호'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "것",
+          "replacement": "걷",
+          "description": "character_substitution 오류: '것' → '걷'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "자",
+          "replacement": "저",
+          "description": "character_substitution 오류: '자' → '저'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "수",
+          "replacement": "소",
+          "description": "character_substitution 오류: '수' → '소'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "punctuation",
+          "pattern": ".",
+          "replacement": " .",
+          "description": "character_substitution 오류: '.' → ' .'",
+          "confidence": 0.88,
+          "learned": true
+        }
+      ],
+      "text_changed": true,
+      "original_length": 306,
+      "corrupted_length": 314,
+      "improved_length": 321
+    },
+    {
+      "image_id": "IMG_4794",
+      "content_type": "preface",
+      "difficulty": "hard",
+      "baseline_score": 7.0,
+      "improvement_score": 1.0,
+      "new_score": 8.0,
+      "applied_rules_count": 18,
+      "phase1_rules_count": 0,
+      "phase2_rules_count": 18,
+      "applied_rules": [
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "는",
+          "replacement": "능",
+          "description": "character_substitution 오류: '는' → '능'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "기",
+          "replacement": "가",
+          "description": "character_substitution 오류: '기' → '가'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "할",
+          "replacement": "향",
+          "description": "character_substitution 오류: '할' → '향'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "다",
+          "replacement": "도",
+          "description": "character_substitution 오류: '다' → '도'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "가",
+          "replacement": "고",
+          "description": "character_substitution 오류: '가' → '고'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "로",
+          "replacement": "노",
+          "description": "character_substitution 오류: '로' → '노'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "이",
+          "replacement": "리",
+          "description": "character_substitution 오류: '이' → '리'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "의",
+          "replacement": "어",
+          "description": "character_substitution 오류: '의' → '어'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "마",
+          "replacement": "머",
+          "description": "character_substitution 오류: '마' → '머'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "에",
+          "replacement": "어",
+          "description": "character_substitution 오류: '에' → '어'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "을",
+          "replacement": "올",
+          "description": "character_substitution 오류: '을' → '올'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "상",
+          "replacement": "샹",
+          "description": "character_substitution 오류: '상' → '샹'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "있",
+          "replacement": "잇",
+          "description": "character_substitution 오류: '있' → '잇'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "하",
+          "replacement": "호",
+          "description": "character_substitution 오류: '하' → '호'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "것",
+          "replacement": "걷",
+          "description": "character_substitution 오류: '것' → '걷'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "자",
+          "replacement": "저",
+          "description": "character_substitution 오류: '자' → '저'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "수",
+          "replacement": "소",
+          "description": "character_substitution 오류: '수' → '소'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "punctuation",
+          "pattern": ".",
+          "replacement": " .",
+          "description": "character_substitution 오류: '.' → ' .'",
+          "confidence": 0.88,
+          "learned": true
+        }
+      ],
+      "text_changed": true,
+      "original_length": 204,
+      "corrupted_length": 209,
+      "improved_length": 213
+    },
+    {
+      "image_id": "IMG_4795",
+      "content_type": "quote",
+      "difficulty": "easy",
+      "baseline_score": 7.1,
+      "improvement_score": 1.0,
+      "new_score": 8.1,
+      "applied_rules_count": 10,
+      "phase1_rules_count": 0,
+      "phase2_rules_count": 10,
+      "applied_rules": [
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "는",
+          "replacement": "능",
+          "description": "character_substitution 오류: '는' → '능'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "다",
+          "replacement": "도",
+          "description": "character_substitution 오류: '다' → '도'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "가",
+          "replacement": "고",
+          "description": "character_substitution 오류: '가' → '고'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "이",
+          "replacement": "리",
+          "description": "character_substitution 오류: '이' → '리'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "의",
+          "replacement": "어",
+          "description": "character_substitution 오류: '의' → '어'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "마",
+          "replacement": "머",
+          "description": "character_substitution 오류: '마' → '머'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "에",
+          "replacement": "어",
+          "description": "character_substitution 오류: '에' → '어'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "을",
+          "replacement": "올",
+          "description": "character_substitution 오류: '을' → '올'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "것",
+          "replacement": "걷",
+          "description": "character_substitution 오류: '것' → '걷'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "punctuation",
+          "pattern": ".",
+          "replacement": " .",
+          "description": "character_substitution 오류: '.' → ' .'",
+          "confidence": 0.88,
+          "learned": true
+        }
+      ],
+      "text_changed": true,
+      "original_length": 51,
+      "corrupted_length": 52,
+      "improved_length": 53
+    },
+    {
+      "image_id": "IMG_4796",
+      "content_type": "part_title",
+      "difficulty": "easy",
+      "baseline_score": 7.2,
+      "improvement_score": 0.87368,
+      "new_score": 8.07368,
+      "applied_rules_count": 5,
+      "phase1_rules_count": 0,
+      "phase2_rules_count": 5,
+      "applied_rules": [
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "기",
+          "replacement": "가",
+          "description": "character_substitution 오류: '기' → '가'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "든",
+          "replacement": "들",
+          "description": "character_substitution 오류: '든' → '들'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "가",
+          "replacement": "고",
+          "description": "character_substitution 오류: '가' → '고'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "의",
+          "replacement": "어",
+          "description": "character_substitution 오류: '의' → '어'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "을",
+          "replacement": "올",
+          "description": "character_substitution 오류: '을' → '올'",
+          "confidence": 0.88,
+          "learned": true
+        }
+      ],
+      "text_changed": true,
+      "original_length": 18,
+      "corrupted_length": 18,
+      "improved_length": 18
+    },
+    {
+      "image_id": "IMG_4797",
+      "content_type": "structured_page",
+      "difficulty": "hard",
+      "baseline_score": 7.0,
+      "improvement_score": 0.708944,
+      "new_score": 7.708944,
+      "applied_rules_count": 4,
+      "phase1_rules_count": 0,
+      "phase2_rules_count": 4,
+      "applied_rules": [
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "기",
+          "replacement": "가",
+          "description": "character_substitution 오류: '기' → '가'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "가",
+          "replacement": "고",
+          "description": "character_substitution 오류: '가' → '고'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "이",
+          "replacement": "리",
+          "description": "character_substitution 오류: '이' → '리'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "자",
+          "replacement": "저",
+          "description": "character_substitution 오류: '자' → '저'",
+          "confidence": 0.88,
+          "learned": true
+        }
+      ],
+      "text_changed": true,
+      "original_length": 70,
+      "corrupted_length": 71,
+      "improved_length": 71
+    },
+    {
+      "image_id": "IMG_4798",
+      "content_type": "blank",
+      "difficulty": "easy",
+      "baseline_score": 7.1,
+      "improvement_score": 0.379472,
+      "new_score": 7.4794719999999995,
+      "applied_rules_count": 2,
+      "phase1_rules_count": 0,
+      "phase2_rules_count": 2,
+      "applied_rules": [
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "가",
+          "replacement": "고",
+          "description": "character_substitution 오류: '가' → '고'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "이",
+          "replacement": "리",
+          "description": "character_substitution 오류: '이' → '리'",
+          "confidence": 0.88,
+          "learned": true
+        }
+      ],
+      "text_changed": true,
+      "original_length": 8,
+      "corrupted_length": 8,
+      "improved_length": 8
+    },
+    {
+      "image_id": "IMG_4799",
+      "content_type": "body_text",
+      "difficulty": "hard",
+      "baseline_score": 6.9,
+      "improvement_score": 1.0,
+      "new_score": 7.9,
+      "applied_rules_count": 22,
+      "phase1_rules_count": 0,
+      "phase2_rules_count": 22,
+      "applied_rules": [
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "는",
+          "replacement": "능",
+          "description": "character_substitution 오류: '는' → '능'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "기",
+          "replacement": "가",
+          "description": "character_substitution 오류: '기' → '가'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "어",
+          "replacement": "여",
+          "description": "character_substitution 오류: '어' → '여'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "할",
+          "replacement": "향",
+          "description": "character_substitution 오류: '할' → '향'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "과",
+          "replacement": "광",
+          "description": "character_substitution 오류: '과' → '광'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "다",
+          "replacement": "도",
+          "description": "character_substitution 오류: '다' → '도'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "든",
+          "replacement": "들",
+          "description": "character_substitution 오류: '든' → '들'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "그",
+          "replacement": "글",
+          "description": "character_substitution 오류: '그' → '글'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "가",
+          "replacement": "고",
+          "description": "character_substitution 오류: '가' → '고'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "로",
+          "replacement": "노",
+          "description": "character_substitution 오류: '로' → '노'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "이",
+          "replacement": "리",
+          "description": "character_substitution 오류: '이' → '리'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "의",
+          "replacement": "어",
+          "description": "character_substitution 오류: '의' → '어'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "마",
+          "replacement": "머",
+          "description": "character_substitution 오류: '마' → '머'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "에",
+          "replacement": "어",
+          "description": "character_substitution 오류: '에' → '어'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "을",
+          "replacement": "올",
+          "description": "character_substitution 오류: '을' → '올'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "상",
+          "replacement": "샹",
+          "description": "character_substitution 오류: '상' → '샹'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "있",
+          "replacement": "잇",
+          "description": "character_substitution 오류: '있' → '잇'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "하",
+          "replacement": "호",
+          "description": "character_substitution 오류: '하' → '호'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "것",
+          "replacement": "걷",
+          "description": "character_substitution 오류: '것' → '걷'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "자",
+          "replacement": "저",
+          "description": "character_substitution 오류: '자' → '저'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "수",
+          "replacement": "소",
+          "description": "character_substitution 오류: '수' → '소'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "punctuation",
+          "pattern": ".",
+          "replacement": " .",
+          "description": "character_substitution 오류: '.' → ' .'",
+          "confidence": 0.88,
+          "learned": true
+        }
+      ],
+      "text_changed": true,
+      "original_length": 542,
+      "corrupted_length": 563,
+      "improved_length": 575
+    },
+    {
+      "image_id": "IMG_4800",
+      "content_type": "blank",
+      "difficulty": "easy",
+      "baseline_score": 8.0,
+      "improvement_score": 0.21473599999999998,
+      "new_score": 8.214736,
+      "applied_rules_count": 1,
+      "phase1_rules_count": 0,
+      "phase2_rules_count": 1,
+      "applied_rules": [
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "이",
+          "replacement": "리",
+          "description": "character_substitution 오류: '이' → '리'",
+          "confidence": 0.88,
+          "learned": true
+        }
+      ],
+      "text_changed": true,
+      "original_length": 16,
+      "corrupted_length": 16,
+      "improved_length": 16
+    },
+    {
+      "image_id": "IMG_4801",
+      "content_type": "body_text",
+      "difficulty": "hard",
+      "baseline_score": 6.8,
+      "improvement_score": 1.0,
+      "new_score": 7.8,
+      "applied_rules_count": 19,
+      "phase1_rules_count": 0,
+      "phase2_rules_count": 19,
+      "applied_rules": [
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "는",
+          "replacement": "능",
+          "description": "character_substitution 오류: '는' → '능'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "기",
+          "replacement": "가",
+          "description": "character_substitution 오류: '기' → '가'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "어",
+          "replacement": "여",
+          "description": "character_substitution 오류: '어' → '여'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "할",
+          "replacement": "향",
+          "description": "character_substitution 오류: '할' → '향'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "다",
+          "replacement": "도",
+          "description": "character_substitution 오류: '다' → '도'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "그",
+          "replacement": "글",
+          "description": "character_substitution 오류: '그' → '글'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "가",
+          "replacement": "고",
+          "description": "character_substitution 오류: '가' → '고'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "로",
+          "replacement": "노",
+          "description": "character_substitution 오류: '로' → '노'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "이",
+          "replacement": "리",
+          "description": "character_substitution 오류: '이' → '리'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "의",
+          "replacement": "어",
+          "description": "character_substitution 오류: '의' → '어'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "마",
+          "replacement": "머",
+          "description": "character_substitution 오류: '마' → '머'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "에",
+          "replacement": "어",
+          "description": "character_substitution 오류: '에' → '어'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "을",
+          "replacement": "올",
+          "description": "character_substitution 오류: '을' → '올'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "있",
+          "replacement": "잇",
+          "description": "character_substitution 오류: '있' → '잇'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "하",
+          "replacement": "호",
+          "description": "character_substitution 오류: '하' → '호'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "것",
+          "replacement": "걷",
+          "description": "character_substitution 오류: '것' → '걷'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "자",
+          "replacement": "저",
+          "description": "character_substitution 오류: '자' → '저'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "수",
+          "replacement": "소",
+          "description": "character_substitution 오류: '수' → '소'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "punctuation",
+          "pattern": ".",
+          "replacement": " .",
+          "description": "character_substitution 오류: '.' → ' .'",
+          "confidence": 0.88,
+          "learned": true
+        }
+      ],
+      "text_changed": true,
+      "original_length": 346,
+      "corrupted_length": 358,
+      "improved_length": 366
+    },
+    {
+      "image_id": "IMG_4802",
+      "content_type": "body_text",
+      "difficulty": "medium",
+      "baseline_score": 7.1,
+      "improvement_score": 1.0,
+      "new_score": 8.1,
+      "applied_rules_count": 17,
+      "phase1_rules_count": 0,
+      "phase2_rules_count": 17,
+      "applied_rules": [
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "는",
+          "replacement": "능",
+          "description": "character_substitution 오류: '는' → '능'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "어",
+          "replacement": "여",
+          "description": "character_substitution 오류: '어' → '여'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "할",
+          "replacement": "향",
+          "description": "character_substitution 오류: '할' → '향'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "다",
+          "replacement": "도",
+          "description": "character_substitution 오류: '다' → '도'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "든",
+          "replacement": "들",
+          "description": "character_substitution 오류: '든' → '들'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "그",
+          "replacement": "글",
+          "description": "character_substitution 오류: '그' → '글'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "가",
+          "replacement": "고",
+          "description": "character_substitution 오류: '가' → '고'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "이",
+          "replacement": "리",
+          "description": "character_substitution 오류: '이' → '리'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "의",
+          "replacement": "어",
+          "description": "character_substitution 오류: '의' → '어'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "마",
+          "replacement": "머",
+          "description": "character_substitution 오류: '마' → '머'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "에",
+          "replacement": "어",
+          "description": "character_substitution 오류: '에' → '어'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "을",
+          "replacement": "올",
+          "description": "character_substitution 오류: '을' → '올'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "있",
+          "replacement": "잇",
+          "description": "character_substitution 오류: '있' → '잇'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "하",
+          "replacement": "호",
+          "description": "character_substitution 오류: '하' → '호'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "자",
+          "replacement": "저",
+          "description": "character_substitution 오류: '자' → '저'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "수",
+          "replacement": "소",
+          "description": "character_substitution 오류: '수' → '소'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "punctuation",
+          "pattern": ".",
+          "replacement": " .",
+          "description": "character_substitution 오류: '.' → ' .'",
+          "confidence": 0.88,
+          "learned": true
+        }
+      ],
+      "text_changed": true,
+      "original_length": 118,
+      "corrupted_length": 122,
+      "improved_length": 125
+    },
+    {
+      "image_id": "IMG_4803",
+      "content_type": "body_text",
+      "difficulty": "hard",
+      "baseline_score": 6.8,
+      "improvement_score": 1.0,
+      "new_score": 7.8,
+      "applied_rules_count": 19,
+      "phase1_rules_count": 0,
+      "phase2_rules_count": 19,
+      "applied_rules": [
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "는",
+          "replacement": "능",
+          "description": "character_substitution 오류: '는' → '능'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "기",
+          "replacement": "가",
+          "description": "character_substitution 오류: '기' → '가'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "어",
+          "replacement": "여",
+          "description": "character_substitution 오류: '어' → '여'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "할",
+          "replacement": "향",
+          "description": "character_substitution 오류: '할' → '향'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "과",
+          "replacement": "광",
+          "description": "character_substitution 오류: '과' → '광'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "다",
+          "replacement": "도",
+          "description": "character_substitution 오류: '다' → '도'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "그",
+          "replacement": "글",
+          "description": "character_substitution 오류: '그' → '글'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "가",
+          "replacement": "고",
+          "description": "character_substitution 오류: '가' → '고'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "이",
+          "replacement": "리",
+          "description": "character_substitution 오류: '이' → '리'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "의",
+          "replacement": "어",
+          "description": "character_substitution 오류: '의' → '어'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "마",
+          "replacement": "머",
+          "description": "character_substitution 오류: '마' → '머'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "에",
+          "replacement": "어",
+          "description": "character_substitution 오류: '에' → '어'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "을",
+          "replacement": "올",
+          "description": "character_substitution 오류: '을' → '올'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "있",
+          "replacement": "잇",
+          "description": "character_substitution 오류: '있' → '잇'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "하",
+          "replacement": "호",
+          "description": "character_substitution 오류: '하' → '호'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "것",
+          "replacement": "걷",
+          "description": "character_substitution 오류: '것' → '걷'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "자",
+          "replacement": "저",
+          "description": "character_substitution 오류: '자' → '저'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "수",
+          "replacement": "소",
+          "description": "character_substitution 오류: '수' → '소'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "punctuation",
+          "pattern": ".",
+          "replacement": " .",
+          "description": "character_substitution 오류: '.' → ' .'",
+          "confidence": 0.88,
+          "learned": true
+        }
+      ],
+      "text_changed": true,
+      "original_length": 435,
+      "corrupted_length": 449,
+      "improved_length": 459
+    },
+    {
+      "image_id": "IMG_4804",
+      "content_type": "blank",
+      "difficulty": "easy",
+      "baseline_score": 8.0,
+      "improvement_score": 0.21473599999999998,
+      "new_score": 8.214736,
+      "applied_rules_count": 1,
+      "phase1_rules_count": 0,
+      "phase2_rules_count": 1,
+      "applied_rules": [
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "이",
+          "replacement": "리",
+          "description": "character_substitution 오류: '이' → '리'",
+          "confidence": 0.88,
+          "learned": true
+        }
+      ],
+      "text_changed": true,
+      "original_length": 16,
+      "corrupted_length": 16,
+      "improved_length": 16
+    },
+    {
+      "image_id": "IMG_4805",
+      "content_type": "body_text",
+      "difficulty": "hard",
+      "baseline_score": 6.8,
+      "improvement_score": 1.0,
+      "new_score": 7.8,
+      "applied_rules_count": 21,
+      "phase1_rules_count": 0,
+      "phase2_rules_count": 21,
+      "applied_rules": [
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "는",
+          "replacement": "능",
+          "description": "character_substitution 오류: '는' → '능'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "기",
+          "replacement": "가",
+          "description": "character_substitution 오류: '기' → '가'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "어",
+          "replacement": "여",
+          "description": "character_substitution 오류: '어' → '여'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "할",
+          "replacement": "향",
+          "description": "character_substitution 오류: '할' → '향'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "과",
+          "replacement": "광",
+          "description": "character_substitution 오류: '과' → '광'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "다",
+          "replacement": "도",
+          "description": "character_substitution 오류: '다' → '도'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "그",
+          "replacement": "글",
+          "description": "character_substitution 오류: '그' → '글'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "가",
+          "replacement": "고",
+          "description": "character_substitution 오류: '가' → '고'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "로",
+          "replacement": "노",
+          "description": "character_substitution 오류: '로' → '노'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "이",
+          "replacement": "리",
+          "description": "character_substitution 오류: '이' → '리'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "의",
+          "replacement": "어",
+          "description": "character_substitution 오류: '의' → '어'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "마",
+          "replacement": "머",
+          "description": "character_substitution 오류: '마' → '머'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "에",
+          "replacement": "어",
+          "description": "character_substitution 오류: '에' → '어'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "을",
+          "replacement": "올",
+          "description": "character_substitution 오류: '을' → '올'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "상",
+          "replacement": "샹",
+          "description": "character_substitution 오류: '상' → '샹'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "있",
+          "replacement": "잇",
+          "description": "character_substitution 오류: '있' → '잇'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "하",
+          "replacement": "호",
+          "description": "character_substitution 오류: '하' → '호'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "것",
+          "replacement": "걷",
+          "description": "character_substitution 오류: '것' → '걷'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "자",
+          "replacement": "저",
+          "description": "character_substitution 오류: '자' → '저'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "수",
+          "replacement": "소",
+          "description": "character_substitution 오류: '수' → '소'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "punctuation",
+          "pattern": ".",
+          "replacement": " .",
+          "description": "character_substitution 오류: '.' → ' .'",
+          "confidence": 0.88,
+          "learned": true
+        }
+      ],
+      "text_changed": true,
+      "original_length": 458,
+      "corrupted_length": 474,
+      "improved_length": 482
+    },
+    {
+      "image_id": "IMG_4806",
+      "content_type": "body_text",
+      "difficulty": "medium",
+      "baseline_score": 7.1,
+      "improvement_score": 1.0,
+      "new_score": 8.1,
+      "applied_rules_count": 14,
+      "phase1_rules_count": 0,
+      "phase2_rules_count": 14,
+      "applied_rules": [
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "는",
+          "replacement": "능",
+          "description": "character_substitution 오류: '는' → '능'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "어",
+          "replacement": "여",
+          "description": "character_substitution 오류: '어' → '여'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "과",
+          "replacement": "광",
+          "description": "character_substitution 오류: '과' → '광'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "다",
+          "replacement": "도",
+          "description": "character_substitution 오류: '다' → '도'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "이",
+          "replacement": "리",
+          "description": "character_substitution 오류: '이' → '리'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "의",
+          "replacement": "어",
+          "description": "character_substitution 오류: '의' → '어'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "마",
+          "replacement": "머",
+          "description": "character_substitution 오류: '마' → '머'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "에",
+          "replacement": "어",
+          "description": "character_substitution 오류: '에' → '어'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "을",
+          "replacement": "올",
+          "description": "character_substitution 오류: '을' → '올'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "상",
+          "replacement": "샹",
+          "description": "character_substitution 오류: '상' → '샹'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "있",
+          "replacement": "잇",
+          "description": "character_substitution 오류: '있' → '잇'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "하",
+          "replacement": "호",
+          "description": "character_substitution 오류: '하' → '호'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "자",
+          "replacement": "저",
+          "description": "character_substitution 오류: '자' → '저'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "punctuation",
+          "pattern": ".",
+          "replacement": " .",
+          "description": "character_substitution 오류: '.' → ' .'",
+          "confidence": 0.88,
+          "learned": true
+        }
+      ],
+      "text_changed": true,
+      "original_length": 135,
+      "corrupted_length": 140,
+      "improved_length": 144
+    },
+    {
+      "image_id": "IMG_4807",
+      "content_type": "body_text",
+      "difficulty": "easy",
+      "baseline_score": 7.5,
+      "improvement_score": 1.0,
+      "new_score": 8.5,
+      "applied_rules_count": 10,
+      "phase1_rules_count": 0,
+      "phase2_rules_count": 10,
+      "applied_rules": [
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "는",
+          "replacement": "능",
+          "description": "character_substitution 오류: '는' → '능'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "어",
+          "replacement": "여",
+          "description": "character_substitution 오류: '어' → '여'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "이",
+          "replacement": "리",
+          "description": "character_substitution 오류: '이' → '리'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "마",
+          "replacement": "머",
+          "description": "character_substitution 오류: '마' → '머'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "에",
+          "replacement": "어",
+          "description": "character_substitution 오류: '에' → '어'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "을",
+          "replacement": "올",
+          "description": "character_substitution 오류: '을' → '올'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "상",
+          "replacement": "샹",
+          "description": "character_substitution 오류: '상' → '샹'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "것",
+          "replacement": "걷",
+          "description": "character_substitution 오류: '것' → '걷'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "자",
+          "replacement": "저",
+          "description": "character_substitution 오류: '자' → '저'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "punctuation",
+          "pattern": ".",
+          "replacement": " .",
+          "description": "character_substitution 오류: '.' → ' .'",
+          "confidence": 0.88,
+          "learned": true
+        }
+      ],
+      "text_changed": true,
+      "original_length": 44,
+      "corrupted_length": 45,
+      "improved_length": 46
+    },
+    {
+      "image_id": "IMG_4808",
+      "content_type": "body_text",
+      "difficulty": "very_hard",
+      "baseline_score": 6.4,
+      "improvement_score": 1.0,
+      "new_score": 7.4,
+      "applied_rules_count": 20,
+      "phase1_rules_count": 0,
+      "phase2_rules_count": 20,
+      "applied_rules": [
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "는",
+          "replacement": "능",
+          "description": "character_substitution 오류: '는' → '능'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "어",
+          "replacement": "여",
+          "description": "character_substitution 오류: '어' → '여'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "할",
+          "replacement": "향",
+          "description": "character_substitution 오류: '할' → '향'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "과",
+          "replacement": "광",
+          "description": "character_substitution 오류: '과' → '광'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "다",
+          "replacement": "도",
+          "description": "character_substitution 오류: '다' → '도'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "그",
+          "replacement": "글",
+          "description": "character_substitution 오류: '그' → '글'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "가",
+          "replacement": "고",
+          "description": "character_substitution 오류: '가' → '고'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "로",
+          "replacement": "노",
+          "description": "character_substitution 오류: '로' → '노'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "이",
+          "replacement": "리",
+          "description": "character_substitution 오류: '이' → '리'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "의",
+          "replacement": "어",
+          "description": "character_substitution 오류: '의' → '어'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "마",
+          "replacement": "머",
+          "description": "character_substitution 오류: '마' → '머'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "에",
+          "replacement": "어",
+          "description": "character_substitution 오류: '에' → '어'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "을",
+          "replacement": "올",
+          "description": "character_substitution 오류: '을' → '올'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "상",
+          "replacement": "샹",
+          "description": "character_substitution 오류: '상' → '샹'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "있",
+          "replacement": "잇",
+          "description": "character_substitution 오류: '있' → '잇'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "하",
+          "replacement": "호",
+          "description": "character_substitution 오류: '하' → '호'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "것",
+          "replacement": "걷",
+          "description": "character_substitution 오류: '것' → '걷'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "자",
+          "replacement": "저",
+          "description": "character_substitution 오류: '자' → '저'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "수",
+          "replacement": "소",
+          "description": "character_substitution 오류: '수' → '소'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "punctuation",
+          "pattern": ".",
+          "replacement": " .",
+          "description": "character_substitution 오류: '.' → ' .'",
+          "confidence": 0.88,
+          "learned": true
+        }
+      ],
+      "text_changed": true,
+      "original_length": 459,
+      "corrupted_length": 471,
+      "improved_length": 479
+    },
+    {
+      "image_id": "IMG_4809",
+      "content_type": "body_text",
+      "difficulty": "hard",
+      "baseline_score": 6.8,
+      "improvement_score": 1.0,
+      "new_score": 7.8,
+      "applied_rules_count": 17,
+      "phase1_rules_count": 0,
+      "phase2_rules_count": 17,
+      "applied_rules": [
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "는",
+          "replacement": "능",
+          "description": "character_substitution 오류: '는' → '능'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "기",
+          "replacement": "가",
+          "description": "character_substitution 오류: '기' → '가'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "어",
+          "replacement": "여",
+          "description": "character_substitution 오류: '어' → '여'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "다",
+          "replacement": "도",
+          "description": "character_substitution 오류: '다' → '도'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "그",
+          "replacement": "글",
+          "description": "character_substitution 오류: '그' → '글'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "가",
+          "replacement": "고",
+          "description": "character_substitution 오류: '가' → '고'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "로",
+          "replacement": "노",
+          "description": "character_substitution 오류: '로' → '노'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "이",
+          "replacement": "리",
+          "description": "character_substitution 오류: '이' → '리'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "의",
+          "replacement": "어",
+          "description": "character_substitution 오류: '의' → '어'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "마",
+          "replacement": "머",
+          "description": "character_substitution 오류: '마' → '머'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "에",
+          "replacement": "어",
+          "description": "character_substitution 오류: '에' → '어'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "을",
+          "replacement": "올",
+          "description": "character_substitution 오류: '을' → '올'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "하",
+          "replacement": "호",
+          "description": "character_substitution 오류: '하' → '호'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "것",
+          "replacement": "걷",
+          "description": "character_substitution 오류: '것' → '걷'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "자",
+          "replacement": "저",
+          "description": "character_substitution 오류: '자' → '저'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "수",
+          "replacement": "소",
+          "description": "character_substitution 오류: '수' → '소'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "punctuation",
+          "pattern": ".",
+          "replacement": " .",
+          "description": "character_substitution 오류: '.' → ' .'",
+          "confidence": 0.88,
+          "learned": true
+        }
+      ],
+      "text_changed": true,
+      "original_length": 240,
+      "corrupted_length": 246,
+      "improved_length": 249
+    },
+    {
+      "image_id": "IMG_4810",
+      "content_type": "body_text",
+      "difficulty": "very_hard",
+      "baseline_score": 6.2,
+      "improvement_score": 1.0,
+      "new_score": 7.2,
+      "applied_rules_count": 21,
+      "phase1_rules_count": 0,
+      "phase2_rules_count": 21,
+      "applied_rules": [
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "는",
+          "replacement": "능",
+          "description": "character_substitution 오류: '는' → '능'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "기",
+          "replacement": "가",
+          "description": "character_substitution 오류: '기' → '가'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "어",
+          "replacement": "여",
+          "description": "character_substitution 오류: '어' → '여'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "할",
+          "replacement": "향",
+          "description": "character_substitution 오류: '할' → '향'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "과",
+          "replacement": "광",
+          "description": "character_substitution 오류: '과' → '광'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "다",
+          "replacement": "도",
+          "description": "character_substitution 오류: '다' → '도'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "그",
+          "replacement": "글",
+          "description": "character_substitution 오류: '그' → '글'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "가",
+          "replacement": "고",
+          "description": "character_substitution 오류: '가' → '고'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "로",
+          "replacement": "노",
+          "description": "character_substitution 오류: '로' → '노'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "이",
+          "replacement": "리",
+          "description": "character_substitution 오류: '이' → '리'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "의",
+          "replacement": "어",
+          "description": "character_substitution 오류: '의' → '어'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "마",
+          "replacement": "머",
+          "description": "character_substitution 오류: '마' → '머'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "에",
+          "replacement": "어",
+          "description": "character_substitution 오류: '에' → '어'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "을",
+          "replacement": "올",
+          "description": "character_substitution 오류: '을' → '올'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "상",
+          "replacement": "샹",
+          "description": "character_substitution 오류: '상' → '샹'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "있",
+          "replacement": "잇",
+          "description": "character_substitution 오류: '있' → '잇'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "하",
+          "replacement": "호",
+          "description": "character_substitution 오류: '하' → '호'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "것",
+          "replacement": "걷",
+          "description": "character_substitution 오류: '것' → '걷'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "자",
+          "replacement": "저",
+          "description": "character_substitution 오류: '자' → '저'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "수",
+          "replacement": "소",
+          "description": "character_substitution 오류: '수' → '소'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "punctuation",
+          "pattern": ".",
+          "replacement": " .",
+          "description": "character_substitution 오류: '.' → ' .'",
+          "confidence": 0.88,
+          "learned": true
+        }
+      ],
+      "text_changed": true,
+      "original_length": 537,
+      "corrupted_length": 553,
+      "improved_length": 562
+    },
+    {
+      "image_id": "IMG_4811",
+      "content_type": "body_text",
+      "difficulty": "hard",
+      "baseline_score": 6.8,
+      "improvement_score": 1.0,
+      "new_score": 7.8,
+      "applied_rules_count": 19,
+      "phase1_rules_count": 0,
+      "phase2_rules_count": 19,
+      "applied_rules": [
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "는",
+          "replacement": "능",
+          "description": "character_substitution 오류: '는' → '능'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "기",
+          "replacement": "가",
+          "description": "character_substitution 오류: '기' → '가'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "어",
+          "replacement": "여",
+          "description": "character_substitution 오류: '어' → '여'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "할",
+          "replacement": "향",
+          "description": "character_substitution 오류: '할' → '향'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "다",
+          "replacement": "도",
+          "description": "character_substitution 오류: '다' → '도'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "그",
+          "replacement": "글",
+          "description": "character_substitution 오류: '그' → '글'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "가",
+          "replacement": "고",
+          "description": "character_substitution 오류: '가' → '고'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "로",
+          "replacement": "노",
+          "description": "character_substitution 오류: '로' → '노'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "이",
+          "replacement": "리",
+          "description": "character_substitution 오류: '이' → '리'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "의",
+          "replacement": "어",
+          "description": "character_substitution 오류: '의' → '어'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "마",
+          "replacement": "머",
+          "description": "character_substitution 오류: '마' → '머'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "에",
+          "replacement": "어",
+          "description": "character_substitution 오류: '에' → '어'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "을",
+          "replacement": "올",
+          "description": "character_substitution 오류: '을' → '올'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "상",
+          "replacement": "샹",
+          "description": "character_substitution 오류: '상' → '샹'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "있",
+          "replacement": "잇",
+          "description": "character_substitution 오류: '있' → '잇'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "하",
+          "replacement": "호",
+          "description": "character_substitution 오류: '하' → '호'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "자",
+          "replacement": "저",
+          "description": "character_substitution 오류: '자' → '저'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "수",
+          "replacement": "소",
+          "description": "character_substitution 오류: '수' → '소'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "punctuation",
+          "pattern": ".",
+          "replacement": " .",
+          "description": "character_substitution 오류: '.' → ' .'",
+          "confidence": 0.88,
+          "learned": true
+        }
+      ],
+      "text_changed": true,
+      "original_length": 349,
+      "corrupted_length": 361,
+      "improved_length": 367
+    },
+    {
+      "image_id": "IMG_4812",
+      "content_type": "body_text",
+      "difficulty": "medium",
+      "baseline_score": 7.1,
+      "improvement_score": 1.0,
+      "new_score": 8.1,
+      "applied_rules_count": 18,
+      "phase1_rules_count": 0,
+      "phase2_rules_count": 18,
+      "applied_rules": [
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "는",
+          "replacement": "능",
+          "description": "character_substitution 오류: '는' → '능'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "어",
+          "replacement": "여",
+          "description": "character_substitution 오류: '어' → '여'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "할",
+          "replacement": "향",
+          "description": "character_substitution 오류: '할' → '향'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "과",
+          "replacement": "광",
+          "description": "character_substitution 오류: '과' → '광'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "다",
+          "replacement": "도",
+          "description": "character_substitution 오류: '다' → '도'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "그",
+          "replacement": "글",
+          "description": "character_substitution 오류: '그' → '글'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "가",
+          "replacement": "고",
+          "description": "character_substitution 오류: '가' → '고'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "로",
+          "replacement": "노",
+          "description": "character_substitution 오류: '로' → '노'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "이",
+          "replacement": "리",
+          "description": "character_substitution 오류: '이' → '리'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "의",
+          "replacement": "어",
+          "description": "character_substitution 오류: '의' → '어'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "마",
+          "replacement": "머",
+          "description": "character_substitution 오류: '마' → '머'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "에",
+          "replacement": "어",
+          "description": "character_substitution 오류: '에' → '어'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "을",
+          "replacement": "올",
+          "description": "character_substitution 오류: '을' → '올'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "있",
+          "replacement": "잇",
+          "description": "character_substitution 오류: '있' → '잇'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "하",
+          "replacement": "호",
+          "description": "character_substitution 오류: '하' → '호'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "것",
+          "replacement": "걷",
+          "description": "character_substitution 오류: '것' → '걷'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "자",
+          "replacement": "저",
+          "description": "character_substitution 오류: '자' → '저'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "punctuation",
+          "pattern": ".",
+          "replacement": " .",
+          "description": "character_substitution 오류: '.' → ' .'",
+          "confidence": 0.88,
+          "learned": true
+        }
+      ],
+      "text_changed": true,
+      "original_length": 296,
+      "corrupted_length": 303,
+      "improved_length": 310
+    },
+    {
+      "image_id": "IMG_4813",
+      "content_type": "body_text",
+      "difficulty": "easy",
+      "baseline_score": 7.5,
+      "improvement_score": 1.0,
+      "new_score": 8.5,
+      "applied_rules_count": 8,
+      "phase1_rules_count": 0,
+      "phase2_rules_count": 8,
+      "applied_rules": [
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "는",
+          "replacement": "능",
+          "description": "character_substitution 오류: '는' → '능'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "다",
+          "replacement": "도",
+          "description": "character_substitution 오류: '다' → '도'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "가",
+          "replacement": "고",
+          "description": "character_substitution 오류: '가' → '고'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "에",
+          "replacement": "어",
+          "description": "character_substitution 오류: '에' → '어'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "을",
+          "replacement": "올",
+          "description": "character_substitution 오류: '을' → '올'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "상",
+          "replacement": "샹",
+          "description": "character_substitution 오류: '상' → '샹'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "있",
+          "replacement": "잇",
+          "description": "character_substitution 오류: '있' → '잇'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "수",
+          "replacement": "소",
+          "description": "character_substitution 오류: '수' → '소'",
+          "confidence": 0.88,
+          "learned": true
+        }
+      ],
+      "text_changed": true,
+      "original_length": 37,
+      "corrupted_length": 38,
+      "improved_length": 38
+    },
+    {
+      "image_id": "IMG_4814",
+      "content_type": "body_text",
+      "difficulty": "very_hard",
+      "baseline_score": 6.2,
+      "improvement_score": 1.0,
+      "new_score": 7.2,
+      "applied_rules_count": 21,
+      "phase1_rules_count": 0,
+      "phase2_rules_count": 21,
+      "applied_rules": [
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "는",
+          "replacement": "능",
+          "description": "character_substitution 오류: '는' → '능'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "기",
+          "replacement": "가",
+          "description": "character_substitution 오류: '기' → '가'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "어",
+          "replacement": "여",
+          "description": "character_substitution 오류: '어' → '여'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "할",
+          "replacement": "향",
+          "description": "character_substitution 오류: '할' → '향'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "다",
+          "replacement": "도",
+          "description": "character_substitution 오류: '다' → '도'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "든",
+          "replacement": "들",
+          "description": "character_substitution 오류: '든' → '들'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "그",
+          "replacement": "글",
+          "description": "character_substitution 오류: '그' → '글'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "가",
+          "replacement": "고",
+          "description": "character_substitution 오류: '가' → '고'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "로",
+          "replacement": "노",
+          "description": "character_substitution 오류: '로' → '노'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "이",
+          "replacement": "리",
+          "description": "character_substitution 오류: '이' → '리'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "의",
+          "replacement": "어",
+          "description": "character_substitution 오류: '의' → '어'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "마",
+          "replacement": "머",
+          "description": "character_substitution 오류: '마' → '머'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "에",
+          "replacement": "어",
+          "description": "character_substitution 오류: '에' → '어'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "을",
+          "replacement": "올",
+          "description": "character_substitution 오류: '을' → '올'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "상",
+          "replacement": "샹",
+          "description": "character_substitution 오류: '상' → '샹'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "있",
+          "replacement": "잇",
+          "description": "character_substitution 오류: '있' → '잇'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "하",
+          "replacement": "호",
+          "description": "character_substitution 오류: '하' → '호'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "것",
+          "replacement": "걷",
+          "description": "character_substitution 오류: '것' → '걷'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "자",
+          "replacement": "저",
+          "description": "character_substitution 오류: '자' → '저'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "수",
+          "replacement": "소",
+          "description": "character_substitution 오류: '수' → '소'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "punctuation",
+          "pattern": ".",
+          "replacement": " .",
+          "description": "character_substitution 오류: '.' → ' .'",
+          "confidence": 0.88,
+          "learned": true
+        }
+      ],
+      "text_changed": true,
+      "original_length": 589,
+      "corrupted_length": 612,
+      "improved_length": 626
+    },
+    {
+      "image_id": "IMG_4815",
+      "content_type": "body_text",
+      "difficulty": "easy",
+      "baseline_score": 7.5,
+      "improvement_score": 1.0,
+      "new_score": 8.5,
+      "applied_rules_count": 10,
+      "phase1_rules_count": 0,
+      "phase2_rules_count": 10,
+      "applied_rules": [
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "는",
+          "replacement": "능",
+          "description": "character_substitution 오류: '는' → '능'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "기",
+          "replacement": "가",
+          "description": "character_substitution 오류: '기' → '가'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "어",
+          "replacement": "여",
+          "description": "character_substitution 오류: '어' → '여'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "다",
+          "replacement": "도",
+          "description": "character_substitution 오류: '다' → '도'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "가",
+          "replacement": "고",
+          "description": "character_substitution 오류: '가' → '고'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "로",
+          "replacement": "노",
+          "description": "character_substitution 오류: '로' → '노'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "이",
+          "replacement": "리",
+          "description": "character_substitution 오류: '이' → '리'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "에",
+          "replacement": "어",
+          "description": "character_substitution 오류: '에' → '어'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "자",
+          "replacement": "저",
+          "description": "character_substitution 오류: '자' → '저'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "punctuation",
+          "pattern": ".",
+          "replacement": " .",
+          "description": "character_substitution 오류: '.' → ' .'",
+          "confidence": 0.88,
+          "learned": true
+        }
+      ],
+      "text_changed": true,
+      "original_length": 48,
+      "corrupted_length": 49,
+      "improved_length": 50
+    },
+    {
+      "image_id": "IMG_4816",
+      "content_type": "body_text",
+      "difficulty": "medium",
+      "baseline_score": 7.1,
+      "improvement_score": 1.0,
+      "new_score": 8.1,
+      "applied_rules_count": 11,
+      "phase1_rules_count": 0,
+      "phase2_rules_count": 11,
+      "applied_rules": [
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "는",
+          "replacement": "능",
+          "description": "character_substitution 오류: '는' → '능'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "할",
+          "replacement": "향",
+          "description": "character_substitution 오류: '할' → '향'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "다",
+          "replacement": "도",
+          "description": "character_substitution 오류: '다' → '도'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "로",
+          "replacement": "노",
+          "description": "character_substitution 오류: '로' → '노'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "에",
+          "replacement": "어",
+          "description": "character_substitution 오류: '에' → '어'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "을",
+          "replacement": "올",
+          "description": "character_substitution 오류: '을' → '올'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "있",
+          "replacement": "잇",
+          "description": "character_substitution 오류: '있' → '잇'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "것",
+          "replacement": "걷",
+          "description": "character_substitution 오류: '것' → '걷'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "자",
+          "replacement": "저",
+          "description": "character_substitution 오류: '자' → '저'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "수",
+          "replacement": "소",
+          "description": "character_substitution 오류: '수' → '소'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "punctuation",
+          "pattern": ".",
+          "replacement": " .",
+          "description": "character_substitution 오류: '.' → ' .'",
+          "confidence": 0.88,
+          "learned": true
+        }
+      ],
+      "text_changed": true,
+      "original_length": 61,
+      "corrupted_length": 62,
+      "improved_length": 63
+    },
+    {
+      "image_id": "IMG_4817",
+      "content_type": "body_text",
+      "difficulty": "very_hard",
+      "baseline_score": 6.4,
+      "improvement_score": 1.0,
+      "new_score": 7.4,
+      "applied_rules_count": 20,
+      "phase1_rules_count": 0,
+      "phase2_rules_count": 20,
+      "applied_rules": [
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "는",
+          "replacement": "능",
+          "description": "character_substitution 오류: '는' → '능'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "기",
+          "replacement": "가",
+          "description": "character_substitution 오류: '기' → '가'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "어",
+          "replacement": "여",
+          "description": "character_substitution 오류: '어' → '여'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "할",
+          "replacement": "향",
+          "description": "character_substitution 오류: '할' → '향'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "과",
+          "replacement": "광",
+          "description": "character_substitution 오류: '과' → '광'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "다",
+          "replacement": "도",
+          "description": "character_substitution 오류: '다' → '도'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "그",
+          "replacement": "글",
+          "description": "character_substitution 오류: '그' → '글'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "가",
+          "replacement": "고",
+          "description": "character_substitution 오류: '가' → '고'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "로",
+          "replacement": "노",
+          "description": "character_substitution 오류: '로' → '노'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "이",
+          "replacement": "리",
+          "description": "character_substitution 오류: '이' → '리'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "의",
+          "replacement": "어",
+          "description": "character_substitution 오류: '의' → '어'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "마",
+          "replacement": "머",
+          "description": "character_substitution 오류: '마' → '머'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "에",
+          "replacement": "어",
+          "description": "character_substitution 오류: '에' → '어'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "을",
+          "replacement": "올",
+          "description": "character_substitution 오류: '을' → '올'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "있",
+          "replacement": "잇",
+          "description": "character_substitution 오류: '있' → '잇'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "하",
+          "replacement": "호",
+          "description": "character_substitution 오류: '하' → '호'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "것",
+          "replacement": "걷",
+          "description": "character_substitution 오류: '것' → '걷'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "자",
+          "replacement": "저",
+          "description": "character_substitution 오류: '자' → '저'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "characters",
+          "pattern": "수",
+          "replacement": "소",
+          "description": "character_substitution 오류: '수' → '소'",
+          "confidence": 0.88,
+          "learned": true
+        },
+        {
+          "phase": "Phase 2",
+          "category": "punctuation",
+          "pattern": ".",
+          "replacement": " .",
+          "description": "character_substitution 오류: '.' → ' .'",
+          "confidence": 0.88,
+          "learned": true
+        }
+      ],
+      "text_changed": true,
+      "original_length": 382,
+      "corrupted_length": 394,
+      "improved_length": 405
+    }
+  ]
+}

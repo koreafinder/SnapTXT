@@ -1,0 +1,9 @@
+{
+  "feedback_id": "img_4811_feedback",
+  "image_path": "samples/IMG_4811.JPG",
+  "original_ocr": "완벽을 추구하지 마세요. 완벽함에 대한 집착은 오히려 고통을 만들어냅니다. 있는 그대로의 자신을 받아들이세요.",
+  "corrected_text": "완벽을 추구하지 마세요. 완벽함에 대한 집착은 오히려 고통을 만들어냅니다. 있는 그대로의 자신을 받아들이세요.",
+  "timestamp": "2026-03-02T09:08:16.631503",
+  "user_id": "test_user",
+  "correction_type": "manual_edit"
+}

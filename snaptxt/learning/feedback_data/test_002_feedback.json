@@ -1,0 +1,13 @@
+{
+  "feedback_id": "test_002_feedback",
+  "image_path": "samples/test_002.jpg",
+  "original_ocr": "현재 순간에 집중하는 것이 무엇보다중 요합니다 .과거에 얽매이지 마세요.",
+  "corrected_text": "현재 순간에 집중하는 것이 무엇보다 중요합니다. 과거에 얽매이지 마세요.",
+  "timestamp": "2026-03-02T09:09:45.323078",
+  "user_id": "learning_tester",
+  "correction_type": "manual_edit",
+  "error_types": [
+    "spacing",
+    "punctuation"
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "test_date": "2026-03-02T09:08:17.000877",
+  "test_scope": {
+    "total_images": 29,
+    "successful_ocr": 29,
+    "failed_ocr": 0
+  },
+  "learning_results": {
+    "total_patterns": 0,
+    "pattern_categories": {
+      "spacing": 0,
+      "characters": 0,
+      "punctuation": 0,
+      "formatting": 0
+    }
+  },
+  "auto_application": {
+    "ready_rules": [],
+    "pending_rules": [],
+    "total": 0
+  },
+  "sample_images": [
+    "IMG_4789",
+    "IMG_4790",
+    "IMG_4791",
+    "IMG_4792",
+    "IMG_4793",
+    "IMG_4794",
+    "IMG_4795",
+    "IMG_4796",
+    "IMG_4797",
+    "IMG_4798",
+    "IMG_4799",
+    "IMG_4800",
+    "IMG_4801",
+    "IMG_4802",
+    "IMG_4803",
+    "IMG_4804",
+    "IMG_4805",
+    "IMG_4806",
+    "IMG_4807",
+    "IMG_4808",
+    "IMG_4809",
+    "IMG_4810",
+    "IMG_4811",
+    "IMG_4812",
+    "IMG_4813",
+    "IMG_4814",
+    "IMG_4815",
+    "IMG_4816",
+    "IMG_4817"
+  ],
+  "performance_metrics": {
+    "avg_processing_time": "~2.5초/이미지",
+    "learning_efficiency": "0.00 패턴/이미지"
+  }
+}

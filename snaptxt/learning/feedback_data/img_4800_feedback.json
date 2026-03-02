@@ -1,0 +1,9 @@
+{
+  "feedback_id": "img_4800_feedback",
+  "image_path": "samples/IMG_4800.JPG",
+  "original_ocr": "완전한 존재가 되려 노력하지 마세요. 불완전함을 받아들이는 것이 오히려 완전함에 가까워지는 길입니다.",
+  "corrected_text": "완전한 존재가 되려 노력하지 마세요. 불완전함을 받아들이는 것이 오히려 완전함에 가까워지는 길입니다.",
+  "timestamp": "2026-03-02T09:08:16.614096",
+  "user_id": "test_user",
+  "correction_type": "manual_edit"
+}

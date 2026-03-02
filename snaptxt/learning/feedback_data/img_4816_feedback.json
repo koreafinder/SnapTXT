@@ -1,0 +1,9 @@
+{
+  "feedback_id": "img_4816_feedback",
+  "image_path": "samples/IMG_4816.JPG",
+  "original_ocr": "내면의성전을건설하세요. 외부의소음과혼란속에서도고요할수 있는내면의공간을만드는것입니 다.",
+  "corrected_text": "내면의 성전을 건설하세요. 외부의 소음과 혼란 속에서도 고요할 수 있는 내면의 공간을 만드는 것입니다.",
+  "timestamp": "2026-03-02T09:08:16.638181",
+  "user_id": "test_user",
+  "correction_type": "manual_edit"
+}

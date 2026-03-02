@@ -1,0 +1,54 @@
+metadata:
+  application_version: '2.0'
+  auto_applied_rules: 1
+  auto_generated_rules: true
+  generator_version: '1.0'
+  last_auto_application: '2026-03-02T08:50:39.759763'
+  last_updated: '2026-03-02T08:22:24.032352'
+  total_rules: 5
+stage3_postprocessing:
+  characters:
+  - auto_generated: true
+    confidence: 0.95
+    description: 어미 오인식
+    frequency: 8
+    generated_at: '2026-03-02T08:22:24.031189'
+    pattern: 드러워습니다
+    replacement: 드러났습니다
+  - auto_generated: true
+    confidence: 0.9
+    description: 초성 오인식
+    frequency: 6
+    generated_at: '2026-03-02T08:22:24.031193'
+    pattern: 돌두했습니다
+    replacement: 몰두했습니다
+  formatting: []
+  punctuation: []
+  spacing:
+  - auto_generated: true
+    confidence: 0.9
+    description: 인명 분리 오류
+    frequency: 15
+    generated_at: '2026-03-02T08:22:24.031151'
+    pattern: 마이\s*클\s*싱\s*어
+    replacement: 마이클 싱어
+  - auto_generated: true
+    confidence: 0.85
+    description: 명사 분리 오류
+    frequency: 12
+    generated_at: '2026-03-02T08:22:24.031183'
+    pattern: 명\s*상\s*가
+    replacement: 명상가
+  - applied_at: '2026-03-02T08:50:39.759378'
+    auto_applied: true
+    confidence: 0.92
+    description: 구두점과 문자 사이 공백 추가
+    frequency: 8
+    learned_at: '2026-03-01T08:15:00'
+    new_rule: true
+    pattern: ([,.])([가-힣A-Za-z])
+    replacement: \1 \2
+    source_feedbacks:
+    - feedback_002.json
+    - feedback_005.json
+    - feedback_007.json
