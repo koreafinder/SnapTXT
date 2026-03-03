@@ -15,7 +15,10 @@
 | **Phase 1 MVP** | **2026-03-02** | **패턴 추천 엔진 구축: DiffCollector, PatternAnalyzer, RuleGenerator** | **162개 패턴 수집, 2개 고신뢰도 후보, YAML 자동 생성** | **✅ 완료** |
 | **Phase 1.5 Session-aware** | **2026-03-02** | **세션 인식 패턴 학습: SessionContext, 계층화 분석, Book 특화** | **4개 도메인 100% 분류, 3개 품질 패턴, Impact Score 시스템** | **✅ 완료** |
 | **📋 현실적 평가 반영** | **2026-03-02** | **패턴 정밀도 현실적 해석, 다음 단계 전략 수립, 문서 정리** | **종합 보고서, 현실적 한계 인식, 전략적 로드맵** | **✅ 완료** |
-| **Phase 1.8 Pattern Scope** | **2026-03-02** | **Overfitting OCR 방지: Pattern Risk Level, Safety Validation** | **안전한 패턴 적용 정책, 위험도 분류 시스템** | **✅ 완료** || **Phase 2.2 Pattern Validation** | **2026-03-02** | **패턴 검증 시스템: 39개→10개 안전 규칙 정제, Context-aware 변환** | **PatternValidator 완전 구현, A/B 테스트 프레임워크** | **✅ 완료** || **Phase 2 Book Sense** | **2026-03-03** | **책별 맞춤 교정: Book Fingerprint, GPT 1회 기준생성, Book Profile** | **사후학습→사전생성 전환, +3-6% 체감품질, TTS최적화** | **� 진행 중 - 문제 해결 중** |
+| **Phase 1.8 Pattern Scope** | **2026-03-02** | **Overfitting OCR 방지: Pattern Risk Level, Safety Validation** | **안전한 패턴 적용 정책, 위험도 분류 시스템** | **✅ 완료** |
+| **Phase 2.1 Ground Truth Bootstrap** | **2026-03-03** | **샘플 선정 & GPT 워크플로우: Book Sense 기반 시스템** | **샘플 복사, 파일명 매핑, GPT 업로드 워크플로우** | **🔧 해결 중** |
+| **Phase 2.2 Pattern Validation** | **2026-03-02** | **패턴 검증 시스템: 39개→10개 안전 규칙 정제, Context-aware 변환** | **PatternValidator 완전 구현, A/B 테스트 프레임워크** | **✅ 완료** |
+| **Phase 2.3 Book Fingerprint** | **계획 중** | **Book 특성 식별 & GPT 통합: 폰트/행간/문장구조 자동 분석** | **BookFingerprinter, GPT 1회 "교정 기준" 생성** | **📅 대기 중** |
 | Community Validation | 2026 Q2 | 동일 책 사용자간 패턴 검증, 크라우드소싱 정답 보정 | A/B 테스트 자동화, 실시간 품질 모니터링 | 📅 계획 중 |
 | Adaptive OCR Engine | 2026 Q2~ | Self-improving OCR, Context-aware 최적화 | 완전 자동화된 지능형 OCR 시스템 | 📅 계획 중 |
 

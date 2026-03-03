@@ -1,6 +1,6 @@
 # Current Work Snapshot
 
-_최종 업데이트: 2026-03-02 21:20 (Phase 1.8 Pattern Scope Policy 완료)_
+_최종 업데이트: 2026-03-03 09:30 (Phase 2.2 패턴 검증 시스템 완료)_
 
 ## ⚙️ 활성 기획서들 (AI 참고용)
 - 📋 [Phase 1.5 Session-aware Pattern Learning](../technical/phase1_5_session_aware_design.md) - **세션 인식 패턴 학습 시스템 완료** (✅ 완료 - P1.5)
@@ -8,16 +8,19 @@ _최종 업데이트: 2026-03-02 21:20 (Phase 1.8 Pattern Scope Policy 완료)_
 - 📋 [Pattern Scope Policy](../plans/phase1_8_pattern_scope_policy.md) - **Overfitting OCR 방지 정책** (✅ 완료 - P1.8)
 - 📋 [Book Sense Engine 설계](../plans/phase2_book_sense_engine.md) - **책별 맞춤 교정 시스템** (🚀 진행 - P2)
 
-## 🎯 이번 주 메인 목표 (2026-03-02 기준)
+## 🎯 이번 주 메인 목표 (2026-03-03 기준)
 - [x] **P1**: Phase 1 MVP 패턴 추천 엔진 완료 → **162개 패턴 수집, 2개 고품질 후보 발견 완료!**
 - [x] **P1.5**: Session-aware Pattern Learning 완료 → **책별 특화 패턴 학습 시스템 구축 ✅**
 - [x] **P1.5**: 세션 컨텍스트 인식 구현 → **4가지 도메인 100% 정확 분류 ✅**  
 - [x] **P1.5**: 계층화된 패턴 분석 → **batch→book→domain→global 우선순위 시스템 ✅**
 - [x] **통합**: 종합 프로젝트 보고서 → **현실적 평가 및 다음 단계 전략 마련 ✅**
 - [x] **P1.8**: Pattern Scope Policy 구현 → **Overfitting OCR 방지 시스템 완료! ✅**
-- [x] **P2**: Book Sense Engine 설계 → **패러다임 전환: 사후학습 → 사전기준생성 ✅**
+- [x] **P2 설계**: Book Sense Engine 설계 → **패러다임 전환: 사후학습 → 사전기준생성 ✅**
+- [ ] **P2.1**: Ground Truth Bootstrap System → **샘플 선정 & GPT 워크플로우 구축 🔧**
+- [x] **P2.2**: Pattern Validation System → **39에서 10개 안전 규칙 정제 완료! ✅**
 - [x] **P2.2**: 패턴 검증 시스템 → **39에서 10개 안전 규칙 정제 완료! ✅**
 - [x] **도구**: A/B 테스트 프레임워크 → **470줄 완전 구현 ✅**
+- [ ] **최우선**: Phase 2.1 Ground Truth Bootstrap System 완료
 - [ ] 낮은 우선순위: PC 앱 UX 개선 및 배포 준비
 
 ## 🎆 최신 업데이트: Phase 2.2 패턴 검증 시스템 완료 (2026-03-02)
@@ -70,9 +73,19 @@ validation_criteria:
 
 ## 💡 진행 중 작업
 
-### 🚀 **다음 단계: Phase 2 Book Sense Engine 있생** (메인 우선순위)
+### 🚀 **다음 단계: Phase 2.1 Ground Truth Bootstrap System 완료** (메인 우선순위)
 **현재 상황**: Phase 2.2 완료로 안전한 시스템 기반 마련
-**목표**: 책별 맞춤 교정 시스템으로 진짜 품질 점프 달성
+**목표**: GPT Ground Truth 워크플로우 완성 → Phase 2.3 Book Fingerprint 준비
+
+**Phase 2 전체 구조**:
+```
+Phase 2: Book Sense Engine
+├─ Phase 2.1: Ground Truth Bootstrap 🔧 (샘플 선정 & GPT 워크플로우)
+├─ Phase 2.2: Pattern Validation ✅ (완료: 39→10개 규칙)
+├─ Phase 2.3: Book Fingerprint & GPT Integration
+├─ Phase 2.4: Book Profile Generation  
+└─ Phase 2.5: Production Integration
+```
 
 **핵심 전략**: "사후 학습" → "사전 기준 생성" 패러다임 전환
 
