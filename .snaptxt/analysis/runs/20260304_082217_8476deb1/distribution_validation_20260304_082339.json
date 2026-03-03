@@ -1,0 +1,611 @@
+{
+  "kl_divergence": 1.2951302856636748,
+  "js_distance": 0.216683819152662,
+  "spearman_correlation": 0.6401140168448904,
+  "spearman_p_value": 5.571697640663906e-07,
+  "coverage_rate": 0.88,
+  "coverage_count": 44,
+  "total_real_patterns": 50,
+  "total_synthetic_events": 346,
+  "comparison_table": [
+    {
+      "rank": 1,
+      "signature": "U+0020→U+000A",
+      "real_count": 40,
+      "synth_count": 97,
+      "is_match": true
+    },
+    {
+      "rank": 2,
+      "signature": "DELETE[\" \"]",
+      "real_count": 24,
+      "synth_count": 50,
+      "is_match": true
+    },
+    {
+      "rank": 3,
+      "signature": "INSERT[\".\"]",
+      "real_count": 20,
+      "synth_count": 25,
+      "is_match": true
+    },
+    {
+      "rank": 4,
+      "signature": "INSERT[\",\"]",
+      "real_count": 10,
+      "synth_count": 0,
+      "is_match": false
+    },
+    {
+      "rank": 5,
+      "signature": "INSERT[\"\n\"]",
+      "real_count": 9,
+      "synth_count": 11,
+      "is_match": true
+    },
+    {
+      "rank": 6,
+      "signature": "INSERT[\" \"]",
+      "real_count": 8,
+      "synth_count": 25,
+      "is_match": true
+    },
+    {
+      "rank": 7,
+      "signature": "U+003A→U+002E",
+      "real_count": 7,
+      "synth_count": 13,
+      "is_match": true
+    },
+    {
+      "rank": 8,
+      "signature": "U+B17C→U+B294",
+      "real_count": 4,
+      "synth_count": 8,
+      "is_match": true
+    },
+    {
+      "rank": 9,
+      "signature": "\" \"→\".\n\"",
+      "real_count": 3,
+      "synth_count": 5,
+      "is_match": true
+    },
+    {
+      "rank": 10,
+      "signature": "U+D2C0→U+B97C",
+      "real_count": 3,
+      "synth_count": 4,
+      "is_match": true
+    },
+    {
+      "rank": 11,
+      "signature": "U+003B→U+002C",
+      "real_count": 3,
+      "synth_count": 7,
+      "is_match": true
+    },
+    {
+      "rank": 12,
+      "signature": "\"( \"→\"《\"",
+      "real_count": 3,
+      "synth_count": 5,
+      "is_match": true
+    },
+    {
+      "rank": 13,
+      "signature": "\" ) \"→\">\"",
+      "real_count": 3,
+      "synth_count": 10,
+      "is_match": true
+    },
+    {
+      "rank": 14,
+      "signature": "U+C6B8→U+C744",
+      "real_count": 3,
+      "synth_count": 5,
+      "is_match": true
+    },
+    {
+      "rank": 15,
+      "signature": "INSERT[\". \"]",
+      "real_count": 3,
+      "synth_count": 2,
+      "is_match": true
+    },
+    {
+      "rank": 16,
+      "signature": "U+C5EC→U+BA70",
+      "real_count": 2,
+      "synth_count": 2,
+      "is_match": true
+    },
+    {
+      "rank": 17,
+      "signature": "\"( \"→\"<\"",
+      "real_count": 2,
+      "synth_count": 0,
+      "is_match": false
+    },
+    {
+      "rank": 18,
+      "signature": "U+ACC4→U+AC8C",
+      "real_count": 2,
+      "synth_count": 3,
+      "is_match": true
+    },
+    {
+      "rank": 19,
+      "signature": "U+BC18→U+BC1B",
+      "real_count": 2,
+      "synth_count": 6,
+      "is_match": true
+    },
+    {
+      "rank": 20,
+      "signature": "\" 을\"→\"\n을 \"",
+      "real_count": 2,
+      "synth_count": 4,
+      "is_match": true
+    },
+    {
+      "rank": 21,
+      "signature": "U+B960→U+B97C",
+      "real_count": 2,
+      "synth_count": 4,
+      "is_match": true
+    },
+    {
+      "rank": 22,
+      "signature": "\"l \"→\"1\n\"",
+      "real_count": 2,
+      "synth_count": 2,
+      "is_match": true
+    },
+    {
+      "rank": 23,
+      "signature": "U+BB38→U+B4E0",
+      "real_count": 2,
+      "synth_count": 2,
+      "is_match": true
+    },
+    {
+      "rank": 24,
+      "signature": "INSERT[\"》\"]",
+      "real_count": 2,
+      "synth_count": 0,
+      "is_match": false
+    },
+    {
+      "rank": 25,
+      "signature": "\": \"→\".\n\"",
+      "real_count": 2,
+      "synth_count": 6,
+      "is_match": true
+    },
+    {
+      "rank": 26,
+      "signature": "U+C528→U+C368",
+      "real_count": 2,
+      "synth_count": 7,
+      "is_match": true
+    },
+    {
+      "rank": 27,
+      "signature": "\"말\"→\"마이클\"",
+      "real_count": 1,
+      "synth_count": 1,
+      "is_match": true
+    },
+    {
+      "rank": 28,
+      "signature": "INSERT[\"어\"]",
+      "real_count": 1,
+      "synth_count": 0,
+      "is_match": false
+    },
+    {
+      "rank": 29,
+      "signature": "\"짐\"→\"지음\"",
+      "real_count": 1,
+      "synth_count": 2,
+      "is_match": true
+    },
+    {
+      "rank": 30,
+      "signature": "U+005F→U+007C",
+      "real_count": 1,
+      "synth_count": 2,
+      "is_match": true
+    },
+    {
+      "rank": 31,
+      "signature": "\"숲\"→\"노진선\"",
+      "real_count": 1,
+      "synth_count": 1,
+      "is_match": true
+    },
+    {
+      "rank": 32,
+      "signature": "\"움 빵 섬 방\"→\"옮김\n명상저널\n상\"",
+      "real_count": 1,
+      "synth_count": 5,
+      "is_match": true
+    },
+    {
+      "rank": 33,
+      "signature": "U+C9C0→U+CE58",
+      "real_count": 1,
+      "synth_count": 1,
+      "is_match": true
+    },
+    {
+      "rank": 34,
+      "signature": "\" II 고양시림놈빛도 서관 X\"→\"\nT\"",
+      "real_count": 1,
+      "synth_count": 3,
+      "is_match": true
+    },
+    {
+      "rank": 35,
+      "signature": "\" \"→\"t\n고양시립높빛도서관\n\"",
+      "real_count": 1,
+      "synth_count": 3,
+      "is_match": true
+    },
+    {
+      "rank": 36,
+      "signature": "U+0073→U+0061",
+      "real_count": 1,
+      "synth_count": 2,
+      "is_match": true
+    },
+    {
+      "rank": 37,
+      "signature": "\"l \"→\"\n\"",
+      "real_count": 1,
+      "synth_count": 1,
+      "is_match": true
+    },
+    {
+      "rank": 38,
+      "signature": "\"OO\"→\"00\"",
+      "real_count": 1,
+      "synth_count": 1,
+      "is_match": true
+    },
+    {
+      "rank": 39,
+      "signature": "\"ll 그\"→\"11\n라\"",
+      "real_count": 1,
+      "synth_count": 2,
+      "is_match": true
+    },
+    {
+      "rank": 40,
+      "signature": "U+C6B4→U+C6B0",
+      "real_count": 1,
+      "synth_count": 2,
+      "is_match": true
+    },
+    {
+      "rank": 41,
+      "signature": "\"컨생\"→\"클싱\"",
+      "real_count": 1,
+      "synth_count": 3,
+      "is_match": true
+    },
+    {
+      "rank": 42,
+      "signature": "\" 물\"→\"\n굴 \"",
+      "real_count": 1,
+      "synth_count": 3,
+      "is_match": true
+    },
+    {
+      "rank": 43,
+      "signature": "INSERT[\"'\"]",
+      "real_count": 1,
+      "synth_count": 0,
+      "is_match": false
+    },
+    {
+      "rank": 44,
+      "signature": "U+C6C0→U+B0C8",
+      "real_count": 1,
+      "synth_count": 2,
+      "is_match": true
+    },
+    {
+      "rank": 45,
+      "signature": "\" 감\"→\"\n람\"",
+      "real_count": 1,
+      "synth_count": 2,
+      "is_match": true
+    },
+    {
+      "rank": 46,
+      "signature": "\" ) \"→\">\n\"",
+      "real_count": 1,
+      "synth_count": 2,
+      "is_match": true
+    },
+    {
+      "rank": 47,
+      "signature": "\"됐\"→\"되었\"",
+      "real_count": 1,
+      "synth_count": 1,
+      "is_match": true
+    },
+    {
+      "rank": 48,
+      "signature": "\"rn\"→\"m\"",
+      "real_count": 1,
+      "synth_count": 1,
+      "is_match": true
+    },
+    {
+      "rank": 49,
+      "signature": "\" 힘\"→\"\n험\"",
+      "real_count": 1,
+      "synth_count": 3,
+      "is_match": true
+    },
+    {
+      "rank": 50,
+      "signature": "\" ( \"→\"》, 《\"",
+      "real_count": 1,
+      "synth_count": 0,
+      "is_match": false
+    }
+  ],
+  "synthetic_distribution": [
+    {
+      "signature": "U+0020→U+000A",
+      "frequency": 0.28034682080924855
+    },
+    {
+      "signature": "DELETE[\" \"]",
+      "frequency": 0.14450867052023122
+    },
+    {
+      "signature": "INSERT[\".\"]",
+      "frequency": 0.07225433526011561
+    },
+    {
+      "signature": "INSERT[\",\"]",
+      "frequency": 0.0
+    },
+    {
+      "signature": "INSERT[\"\n\"]",
+      "frequency": 0.031791907514450865
+    },
+    {
+      "signature": "INSERT[\" \"]",
+      "frequency": 0.07225433526011561
+    },
+    {
+      "signature": "U+003A→U+002E",
+      "frequency": 0.03757225433526012
+    },
+    {
+      "signature": "U+B17C→U+B294",
+      "frequency": 0.023121387283236993
+    },
+    {
+      "signature": "\" \"→\".\n\"",
+      "frequency": 0.014450867052023121
+    },
+    {
+      "signature": "U+D2C0→U+B97C",
+      "frequency": 0.011560693641618497
+    },
+    {
+      "signature": "U+003B→U+002C",
+      "frequency": 0.02023121387283237
+    },
+    {
+      "signature": "\"( \"→\"《\"",
+      "frequency": 0.014450867052023121
+    },
+    {
+      "signature": "\" ) \"→\">\"",
+      "frequency": 0.028901734104046242
+    },
+    {
+      "signature": "U+C6B8→U+C744",
+      "frequency": 0.014450867052023121
+    },
+    {
+      "signature": "INSERT[\". \"]",
+      "frequency": 0.005780346820809248
+    },
+    {
+      "signature": "U+C5EC→U+BA70",
+      "frequency": 0.005780346820809248
+    },
+    {
+      "signature": "\"( \"→\"<\"",
+      "frequency": 0.0
+    },
+    {
+      "signature": "U+ACC4→U+AC8C",
+      "frequency": 0.008670520231213872
+    },
+    {
+      "signature": "U+BC18→U+BC1B",
+      "frequency": 0.017341040462427744
+    },
+    {
+      "signature": "\" 을\"→\"\n을 \"",
+      "frequency": 0.011560693641618497
+    },
+    {
+      "signature": "U+B960→U+B97C",
+      "frequency": 0.011560693641618497
+    },
+    {
+      "signature": "\"l \"→\"1\n\"",
+      "frequency": 0.005780346820809248
+    },
+    {
+      "signature": "U+BB38→U+B4E0",
+      "frequency": 0.005780346820809248
+    },
+    {
+      "signature": "INSERT[\"》\"]",
+      "frequency": 0.0
+    },
+    {
+      "signature": "\": \"→\".\n\"",
+      "frequency": 0.017341040462427744
+    },
+    {
+      "signature": "U+C528→U+C368",
+      "frequency": 0.02023121387283237
+    },
+    {
+      "signature": "\"말\"→\"마이클\"",
+      "frequency": 0.002890173410404624
+    },
+    {
+      "signature": "INSERT[\"어\"]",
+      "frequency": 0.0
+    },
+    {
+      "signature": "\"짐\"→\"지음\"",
+      "frequency": 0.005780346820809248
+    },
+    {
+      "signature": "U+005F→U+007C",
+      "frequency": 0.005780346820809248
+    },
+    {
+      "signature": "\"숲\"→\"노진선\"",
+      "frequency": 0.002890173410404624
+    },
+    {
+      "signature": "\"움 빵 섬 방\"→\"옮김\n명상저널\n상\"",
+      "frequency": 0.014450867052023121
+    },
+    {
+      "signature": "U+C9C0→U+CE58",
+      "frequency": 0.002890173410404624
+    },
+    {
+      "signature": "\" II 고양시림놈빛도 서관 X\"→\"\nT\"",
+      "frequency": 0.008670520231213872
+    },
+    {
+      "signature": "\" \"→\"t\n고양시립높빛도서관\n\"",
+      "frequency": 0.008670520231213872
+    },
+    {
+      "signature": "U+0073→U+0061",
+      "frequency": 0.005780346820809248
+    },
+    {
+      "signature": "\"l \"→\"\n\"",
+      "frequency": 0.002890173410404624
+    },
+    {
+      "signature": "\"OO\"→\"00\"",
+      "frequency": 0.002890173410404624
+    },
+    {
+      "signature": "\"ll 그\"→\"11\n라\"",
+      "frequency": 0.005780346820809248
+    },
+    {
+      "signature": "U+C6B4→U+C6B0",
+      "frequency": 0.005780346820809248
+    },
+    {
+      "signature": "\"컨생\"→\"클싱\"",
+      "frequency": 0.008670520231213872
+    },
+    {
+      "signature": "\" 물\"→\"\n굴 \"",
+      "frequency": 0.008670520231213872
+    },
+    {
+      "signature": "INSERT[\"'\"]",
+      "frequency": 0.0
+    },
+    {
+      "signature": "U+C6C0→U+B0C8",
+      "frequency": 0.005780346820809248
+    },
+    {
+      "signature": "\" 감\"→\"\n람\"",
+      "frequency": 0.005780346820809248
+    },
+    {
+      "signature": "\" ) \"→\">\n\"",
+      "frequency": 0.005780346820809248
+    },
+    {
+      "signature": "\"됐\"→\"되었\"",
+      "frequency": 0.002890173410404624
+    },
+    {
+      "signature": "\"rn\"→\"m\"",
+      "frequency": 0.002890173410404624
+    },
+    {
+      "signature": "\" 힘\"→\"\n험\"",
+      "frequency": 0.008670520231213872
+    },
+    {
+      "signature": "\" ( \"→\"》, 《\"",
+      "frequency": 0.0
+    }
+  ],
+  "final_status": "❌ FAIL",
+  "insert_analysis": [
+    {
+      "rank": 3,
+      "signature": "INSERT[\".\"]",
+      "real_count": 20,
+      "synth_count": 25,
+      "application_rate": 125.0
+    },
+    {
+      "rank": 4,
+      "signature": "INSERT[\",\"]",
+      "real_count": 10,
+      "synth_count": 0,
+      "application_rate": 0.0
+    },
+    {
+      "rank": 5,
+      "signature": "INSERT[\"\n\"]",
+      "real_count": 9,
+      "synth_count": 11,
+      "application_rate": 122.22222222222223
+    },
+    {
+      "rank": 6,
+      "signature": "INSERT[\" \"]",
+      "real_count": 8,
+      "synth_count": 25,
+      "application_rate": 312.5
+    }
+  ],
+  "validation_quality": "❌ FAIL",
+  "run_id": "20260304_082217_8476deb1",
+  "timestamp": "2026-03-04T08:23:39.766140",
+  "distribution_gate": {
+    "status": "❌ FAIL",
+    "coverage": "44/50",
+    "coverage_rate": 0.88,
+    "spearman": 0.6401140168448904,
+    "kl_divergence": 1.2951302856636748,
+    "js_distance": 0.216683819152662
+  },
+  "files_in_run": [
+    "error_events_20260304_082339.jsonl",
+    "top50_patterns_20260304_082339.json",
+    "synthetic_replay_dataset_20260304_082339.jsonl"
+  ]
+}

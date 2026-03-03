@@ -1,0 +1,16 @@
+{
+  "timestamp": "2026-03-04T05:22:55.700672",
+  "request_type": "user_approval_required",
+  "context": {
+    "domain": "essay",
+    "safety_mode": "conservative",
+    "user_id": null,
+    "session_id": null
+  },
+  "text_preview": "이것은 '비표준 인용부호'를 가진 텍스트입니다. '또 다른 인용부호'도 있습니다.",
+  "recommended_actions": [
+    "Review text for potential improvements",
+    "Approve automatic rule application",
+    "Switch to standard/aggressive mode for future"
+  ]
+}

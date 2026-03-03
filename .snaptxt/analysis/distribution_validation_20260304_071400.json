@@ -1,0 +1,53 @@
+{
+  "kl_divergence": 16.220165951439622,
+  "js_distance": NaN,
+  "spearman_correlation": 0.9999999999999999,
+  "spearman_p_value": 6.646897422031862e-64,
+  "coverage_rate": 0.0,
+  "coverage_count": 0,
+  "total_real_patterns": 10,
+  "covered_patterns": 0,
+  "synthetic_distribution": [
+    {
+      "signature": "U+003A→U+002E",
+      "frequency": 0
+    },
+    {
+      "signature": "INSERT[\"\n\"]",
+      "frequency": 0
+    },
+    {
+      "signature": "\": \"→\".\n\"",
+      "frequency": 0
+    },
+    {
+      "signature": "INSERT[\",\"]",
+      "frequency": 0
+    },
+    {
+      "signature": "U+B960→U+B97C",
+      "frequency": 0
+    },
+    {
+      "signature": "U+B984→U+B97C",
+      "frequency": 0
+    },
+    {
+      "signature": "U+D2C0→U+B97C",
+      "frequency": 0
+    },
+    {
+      "signature": "INSERT[\".\"]",
+      "frequency": 0
+    },
+    {
+      "signature": "U+006D→U+D134",
+      "frequency": 0
+    },
+    {
+      "signature": "INSERT[\" \"]",
+      "frequency": 0
+    }
+  ],
+  "validation_quality": "POOR"
+}

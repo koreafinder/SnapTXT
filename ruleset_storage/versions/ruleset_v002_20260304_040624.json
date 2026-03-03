@@ -1,0 +1,41 @@
+{
+  "version_id": "v002_20260304_040624",
+  "name": "Experimental Advanced",
+  "description": "실험적 고급 규칙 포함",
+  "rules": {
+    "punctuation_normalizer_v1": {
+      "pattern": "비표준 인용부호 → 표준 인용부호",
+      "category": "punctuation",
+      "confidence": 0.95,
+      "delta_cer_avg": -0.003,
+      "validation_status": "passed"
+    },
+    "space_cleaner_v1": {
+      "pattern": "중복 공백 정리",
+      "category": "space",
+      "confidence": 0.98,
+      "delta_cer_avg": -0.001,
+      "validation_status": "passed"
+    },
+    "aggressive_corrector_v1": {
+      "pattern": "적극적 오타 교정",
+      "category": "character",
+      "confidence": 0.75,
+      "delta_cer_avg": -0.008,
+      "validation_status": "experimental"
+    },
+    "layout_optimizer_v1": {
+      "pattern": "레이아웃 최적화",
+      "category": "layout",
+      "confidence": 0.68,
+      "delta_cer_avg": -0.002,
+      "validation_status": "experimental"
+    }
+  },
+  "created_at": "2026-03-04T04:06:24.808123",
+  "created_by": "system",
+  "status": "standby",
+  "validation_report": null,
+  "performance_metrics": null,
+  "hash_signature": "11f95f3771857a04"
+}

@@ -1,0 +1,22 @@
+{
+  "current_active_version": "v001_20260304_040624",
+  "last_updated": "2026-03-04T04:33:01.956081",
+  "rollback_history": [
+    {
+      "rollback_id": "rollback_20260304_043301",
+      "from_version": "v001_20260304_040624",
+      "to_version": "v005_20260304_043301",
+      "timestamp": "2026-03-04T04:33:01.945578",
+      "reason": "롤백 테스트",
+      "backup_path": "ruleset_storage\\backups\\backup_v001_20260304_040624_20260304_043301.json"
+    },
+    {
+      "rollback_id": "rollback_20260304_043301",
+      "from_version": "v005_20260304_043301",
+      "to_version": "v001_20260304_040624",
+      "timestamp": "2026-03-04T04:33:01.952578",
+      "reason": "Rollback: 배포 전 테스트",
+      "backup_path": "ruleset_storage\\backups\\backup_v005_20260304_043301_20260304_043301.json"
+    }
+  ]
+}

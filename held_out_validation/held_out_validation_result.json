@@ -1,0 +1,10 @@
+{
+  "total_samples": 35,
+  "mean_delta_cer": -0.007390008214692689,
+  "confidence_interval_95": [
+    -0.00911164350993423,
+    -0.0056857937791943425
+  ],
+  "reproducibility_coefficient": 0.829349127517586,
+  "p_value": 5.219858738764663e-10,
+  "passes_ci_test": 

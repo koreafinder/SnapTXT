@@ -1,0 +1,25 @@
+{
+  "timestamp": "2026-03-04T04:01:45.642757",
+  "total_rules": 2,
+  "total_applications": 3,
+  "rule_contributions": [
+    {
+      "rule_id": "rule_punct_001",
+      "category": "punctuation",
+      "total_delta_cer": -0.005,
+      "avg_delta_cer": -0.0025,
+      "application_count": 2,
+      "improvement_rate": 0.5,
+      "samples_affected": 2
+    },
+    {
+      "rule_id": "rule_char_001",
+      "category": "character",
+      "total_delta_cer": -0.005,
+      "avg_delta_cer": -0.005,
+      "application_count": 1,
+      "improvement_rate": 0.5,
+      "samples_affected": 1
+    }
+  ]
+}

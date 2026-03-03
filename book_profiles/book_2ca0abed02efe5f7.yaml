@@ -1,0 +1,123 @@
+analysis_summary:
+  approval_required_rules: 1
+  avg_ocr_confidence: 0.9
+  confidence_score: 0.9
+  sample_count: 1
+  total_rules: 5
+book_info:
+  book_id: 2ca0abed02efe5f7
+  created_at: '2026-03-04T01:46:31.143603'
+  domain: textbook
+  fingerprint_hash: ba44f683303490e7a2577b0fb6e610fe
+  language_style: korean_formal
+  title: 실제테스트_sample_2_test.jpg_2ca0abed
+correction_rules:
+- confidence: 0.95
+  correction_type: domain_specific
+  enabled: true
+  examples:
+  - python 프로그래밍
+  - Python 프로그래밍
+  explanation: '''Python'' 단어는 프로그래밍 언어명으로 대소문자가 중요함'
+  id: 1
+  pattern: Python
+  priority_level: high
+  replacement: Python
+  requires_approval: false
+  risk_level: low
+  scope: book_only
+- confidence: 0.88
+  correction_type: font_specific
+  enabled: true
+  examples:
+  - def함수
+  - def 함수, def  func
+  - def func
+  explanation: 코드 블록에서 'def' 키워드 뒤 공백이 불규칙하게 인식됨
+  id: 2
+  pattern: def\s+
+  priority_level: high
+  replacement: def
+  requires_approval: true
+  risk_level: medium
+  scope: book_only
+- confidence: 0.92
+  correction_type: language_specific
+  enabled: true
+  examples:
+  - 함수 코드의
+  - 함수는 코드의
+  explanation: '''함수는'' 표현에서 조사 ''는''이 누락되는 OCR 오류 빈발'
+  id: 3
+  pattern: 함수는
+  priority_level: medium
+  replacement: 함수는
+  requires_approval: false
+  risk_level: low
+  scope: domain_wide
+- confidence: 0.85
+  correction_type: formatting
+  enabled: true
+  examples:
+  - 줄1[3개개행]줄2
+  - 줄1[2개개행]줄2
+  explanation: 과도한 줄바꿈을 표준 문단 구분으로 정리
+  id: 4
+  pattern: \n\n\n+
+  priority_level: medium
+  replacement: \n\n
+  requires_approval: false
+  risk_level: low
+  scope: book_only
+- confidence: 0.9
+  correction_type: domain_specific
+  enabled: true
+  examples:
+  - 객체 지향
+  - 객체지향
+  explanation: 프로그래밍 전문용어로 공백 없이 사용되어야 함
+  id: 5
+  pattern: 객체지향
+  priority_level: high
+  replacement: 객체지향
+  requires_approval: false
+  risk_level: low
+  scope: domain_wide
+priority_matrix:
+  critical: []
+  high:
+  - 1
+  - 2
+  - 5
+  low: []
+  medium:
+  - 3
+  - 4
+typography_profile:
+  avg_line_length: 158.0
+  formatting_style: plain_text
+  paragraph_style: single_newline
+  punctuation_density:
+    '''': 0.0063
+    ',': 0.0063
+    .: 0.0443
+    '?': 0.0063
+usage_stats:
+  applied_count: 0
+  performance_score: 0.0
+  success_count: 0
+  user_overrides: 0
+user_settings:
+  auto_apply_safe_rules: true
+  custom_rules: []
+  disabled_rules: []
+  profile_approved: false
+  require_confirmation_for:
+  - high_risk
+  - domain_wide
+  - universal
+version_info:
+  created_by: SnapTXT Book Sense Engine v2.0
+  gpt_model_used: gpt-4-simulation
+  last_updated: '2026-03-04T01:46:31.143674'
+  version: 1.0.0

@@ -9,6 +9,14 @@ from .formatting import clean_special_characters, finalize_output
 from .patterns.stage2_rules import reload_replacements as reload_stage2_rules
 from .patterns.stage3_rules import reload_rules as reload_stage3_rules
 
+# Book Profile import
+try:
+    from .book_sense.book_profile_manager import BookProfileManager
+    BOOK_PROFILE_AVAILABLE = True
+except ImportError:
+    BOOK_PROFILE_AVAILABLE = False
+    BookProfileManager = None
+
 # Phase 1 MVP 패턴 추천 엔진 import
 try:
     from .pattern_engine import DiffCollector, StageResult
@@ -36,6 +44,7 @@ __all__ = [
 def run_pipeline(
     text: str,
     *,
+    book_profile: str | None = None,  # ← NEW: Book Profile ID for book-specific optimization
     stage2_config: Stage2Config | None = None,
     stage3_config: Stage3Config | None = None,
     logger: logging.Logger | None = None,
@@ -46,6 +55,27 @@ def run_pipeline(
     log = logger or logging.getLogger(__name__)
     stage2_cfg = stage2_config or Stage2Config(logger=log)
     stage3_cfg = stage3_config or Stage3Config(logger=log)
+    
+    # 🔥 Book Profile Integration
+    book_rules_applied = False
+    if book_profile and BOOK_PROFILE_AVAILABLE:
+        try:
+            profile_manager = BookProfileManager()
+            profile_data = profile_manager.load_book_profile(book_profile)
+            log.info(f"📂 Book Profile 로드 시도: {book_profile}")
+            if profile_data:
+                # Apply book-specific correction rules
+                text = _apply_book_profile_rules(text, profile_data, log)
+                book_rules_applied = True
+                log.info(f"📚 Book Profile '{book_profile}' 적용됨")
+            else:
+                log.warning(f"⚠️ Book Profile '{book_profile}' 로드 실패")
+        except Exception as e:
+            log.warning(f"⚠️ Book Profile 적용 실패: {e}")
+            import traceback
+            log.debug(f"📋 Traceback: {traceback.format_exc()}")
+        except Exception as e:
+            log.warning(f"⚠️ Book Profile 적용 실패: {e}")
     
     # 전체 시작 시간 및 입력 분석
     start_time = time.time()
@@ -200,3 +230,90 @@ def _evaluate_safety(original: str, processed: str, input_quality: float) -> flo
     quality_bonus = input_quality * 0.1
     
     return length_safety * 0.5 + content_similarity * 0.4 + quality_bonus
+
+
+def _apply_book_profile_rules(text: str, profile_data: dict, logger: logging.Logger) -> str:
+    """Book Profile의 correction rules를 텍스트에 적용"""
+    
+    processed_text = text
+    rules_applied = 0
+    
+    try:
+        # profile_data가 문자열인 경우 처리
+        if isinstance(profile_data, str):
+            logger.warning(f"⚠️ profile_data가 문자열입니다: {profile_data}")
+            return processed_text
+            
+        # profile_data가 None인 경우 처리
+        if profile_data is None:
+            logger.warning("⚠️ profile_data가 None입니다")
+            return processed_text
+        
+        correction_rules = profile_data.get('correction_rules', [])
+        user_settings = profile_data.get('user_settings', {})
+        
+        # 비활성화된 규칙들 확인
+        disabled_rules = user_settings.get('disabled_rules', [])
+        
+        for i, rule in enumerate(correction_rules):
+            
+            if isinstance(rule, str):
+                logger.warning(f"⚠️ rule[{i}]이 문자열입니다: {rule}")
+                continue
+                
+            # 비활성화된 규칙 건너뛰기
+            rule_id = rule.get('rule_id') or rule.get('id')  # YAML 키 호환성
+            if rule_id in disabled_rules:
+                continue
+                
+            # 위험도가 높은 규칙은 사용자 설정 확인
+            priority = rule.get('priority', rule.get('priority_level', 'medium'))  # YAML 키 호환성
+            scope = rule.get('scope', {})
+            
+            # scope가 문자열인 경우 딕셔너리로 변환
+            if isinstance(scope, str):
+                scope = {'pattern_scope': scope}
+                
+            pattern_scope = scope.get('pattern_scope', 'local') if isinstance(scope, dict) else 'local'
+            
+            requires_confirmation = user_settings.get('require_confirmation_for', [])
+            if (priority in ['critical', 'high'] or 
+                pattern_scope in requires_confirmation):
+                
+                # 자동 적용 안전 규칙만 적용
+                if not user_settings.get('auto_apply_safe_rules', True):
+                    continue
+                    
+                # 위험도가 높으면 건너뛰기
+                if priority == 'critical':
+                    continue
+            
+            # 규칙 적용
+            pattern = rule.get('pattern', '')
+            replacement = rule.get('replacement', '')
+            
+            if pattern and replacement:
+                try:
+                    # 정규식 패턴 적용
+                    before_length = len(processed_text)
+                    processed_text = re.sub(pattern, replacement, processed_text)
+                    
+                    # 실제 교체가 이루어졌는지 확인
+                    if len(processed_text) != before_length:
+                        rules_applied += 1
+                        logger.debug(f"   📝 규칙 적용: {rule.get('explanation', pattern)}")
+                        
+                except re.error as e:
+                    logger.warning(f"   ⚠️ 규칙 적용 실패: {pattern} - {e}")
+                    continue
+        
+        if rules_applied > 0:
+            logger.info(f"   ✅ Book Profile: {rules_applied}개 규칙 적용됨")
+        else:
+            logger.info(f"   ℹ️ Book Profile: 적용 가능한 규칙 없음")
+            
+    except Exception as e:
+        logger.warning(f"   ⚠️ Book Profile 처리 오류: {e}")
+        return text
+    
+    return processed_text

@@ -1,0 +1,10 @@
+[
+  {
+    "timestamp": "2026-03-04T04:10:07.468910",
+    "action": "MIGRATE",
+    "rule_id": "punctuation_normalizer_validated",
+    "from_category": "active",
+    "to_category": "blocked",
+    "reason": "EMERGENCY BLOCK: 운영에서 예상치 못한 부작용 발견"
+  }
+]

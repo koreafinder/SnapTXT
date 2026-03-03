@@ -1,0 +1,14 @@
+{
+  "phase": "2.5",
+  "strategy": "정제된 축 기반 안정적 일반화",
+  "stable_axes_count": 2,
+  "failed_clusters_shelved": 3,
+  "expansion_attempts": 3,
+  "successful_expansions": 3,
+  "expansion_success_rate": 1.0,
+  "total_coverage_increase": 21.785950871490883,
+  "variance_explosion_prevented": true,
+  "stability_maintained": true,
+  "detailed_results": {
+    "punctuation_stable": [
+      

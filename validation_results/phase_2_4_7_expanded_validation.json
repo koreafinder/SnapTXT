@@ -1,0 +1,24 @@
+{
+  "total_samples": 29,
+  "train_samples": 20,
+  "test_samples": 8,
+  "bootstrap_iterations": 2000,
+  "cross_validation_folds": 5,
+  "overall_delta_cer": 0.004301325370924616,
+  "overall_confidence_interval": [
+    0.004163299030321663,
+    0.005605542966911065
+  ],
+  "cross_validation_scores": [
+    0.004475469083502935,
+    0.0037084651560744075,
+    0.0019316157400582805,
+    0.0027528118601634565,
+    0.0065152787487472
+  ],
+  "reproducibility_coefficient": 0.7457905418423738,
+  "rule_performances": {},
+  "validation_status": "PASS",
+  "recommended_action": "✅ 29샘플 검증 통과! Phase 2.5 클러스터링 진행 가능",
+  "confidence_level": "HIGH"
+}

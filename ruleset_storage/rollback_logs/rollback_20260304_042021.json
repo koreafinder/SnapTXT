@@ -1,0 +1,8 @@
+{
+  "rollback_id": "rollback_20260304_042021",
+  "from_version": "v004_20260304_042021",
+  "to_version": "v001_20260304_040624",
+  "timestamp": "2026-03-04T04:20:21.431757",
+  "reason": "Rollback: 배포 전 테스트",
+  "backup_path": "ruleset_storage\\backups\\backup_v004_20260304_042021_20260304_042021.json"
+}

@@ -1,0 +1,16 @@
+{
+  "rule_id": "test_punctuation_rule",
+  "pattern": "비표준 인용부호 → 표준 인용부호 교정",
+  "category": "active",
+  "confidence": 0.92,
+  "validation_status": "validated",
+  "performance_metrics": {
+    "precision": 0.85,
+    "recall": 0.78,
+    "f1_score": 0.81
+  },
+  "isolation_reason": "테스트용 활성 규칙",
+  "created_at": "2026-03-04T04:35:00",
+  "last_moved": "2026-03-04T04:35:00",
+  "file_path": "rules_isolated/active/punctuation/test_rule.json"
+}

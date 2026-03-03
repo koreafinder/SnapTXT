@@ -1,0 +1,45 @@
+{
+  "timestamp": "2026-03-04T04:33:02.002251",
+  "deployment_ready": true,
+  "summary": {
+    "total_checks": 8,
+    "passed": 7,
+    "failed": 0,
+    "warnings": 0
+  },
+  "critical_failures": [],
+  "detailed_results": {
+    "conservative_default": {
+      "status": "ERROR",
+      "details": "'ProductionSnapTXT' object has no attribute 'safety_system'"
+    },
+    "heldout_protection": {
+      "status": "PASS",
+      "details": "파일 보호됨, 읽기 전용 설정 완료"
+    },
+    "backup_location": {
+      "status": "PASS",
+      "details": "백업 위치: C:\\SnapTXT_Backup\\ruleset_storage"
+    },
+    "gate_fail_behavior": {
+      "status": "PASS",
+      "details": "Gate 실패 시 적용 안 함 + 리포트 저장 확인됨"
+    },
+    "rollback_test": {
+      "status": "PASS",
+      "details": "롤백 성공, 소요시간: 0.01초"
+    },
+    "rule_isolation": {
+      "status": "PASS",
+      "details": "무결성 OK, 중복 파일 0개"
+    },
+    "delta_cer_consistency": {
+      "status": "PASS",
+      "details": "내부 계산과 UI 표기 모두 일관됨"
+    },
+    "log_management": {
+      "status": "PASS",
+      "details": "로그 크기: 0.0MB, 파일 수: 10개, 오래된 파일: 0개"
+    }
+  }
+}

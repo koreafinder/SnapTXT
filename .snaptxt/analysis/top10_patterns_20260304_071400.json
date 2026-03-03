@@ -1,0 +1,263 @@
+{
+  "metadata": {
+    "timestamp": "2026-03-04T07:14:00.742255",
+    "total_patterns": 10,
+    "total_events": 47
+  },
+  "patterns": [
+    {
+      "signature": "U+003A→U+002E",
+      "bucket": "punctuation",
+      "frequency": 4,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_001_sample_03_IMG_4993",
+          "raw_snippet": ":",
+          "stage23_snippet": ":",
+          "gt_snippet": ".",
+          "context": "시 들어을 뿐입니다| 그리고 당 신은 "
+        },
+        {
+          "page_id": "page_001_sample_03_IMG_4993",
+          "raw_snippet": ":",
+          "stage23_snippet": ":",
+          "gt_snippet": ".",
+          "context": " 언을 수 없습니다| 그것은 마음 너머"
+        },
+        {
+          "page_id": "page_002_sample_04_IMG_4994",
+          "raw_snippet": ":",
+          "stage23_snippet": ":",
+          "gt_snippet": ".",
+          "context": "초에 불과할 겁니다| 그러나 그 시 간"
+        },
+        {
+          "page_id": "page_002_sample_04_IMG_4994",
+          "raw_snippet": ":",
+          "stage23_snippet": ":",
+          "gt_snippet": ".",
+          "context": "은 점차 길어집니다| 이런 공백을 경험"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.14400000000000004
+    },
+    {
+      "signature": "INSERT[\"\n\"]",
+      "bucket": "space",
+      "frequency": 3,
+      "op_type": "insert",
+      "examples": [
+        {
+          "page_id": "page_001_sample_03_IMG_4993",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": "\n",
+          "context": "반복되고 있는 생각|의 패m에 가능한 "
+        },
+        {
+          "page_id": "page_001_sample_03_IMG_4993",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": "\n",
+          "context": "그 생각은 물론이고|이 순간의 나 22"
+        },
+        {
+          "page_id": "page_002_sample_04_IMG_4994",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": "\n",
+          "context": "마음에 동화되어 마|음에 힘흘 실어주는"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.06400000000000002
+    },
+    {
+      "signature": "\": \"→\".\n\"",
+      "bucket": "space",
+      "frequency": 3,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_001_sample_03_IMG_4993",
+          "raw_snippet": ": ",
+          "stage23_snippet": ": ",
+          "gt_snippet": ".\n",
+          "context": "률 기울여야 합니다|이것이 바로' 생각"
+        },
+        {
+          "page_id": "page_001_sample_03_IMG_4993",
+          "raw_snippet": ": ",
+          "stage23_snippet": ": ",
+          "gt_snippet": ".\n",
+          "context": "있으라는 의미입니다|그 목소리에 귀 기"
+        },
+        {
+          "page_id": "page_001_sample_03_IMG_4993",
+          "raw_snippet": ": ",
+          "stage23_snippet": ": ",
+          "gt_snippet": ".\n",
+          "context": " 떠오르는 것입니다|어떤 생각에 귀 기"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.2880000000000001
+    },
+    {
+      "signature": "INSERT[\",\"]",
+      "bucket": "punctuation",
+      "frequency": 3,
+      "op_type": "insert",
+      "examples": [
+        {
+          "page_id": "page_001_sample_03_IMG_4993",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": ",",
+          "context": "기에 목소리가 있고| 나는 그 소리에 "
+        },
+        {
+          "page_id": "page_001_sample_03_IMG_4993",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": ",",
+          "context": "소리에 귀 기울이고| 관찰하고 있다는 "
+        },
+        {
+          "page_id": "page_002_sample_04_IMG_4994",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": ",",
+          "context": "은 아주 짧은 순간| 단지 몇 초에 불"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.06400000000000002
+    },
+    {
+      "signature": "U+B960→U+B97C",
+      "bucket": "character",
+      "frequency": 2,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_001_sample_03_IMG_4993",
+          "raw_snippet": "률",
+          "stage23_snippet": "률",
+          "gt_snippet": "를",
+          "context": "능한 한 자주 주의| 기울여야 합니다:"
+        },
+        {
+          "page_id": "page_002_sample_04_IMG_4994",
+          "raw_snippet": "률",
+          "stage23_snippet": "률",
+          "gt_snippet": "를",
+          "context": " 보면 고요와 평화| 더 깊이 인지할 "
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.14400000000000004
+    },
+    {
+      "signature": "U+B984→U+B97C",
+      "bucket": "character",
+      "frequency": 2,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_001_sample_03_IMG_4993",
+          "raw_snippet": "름",
+          "stage23_snippet": "름",
+          "gt_snippet": "를",
+          "context": "릿속의 목소리에 귀| 기울이면서 그곳에"
+        },
+        {
+          "page_id": "page_002_sample_04_IMG_4994",
+          "raw_snippet": "름",
+          "stage23_snippet": "름",
+          "gt_snippet": "를",
+          "context": "면에서 고요와 평화| 느끼게 덥니다: "
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.14400000000000004
+    },
+    {
+      "signature": "U+D2C0→U+B97C",
+      "bucket": "character",
+      "frequency": 2,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_002_sample_04_IMG_4994",
+          "raw_snippet": "틀",
+          "stage23_snippet": "틀",
+          "gt_snippet": "를",
+          "context": " 당신의 깊은 자아| 느낌니다: 그러면"
+        },
+        {
+          "page_id": "page_002_sample_04_IMG_4994",
+          "raw_snippet": "틀",
+          "stage23_snippet": "틀",
+          "gt_snippet": "를",
+          "context": "힘흘 실어주는 행위| 더 이상 하지 않"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.14400000000000004
+    },
+    {
+      "signature": "INSERT[\".\"]",
+      "bucket": "punctuation",
+      "frequency": 1,
+      "op_type": "insert",
+      "examples": [
+        {
+          "page_id": "page_001_sample_03_IMG_4993",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": ".",
+          "context": "리에 귀 기울이세요| 당신의 머릿속에서"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.06400000000000002
+    },
+    {
+      "signature": "U+006D→U+D134",
+      "bucket": "character",
+      "frequency": 1,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_001_sample_03_IMG_4993",
+          "raw_snippet": "m",
+          "stage23_snippet": "m",
+          "gt_snippet": "턴",
+          "context": "고 있는 생각의 패|에 가능한 한 자주"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.14400000000000004
+    },
+    {
+      "signature": "INSERT[\" \"]",
+      "bucket": "space",
+      "frequency": 1,
+      "op_type": "insert",
+      "examples": [
+        {
+          "page_id": "page_001_sample_03_IMG_4993",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": " ",
+          "context": "니다: 이것이 바로|' 생각하는 사람을"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.06400000000000002
+    }
+  ]
+}

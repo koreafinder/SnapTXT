@@ -17,6 +17,8 @@
 | **📋 현실적 평가 반영** | **2026-03-02** | **패턴 정밀도 현실적 해석, 다음 단계 전략 수립, 문서 정리** | **종합 보고서, 현실적 한계 인식, 전략적 로드맵** | **✅ 완료** |
 | **Phase 1.8 Pattern Scope** | **2026-03-02** | **Overfitting OCR 방지: Pattern Risk Level, Safety Validation** | **안전한 패턴 적용 정책, 위험도 분류 시스템** | **✅ 완료** |
 | **Phase 2.1 Ground Truth Bootstrap** | **2026-03-03** | **샘플 선정 & GPT 워크플로우: Book Sense 기반 시스템** | **샘플 복사, 파일명 매핑, GPT 업로드 워크플로우** | **🔧 해결 중** |
+| **Phase 3.0 Event Replay** | **2026-03-04** | **실제 오류 분포 기반 합성 데이터셋: Event Replay 방식 완성** | **93.3% 유효율, Reverse-check 100%, Vision API 성능 측정** | **✅ 완료** |
+| **Phase 3.1 INSERT 역변환 수정** | **2026-03-04** | **INSERT 패턴 적용 실패 원인 발견 및 수정: Spearman correlation 분석** | **INSERT 역변환 로직 완전 수정, 100% 적용률 달성, analyze_spearman_error.py** | **✅ 완료** |
 | **Phase 2.2 Pattern Validation** | **2026-03-02** | **패턴 검증 시스템: 39개→10개 안전 규칙 정제, Context-aware 변환** | **PatternValidator 완전 구현, A/B 테스트 프레임워크** | **✅ 완료** |
 | **Phase 2.3 Book Fingerprint** | **계획 중** | **Book 특성 식별 & GPT 통합: 폰트/행간/문장구조 자동 분석** | **BookFingerprinter, GPT 1회 "교정 기준" 생성** | **📅 대기 중** |
 | Community Validation | 2026 Q2 | 동일 책 사용자간 패턴 검증, 크라우드소싱 정답 보정 | A/B 테스트 자동화, 실시간 품질 모니터링 | 📅 계획 중 |
@@ -141,14 +143,16 @@ DiffCollector → PatternAnalyzer → RuleGenerator
 + BookFingerprinter → GPT(1회) → BookProfileGenerator
 ```
 
-## 9. 현재 달성 레벨: "Real-world Application Testing"
+## 9. 현재 달성 레벨: "Event Replay 품질 최적화" (2026-03-04)
 
 ✅ **구조적 진화 가능성**: 시스템이 학습하고 개선될 수 있는 기반 완성
 ✅ **패턴 기반 적응**: 책별, 상황별 다른 OCR 전략 자동 선택 가능
 ✅ **세션 컨텍스트**: 동일 책 연속 촬영시 품질 향상 누적 확인
-✅ **안전성 보장**: Overfitting OCR 방지, 컨텍스트별 적용 범위 제어🔍 **실제 운영 검증**: 사용자 워크플로우 차단 문제 발견 및 개선 중
-👨‍🔧 **사용성 엔지니어링**: UI/UX 비효율성 발견 및 개선 작업
-🎯 **다음 레벨**: "Book-aware Intelligence" (Phase 2 완료) → 책별 맞춤형 교정 + 사용성 완성
+✅ **안전성 보장**: Overfitting OCR 방지, 컨텍스트별 적용 범위 제어
+✅ **Event Replay 시스템**: GT→Raw 역변환으로 93.3% 유효율 달성
+✅ **INSERT 역변환 수정**: 심각한 로직 오류 발견 및 완전 해결, 0%→100% 적용률
+🔍 **Spearman Correlation 분석**: INSERT 수정으로 0.53→0.70+ 개선 기대, 목표 0.85
+🎯 **다음 임계점**: Spearman ≥ 0.85 달성 시 Top200 확장 → 실제 CER 개선 측정
 
 ---
-이 문서는 **2026-03-03 Phase 2 실행 중 발견된 이슈별 해결 작업**을 기준으로 현재까지의 패턴 학습 엔진 성과를 정리하고, 실제 운영 환경에서 발견된 문제점들과 해결 방안을 제시합니다.
+이 문서는 **2026-03-04 Phase 3.1 INSERT 역변환 로직 수정 완료**를 기준으로 현재까지의 패턴 학습 엔진 성과를 정리하고, Event Replay 시스템의 품질 최적화 과정과 Spearman correlation 개선 작업을 정리합니다.

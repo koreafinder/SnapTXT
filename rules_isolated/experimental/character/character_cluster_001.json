@@ -1,0 +1,16 @@
+{
+  "rule_id": "character_cluster_001",
+  "pattern": "빈발 문자 치환 규칙 (재현성 0.000)",
+  "category": "experimental",
+  "confidence": 0.45,
+  "validation_status": "failed_reproducibility",
+  "performance_metrics": {
+    "delta_cer": -0.008,
+    "fp_rate": 0.25,
+    "reproducibility": 0.0
+  },
+  "isolation_reason": "낮은 재현성으로 인한 실험 격리 (Phase 2.4 results)",
+  "created_at": "2026-03-04T04:10:07.445692",
+  "last_moved": "2026-03-04T04:10:07.445721",
+  "file_path": "rules_isolated\\experimental\\character\\character_cluster_001.json"
+}

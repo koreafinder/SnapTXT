@@ -1,0 +1,227 @@
+{
+  "metadata": {
+    "timestamp": "2026-03-04T06:34:36.979804",
+    "total_patterns": 5,
+    "total_events": 121
+  },
+  "patterns": [
+    {
+      "signature": "INSERT[\"\n\"]",
+      "bucket": "space",
+      "frequency": 9,
+      "op_type": "insert",
+      "examples": [
+        {
+          "page_id": "page_001_sample_03_IMG_4993",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": "\n",
+          "context": "반복되고 있는 생각|의 패m에 가능한 "
+        },
+        {
+          "page_id": "page_001_sample_03_IMG_4993",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": "\n",
+          "context": "그 생각은 물론이고|이 순간의 나 22"
+        },
+        {
+          "page_id": "page_002_sample_04_IMG_4994",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": "\n",
+          "context": "마음에 동화되어 마|음에 힘흘 실어주는"
+        },
+        {
+          "page_id": "page_003_sample_05_IMG_4995",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": "\n",
+          "context": "것을 느낌니다: 바|로 존재에 대한 기"
+        },
+        {
+          "page_id": "page_003_sample_05_IMG_4995",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": "\n",
+          "context": "' 때, 당신은 마|음과 자신을 동일시"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.06400000000000002
+    },
+    {
+      "signature": "U+003A→U+002E",
+      "bucket": "punctuation",
+      "frequency": 8,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_001_sample_03_IMG_4993",
+          "raw_snippet": ":",
+          "stage23_snippet": ":",
+          "gt_snippet": ".",
+          "context": "시 들어을 뿐입니다| 그리고 당 신은 "
+        },
+        {
+          "page_id": "page_001_sample_03_IMG_4993",
+          "raw_snippet": ":",
+          "stage23_snippet": ":",
+          "gt_snippet": ".",
+          "context": " 언을 수 없습니다| 그것은 마음 너머"
+        },
+        {
+          "page_id": "page_002_sample_04_IMG_4994",
+          "raw_snippet": ":",
+          "stage23_snippet": ":",
+          "gt_snippet": ".",
+          "context": "초에 불과할 겁니다| 그러나 그 시 간"
+        },
+        {
+          "page_id": "page_002_sample_04_IMG_4994",
+          "raw_snippet": ":",
+          "stage23_snippet": ":",
+          "gt_snippet": ".",
+          "context": "은 점차 길어집니다| 이런 공백을 경험"
+        },
+        {
+          "page_id": "page_003_sample_05_IMG_4995",
+          "raw_snippet": ":",
+          "stage23_snippet": ":",
+          "gt_snippet": ".",
+          "context": "수 있습니다| 당신이 느끼는 고"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.14400000000000004
+    },
+    {
+      "signature": "INSERT[\",\"]",
+      "bucket": "punctuation",
+      "frequency": 8,
+      "op_type": "insert",
+      "examples": [
+        {
+          "page_id": "page_001_sample_03_IMG_4993",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": ",",
+          "context": "기에 목소리가 있고| 나는 그 소리에 "
+        },
+        {
+          "page_id": "page_001_sample_03_IMG_4993",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": ",",
+          "context": "소리에 귀 기울이고| 관찰하고 있다는 "
+        },
+        {
+          "page_id": "page_002_sample_04_IMG_4994",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": ",",
+          "context": "은 아주 짧은 순간| 단지 몇 초에 불"
+        },
+        {
+          "page_id": "page_003_sample_05_IMG_4995",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": ",",
+          "context": " 더 깊이 들어가면| 순수한 의식의 상"
+        },
+        {
+          "page_id": "page_004_sample_06_IMG_4996",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": ",",
+          "context": "부터 멀리 떼어놓고| 극도로 또럿하 게"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.06400000000000002
+    },
+    {
+      "signature": "\": \"→\".\n\"",
+      "bucket": "space",
+      "frequency": 5,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_001_sample_03_IMG_4993",
+          "raw_snippet": ": ",
+          "stage23_snippet": ": ",
+          "gt_snippet": ".\n",
+          "context": "률 기울여야 합니다|이것이 바로' 생각"
+        },
+        {
+          "page_id": "page_001_sample_03_IMG_4993",
+          "raw_snippet": ": ",
+          "stage23_snippet": ": ",
+          "gt_snippet": ".\n",
+          "context": "있으라는 의미입니다|그 목소리에 귀 기"
+        },
+        {
+          "page_id": "page_001_sample_03_IMG_4993",
+          "raw_snippet": ": ",
+          "stage23_snippet": ": ",
+          "gt_snippet": ".\n",
+          "context": " 떠오르는 것입니다|어떤 생각에 귀 기"
+        },
+        {
+          "page_id": "page_003_sample_05_IMG_4995",
+          "raw_snippet": ": ",
+          "stage23_snippet": ": ",
+          "gt_snippet": ".\n",
+          "context": "완전하게 존재합니다|또한 육체에 생명력"
+        },
+        {
+          "page_id": "page_005_sample_07_IMG_4997",
+          "raw_snippet": ": ",
+          "stage23_snippet": ": ",
+          "gt_snippet": ".\n",
+          "context": " 암기 때문-입니다|이 순간의 나 26"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.2880000000000001
+    },
+    {
+      "signature": "INSERT[\" \"]",
+      "bucket": "space",
+      "frequency": 4,
+      "op_type": "insert",
+      "examples": [
+        {
+          "page_id": "page_001_sample_03_IMG_4993",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": " ",
+          "context": "니다: 이것이 바로|' 생각하는 사람을"
+        },
+        {
+          "page_id": "page_003_sample_05_IMG_4995",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": " ",
+          "context": "또한 과거에 당신이|' 당신 자신 이라"
+        },
+        {
+          "page_id": "page_004_sample_06_IMG_4996",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": " ",
+          "context": "찰하는' 대신 지금|이 순간에 온전 히"
+        },
+        {
+          "page_id": "page_004_sample_06_IMG_4996",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": " ",
+          "context": "습니다: 그저 지금|이 순간에 완전히 "
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.06400000000000002
+    }
+  ]
+}

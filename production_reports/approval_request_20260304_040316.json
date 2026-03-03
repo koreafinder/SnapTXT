@@ -1,0 +1,16 @@
+{
+  "timestamp": "2026-03-04T04:03:16.187739",
+  "request_type": "user_approval_required",
+  "context": {
+    "domain": "essay",
+    "safety_mode": "conservative",
+    "user_id": null,
+    "session_id": null
+  },
+  "text_preview": "명상을 통해 '마음의 고요'를 찾을 수 있습니다.",
+  "recommended_actions": [
+    "Review text for potential improvements",
+    "Approve automatic rule application",
+    "Switch to standard/aggressive mode for future"
+  ]
+}

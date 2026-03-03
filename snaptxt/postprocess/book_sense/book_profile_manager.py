@@ -24,8 +24,8 @@ import hashlib
 from datetime import datetime
 from pathlib import Path
 
-from gpt_standard_generator import BookCorrectionStandard, CorrectionRule
-from book_fingerprint import BookFingerprint
+from .gpt_standard_generator import BookCorrectionStandard, CorrectionRule
+from .book_fingerprint import BookFingerprint
 
 
 class BookProfileManager:
@@ -374,7 +374,7 @@ class BookProfileManager:
 
 if __name__ == "__main__":
     # 이전 단계에서 생성된 데이터 시뮬레이션
-    from book_fingerprint import BookFingerprintAnalyzer
+    from .book_fingerprint import BookFingerprintAnalyzer
     from gpt_standard_generator import GPTCorrectionStandardGenerator
     
     # 1. 테스트 데이터 준비

@@ -1,0 +1,252 @@
+{
+  "version": "v1.0",
+  "samples": [
+    {
+      "sample_id": "held_out_v1_000",
+      "domain": "textbook",
+      "original_text": "Sample text 0 with '인용부호' and 기타 patterns.",
+      "ground_truth": "Sample text 0 with '인용부호' and 기타 patterns.",
+      "baseline_cer": 0.1466363212100728
+    },
+    {
+      "sample_id": "held_out_v1_001",
+      "domain": "textbook",
+      "original_text": "Sample text 1 with '인용부호' and 기타 patterns.",
+      "ground_truth": "Sample text 1 with '인용부호' and 기타 patterns.",
+      "baseline_cer": 0.04297590107229858
+    },
+    {
+      "sample_id": "held_out_v1_002",
+      "domain": "essay",
+      "original_text": "Sample text 2 with '인용부호' and 기타 patterns.",
+      "ground_truth": "Sample text 2 with '인용부호' and 기타 patterns.",
+      "baseline_cer": 0.08641174726259597
+    },
+    {
+      "sample_id": "held_out_v1_003",
+      "domain": "textbook",
+      "original_text": "Sample text 3 with '인용부호' and 기타 patterns.",
+      "ground_truth": "Sample text 3 with '인용부호' and 기타 patterns.",
+      "baseline_cer": 0.09321843386307174
+    },
+    {
+      "sample_id": "held_out_v1_004",
+      "domain": "novel",
+      "original_text": "Sample text 4 with '인용부호' and 기타 patterns.",
+      "ground_truth": "Sample text 4 with '인용부호' and 기타 patterns.",
+      "baseline_cer": 0.0843640252660649
+    },
+    {
+      "sample_id": "held_out_v1_005",
+      "domain": "essay",
+      "original_text": "Sample text 5 with '인용부호' and 기타 patterns.",
+      "ground_truth": "Sample text 5 with '인용부호' and 기타 patterns.",
+      "baseline_cer": 0.04998461172689555
+    },
+    {
+      "sample_id": "held_out_v1_006",
+      "domain": "novel",
+      "original_text": "Sample text 6 with '인용부호' and 기타 patterns.",
+      "ground_truth": "Sample text 6 with '인용부호' and 기타 patterns.",
+      "baseline_cer": 0.1311541864099825
+    },
+    {
+      "sample_id": "held_out_v1_007",
+      "domain": "essay",
+      "original_text": "Sample text 7 with '인용부호' and 기타 patterns.",
+      "ground_truth": "Sample text 7 with '인용부호' and 기타 patterns.",
+      "baseline_cer": 0.1385779024568225
+    },
+    {
+      "sample_id": "held_out_v1_008",
+      "domain": "textbook",
+      "original_text": "Sample text 8 with '인용부호' and 기타 patterns.",
+      "ground_truth": "Sample text 8 with '인용부호' and 기타 patterns.",
+      "baseline_cer": 0.12099130999894106
+    },
+    {
+      "sample_id": "held_out_v1_009",
+      "domain": "textbook",
+      "original_text": "Sample text 9 with '인용부호' and 기타 patterns.",
+      "ground_truth": "Sample text 9 with '인용부호' and 기타 patterns.",
+      "baseline_cer": 0.10044710358740054
+    },
+    {
+      "sample_id": "held_out_v1_010",
+      "domain": "textbook",
+      "original_text": "Sample text 10 with '인용부호' and 기타 patterns.",
+      "ground_truth": "Sample text 10 with '인용부호' and 기타 patterns.",
+      "baseline_cer": 0.03059331013469532
+    },
+    {
+      "sample_id": "held_out_v1_011",
+      "domain": "novel",
+      "original_text": "Sample text 11 with '인용부호' and 기타 patterns.",
+      "ground_truth": "Sample text 11 with '인용부호' and 기타 patterns.",
+      "baseline_cer": 0.1458185424559548
+    },
+    {
+      "sample_id": "held_out_v1_012",
+      "domain": "textbook",
+      "original_text": "Sample text 12 with '인용부호' and 기타 patterns.",
+      "ground_truth": "Sample text 12 with '인용부호' and 기타 patterns.",
+      "baseline_cer": 0.029025049783301553
+    },
+    {
+      "sample_id": "held_out_v1_013",
+      "domain": "novel",
+      "original_text": "Sample text 13 with '인용부호' and 기타 patterns.",
+      "ground_truth": "Sample text 13 with '인용부호' and 기타 patterns.",
+      "baseline_cer": 0.058240032170550474
+    },
+    {
+      "sample_id": "held_out_v1_014",
+      "domain": "essay",
+      "original_text": "Sample text 14 with '인용부호' and 기타 patterns.",
+      "ground_truth": "Sample text 14 with '인용부호' and 기타 patterns.",
+      "baseline_cer": 0.12688870008450193
+    },
+    {
+      "sample_id": "held_out_v1_015",
+      "domain": "novel",
+      "original_text": "Sample text 15 with '인용부호' and 기타 patterns.",
+      "ground_truth": "Sample text 15 with '인용부호' and 기타 patterns.",
+      "baseline_cer": 0.07374773124420851
+    },
+    {
+      "sample_id": "held_out_v1_016",
+      "domain": "textbook",
+      "original_text": "Sample text 16 with '인용부호' and 기타 patterns.",
+      "ground_truth": "Sample text 16 with '인용부호' and 기타 patterns.",
+      "baseline_cer": 0.06757144159332058
+    },
+    {
+      "sample_id": "held_out_v1_017",
+      "domain": "essay",
+      "original_text": "Sample text 17 with '인용부호' and 기타 patterns.",
+      "ground_truth": "Sample text 17 with '인용부호' and 기타 patterns.",
+      "baseline_cer": 0.13482204036718967
+    },
+    {
+      "sample_id": "held_out_v1_018",
+      "domain": "essay",
+      "original_text": "Sample text 18 with '인용부호' and 기타 patterns.",
+      "ground_truth": "Sample text 18 with '인용부호' and 기타 patterns.",
+      "baseline_cer": 0.03715661779467881
+    },
+    {
+      "sample_id": "held_out_v1_019",
+      "domain": "textbook",
+      "original_text": "Sample text 19 with '인용부호' and 기타 patterns.",
+      "ground_truth": "Sample text 19 with '인용부호' and 기타 patterns.",
+      "baseline_cer": 0.11699243963092322
+    },
+    {
+      "sample_id": "held_out_v1_020",
+      "domain": "textbook",
+      "original_text": "Sample text 20 with '인용부호' and 기타 patterns.",
+      "ground_truth": "Sample text 20 with '인용부호' and 기타 patterns.",
+      "baseline_cer": 0.11201777168228373
+    },
+    {
+      "sample_id": "held_out_v1_021",
+      "domain": "textbook",
+      "original_text": "Sample text 21 with '인용부호' and 기타 patterns.",
+      "ground_truth": "Sample text 21 with '인용부호' and 기타 patterns.",
+      "baseline_cer": 0.13087349754874264
+    },
+    {
+      "sample_id": "held_out_v1_022",
+      "domain": "novel",
+      "original_text": "Sample text 22 with '인용부호' and 기타 patterns.",
+      "ground_truth": "Sample text 22 with '인용부호' and 기타 patterns.",
+      "baseline_cer": 0.05297127305785569
+    },
+    {
+      "sample_id": "held_out_v1_023",
+      "domain": "textbook",
+      "original_text": "Sample text 23 with '인용부호' and 기타 patterns.",
+      "ground_truth": "Sample text 23 with '인용부호' and 기타 patterns.",
+      "baseline_cer": 0.11179332807299154
+    },
+    {
+      "sample_id": "held_out_v1_024",
+      "domain": "essay",
+      "original_text": "Sample text 24 with '인용부호' and 기타 patterns.",
+      "ground_truth": "Sample text 24 with '인용부호' and 기타 patterns.",
+      "baseline_cer": 0.04290688665776891
+    },
+    {
+      "sample_id": "held_out_v1_025",
+      "domain": "novel",
+      "original_text": "Sample text 25 with '인용부호' and 기타 patterns.",
+      "ground_truth": "Sample text 25 with '인용부호' and 기타 patterns.",
+      "baseline_cer": 0.14637547789294067
+    },
+    {
+      "sample_id": "held_out_v1_026",
+      "domain": "novel",
+      "original_text": "Sample text 26 with '인용부호' and 기타 patterns.",
+      "ground_truth": "Sample text 26 with '인용부호' and 기타 patterns.",
+      "baseline_cer": 0.04288921760351502
+    },
+    {
+      "sample_id": "held_out_v1_027",
+      "domain": "essay",
+      "original_text": "Sample text 27 with '인용부호' and 기타 patterns.",
+      "ground_truth": "Sample text 27 with '인용부호' and 기타 patterns.",
+      "baseline_cer": 0.13809847303138947
+    },
+    {
+      "sample_id": "held_out_v1_028",
+      "domain": "novel",
+      "original_text": "Sample text 28 with '인용부호' and 기타 patterns.",
+      "ground_truth": "Sample text 28 with '인용부호' and 기타 patterns.",
+      "baseline_cer": 0.14035351540528523
+    },
+    {
+      "sample_id": "held_out_v1_029",
+      "domain": "textbook",
+      "original_text": "Sample text 29 with '인용부호' and 기타 patterns.",
+      "ground_truth": "Sample text 29 with '인용부호' and 기타 patterns.",
+      "baseline_cer": 0.08201634055859346
+    },
+    {
+      "sample_id": "held_out_v1_030",
+      "domain": "textbook",
+      "original_text": "Sample text 30 with '인용부호' and 기타 patterns.",
+      "ground_truth": "Sample text 30 with '인용부호' and 기타 patterns.",
+      "baseline_cer": 0.059948291038462775
+    },
+    {
+      "sample_id": "held_out_v1_031",
+      "domain": "novel",
+      "original_text": "Sample text 31 with '인용부호' and 기타 patterns.",
+      "ground_truth": "Sample text 31 with '인용부호' and 기타 patterns.",
+      "baseline_cer": 0.04852427082264228
+    },
+    {
+      "sample_id": "held_out_v1_032",
+      "domain": "textbook",
+      "original_text": "Sample text 32 with '인용부호' and 기타 patterns.",
+      "ground_truth": "Sample text 32 with '인용부호' and 기타 patterns.",
+      "baseline_cer": 0.023600763728924667
+    },
+    {
+      "sample_id": "held_out_v1_033",
+      "domain": "textbook",
+      "original_text": "Sample text 33 with '인용부호' and 기타 patterns.",
+      "ground_truth": "Sample text 33 with '인용부호' and 기타 patterns.",
+      "baseline_cer": 0.03349430119519545
+    },
+    {
+      "sample_id": "held_out_v1_034",
+      "domain": "novel",
+      "original_text": "Sample text 34 with '인용부호' and 기타 patterns.",
+      "ground_truth": "Sample text 34 with '인용부호' and 기타 patterns.",
+      "baseline_cer": 0.11033223735180368
+    }
+  ],
+  "creation_date": "2026-03-04",
+  "hash_signature": "f5d63930bbe94e570bdd29b3213ac489"
+}

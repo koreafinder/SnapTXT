@@ -1,0 +1,16 @@
+{
+  "rule_id": "layout_cluster_001",
+  "pattern": "레이아웃 최적화 규칙 (재현성 0.307)",
+  "category": "experimental",
+  "confidence": 0.62,
+  "validation_status": "failed_reproducibility",
+  "performance_metrics": {
+    "delta_cer": -0.003,
+    "fp_rate": 0.15,
+    "reproducibility": 0.307
+  },
+  "isolation_reason": "부족한 재현성으로 인한 실험 격리",
+  "created_at": "2026-03-04T04:10:07.448588",
+  "last_moved": "2026-03-04T04:10:07.448597",
+  "file_path": "rules_isolated\\experimental\\layout\\layout_cluster_001.json"
+}

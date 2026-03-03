@@ -1,0 +1,27 @@
+{
+  "timestamp": "2026-03-04T05:26:46.981352",
+  "context": {
+    "domain": "essay",
+    "safety_mode": "standard",
+    "user_id": null,
+    "session_id": null
+  },
+  "result": {
+    "original_text": "이 문장은 아네요 틀렸습니다. ‛비표준 인용부호′도 포함되어 있아네요.",
+    "fixed_text": "이 문장은 안 예요 틀렸습니다. '비표준 인용부호'도 포함되어 있안 예요.",
+    "applied_rules": [
+      {
+        "rule_id": "smoke_test_rule",
+        "pattern": "typo → correct (아네요 → 안 예요)"
+      },
+      {
+        "rule_id": "test_punctuation_rule",
+        "pattern": "비표준 인용부호 → 표준 인용부호 교정"
+      }
+    ],
+    "delta_cer_estimated": -0.01,
+    "processing_time_ms": 0.9859999999999999,
+    "report_path": ""
+  },
+  "api_version": "v3.0.1"
+}

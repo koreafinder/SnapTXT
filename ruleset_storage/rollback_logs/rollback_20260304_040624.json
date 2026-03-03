@@ -1,0 +1,8 @@
+{
+  "rollback_id": "rollback_20260304_040624",
+  "from_version": "v003_20260304_040624",
+  "to_version": "v001_20260304_040624",
+  "timestamp": "2026-03-04T04:06:24.821294",
+  "reason": "Rollback: 테스트 목적 롤백",
+  "backup_path": "ruleset_storage\\backups\\backup_v003_20260304_040624_20260304_040624.json"
+}

@@ -1,0 +1,136 @@
+{
+  "kl_divergence": 1.508402093183754,
+  "js_distance": 0.2072374341711444,
+  "spearman_correlation": 0.7665374210267853,
+  "spearman_p_value": 0.009698300848899244,
+  "coverage_rate": 0.9,
+  "coverage_count": 9,
+  "total_real_patterns": 10,
+  "total_synthetic_events": 79,
+  "comparison_table": [
+    {
+      "rank": 1,
+      "signature": "U+0020→U+000A",
+      "real_count": 8,
+      "synth_count": 17,
+      "is_match": true
+    },
+    {
+      "rank": 2,
+      "signature": "DELETE[\" \"]",
+      "real_count": 7,
+      "synth_count": 18,
+      "is_match": true
+    },
+    {
+      "rank": 3,
+      "signature": "INSERT[\"\n\"]",
+      "real_count": 5,
+      "synth_count": 8,
+      "is_match": true
+    },
+    {
+      "rank": 4,
+      "signature": "INSERT[\".\"]",
+      "real_count": 4,
+      "synth_count": 7,
+      "is_match": true
+    },
+    {
+      "rank": 5,
+      "signature": "INSERT[\",\"]",
+      "real_count": 4,
+      "synth_count": 0,
+      "is_match": false
+    },
+    {
+      "rank": 6,
+      "signature": "U+003A→U+002E",
+      "real_count": 4,
+      "synth_count": 13,
+      "is_match": true
+    },
+    {
+      "rank": 7,
+      "signature": "\"( \"→\"《\"",
+      "real_count": 3,
+      "synth_count": 6,
+      "is_match": true
+    },
+    {
+      "rank": 8,
+      "signature": "INSERT[\" \"]",
+      "real_count": 2,
+      "synth_count": 2,
+      "is_match": true
+    },
+    {
+      "rank": 9,
+      "signature": "U+C5EC→U+BA70",
+      "real_count": 2,
+      "synth_count": 4,
+      "is_match": true
+    },
+    {
+      "rank": 10,
+      "signature": "\"( \"→\"<\"",
+      "real_count": 2,
+      "synth_count": 4,
+      "is_match": true
+    }
+  ],
+  "synthetic_distribution": [
+    {
+      "signature": "U+0020→U+000A",
+      "frequency": 0.21518987341772153
+    },
+    {
+      "signature": "DELETE[\" \"]",
+      "frequency": 0.22784810126582278
+    },
+    {
+      "signature": "INSERT[\"\n\"]",
+      "frequency": 0.10126582278481013
+    },
+    {
+      "signature": "INSERT[\".\"]",
+      "frequency": 0.08860759493670886
+    },
+    {
+      "signature": "INSERT[\",\"]",
+      "frequency": 0.0
+    },
+    {
+      "signature": "U+003A→U+002E",
+      "frequency": 0.16455696202531644
+    },
+    {
+      "signature": "\"( \"→\"《\"",
+      "frequency": 0.0759493670886076
+    },
+    {
+      "signature": "INSERT[\" \"]",
+      "frequency": 0.02531645569620253
+    },
+    {
+      "signature": "U+C5EC→U+BA70",
+      "frequency": 0.05063291139240506
+    },
+    {
+      "signature": "\"( \"→\"<\"",
+      "frequency": 0.05063291139240506
+    }
+  ],
+  "validation_quality": "FAIL",
+  "pass_conditions": [
+    [
+      "Top10 coverage ≥ 0.8",
+      true
+    ],
+    [
+      "Top50 coverage ≥ 0.9",
+      true
+    ],
+    [
+      "Spearman ≥ 0.85",
+      

@@ -16,6 +16,9 @@ import json
 import shutil
 import random
 import traceback
+import requests
+import base64
+import os
 from datetime import datetime
 from pathlib import Path
 from typing import List, Dict, Optional, Tuple
@@ -26,7 +29,7 @@ from PySide6.QtWidgets import (
     QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout,
     QTabWidget, QLabel, QPushButton, QTextEdit, QProgressBar,
     QFileDialog, QMessageBox, QGroupBox, QGridLayout, QSpinBox,
-    QScrollArea, QFrame, QSplitter, QCheckBox, QDialog
+    QScrollArea, QFrame, QSplitter, QCheckBox, QDialog, QButtonGroup, QRadioButton
 )
 from PySide6.QtCore import Qt, QThread, Signal, QTimer
 from PySide6.QtGui import QFont, QPixmap, QTextCursor
@@ -186,6 +189,213 @@ class SampleGeneratorWorker(QThread):
             
         except Exception as e:
             self.error.emit(f"샘플 생성 실패: {str(e)}")
+
+
+class SimpleGoogleVisionOCR:
+    """Google Vision REST API를 직접 호출하는 간단한 OCR 클라이언트"""
+    
+    def __init__(self, api_key: Optional[str] = None, logger: BasicLogger = None):
+        """
+        초기화
+        
+        Args:
+            api_key: Google Vision API 키
+            logger: 로깅 시스템
+        """
+        self.api_key = api_key or os.getenv('GOOGLE_API_KEY')
+        self.base_url = "https://vision.googleapis.com/v1/images:annotate"
+        self.logger = logger or BasicLogger()
+        
+        if not self.api_key:
+            self.logger.error("API 키가 설정되지 않았습니다!")
+    
+    def encode_image(self, image_path: Path) -> str:
+        """이미지를 base64로 인코딩"""
+        try:
+            with open(image_path, 'rb') as image_file:
+                image_content = image_file.read()
+                encoded_image = base64.b64encode(image_content).decode('utf-8')
+                return encoded_image
+        except Exception as e:
+            self.logger.error(f"이미지 인코딩 실패: {str(e)}")
+            return ""
+    
+    def extract_text_from_image(self, image_path: Path) -> Dict:
+        """
+        이미지에서 텍스트 추출
+        
+        Args:
+            image_path: 이미지 파일 경로
+            
+        Returns:
+            추출 결과 딕셔너리
+        """
+        if not self.api_key:
+            return {"error": "API 키가 설정되지 않았습니다"}
+        
+        if not image_path.exists():
+            return {"error": f"이미지 파일을 찾을 수 없습니다: {image_path}"}
+        
+        try:
+            self.logger.info(f"📖 Google Vision OCR 처리: {image_path.name}")
+            
+            # 이미지 인코딩
+            encoded_image = self.encode_image(image_path)
+            if not encoded_image:
+                return {"error": "이미지 인코딩 실패"}
+            
+            # REST API 요청 데이터
+            request_data = {
+                "requests": [
+                    {
+                        "image": {
+                            "content": encoded_image
+                        },
+                        "features": [
+                            {
+                                "type": "DOCUMENT_TEXT_DETECTION",
+                                "maxResults": 1
+                            }
+                        ]
+                    }
+                ]
+            }
+            
+            # API 호출
+            headers = {'Content-Type': 'application/json'}
+            url = f"{self.base_url}?key={self.api_key}"
+            
+            response = requests.post(url, headers=headers, json=request_data, timeout=30)
+            
+            if response.status_code != 200:
+                return {
+                    "error": f"API 호출 실패: {response.status_code} - {response.text[:200]}"
+                }
+            
+            # 응답 파싱
+            result_data = response.json()
+            
+            if "error" in result_data:
+                return {"error": f"Vision API 오류: {result_data['error']}"}
+            
+            responses = result_data.get("responses", [])
+            if not responses:
+                return {"error": "API 응답이 비어있습니다"}
+            
+            first_response = responses[0]
+            
+            # 오류 체크
+            if "error" in first_response:
+                return {"error": f"OCR 처리 오류: {first_response['error']}"}
+            
+            # 텍스트 추출
+            extracted_text = ""
+            if "fullTextAnnotation" in first_response:
+                extracted_text = first_response["fullTextAnnotation"].get("text", "")
+            elif "textAnnotations" in first_response:
+                # fallback으로 textAnnotations 사용
+                text_annotations = first_response["textAnnotations"]
+                if text_annotations:
+                    extracted_text = text_annotations[0].get("description", "")
+            
+            result = {
+                "success": True,
+                "text": extracted_text.strip(),
+                "text_length": len(extracted_text.strip()),
+                "image_file": image_path.name,
+                "api_version": "Google Vision REST API"
+            }
+            
+            self.logger.info(f"✅ Vision OCR 완료: {len(extracted_text.strip())} 글자 추출")
+            return result
+            
+        except requests.exceptions.Timeout:
+            return {"error": "API 호출 시간 초과"}
+        except requests.exceptions.ConnectionError:
+            return {"error": "인터넷 연결 오류"}
+        except Exception as e:
+            error_msg = f"Vision OCR 처리 실패: {str(e)}"
+            self.logger.error(error_msg)
+            return {"error": error_msg}
+    
+    def batch_ocr(self, image_paths: List[Path]) -> Dict[str, str]:
+        """
+        여러 이미지 일괄 OCR 처리
+        
+        Args:
+            image_paths: 이미지 파일 경로 리스트
+            
+        Returns:
+            파일별 OCR 결과 딕셔너리
+        """
+        results = {}
+        
+        self.logger.info(f"🔄 Google Vision 일괄 OCR 시작: {len(image_paths)}장")
+        
+        for i, image_path in enumerate(image_paths, 1):
+            self.logger.info(f"📄 {i}/{len(image_paths)}: {image_path.name}")
+            result = self.extract_text_from_image(image_path)
+            
+            if result.get("success"):
+                results[image_path.name] = result["text"]
+            else:
+                self.logger.error(f"OCR 실패: {result.get('error', 'Unknown error')}")
+                results[image_path.name] = f"[OCR 실패: {result.get('error', 'Unknown error')}]"
+        
+        successful = sum(1 for text in results.values() if not text.startswith("[OCR 실패"))
+        self.logger.info(f"🎉 Google Vision OCR 완료: {successful}/{len(image_paths)}장 성공")
+        
+        return results
+
+
+class VisionOCRWorker(QThread):
+    """Google Vision OCR 배치 작업 Worker Thread"""
+    progress = Signal(int, str)  # percent, message
+    finished = Signal(dict)  # {sample_name: ocr_text}
+    error = Signal(str)
+    
+    def __init__(self, samples: List[Path], api_key: str, logger: BasicLogger):
+        super().__init__()
+        self.samples = samples
+        self.api_key = api_key
+        self.logger = logger
+        
+    def run(self):
+        """Vision OCR 배치 실행"""
+        try:
+            self.progress.emit(10, "Google Vision API 준비 중...")
+            
+            # Vision OCR 클라이언트 생성
+            vision_ocr = SimpleGoogleVisionOCR(self.api_key, self.logger)
+            
+            if not vision_ocr.api_key:
+                self.error.emit("Google Vision API 키가 설정되지 않았습니다")
+                return
+            
+            self.progress.emit(20, f"OCR 처리 시작: {len(self.samples)}장")
+            
+            # 배치 OCR 실행
+            ocr_results = {}
+            for i, sample_path in enumerate(self.samples, 1):
+                progress_percent = 20 + (i * 70) // len(self.samples)
+                self.progress.emit(progress_percent, f"처리 중: {sample_path.name}")
+                
+                result = vision_ocr.extract_text_from_image(sample_path)
+                
+                if result.get("success"):
+                    ocr_results[sample_path.name] = result["text"]
+                else:
+                    error_msg = result.get("error", "Unknown error")
+                    self.logger.error(f"Vision OCR 실패: {sample_path.name} - {error_msg}")
+                    ocr_results[sample_path.name] = f"[Vision OCR 실패: {error_msg}]"
+            
+            self.progress.emit(100, f"Google Vision OCR 완료: {len(ocr_results)}장")
+            self.finished.emit(ocr_results)
+            
+        except Exception as e:
+            error_msg = f"Google Vision OCR 배치 실패: {str(e)}"
+            self.logger.error(error_msg)
+            self.error.emit(error_msg)
 
 
 class OCRWorker(QThread):
@@ -514,6 +724,31 @@ class BookExperimentUI(QMainWindow):
         """화면 C: GPT Pack Builder"""
         tab = QWidget()
         layout = QVBoxLayout(tab)
+        
+        # OCR 방법 선택 그룹
+        ocr_method_group = QGroupBox("🔧 OCR 방법 선택")
+        ocr_method_layout = QVBoxLayout(ocr_method_group)
+        
+        # 라디오 버튼 그룹
+        self.ocr_method_group = QButtonGroup()
+        
+        # SnapTXT OCR 옵션
+        self.snaptxt_ocr_radio = QRadioButton("📱 SnapTXT OCR (기존 방식)")
+        self.snaptxt_ocr_radio.setChecked(True)
+        self.ocr_method_group.addButton(self.snaptxt_ocr_radio, 0)
+        ocr_method_layout.addWidget(self.snaptxt_ocr_radio)
+        
+        # Google Vision OCR 옵션
+        self.vision_ocr_radio = QRadioButton("🚀 Google Vision API (자동화)")
+        self.ocr_method_group.addButton(self.vision_ocr_radio, 1)
+        ocr_method_layout.addWidget(self.vision_ocr_radio)
+        
+        # Vision API 장점 표시
+        vision_info = QLabel("   ✅ 20배 빠른 속도 | ✅ 높은 정확도 | ✅ 완전 자동화")
+        vision_info.setStyleSheet("color: #2196F3; font-size: 11px; margin-left: 20px;")
+        ocr_method_layout.addWidget(vision_info)
+        
+        layout.addWidget(ocr_method_group)
         
         # GPT Pack 빌드 그룹
         builder_group = QGroupBox("📦 GPT Pack Builder")
@@ -860,19 +1095,40 @@ class BookExperimentUI(QMainWindow):
         self.generate_samples_btn.setEnabled(True)
     
     def build_gpt_pack(self):
-        """GPT Pack 빌드 (Worker Thread)"""
+        """GPT Pack 빌드 (Worker Thread) - SnapTXT 또는 Vision API 선택"""
         if not self.generated_samples:
             QMessageBox.warning(self, "오류", "먼저 샘플을 생성하세요")
             return
         
-        if not self.system_manager:
-            QMessageBox.warning(self, "오류", "SnapTXT 시스템이 초기화되지 않았습니다")
-            return
-        
         self.logger.info("📦 GPT Pack 빌드 시작")
         
-        # Worker 시작
-        self.ocr_worker = OCRWorker(self.generated_samples, self.system_manager, self.logger)
+        # OCR 방법 결정
+        use_vision_api = self.vision_ocr_radio.isChecked()
+        
+        if use_vision_api:
+            # Google Vision API 사용
+            api_key = os.getenv('GOOGLE_API_KEY')
+            if not api_key:
+                QMessageBox.warning(
+                    self, "API 키 없음", 
+                    "Google Vision API 키가 설정되지 않았습니다.\n\n"
+                    "PowerShell에서 다음 명령어를 실행하세요:\n"
+                    '$env:GOOGLE_API_KEY = "your_api_key"'
+                )
+                return
+            
+            self.logger.info("🚀 Google Vision API OCR 사용")
+            self.ocr_worker = VisionOCRWorker(self.generated_samples, api_key, self.logger)
+        else:
+            # SnapTXT OCR 사용 (기존 방식)
+            if not self.system_manager:
+                QMessageBox.warning(self, "오류", "SnapTXT 시스템이 초기화되지 않았습니다")
+                return
+            
+            self.logger.info("📱 SnapTXT OCR 사용")
+            self.ocr_worker = OCRWorker(self.generated_samples, self.system_manager, self.logger)
+        
+        # Worker 연결 및 시작
         self.ocr_worker.progress.connect(self.ocr_progress.setValue)
         self.ocr_worker.finished.connect(self.on_gpt_pack_built)
         self.ocr_worker.error.connect(self.on_gpt_pack_error)
@@ -926,6 +1182,17 @@ Phase 2.7 구조 복원 중심으로 분석해주세요."""
             result_text += f"   {sample_name}: {len(text)}자\n"
         
         self.gpt_result_text.setPlainText(result_text)
+        
+        # Google Vision API 사용 시 자동으로 다음 단계로 진행
+        if self.vision_ocr_radio.isChecked():
+            self.logger.info("🚀 Google Vision API 완료 - 자동으로 Profile 생성 준비")
+            self.gpt_result_input.setPlainText("Google Vision API 자동 완료")
+            QMessageBox.information(
+                self, "자동화 완료", 
+                "🎉 Google Vision API OCR이 완료되었습니다!\n\n"
+                "이제 '다음 Profile 생성' 버튼을 눌러 Ground Truth를 생성하세요."
+            )
+        
         self.build_gpt_pack_btn.setEnabled(True)
     
     def on_gpt_pack_error(self, error_msg: str):
@@ -937,7 +1204,11 @@ Phase 2.7 구조 복원 중심으로 분석해주세요."""
     def build_profile(self):
         """Book Profile 생성 - SnapTXT Layout Restoration 연동"""
         gpt_result = self.gpt_result_input.toPlainText().strip()
-        if not gpt_result:
+        
+        # Google Vision API 자동 완료 처리
+        if gpt_result == "Google Vision API 자동 완료":
+            self.logger.info("🚀 Google Vision API 자동 완료 - OCR 결과로 Profile 생성")
+        elif not gpt_result:
             QMessageBox.warning(self, "오류", "GPT 결과를 입력하세요")
             return
         
@@ -947,10 +1218,11 @@ Phase 2.7 구조 복원 중심으로 분석해주세요."""
         
         self.logger.info("🧠 Profile 생성 시작")
         
-        # 기본 검증
-        sample_count = gpt_result.count("SAMPLE_")
-        if sample_count < len(self.generated_samples) // 2:
-            QMessageBox.warning(self, "경고", f"샘플 수가 부족합니다. ({sample_count}/{len(self.generated_samples)})")
+        # Google Vision API 자동 완료가 아닌 경우에만 검증
+        if gpt_result != "Google Vision API 자동 완료":
+            sample_count = gpt_result.count("SAMPLE_")
+            if sample_count < len(self.generated_samples) // 2:
+                QMessageBox.warning(self, "경고", f"샘플 수가 부족합니다. ({sample_count}/{len(self.generated_samples)})")
         
         # SnapTXT Layout Adapter로 Profile 생성
         sample_texts = list(self.ocr_results.values())

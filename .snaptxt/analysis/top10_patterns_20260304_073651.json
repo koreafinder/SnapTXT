@@ -1,0 +1,361 @@
+{
+  "metadata": {
+    "timestamp": "2026-03-04T07:36:51.997300",
+    "total_patterns": 10,
+    "total_events": 86
+  },
+  "patterns": [
+    {
+      "signature": "U+0020→U+000A",
+      "bucket": "space",
+      "frequency": 8,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": " ",
+          "stage23_snippet": " ",
+          "gt_snippet": "\n",
+          "context": "l A Singer|숲속의 명상가로 불"
+        },
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": " ",
+          "stage23_snippet": " ",
+          "gt_snippet": "\n",
+          "context": "려주는 그의 강연에|폭발적으로 반응했습"
+        },
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": " ",
+          "stage23_snippet": " ",
+          "gt_snippet": "\n",
+          "context": "스스로 만든 마음의|감옥 속에 방치해 "
+        },
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": " ",
+          "stage23_snippet": " ",
+          "gt_snippet": "\n",
+          "context": "로 우리를 안내하는|그의 책들은 지금도"
+        },
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": " ",
+          "stage23_snippet": " ",
+          "gt_snippet": "\n",
+          "context": "다: 1975 년에|명상 요가 센터 T"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.14400000000000004
+    },
+    {
+      "signature": "DELETE[\" \"]",
+      "bucket": "space",
+      "frequency": 7,
+      "op_type": "delete",
+      "examples": [
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": " ",
+          "stage23_snippet": " ",
+          "gt_snippet": "",
+          "context": "에 나서기를 꺼려'|얼 물없는 저자로 "
+        },
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": " ",
+          "stage23_snippet": " ",
+          "gt_snippet": "",
+          "context": "을 포함한 십여 개|국의 언어로 번역되"
+        },
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": " ",
+          "stage23_snippet": " ",
+          "gt_snippet": "",
+          "context": "클 싱어는 1970|년대 초 플로리다 "
+        },
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": " ",
+          "stage23_snippet": " ",
+          "gt_snippet": "",
+          "context": "했습니다: 1975|년에 명상 요가 센"
+        },
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": " ",
+          "stage23_snippet": " ",
+          "gt_snippet": "",
+          "context": "5 년에 명상 요가|센터 Ternple"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.06400000000000002
+    },
+    {
+      "signature": "INSERT[\"\n\"]",
+      "bucket": "space",
+      "frequency": 5,
+      "op_type": "insert",
+      "examples": [
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": "\n",
+          "context": "간곡한 부탁을 이기|지 못해 2012년"
+        },
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": "\n",
+          "context": "사람들 앞에 처음으|로 모습을 드러움습"
+        },
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": "\n",
+          "context": "포함한 십여 개 국|의 언어로 번역되어"
+        },
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": "\n",
+          "context": "되어 그 이후 세속|적인 생활을 접고 "
+        },
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": "\n",
+          "context": " 환경보호 등의 분|야에 크게 기여했습"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.06400000000000002
+    },
+    {
+      "signature": "INSERT[\".\"]",
+      "bucket": "punctuation",
+      "frequency": 4,
+      "op_type": "insert",
+      "examples": [
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": ".",
+          "context": " Michael A| Singer 숲속"
+        },
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": ".",
+          "context": "세계에 소개됐습니다| 스스로 만든 마음"
+        },
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": ".",
+          "context": " 크게 기여했습니다| 저서로는 ( 상처"
+        },
+        {
+          "page_id": "page_003_IMG_4791",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": ".",
+          "context": " 구성되어 있습니다|"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.06400000000000002
+    },
+    {
+      "signature": "INSERT[\",\"]",
+      "bucket": "punctuation",
+      "frequency": 4,
+      "op_type": "insert",
+      "examples": [
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": ",",
+          "context": "자로 알려져 있다가| 오프라 윈프리의 "
+        },
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": ",",
+          "context": "셀러 1위에 올랐고| 한국을 포함한 십"
+        },
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": ",",
+          "context": " 체험을 하게 되어| 그 이후 세속적인"
+        },
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": ",",
+          "context": "미술, 교육; 보건| 환경보호 등의 분"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.06400000000000002
+    },
+    {
+      "signature": "U+003A→U+002E",
+      "bucket": "punctuation",
+      "frequency": 4,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": ":",
+          "stage23_snippet": ":",
+          "gt_snippet": ".",
+          "context": "모습을 드러움습니다| 온갖 욕망들을 끌"
+        },
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": ":",
+          "stage23_snippet": ":",
+          "gt_snippet": ".",
+          "context": "적으로 반응했습니다| 방송 직후 그의 "
+        },
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": ":",
+          "stage23_snippet": ":",
+          "gt_snippet": ".",
+          "context": "명상에 몰두했습니다| 1975 년에 명"
+        },
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": ":",
+          "stage23_snippet": ":",
+          "gt_snippet": ".",
+          "context": "전하기 시작했습니다| 또한 미술, 교육"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.14400000000000004
+    },
+    {
+      "signature": "\"( \"→\"《\"",
+      "bucket": "space",
+      "frequency": 3,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": "( ",
+          "stage23_snippet": "( ",
+          "gt_snippet": "《",
+          "context": "했습니다 저서로는 |상처받지 않는 영혼"
+        },
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": "( ",
+          "stage23_snippet": "( ",
+          "gt_snippet": "《",
+          "context": "될 일은 된다 , |마이클 싱어 명상 "
+        },
+        {
+          "page_id": "page_003_IMG_4791",
+          "raw_snippet": "( ",
+          "stage23_snippet": "( ",
+          "gt_snippet": "《",
+          "context": "널 ) 은 저자가 |상처받지 암논 영혼"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.216
+    },
+    {
+      "signature": "INSERT[\" \"]",
+      "bucket": "space",
+      "frequency": 2,
+      "op_type": "insert",
+      "examples": [
+        {
+          "page_id": "page_001_IMG_4789",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": " ",
+          "context": " 영혼을 위한 지유|라이팅북 II 고양"
+        },
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": " ",
+          "context": "앞에 나서기를 꺼려|' 얼 물없는 저자"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.06400000000000002
+    },
+    {
+      "signature": "U+C5EC→U+BA70",
+      "bucket": "character",
+      "frequency": 2,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": "여",
+          "stage23_snippet": "여",
+          "gt_snippet": "며",
+          "context": " 선데이>에 출연하| 사람들 앞에 처음"
+        },
+        {
+          "page_id": "page_003_IMG_4791",
+          "raw_snippet": "여",
+          "stage23_snippet": "여",
+          "gt_snippet": "며",
+          "context": "신의 내면을 관찰하| 상처률 발견하고 "
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.14400000000000004
+    },
+    {
+      "signature": "\"( \"→\"<\"",
+      "bucket": "space",
+      "frequency": 2,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": "( ",
+          "stage23_snippet": "( ",
+          "gt_snippet": "<",
+          "context": "송 직후 그의 책 |상처받지 않는 영혼"
+        },
+        {
+          "page_id": "page_003_IMG_4791",
+          "raw_snippet": "( ",
+          "stage23_snippet": "( ",
+          "gt_snippet": "<",
+          "context": " ' 일러두기 : |명상 저널 ) 은 "
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.216
+    }
+  ]
+}

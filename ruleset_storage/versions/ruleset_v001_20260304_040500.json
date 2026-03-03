@@ -1,0 +1,23 @@
+{
+  "version_id": "v001_20260304_040500",
+  "name": "Stable Baseline",
+  "description": "검증된 안정적인 규칙 세트",
+  "rules": {
+    "punctuation_normalizer_v1": {
+      "pattern": "비표준 인용부호 → 표준 인용부호",
+      "category": "punctuation",
+      "confidence": 0.95,
+      "delta_cer_avg": -0.003,
+      "validation_status": "passed"
+    },
+    "space_cleaner_v1": {
+      "pattern": "중복 공백 정리",
+      "category": "space",
+      "confidence": 0.98,
+      "delta_cer_avg": -0.001,
+      "validation_status": "passed"
+    }
+  },
+  "created_at": "2026-03-04T04:05:00.890373",
+  "created_by": "system",
+  "status": 

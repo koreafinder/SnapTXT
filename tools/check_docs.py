@@ -14,6 +14,7 @@ from typing import Iterable, List, Tuple
 DOCS_ROOT = Path(__file__).resolve().parents[1] / "docs"
 
 REQUIRED_FILES: List[Tuple[str, str]] = [
+    ("meta", "README.md"),
     ("foundation", "foundation/project_memory.md"),
     ("foundation", "foundation/architecture.md"),
     ("status", "status/current_work.md"),
@@ -25,6 +26,8 @@ OPTIONAL_FILES: List[Tuple[str, str]] = [
     ("plans", "plans/restructure_plan.md"),
     ("plans", "plans/future_improvement_plan.md"),
     ("reference", "reference/practical_guide.md"),
+    ("meta", "meta/ai_workflow_automation.md"),
+    ("meta", "meta/ai_collaboration_framework.md"),
 ]
 
 CONTEXT_FLOW: List[Tuple[str, str]] = [

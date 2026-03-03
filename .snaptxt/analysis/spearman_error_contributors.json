@@ -1,0 +1,137 @@
+{
+  "analysis_timestamp": "2026-03-04T07:48:42",
+  "spearman_correlation": 0.529878246273514,
+  "target_correlation": 0.85,
+  "top10_contributors": [
+    {
+      "rank": 1,
+      "signature": "INSERT[\",\"]",
+      "real_count": 4,
+      "synth_count": 0,
+      "real_rank": 5,
+      "synth_rank": 48,
+      "rank_diff": 43,
+      "count_ratio": 0.2,
+      "cause": "INSERT 적용 실패 (apply bug)",
+      "category": "apply_bug"
+    },
+    {
+      "rank": 2,
+      "signature": "INSERT[\"어\"]",
+      "real_count": 1,
+      "synth_count": 0,
+      "real_rank": 12,
+      "synth_rank": 49,
+      "rank_diff": 37,
+      "count_ratio": 0.5,
+      "cause": "INSERT 적용 실패 (apply bug)",
+      "category": "apply_bug"
+    },
+    {
+      "rank": 3,
+      "signature": "\" ) \"→\">\"",
+      "real_count": 1,
+      "synth_count": 7,
+      "real_rank": 50,
+      "synth_rank": 19,
+      "rank_diff": 31,
+      "count_ratio": 4.0,
+      "cause": "과대 샘플링 (weight 문제)",
+      "category": "weight_bug"
+    },
+    {
+      "rank": 4,
+      "signature": "\"짐\"→\"지음\"",
+      "real_count": 1,
+      "synth_count": 3,
+      "real_rank": 13,
+      "synth_rank": 40,
+      "rank_diff": 27,
+      "count_ratio": 2.0,
+      "cause": "순위 역전 (빈도는 비슷하나 순서 틀림)",
+      "category": "rank_bug"
+    },
+    {
+      "rank": 5,
+      "signature": "U+005F→U+007C",
+      "real_count": 1,
+      "synth_count": 3,
+      "real_rank": 14,
+      "synth_rank": 41,
+      "rank_diff": 27,
+      "count_ratio": 2.0,
+      "cause": "순위 역전 (빈도는 비슷하나 순서 틀림)",
+      "category": "rank_bug"
+    },
+    {
+      "rank": 6,
+      "signature": "U+004F→U+00A9",
+      "real_count": 1,
+      "synth_count": 7,
+      "real_rank": 45,
+      "synth_rank": 18,
+      "rank_diff": 27,
+      "count_ratio": 4.0,
+      "cause": "과대 샘플링 (weight 문제)",
+      "category": "weight_bug"
+    },
+    {
+      "rank": 7,
+      "signature": "\": \"→\".\nwww.untetheredsoul.com\n\"",
+      "real_count": 1,
+      "synth_count": 7,
+      "real_rank": 43,
+      "synth_rank": 17,
+      "rank_diff": 26,
+      "count_ratio": 4.0,
+      "cause": "과대 샘플링 (weight 문제)",
+      "category": "weight_bug"
+    },
+    {
+      "rank": 8,
+      "signature": "DELETE[\"':\" \" l; ' ' \"]",
+      "real_count": 1,
+      "synth_count": 6,
+      "real_rank": 49,
+      "synth_rank": 25,
+      "rank_diff": 24,
+      "count_ratio": 3.5,
+      "cause": "과대 샘플링 (weight 문제)",
+      "category": "weight_bug"
+    },
+    {
+      "rank": 9,
+      "signature": "INSERT[\"'\"]",
+      "real_count": 1,
+      "synth_count": 0,
+      "real_rank": 27,
+      "synth_rank": 50,
+      "rank_diff": 23,
+      "count_ratio": 0.5,
+      "cause": "INSERT 적용 실패 (apply bug)",
+      "category": "apply_bug"
+    },
+    {
+      "rank": 10,
+      "signature": "\" 감\"→\"\n람\"",
+      "real_count": 1,
+      "synth_count": 12,
+      "real_rank": 29,
+      "synth_rank": 6,
+      "rank_diff": 23,
+      "count_ratio": 6.5,
+      "cause": "과대 샘플링 (weight 문제)",
+      "category": "weight_bug"
+    }
+  ],
+  "category_summary": {
+    "apply_bug": 3,
+    "weight_bug": 5,
+    "rank_bug": 2
+  },
+  "primary_causes": {
+    "INSERT_apply_failures": 3,
+    "weight_issues": 5,
+    "filter_issues": 0
+  }
+}

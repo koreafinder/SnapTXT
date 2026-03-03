@@ -1,0 +1,10 @@
+{
+  "kl_divergence": 2.682067504028164,
+  "js_distance": 0.2948188635368062,
+  "spearman_correlation": 0.7818181818181817,
+  "spearman_p_value": 0.007547007781067879,
+  "coverage_rate": 0.8,
+  "total_real_patterns": 10,
+  "covered_patterns": 8,
+  "validation_quality": "POOR"
+}

@@ -1,0 +1,1252 @@
+{
+  "metadata": {
+    "timestamp": "2026-03-04T08:43:15.674825",
+    "total_patterns": 50,
+    "total_events": 259,
+    "run_id": "20260304_084144_ba7736cb"
+  },
+  "patterns": [
+    {
+      "signature": "U+0020→U+000A",
+      "bucket": "space",
+      "frequency": 40,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": " ",
+          "stage23_snippet": " ",
+          "gt_snippet": "\n",
+          "context": "l A Singer|숲속의 명상가로 불"
+        },
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": " ",
+          "stage23_snippet": " ",
+          "gt_snippet": "\n",
+          "context": "려주는 그의 강연에|폭발적으로 반응했습"
+        },
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": " ",
+          "stage23_snippet": " ",
+          "gt_snippet": "\n",
+          "context": "스스로 만든 마음의|감옥 속에 방치해 "
+        },
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": " ",
+          "stage23_snippet": " ",
+          "gt_snippet": "\n",
+          "context": "로 우리를 안내하는|그의 책들은 지금도"
+        },
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": " ",
+          "stage23_snippet": " ",
+          "gt_snippet": "\n",
+          "context": "다: 1975 년에|명상 요가 센터 T"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.14400000000000004
+    },
+    {
+      "signature": "DELETE[\" \"]",
+      "bucket": "space",
+      "frequency": 24,
+      "op_type": "delete",
+      "examples": [
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": " ",
+          "stage23_snippet": " ",
+          "gt_snippet": "",
+          "context": "에 나서기를 꺼려'|얼 물없는 저자로 "
+        },
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": " ",
+          "stage23_snippet": " ",
+          "gt_snippet": "",
+          "context": "을 포함한 십여 개|국의 언어로 번역되"
+        },
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": " ",
+          "stage23_snippet": " ",
+          "gt_snippet": "",
+          "context": "클 싱어는 1970|년대 초 플로리다 "
+        },
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": " ",
+          "stage23_snippet": " ",
+          "gt_snippet": "",
+          "context": "했습니다: 1975|년에 명상 요가 센"
+        },
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": " ",
+          "stage23_snippet": " ",
+          "gt_snippet": "",
+          "context": "5 년에 명상 요가|센터 Ternple"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.06400000000000002
+    },
+    {
+      "signature": "INSERT[\".\"]",
+      "bucket": "punctuation",
+      "frequency": 20,
+      "op_type": "insert",
+      "examples": [
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": ".",
+          "context": " Michael A| Singer 숲속"
+        },
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": ".",
+          "context": "세계에 소개됐습니다| 스스로 만든 마음"
+        },
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": ".",
+          "context": " 크게 기여했습니다| 저서로는 ( 상처"
+        },
+        {
+          "page_id": "page_003_IMG_4791",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": ".",
+          "context": " 구성되어 있습니다|"
+        },
+        {
+          "page_id": "page_005_IMG_4793",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": ".",
+          "context": "것이 가장 중요하다|\" ~마이클 A 싱"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.06400000000000002
+    },
+    {
+      "signature": "INSERT[\",\"]",
+      "bucket": "punctuation",
+      "frequency": 10,
+      "op_type": "insert",
+      "examples": [
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": ",",
+          "context": "자로 알려져 있다가| 오프라 윈프리의 "
+        },
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": ",",
+          "context": "셀러 1위에 올랐고| 한국을 포함한 십"
+        },
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": ",",
+          "context": " 체험을 하게 되어| 그 이후 세속적인"
+        },
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": ",",
+          "context": "미술, 교육; 보건| 환경보호 등의 분"
+        },
+        {
+          "page_id": "page_006_IMG_4794",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": ",",
+          "context": "음; 감정| 내면의 에너지와 "
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.06400000000000002
+    },
+    {
+      "signature": "INSERT[\"\n\"]",
+      "bucket": "space",
+      "frequency": 9,
+      "op_type": "insert",
+      "examples": [
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": "\n",
+          "context": "간곡한 부탁을 이기|지 못해 2012년"
+        },
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": "\n",
+          "context": "사람들 앞에 처음으|로 모습을 드러움습"
+        },
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": "\n",
+          "context": "포함한 십여 개 국|의 언어로 번역되어"
+        },
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": "\n",
+          "context": "되어 그 이후 세속|적인 생활을 접고 "
+        },
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": "\n",
+          "context": " 환경보호 등의 분|야에 크게 기여했습"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.06400000000000002
+    },
+    {
+      "signature": "INSERT[\" \"]",
+      "bucket": "space",
+      "frequency": 8,
+      "op_type": "insert",
+      "examples": [
+        {
+          "page_id": "page_001_IMG_4789",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": " ",
+          "context": " 영혼을 위한 지유|라이팅북 II 고양"
+        },
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": " ",
+          "context": "앞에 나서기를 꺼려|' 얼 물없는 저자"
+        },
+        {
+          "page_id": "page_005_IMG_4793",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": " ",
+          "context": " 영혼 ) 을 위한|이 아름답고 실용적"
+        },
+        {
+          "page_id": "page_006_IMG_4794",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": " ",
+          "context": "논 길잡이 글은 그|가르침을 실생활에 "
+        },
+        {
+          "page_id": "page_006_IMG_4794",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": " ",
+          "context": " 데 도움이 되므로|이 일지에 당신의 "
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.06400000000000002
+    },
+    {
+      "signature": "U+003A→U+002E",
+      "bucket": "punctuation",
+      "frequency": 7,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": ":",
+          "stage23_snippet": ":",
+          "gt_snippet": ".",
+          "context": "모습을 드러움습니다| 온갖 욕망들을 끌"
+        },
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": ":",
+          "stage23_snippet": ":",
+          "gt_snippet": ".",
+          "context": "적으로 반응했습니다| 방송 직후 그의 "
+        },
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": ":",
+          "stage23_snippet": ":",
+          "gt_snippet": ".",
+          "context": "명상에 몰두했습니다| 1975 년에 명"
+        },
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": ":",
+          "stage23_snippet": ":",
+          "gt_snippet": ".",
+          "context": "전하기 시작했습니다| 또한 미술, 교육"
+        },
+        {
+          "page_id": "page_005_IMG_4793",
+          "raw_snippet": ":",
+          "stage23_snippet": ":",
+          "gt_snippet": ".",
+          "context": " 수 잎 어야 한다| 자유는 세상에서 "
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.14400000000000004
+    },
+    {
+      "signature": "U+B17C→U+B294",
+      "bucket": "character",
+      "frequency": 4,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_003_IMG_4791",
+          "raw_snippet": "논",
+          "stage23_snippet": "논",
+          "gt_snippet": "는",
+          "context": "핵심 문장과 이어지| 길잡이 글을 통해"
+        },
+        {
+          "page_id": "page_005_IMG_4793",
+          "raw_snippet": "논",
+          "stage23_snippet": "논",
+          "gt_snippet": "는",
+          "context": "참된 성장울 위해서| 마음의 소리가 곧"
+        },
+        {
+          "page_id": "page_005_IMG_4793",
+          "raw_snippet": "논",
+          "stage23_snippet": "논",
+          "gt_snippet": "는",
+          "context": "놓아버길 때, 우리| 비로소 우리가 누"
+        },
+        {
+          "page_id": "page_006_IMG_4794",
+          "raw_snippet": "논",
+          "stage23_snippet": "논",
+          "gt_snippet": "는",
+          "context": "다 그다음에 이어지| 길잡이 글은 그가"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.14400000000000004
+    },
+    {
+      "signature": "\" \"→\".\n\"",
+      "bucket": "space",
+      "frequency": 3,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": " ",
+          "stage23_snippet": " ",
+          "gt_snippet": ".\n",
+          "context": " 사랑반고 있습니다|마이클 싱어는 19"
+        },
+        {
+          "page_id": "page_005_IMG_4793",
+          "raw_snippet": " ",
+          "stage23_snippet": " ",
+          "gt_snippet": ".\n",
+          "context": "든 함께할 수 있다|이제 기쁨 마음으로"
+        },
+        {
+          "page_id": "page_006_IMG_4794",
+          "raw_snippet": " ",
+          "stage23_snippet": " ",
+          "gt_snippet": ".\n",
+          "context": " 위력으로 가는 것|이제 당신은 상처 "
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.216
+    },
+    {
+      "signature": "U+D2C0→U+B97C",
+      "bucket": "character",
+      "frequency": 3,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": "틀",
+          "stage23_snippet": "틀",
+          "gt_snippet": "를",
+          "context": "e Universe| 세우고 내적 평화"
+        },
+        {
+          "page_id": "page_004_IMG_4792",
+          "raw_snippet": "틀",
+          "stage23_snippet": "틀",
+          "gt_snippet": "를",
+          "context": "Part 2 에너지| 경험하기 S7 P"
+        },
+        {
+          "page_id": "page_005_IMG_4793",
+          "raw_snippet": "틀",
+          "stage23_snippet": "틀",
+          "gt_snippet": "를",
+          "context": "소 우리가 누구인지| 발견할 수 있다이"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.14400000000000004
+    },
+    {
+      "signature": "U+003B→U+002C",
+      "bucket": "punctuation",
+      "frequency": 3,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": ";",
+          "stage23_snippet": ";",
+          "gt_snippet": ",",
+          "context": " 또한 미술, 교육| 보건 환경보호 등"
+        },
+        {
+          "page_id": "page_006_IMG_4794",
+          "raw_snippet": ";",
+          "stage23_snippet": ";",
+          "gt_snippet": ",",
+          "context": "음| 감정 내면의 에너"
+        },
+        {
+          "page_id": "page_006_IMG_4794",
+          "raw_snippet": ";",
+          "stage23_snippet": ";",
+          "gt_snippet": ",",
+          "context": "어서서 내면의 자유| 행복 깨달음으로 "
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.14400000000000004
+    },
+    {
+      "signature": "\"( \"→\"《\"",
+      "bucket": "space",
+      "frequency": 3,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": "( ",
+          "stage23_snippet": "( ",
+          "gt_snippet": "《",
+          "context": "했습니다 저서로는 |상처받지 않는 영혼"
+        },
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": "( ",
+          "stage23_snippet": "( ",
+          "gt_snippet": "《",
+          "context": "될 일은 된다 , |마이클 싱어 명상 "
+        },
+        {
+          "page_id": "page_003_IMG_4791",
+          "raw_snippet": "( ",
+          "stage23_snippet": "( ",
+          "gt_snippet": "《",
+          "context": "널 ) 은 저자가 |상처받지 암논 영혼"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.216
+    },
+    {
+      "signature": "\" ) \"→\">\"",
+      "bucket": "space",
+      "frequency": 3,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_003_IMG_4791",
+          "raw_snippet": " ) ",
+          "stage23_snippet": " ) ",
+          "gt_snippet": ">",
+          "context": " : ( 명상 저널|은 저자가 ( 상처"
+        },
+        {
+          "page_id": "page_005_IMG_4793",
+          "raw_snippet": " ) ",
+          "stage23_snippet": " ) ",
+          "gt_snippet": ">",
+          "context": "상처반지 않은 영혼|을 위한이 아름답고"
+        },
+        {
+          "page_id": "page_005_IMG_4793",
+          "raw_snippet": " ) ",
+          "stage23_snippet": " ) ",
+          "gt_snippet": ">",
+          "context": "적인 ( 명상 저널|을 소개한다이 일지"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.2880000000000001
+    },
+    {
+      "signature": "U+C6B8→U+C744",
+      "bucket": "character",
+      "frequency": 3,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_005_IMG_4793",
+          "raw_snippet": "울",
+          "stage23_snippet": "울",
+          "gt_snippet": "을",
+          "context": " 여정\" 참된 성장| 위해서논 마음의 "
+        },
+        {
+          "page_id": "page_005_IMG_4793",
+          "raw_snippet": "울",
+          "stage23_snippet": "울",
+          "gt_snippet": "을",
+          "context": "것이다 우리늄이 책| 통해 여러 분이 "
+        },
+        {
+          "page_id": "page_006_IMG_4794",
+          "raw_snippet": "울",
+          "stage23_snippet": "울",
+          "gt_snippet": "을",
+          "context": "로 씨 보면 가르침| 더 깊이 이해하는"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.14400000000000004
+    },
+    {
+      "signature": "INSERT[\". \"]",
+      "bucket": "space",
+      "frequency": 3,
+      "op_type": "insert",
+      "examples": [
+        {
+          "page_id": "page_005_IMG_4793",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": ". ",
+          "context": "틀 발견할 수 있다|이 깊은 내면으로의"
+        },
+        {
+          "page_id": "page_005_IMG_4793",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": ". ",
+          "context": "널 ) 을 소개한다|이 일지는 여러 분"
+        },
+        {
+          "page_id": "page_006_IMG_4794",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": ". ",
+          "context": "정을 시작히려 한다|이 저널을 읽고 생"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.12800000000000003
+    },
+    {
+      "signature": "U+C5EC→U+BA70",
+      "bucket": "character",
+      "frequency": 2,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": "여",
+          "stage23_snippet": "여",
+          "gt_snippet": "며",
+          "context": " 선데이>에 출연하| 사람들 앞에 처음"
+        },
+        {
+          "page_id": "page_003_IMG_4791",
+          "raw_snippet": "여",
+          "stage23_snippet": "여",
+          "gt_snippet": "며",
+          "context": "신의 내면을 관찰하| 상처률 발견하고 "
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.14400000000000004
+    },
+    {
+      "signature": "\"( \"→\"<\"",
+      "bucket": "space",
+      "frequency": 2,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": "( ",
+          "stage23_snippet": "( ",
+          "gt_snippet": "<",
+          "context": "송 직후 그의 책 |상처받지 않는 영혼"
+        },
+        {
+          "page_id": "page_003_IMG_4791",
+          "raw_snippet": "( ",
+          "stage23_snippet": "( ",
+          "gt_snippet": "<",
+          "context": " ' 일러두기 : |명상 저널 ) 은 "
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.216
+    },
+    {
+      "signature": "U+ACC4→U+AC8C",
+      "bucket": "character",
+      "frequency": 2,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": "계",
+          "stage23_snippet": "계",
+          "gt_snippet": "게",
+          "context": "도 꾸준히 독자들에| 사랑반고 있습니다"
+        },
+        {
+          "page_id": "page_005_IMG_4793",
+          "raw_snippet": "계",
+          "stage23_snippet": "계",
+          "gt_snippet": "게",
+          "context": "신비주의자나 학자에|만 해당하는 이야기"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.14400000000000004
+    },
+    {
+      "signature": "U+BC18→U+BC1B",
+      "bucket": "character",
+      "frequency": 2,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": "반",
+          "stage23_snippet": "반",
+          "gt_snippet": "받",
+          "context": "히 독자들에계 사랑|고 있습니다 마이클"
+        },
+        {
+          "page_id": "page_005_IMG_4793",
+          "raw_snippet": "반",
+          "stage23_snippet": "반",
+          "gt_snippet": "받",
+          "context": " 마음으로 ( 상처|지 않은 영혼 ) "
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.14400000000000004
+    },
+    {
+      "signature": "\" 을\"→\"\n을 \"",
+      "bucket": "space",
+      "frequency": 2,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": " 을",
+          "stage23_snippet": " 을",
+          "gt_snippet": "\n을 ",
+          "context": "서 경제학 박사과정|공부하던 중에 우연"
+        },
+        {
+          "page_id": "page_006_IMG_4794",
+          "raw_snippet": " 을",
+          "stage23_snippet": " 을",
+          "gt_snippet": "\n을 ",
+          "context": "깊이 뛰어들고 그것|일상의 일부로 만들"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.36000000000000004
+    },
+    {
+      "signature": "U+B960→U+B97C",
+      "bucket": "character",
+      "frequency": 2,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_003_IMG_4791",
+          "raw_snippet": "률",
+          "stage23_snippet": "률",
+          "gt_snippet": "를",
+          "context": "면을 관찰하여 상처| 발견하고 치유해 "
+        },
+        {
+          "page_id": "page_006_IMG_4794",
+          "raw_snippet": "률",
+          "stage23_snippet": "률",
+          "gt_snippet": "를",
+          "context": "다 괜창 다이 일지| 당신만의 방식대로"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.14400000000000004
+    },
+    {
+      "signature": "\"l \"→\"1\n\"",
+      "bucket": "space",
+      "frequency": 2,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_004_IMG_4792",
+          "raw_snippet": "l ",
+          "stage23_snippet": "l ",
+          "gt_snippet": "1\n",
+          "context": "서문 6 Part |잠문 의식을 일깨우"
+        },
+        {
+          "page_id": "page_008_IMG_4796",
+          "raw_snippet": "l ",
+          "stage23_snippet": "l ",
+          "gt_snippet": "1\n",
+          "context": " ' ' Part |잠문 의식을일깨우기"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.2880000000000001
+    },
+    {
+      "signature": "U+BB38→U+B4E0",
+      "bucket": "character",
+      "frequency": 2,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_004_IMG_4792",
+          "raw_snippet": "문",
+          "stage23_snippet": "문",
+          "gt_snippet": "든",
+          "context": "6 Part l 잠| 의식을 일깨우기 "
+        },
+        {
+          "page_id": "page_008_IMG_4796",
+          "raw_snippet": "문",
+          "stage23_snippet": "문",
+          "gt_snippet": "든",
+          "context": "' Part l 잠| 의식을일깨우기"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.14400000000000004
+    },
+    {
+      "signature": "INSERT[\"》\"]",
+      "bucket": "character",
+      "frequency": 2,
+      "op_type": "insert",
+      "examples": [
+        {
+          "page_id": "page_005_IMG_4793",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": "》",
+          "context": "상처받지 않은 영혼|은 우리 안에 내재"
+        },
+        {
+          "page_id": "page_006_IMG_4794",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": "》",
+          "context": "상처받지 않은 영혼|에 나뒷년 가장 의"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.06400000000000002
+    },
+    {
+      "signature": "\": \"→\".\n\"",
+      "bucket": "space",
+      "frequency": 2,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_005_IMG_4793",
+          "raw_snippet": ": ",
+          "stage23_snippet": ": ",
+          "gt_snippet": ".\n",
+          "context": "는 이야기가 아니다|이는 참나의 자리로"
+        },
+        {
+          "page_id": "page_006_IMG_4794",
+          "raw_snippet": ": ",
+          "stage23_snippet": ": ",
+          "gt_snippet": ".\n",
+          "context": "달할 수 있기 된다|각각의 장은 ( 상"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.2880000000000001
+    },
+    {
+      "signature": "U+C528→U+C368",
+      "bucket": "character",
+      "frequency": 2,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_006_IMG_4794",
+          "raw_snippet": "씨",
+          "stage23_snippet": "씨",
+          "gt_snippet": "써",
+          "context": "이다 그렇게 함으로| 모든 것을 지켜보"
+        },
+        {
+          "page_id": "page_006_IMG_4794",
+          "raw_snippet": "씨",
+          "stage23_snippet": "씨",
+          "gt_snippet": "써",
+          "context": "신의 생각을 계속 |나 갈 수도 있다 "
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.14400000000000004
+    },
+    {
+      "signature": "\"말\"→\"마이클\"",
+      "bucket": "character",
+      "frequency": 1,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_001_IMG_4789",
+          "raw_snippet": "말",
+          "stage23_snippet": "말",
+          "gt_snippet": "마이클",
+          "context": "| 싱 짐 _ 숲 움"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.2880000000000001
+    },
+    {
+      "signature": "INSERT[\"어\"]",
+      "bucket": "character",
+      "frequency": 1,
+      "op_type": "insert",
+      "examples": [
+        {
+          "page_id": "page_001_IMG_4789",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": "어",
+          "context": "말 싱| 짐 _ 숲 움 빵"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.06400000000000002
+    },
+    {
+      "signature": "\"짐\"→\"지음\"",
+      "bucket": "character",
+      "frequency": 1,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_001_IMG_4789",
+          "raw_snippet": "짐",
+          "stage23_snippet": "짐",
+          "gt_snippet": "지음",
+          "context": "말 싱 | _ 숲 움 빵 섬"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.216
+    },
+    {
+      "signature": "U+005F→U+007C",
+      "bucket": "character",
+      "frequency": 1,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_001_IMG_4789",
+          "raw_snippet": "_",
+          "stage23_snippet": "_",
+          "gt_snippet": "|",
+          "context": "말 싱 짐 | 숲 움 빵 섬 방"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.14400000000000004
+    },
+    {
+      "signature": "\"숲\"→\"노진선\"",
+      "bucket": "character",
+      "frequency": 1,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_001_IMG_4789",
+          "raw_snippet": "숲",
+          "stage23_snippet": "숲",
+          "gt_snippet": "노진선",
+          "context": "말 싱 짐 _ | 움 빵 섬 방처받"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.2880000000000001
+    },
+    {
+      "signature": "\"움 빵 섬 방\"→\"옮김\n명상저널\n상\"",
+      "bucket": "character",
+      "frequency": 1,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_001_IMG_4789",
+          "raw_snippet": "움 빵 섬 방",
+          "stage23_snippet": "움 빵 섬 방",
+          "gt_snippet": "옮김\n명상저널\n상",
+          "context": "말 싱 짐 _ 숲 |처받은 영혼을 위한"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.7200000000000001
+    },
+    {
+      "signature": "U+C9C0→U+CE58",
+      "bucket": "character",
+      "frequency": 1,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_001_IMG_4789",
+          "raw_snippet": "지",
+          "stage23_snippet": "지",
+          "gt_snippet": "치",
+          "context": "받은 영혼을 위한 |유라이팅북 II 고"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.14400000000000004
+    },
+    {
+      "signature": "\" II 고양시림놈빛도 서관 X\"→\"\nT\"",
+      "bucket": "space",
+      "frequency": 1,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_001_IMG_4789",
+          "raw_snippet": " II 고양시림놈빛도 서관 X",
+          "stage23_snippet": " II 고양시림놈빛도 서관 X",
+          "gt_snippet": "\nT",
+          "context": " 위한 지유라이팅북|he Un urns"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.7200000000000001
+    },
+    {
+      "signature": "\" \"→\"t\n고양시립높빛도서관\n\"",
+      "bucket": "space",
+      "frequency": 1,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_001_IMG_4789",
+          "raw_snippet": " ",
+          "stage23_snippet": " ",
+          "gt_snippet": "t\n고양시립높빛도서관\n",
+          "context": " 서관 Xhe Un|urnsll YMO"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.7200000000000001
+    },
+    {
+      "signature": "U+0073→U+0061",
+      "bucket": "character",
+      "frequency": 1,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_001_IMG_4789",
+          "raw_snippet": "s",
+          "stage23_snippet": "s",
+          "gt_snippet": "a",
+          "context": "Xhe Un urn|ll YMOO260"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.14400000000000004
+    },
+    {
+      "signature": "\"l \"→\"\n\"",
+      "bucket": "space",
+      "frequency": 1,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_001_IMG_4789",
+          "raw_snippet": "l ",
+          "stage23_snippet": "l ",
+          "gt_snippet": "\n",
+          "context": "e Un urnsl|YMOO260ll "
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.216
+    },
+    {
+      "signature": "\"OO\"→\"00\"",
+      "bucket": "character",
+      "frequency": 1,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_001_IMG_4789",
+          "raw_snippet": "OO",
+          "stage23_snippet": "OO",
+          "gt_snippet": "00",
+          "context": " urnsll YM|260ll 그이팅하"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.2880000000000001
+    },
+    {
+      "signature": "\"ll 그\"→\"11\n라\"",
+      "bucket": "character",
+      "frequency": 1,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_001_IMG_4789",
+          "raw_snippet": "ll 그",
+          "stage23_snippet": "ll 그",
+          "gt_snippet": "11\n라",
+          "context": "ll YMOO260|이팅하운스"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.5760000000000002
+    },
+    {
+      "signature": "U+C6B4→U+C6B0",
+      "bucket": "character",
+      "frequency": 1,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_001_IMG_4789",
+          "raw_snippet": "운",
+          "stage23_snippet": "운",
+          "gt_snippet": "우",
+          "context": "260ll 그이팅하|스"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.14400000000000004
+    },
+    {
+      "signature": "\"컨생\"→\"클싱\"",
+      "bucket": "character",
+      "frequency": 1,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": "컨생",
+          "stage23_snippet": "컨생",
+          "gt_snippet": "클싱",
+          "context": "마이|어 Michael "
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.2880000000000001
+    },
+    {
+      "signature": "\" 물\"→\"\n굴 \"",
+      "bucket": "space",
+      "frequency": 1,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": " 물",
+          "stage23_snippet": " 물",
+          "gt_snippet": "\n굴 ",
+          "context": "나서기를 꺼려' 얼|없는 저자로 알려져"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.36000000000000004
+    },
+    {
+      "signature": "INSERT[\"'\"]",
+      "bucket": "character",
+      "frequency": 1,
+      "op_type": "insert",
+      "examples": [
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": "",
+          "stage23_snippet": "",
+          "gt_snippet": "'",
+          "context": "' 얼 물없는 저자|로 알려져 있다가 "
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.06400000000000002
+    },
+    {
+      "signature": "U+C6C0→U+B0C8",
+      "bucket": "character",
+      "frequency": 1,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": "움",
+          "stage23_snippet": "움",
+          "gt_snippet": "냈",
+          "context": "음으로 모습을 드러|습니다: 온갖 욕망"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.14400000000000004
+    },
+    {
+      "signature": "\" 감\"→\"\n람\"",
+      "bucket": "space",
+      "frequency": 1,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": " 감",
+          "stage23_snippet": " 감",
+          "gt_snippet": "\n람",
+          "context": "기에 지쳐 있던 사|들은 마음의 곤경에"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.2880000000000001
+    },
+    {
+      "signature": "\" ) \"→\">\n\"",
+      "bucket": "space",
+      "frequency": 1,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": " ) ",
+          "stage23_snippet": " ) ",
+          "gt_snippet": ">\n",
+          "context": "상처받지 않는 영혼|은 뉴욕타임스 베스"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.36000000000000004
+    },
+    {
+      "signature": "\"됐\"→\"되었\"",
+      "bucket": "character",
+      "frequency": 1,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": "됐",
+          "stage23_snippet": "됐",
+          "gt_snippet": "되었",
+          "context": "어 전 세계에 소개|습니다 스스로 만든"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.216
+    },
+    {
+      "signature": "\"rn\"→\"m\"",
+      "bucket": "character",
+      "frequency": 1,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": "rn",
+          "stage23_snippet": "rn",
+          "gt_snippet": "m",
+          "context": "상 요가 센터 Te|ple of the"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.216
+    },
+    {
+      "signature": "\" 힘\"→\"\n험\"",
+      "bucket": "space",
+      "frequency": 1,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": " 힘",
+          "stage23_snippet": " 힘",
+          "gt_snippet": "\n험",
+          "context": "고 내적 평화의 체|을 전하기 시작했습"
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.2880000000000001
+    },
+    {
+      "signature": "\" ( \"→\"》, 《\"",
+      "bucket": "space",
+      "frequency": 1,
+      "op_type": "replace",
+      "examples": [
+        {
+          "page_id": "page_002_IMG_4790",
+          "raw_snippet": " ( ",
+          "stage23_snippet": " ( ",
+          "gt_snippet": "》, 《",
+          "context": "상처받지 않는 영혼|될 일은 된다 , "
+        }
+      ],
+      "stage23_already_handled": false,
+      "confidence_avg": 0.504
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "timestamp": "2026-03-04T05:17:49.200766",
+  "request_type": "user_approval_required",
+  "context": {
+    "domain": "essay",
+    "safety_mode": "conservative",
+    "user_id": null,
+    "session_id": null
+  },
+  "text_preview": "이것은 테스트용 텍스트입니다. OCR 후 Stage2/3 처리가 완료된 상태입니다.",
+  "recommended_actions": [
+    "Review text for potential improvements",
+    "Approve automatic rule application",
+    "Switch to standard/aggressive mode for future"
+  ]
+}

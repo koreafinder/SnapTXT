@@ -1,0 +1,17 @@
+{
+  "analysis_time": "2026-03-04T05:34:45.767327",
+  "hours_analyzed": 24,
+  "results": {
+    "total_pages": 10,
+    "rules_applied_ratio": 50.0,
+    "top_rules": {
+      "test_punctuation_rule": 4,
+      "punctuation_normalizer": 1,
+      "smoke_test_rule": 1
+    },
+    "avg_char_change": 0.0,
+    "exception_count": 0,
+    "fallback_count": 3,
+    "quality_score": 50.0
+  }
+}

@@ -22,7 +22,7 @@ from enum import Enum
 import logging
 import re
 
-from book_fingerprint import BookFingerprint, BookDomain, LanguageStyle
+from .book_fingerprint import BookFingerprint, BookDomain, LanguageStyle
 
 logger = logging.getLogger(__name__)
 
@@ -469,7 +469,7 @@ class GPTCorrectionStandardGenerator:
 
 if __name__ == "__main__":
     # BookFingerprint 시뮬레이션 (실제로는 이전 단계에서 생성됨)
-    from book_fingerprint import BookFingerprintAnalyzer
+    from .book_fingerprint import BookFingerprintAnalyzer
     
     sample_texts = [
         "이 책은 Python 프로그래밍의 기초를 다룹니다. def 함수():문법을 배웁니다.",

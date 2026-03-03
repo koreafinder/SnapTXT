@@ -1,0 +1,136 @@
+analysis_summary:
+  approval_required_rules: 0
+  avg_ocr_confidence: 0.9
+  confidence_score: 0.5
+  sample_count: 3
+  total_rules: 6
+book_info:
+  book_id: c21e81e84521e788
+  created_at: '2026-03-04T02:43:50.697249'
+  domain: textbook
+  fingerprint_hash: 9740b5ff0bdd22c4a03cdf895814d8a5
+  language_style: unknown
+  title: Phase24_IMG4990_c21e81e8
+correction_rules:
+- confidence: 0.5
+  correction_type: domain_specific
+  enabled: true
+  examples:
+  - 되
+  - 됩
+  explanation: Phase 2.4 OCR 분석 - char 버킷에서 발견된 오류 패턴
+  id: 1
+  pattern: 되
+  priority_level: medium
+  replacement: 됩
+  requires_approval: false
+  risk_level: "low\n   컨텍스트: 인식하게 [되]니다: 두려웅이 생..."
+  scope: book_only
+- confidence: 0.5
+  correction_type: domain_specific
+  enabled: true
+  examples:
+  - 웅
+  - 움
+  explanation: Phase 2.4 OCR 분석 - char 버킷에서 발견된 오류 패턴
+  id: 2
+  pattern: 웅
+  priority_level: medium
+  replacement: 움
+  requires_approval: false
+  risk_level: "low\n   컨텍스트: 하게 되니다: 두려[웅]이 생겨나고 안팎의..."
+  scope: book_only
+- confidence: 0.5
+  correction_type: domain_specific
+  enabled: true
+  examples:
+  - 덥
+  - 됩
+  explanation: Phase 2.4 OCR 분석 - char 버킷에서 발견된 오류 패턴
+  id: 3
+  pattern: 덥
+  priority_level: medium
+  replacement: 됩
+  requires_approval: false
+  risk_level: "low\n   컨텍스트: 의 갈등은 일상이 [덥]니다'..."
+  scope: book_only
+- confidence: 0.5
+  correction_type: language_specific
+  enabled: true
+  examples:
+  - ''''
+  - .
+  explanation: Phase 2.4 OCR 분석 - punct 버킷에서 발견된 오류 패턴
+  id: 4
+  pattern: ''''
+  priority_level: medium
+  replacement: .
+  requires_approval: false
+  risk_level: "low\n   컨텍스트: 등은 일상이 덥니다[']..."
+  scope: book_only
+- confidence: 0.5
+  correction_type: domain_specific
+  enabled: true
+  examples:
+  - 근
+  - 큰
+  explanation: Phase 2.4 OCR 분석 - char 버킷에서 발견된 오류 패턴
+  id: 5
+  pattern: 근
+  priority_level: medium
+  replacement: 큰
+  requires_approval: false
+  risk_level: "low\n   컨텍스트: 을 방해하는 가장 [근] 걸림돌은 마음과 ..."
+  scope: book_only
+- confidence: 0.5
+  correction_type: domain_specific
+  enabled: true
+  examples:
+  - 갔
+  - 회
+  explanation: Phase 2.4 OCR 분석 - char 버킷에서 발견된 오류 패턴
+  id: 6
+  pattern: 갔
+  priority_level: medium
+  replacement: 회
+  requires_approval: false
+  risk_level: "low\n   컨텍스트: 인간은 사[갔]에서 주위환경과 관..."
+  scope: book_only
+priority_matrix:
+  critical: []
+  high: []
+  low: []
+  medium:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+typography_profile:
+  avg_line_length: 33.0
+  formatting_style: plain_text
+  paragraph_style: single_newline
+  punctuation_density:
+    '''': 0.0125
+    .: 0.025
+    ':': 0.0125
+usage_stats:
+  applied_count: 0
+  performance_score: 0.0
+  success_count: 0
+  user_overrides: 0
+user_settings:
+  auto_apply_safe_rules: true
+  custom_rules: []
+  disabled_rules: []
+  profile_approved: false
+  require_confirmation_for:
+  - high_risk
+  - domain_wide
+  - universal
+version_info:
+  created_by: SnapTXT Book Sense Engine v2.0
+  gpt_model_used: gpt-4-simulation
+  last_updated: '2026-03-04T02:43:50.699225'
+  version: 1.0.0

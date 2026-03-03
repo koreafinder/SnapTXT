@@ -1,0 +1,144 @@
+{
+  "kl_divergence": 1.5265545289517954,
+  "js_distance": 0.21562520493169915,
+  "spearman_correlation": 0.6144955500260426,
+  "spearman_p_value": 0.05871107472371923,
+  "coverage_rate": 0.9,
+  "coverage_count": 9,
+  "total_real_patterns": 10,
+  "total_synthetic_events": 75,
+  "comparison_table": [
+    {
+      "rank": 1,
+      "signature": "U+0020→U+000A",
+      "real_count": 8,
+      "synth_count": 18,
+      "is_match": true
+    },
+    {
+      "rank": 2,
+      "signature": "DELETE[\" \"]",
+      "real_count": 7,
+      "synth_count": 12,
+      "is_match": true
+    },
+    {
+      "rank": 3,
+      "signature": "INSERT[\"\n\"]",
+      "real_count": 5,
+      "synth_count": 12,
+      "is_match": true
+    },
+    {
+      "rank": 4,
+      "signature": "INSERT[\".\"]",
+      "real_count": 4,
+      "synth_count": 3,
+      "is_match": true
+    },
+    {
+      "rank": 5,
+      "signature": "INSERT[\",\"]",
+      "real_count": 4,
+      "synth_count": 0,
+      "is_match": false
+    },
+    {
+      "rank": 6,
+      "signature": "U+003A→U+002E",
+      "real_count": 4,
+      "synth_count": 7,
+      "is_match": true
+    },
+    {
+      "rank": 7,
+      "signature": "\"( \"→\"《\"",
+      "real_count": 3,
+      "synth_count": 7,
+      "is_match": true
+    },
+    {
+      "rank": 8,
+      "signature": "INSERT[\" \"]",
+      "real_count": 2,
+      "synth_count": 5,
+      "is_match": true
+    },
+    {
+      "rank": 9,
+      "signature": "U+C5EC→U+BA70",
+      "real_count": 2,
+      "synth_count": 6,
+      "is_match": true
+    },
+    {
+      "rank": 10,
+      "signature": "\"( \"→\"<\"",
+      "real_count": 2,
+      "synth_count": 5,
+      "is_match": true
+    }
+  ],
+  "synthetic_distribution": [
+    {
+      "signature": "U+0020→U+000A",
+      "frequency": 0.24
+    },
+    {
+      "signature": "DELETE[\" \"]",
+      "frequency": 0.16
+    },
+    {
+      "signature": "INSERT[\"\n\"]",
+      "frequency": 0.16
+    },
+    {
+      "signature": "INSERT[\".\"]",
+      "frequency": 0.04
+    },
+    {
+      "signature": "INSERT[\",\"]",
+      "frequency": 0.0
+    },
+    {
+      "signature": "U+003A→U+002E",
+      "frequency": 0.09333333333333334
+    },
+    {
+      "signature": "\"( \"→\"《\"",
+      "frequency": 0.09333333333333334
+    },
+    {
+      "signature": "INSERT[\" \"]",
+      "frequency": 0.06666666666666667
+    },
+    {
+      "signature": "U+C5EC→U+BA70",
+      "frequency": 0.08
+    },
+    {
+      "signature": "\"( \"→\"<\"",
+      "frequency": 0.06666666666666667
+    }
+  ],
+  "validation_quality": "FAIL",
+  "pass_conditions": [
+    {
+      "condition": "Top10 coverage ≥ 0.8",
+      "result": "PASS"
+    },
+    {
+      "condition": "Top50 coverage ≥ 0.9",
+      "result": "PASS"
+    },
+    {
+      "condition": "Spearman ≥ 0.85",
+      "result": "FAIL"
+    }
+  ],
+  "files_generated": [
+    "real_top10_signatures_20260304_073728.txt",
+    "synth_top10_signatures_20260304_073728.txt",
+    "distribution_comparison_20260304_073728.txt"
+  ]
+}

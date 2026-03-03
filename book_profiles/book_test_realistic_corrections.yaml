@@ -1,0 +1,40 @@
+book_info:
+  book_id: test_realistic_corrections
+  created_at: '2024-12-09'
+  domain: 자기계발
+  title: 실제 OCR 교정 테스트
+correction_rules:
+- explanation: '''두려웅'' → ''두려움'' OCR 교정'
+  id: 1
+  pattern: 두려웅
+  priority_level: high
+  replacement: 두려움
+  scope: book_only
+- explanation: '''마응이'' → ''마음이'' OCR 교정'
+  id: 2
+  pattern: 마응이
+  priority_level: high
+  replacement: 마음이
+  scope: book_only
+- explanation: '''현싈'' → ''현실'' OCR 교정'
+  id: 3
+  pattern: 현싈
+  priority_level: medium
+  replacement: 현실
+  scope: book_only
+- explanation: '''압니다'' → ''않습니다'' OCR 교정'
+  id: 4
+  pattern: 압니다
+  priority_level: medium
+  replacement: 않습니다
+  scope: book_only
+- explanation: '''잇습니다'' → ''있습니다'' OCR 교정'
+  id: 5
+  pattern: 잇습니다
+  priority_level: medium
+  replacement: 있습니다
+  scope: book_only
+user_settings:
+  auto_apply_safe_rules: true
+  disabled_rules: []
+  require_confirmation_for: []

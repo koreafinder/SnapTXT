@@ -1,0 +1,45 @@
+{
+  "gate_pass": false,
+  "fail_reasons": [
+    "FP rate 0.150 > 0.1 (domain: essay)"
+  ],
+  "metrics": {
+    "delta_cer_all": -0.0004334612269896801,
+    "delta_cer_space": -0.0006790953279044972,
+    "delta_cer_punct": -0.007215607177751882,
+    "delta_cer_character": 0.0013087632437760472,
+    "bootstrap_ci_lower": -0.0005634995950865841,
+    "bootstrap_ci_upper": -0.00030342285889277604,
+    "reproducibility": 0.7369773989145422,
+    "fp_rate": 0.14992711523353439,
+    "sample_count": 35,
+    "p_value": 0.1
+  },
+  "artifacts": {
+    "before_after_samples": [
+      {
+        "sample_id": "example_001",
+        "before": "예시 '문장'",
+        "after": "예시 '문장'"
+      },
+      {
+        "sample_id": "example_002",
+        "before": "다른 '텍스트'",
+        "after": "다른 '텍스트'"
+      }
+    ],
+    "held_out_set_version": "v1.0",
+    "held_out_hash": "8ee06257164dc03d352eeeb8d383184f",
+    "domain_config": {
+      "max_fp_rate": 0.1,
+      "min_reproducibility": 0.7,
+      "min_sample_count": 30,
+      "confidence_threshold": 0.8,
+      "auto_deprecation_threshold": 0.2,
+      "min_applications_for_deprecation": 50
+    }
+  },
+  "timestamp": "2026-03-04T04:01:45.630468",
+  "ruleset_version": "v3.0.1",
+  "domain_profile": "essay"
+}

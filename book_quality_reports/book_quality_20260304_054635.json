@@ -1,0 +1,74 @@
+{
+  "timestamp": "2026-03-04T05:46:35.414259",
+  "book_info": {
+    "total_pages": 8,
+    "analysis_period": "최근 24시간"
+  },
+  "quality_metrics": {
+    "total_pages": 8,
+    "rule_application_rate": 62.5,
+    "actual_improvement_rate": 25.0,
+    "fallback_rate": 0.0,
+    "avg_text_length": 38,
+    "length_change_ratio": 0.66,
+    "most_used_rules": [
+      {
+        "rule_id": "test_punctuation_rule",
+        "count": 4
+      },
+      {
+        "rule_id": "punctuation_normalizer",
+        "count": 1
+      },
+      {
+        "rule_id": "smoke_test_rule",
+        "count": 1
+      }
+    ],
+    "total_rule_applications": 6
+  },
+  "improvement_samples": [
+    {
+      "page_number": 6,
+      "before": "이것은 ‛비표준 인용부호′를 가진 텍스트입니다. ′또 다른 인용부호′도 있습니다.",
+      "after": "이것은 '비표준 인용부호'를 가진 텍스트입니다. '또 다른 인용부호'도 있습니다.",
+      "applied_rules": [
+        "test_punctuation_rule"
+      ],
+      "character_change": 0,
+      "diff_preview": "--- Before\n+++ After\n@@ -1 +1 @@\n-이것은 ‛비표준 인용부호′를 가진 텍스트입니다. ′또 다른 인용부호′도 있습니다.+이것은 '비표준 인용부호'를 가진 텍스트입니다. '또 다른 인용부호'도 있습니다.",
+      "improvement_type": "cosmetic"
+    },
+    {
+      "page_number": 7,
+      "before": "이 문장은 아네요 틀렸습니다. ‛비표준 인용부호′도 포함되어 있아네요.",
+      "after": "이 문장은 안 예요 틀렸습니다. '비표준 인용부호'도 포함되어 있안 예요.",
+      "applied_rules": [
+        "smoke_test_rule",
+        "test_punctuation_rule"
+      ],
+      "character_change": 2,
+      "diff_preview": "--- Before\n+++ After\n@@ -1 +1 @@\n-이 문장은 아네요 틀렸습니다. ‛비표준 인용부호′도 포함되어 있아네요.+이 문장은 안 예요 틀렸습니다. '비표준 인용부호'도 포함되어 있안 예요.",
+      "improvement_type": "minor"
+    }
+  ],
+  "user_experience": {
+    "experience_score": 40.0,
+    "actual_improvement_rate": 25.0,
+    "meaningful_improvement_ratio": 0.0,
+    "stability_score": 100.0,
+    "readability_assessment": "보통 - 미미한 개선 체감",
+    "recommendation": "내부 테스트 계속 - 규칙 개선 필요"
+  },
+  "verdict": {
+    "overall_grade": "보통",
+    "critical_issues": [
+      "실제 개선률 부족"
+    ],
+    "pass_criteria": {
+      "actual_improvement_rate": "25.0% (30%+ 요구)",
+      "fallback_rate": "0.0% (15% 이하 요구)",
+      "rule_application_rate": "62.5% (50%+ 요구)"
+    }
+  }
+}

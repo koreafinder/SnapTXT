@@ -1,0 +1,16 @@
+{
+  "page_id": "page_001_IMG_4789",
+  "image_file": "samples\\IMG_4789.JPG",
+  "timestamp": "2026-03-04T07:31:50.406393",
+  "ocr_results": {
+    "raw_ocr": "말 싱 짐 _ 숲 움 빵 섬 방처받은 영혼을 위한 지유라이팅북 II 고양시림놈빛도 서관 Xhe Un urnsll YMOO260ll 그이팅하운스",
+    "stage2_applied": "말 싱 짐 _ 숲 움 빵 섬 방처받은 영혼을 위한 지유라이팅북 II 고양시림놈빛도 서관 Xhe Un urnsll YMOO260ll 그이팅하운스",
+    "stage23_applied": "",
+    "google_vision_gt": "마이클 싱어 지음 | 노진선 옮김\n명상저널\n상처받은 영혼을 위한 치유 라이팅북\nThe Unt\n고양시립높빛도서관\nurnal\nYM0026011\n라이팅하우스"
+  },
+  "text_stats": {
+    "raw_length": 79,
+    "stage23_length": 0,
+    "gt_length": 84
+  }
+}

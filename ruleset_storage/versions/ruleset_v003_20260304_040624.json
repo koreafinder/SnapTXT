@@ -1,0 +1,31 @@
+{
+  "version_id": "v003_20260304_040624",
+  "name": "Enhanced v2.0",
+  "description": "향상된 규칙과 스마트 교정 추가",
+  "rules": {
+    "punctuation_normalizer_v2": {
+      "pattern": "향상된 인용부호 정규화",
+      "category": "punctuation",
+      "confidence": 0.97,
+      "delta_cer_avg": -0.004
+    },
+    "smart_corrector_v1": {
+      "pattern": "스마트 오타 교정",
+      "category": "character",
+      "confidence": 0.88,
+      "delta_cer_avg": -0.006
+    },
+    "space_cleaner_v2": {
+      "pattern": "고급 공백 정리",
+      "category": "space",
+      "confidence": 0.99,
+      "delta_cer_avg": -0.002
+    }
+  },
+  "created_at": "2026-03-04T04:06:24.810435",
+  "created_by": "developer",
+  "status": "standby",
+  "validation_report": null,
+  "performance_metrics": null,
+  "hash_signature": "769de43c3cc366f4"
+}

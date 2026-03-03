@@ -1,0 +1,16 @@
+{
+  "rule_id": "smoke_test_rule",
+  "pattern": "typo → correct (아네요 → 안 예요)",
+  "category": "active",
+  "confidence": 0.95,
+  "validation_status": "validated",
+  "performance_metrics": {
+    "precision": 0.95,
+    "recall": 0.9,
+    "f1_score": 0.92
+  },
+  "isolation_reason": "Smoke Test - 명확히 보이는 교정",
+  "created_at": "2026-03-04T05:30:00",
+  "last_moved": "2026-03-04T05:30:00",
+  "file_path": "rules_isolated/active/character/smoke_test.json"
+}

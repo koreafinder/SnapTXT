@@ -1,0 +1,144 @@
+{
+  "kl_divergence": 16.22892367576886,
+  "js_distance": NaN,
+  "spearman_correlation": NaN,
+  "spearman_p_value": NaN,
+  "coverage_rate": 0.0,
+  "coverage_count": 0,
+  "total_real_patterns": 10,
+  "total_synthetic_events": 0,
+  "comparison_table": [
+    {
+      "rank": 1,
+      "signature": "U+0020→U+000A",
+      "real_count": 8,
+      "synth_count": 0,
+      "is_match": false
+    },
+    {
+      "rank": 2,
+      "signature": "DELETE[\" \"]",
+      "real_count": 7,
+      "synth_count": 0,
+      "is_match": false
+    },
+    {
+      "rank": 3,
+      "signature": "INSERT[\"\n\"]",
+      "real_count": 5,
+      "synth_count": 0,
+      "is_match": false
+    },
+    {
+      "rank": 4,
+      "signature": "INSERT[\".\"]",
+      "real_count": 4,
+      "synth_count": 0,
+      "is_match": false
+    },
+    {
+      "rank": 5,
+      "signature": "INSERT[\",\"]",
+      "real_count": 4,
+      "synth_count": 0,
+      "is_match": false
+    },
+    {
+      "rank": 6,
+      "signature": "U+003A→U+002E",
+      "real_count": 4,
+      "synth_count": 0,
+      "is_match": false
+    },
+    {
+      "rank": 7,
+      "signature": "\"( \"→\"《\"",
+      "real_count": 3,
+      "synth_count": 0,
+      "is_match": false
+    },
+    {
+      "rank": 8,
+      "signature": "INSERT[\" \"]",
+      "real_count": 2,
+      "synth_count": 0,
+      "is_match": false
+    },
+    {
+      "rank": 9,
+      "signature": "U+C5EC→U+BA70",
+      "real_count": 2,
+      "synth_count": 0,
+      "is_match": false
+    },
+    {
+      "rank": 10,
+      "signature": "\"( \"→\"<\"",
+      "real_count": 2,
+      "synth_count": 0,
+      "is_match": false
+    }
+  ],
+  "synthetic_distribution": [
+    {
+      "signature": "U+0020→U+000A",
+      "frequency": 0
+    },
+    {
+      "signature": "DELETE[\" \"]",
+      "frequency": 0
+    },
+    {
+      "signature": "INSERT[\"\n\"]",
+      "frequency": 0
+    },
+    {
+      "signature": "INSERT[\".\"]",
+      "frequency": 0
+    },
+    {
+      "signature": "INSERT[\",\"]",
+      "frequency": 0
+    },
+    {
+      "signature": "U+003A→U+002E",
+      "frequency": 0
+    },
+    {
+      "signature": "\"( \"→\"《\"",
+      "frequency": 0
+    },
+    {
+      "signature": "INSERT[\" \"]",
+      "frequency": 0
+    },
+    {
+      "signature": "U+C5EC→U+BA70",
+      "frequency": 0
+    },
+    {
+      "signature": "\"( \"→\"<\"",
+      "frequency": 0
+    }
+  ],
+  "validation_quality": "FAIL",
+  "pass_conditions": [
+    [
+      "Top10 coverage ≥ 0.8",
+      false
+    ],
+    [
+      "Top50 coverage ≥ 0.9",
+      false
+    ],
+    [
+      "Spearman ≥ 0.85",
+      false
+    ]
+  ],
+  "files_generated": [
+    "real_top10_signatures_20260304_073601.txt",
+    "synth_top10_signatures_20260304_073601.txt",
+    "distribution_comparison_20260304_073601.txt"
+  ]
+}

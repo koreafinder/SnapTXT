@@ -1,0 +1,23 @@
+{
+  "timestamp": "2026-03-04T05:24:22.321494",
+  "context": {
+    "domain": "essay",
+    "safety_mode": "standard",
+    "user_id": null,
+    "session_id": null
+  },
+  "result": {
+    "original_text": "이것은 '비표준 인용부호'를 가진 텍스트입니다. '또 다른 인용부호'도 있습니다.",
+    "fixed_text": "이것은 '비표준 인용부호'를 가진 텍스트입니다. '또 다른 인용부호'도 있습니다.",
+    "applied_rules": [
+      {
+        "rule_id": "test_punctuation_rule",
+        "pattern": "비표준 인용부호 → 표준 인용부호 교정"
+      }
+    ],
+    "delta_cer_estimated": -0.003,
+    "processing_time_ms": 1.042,
+    "report_path": ""
+  },
+  "api_version": "v3.0.1"
+}

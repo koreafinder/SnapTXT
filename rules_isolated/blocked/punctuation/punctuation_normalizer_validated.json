@@ -1,0 +1,16 @@
+{
+  "rule_id": "punctuation_normalizer_validated",
+  "pattern": "표준 인용부호 정규화 (검증완료)",
+  "category": "blocked",
+  "confidence": 0.95,
+  "validation_status": "passed",
+  "performance_metrics": {
+    "delta_cer": -0.003,
+    "fp_rate": 0.02,
+    "reproducibility": 0.848
+  },
+  "isolation_reason": "held-out 검증 통과, 운영 배포 승인 | Migrated: EMERGENCY BLOCK: 운영에서 예상치 못한 부작용 발견",
+  "created_at": "2026-03-04T04:10:07.458128",
+  "last_moved": "2026-03-04T04:10:07.467763",
+  "file_path": "rules_isolated\\blocked\\punctuation\\punctuation_normalizer_validated.json"
+}

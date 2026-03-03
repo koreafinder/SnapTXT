@@ -1,0 +1,580 @@
+{
+  "kl_divergence": 1.1031203893391655,
+  "js_distance": 0.20581301391321835,
+  "spearman_correlation": 0.529878246273514,
+  "spearman_p_value": 7.580190972616869e-05,
+  "coverage_rate": 0.94,
+  "coverage_count": 47,
+  "total_real_patterns": 50,
+  "total_synthetic_events": 365,
+  "comparison_table": [
+    {
+      "rank": 1,
+      "signature": "U+0020→U+000A",
+      "real_count": 8,
+      "synth_count": 43,
+      "is_match": true
+    },
+    {
+      "rank": 2,
+      "signature": "DELETE[\" \"]",
+      "real_count": 7,
+      "synth_count": 34,
+      "is_match": true
+    },
+    {
+      "rank": 3,
+      "signature": "INSERT[\"\n\"]",
+      "real_count": 5,
+      "synth_count": 22,
+      "is_match": true
+    },
+    {
+      "rank": 4,
+      "signature": "INSERT[\".\"]",
+      "real_count": 4,
+      "synth_count": 9,
+      "is_match": true
+    },
+    {
+      "rank": 5,
+      "signature": "INSERT[\",\"]",
+      "real_count": 4,
+      "synth_count": 0,
+      "is_match": false
+    },
+    {
+      "rank": 6,
+      "signature": "U+003A→U+002E",
+      "real_count": 4,
+      "synth_count": 22,
+      "is_match": true
+    },
+    {
+      "rank": 7,
+      "signature": "\"( \"→\"《\"",
+      "real_count": 3,
+      "synth_count": 14,
+      "is_match": true
+    },
+    {
+      "rank": 8,
+      "signature": "INSERT[\" \"]",
+      "real_count": 2,
+      "synth_count": 11,
+      "is_match": true
+    },
+    {
+      "rank": 9,
+      "signature": "U+C5EC→U+BA70",
+      "real_count": 2,
+      "synth_count": 7,
+      "is_match": true
+    },
+    {
+      "rank": 10,
+      "signature": "\"( \"→\"<\"",
+      "real_count": 2,
+      "synth_count": 10,
+      "is_match": true
+    },
+    {
+      "rank": 11,
+      "signature": "\"말\"→\"마이클\"",
+      "real_count": 1,
+      "synth_count": 6,
+      "is_match": true
+    },
+    {
+      "rank": 12,
+      "signature": "INSERT[\"어\"]",
+      "real_count": 1,
+      "synth_count": 0,
+      "is_match": false
+    },
+    {
+      "rank": 13,
+      "signature": "\"짐\"→\"지음\"",
+      "real_count": 1,
+      "synth_count": 3,
+      "is_match": true
+    },
+    {
+      "rank": 14,
+      "signature": "U+005F→U+007C",
+      "real_count": 1,
+      "synth_count": 3,
+      "is_match": true
+    },
+    {
+      "rank": 15,
+      "signature": "\"숲\"→\"노진선\"",
+      "real_count": 1,
+      "synth_count": 4,
+      "is_match": true
+    },
+    {
+      "rank": 16,
+      "signature": "\"움 빵 섬 방\"→\"옮김\n명상저널\n상\"",
+      "real_count": 1,
+      "synth_count": 5,
+      "is_match": true
+    },
+    {
+      "rank": 17,
+      "signature": "U+C9C0→U+CE58",
+      "real_count": 1,
+      "synth_count": 4,
+      "is_match": true
+    },
+    {
+      "rank": 18,
+      "signature": "\" II 고양시림놈빛도 서관 X\"→\"\nT\"",
+      "real_count": 1,
+      "synth_count": 4,
+      "is_match": true
+    },
+    {
+      "rank": 19,
+      "signature": "\" \"→\"t\n고양시립높빛도서관\n\"",
+      "real_count": 1,
+      "synth_count": 10,
+      "is_match": true
+    },
+    {
+      "rank": 20,
+      "signature": "U+0073→U+0061",
+      "real_count": 1,
+      "synth_count": 5,
+      "is_match": true
+    },
+    {
+      "rank": 21,
+      "signature": "\"l \"→\"\n\"",
+      "real_count": 1,
+      "synth_count": 6,
+      "is_match": true
+    },
+    {
+      "rank": 22,
+      "signature": "\"OO\"→\"00\"",
+      "real_count": 1,
+      "synth_count": 2,
+      "is_match": true
+    },
+    {
+      "rank": 23,
+      "signature": "\"ll 그\"→\"11\n라\"",
+      "real_count": 1,
+      "synth_count": 4,
+      "is_match": true
+    },
+    {
+      "rank": 24,
+      "signature": "U+C6B4→U+C6B0",
+      "real_count": 1,
+      "synth_count": 2,
+      "is_match": true
+    },
+    {
+      "rank": 25,
+      "signature": "\"컨생\"→\"클싱\"",
+      "real_count": 1,
+      "synth_count": 7,
+      "is_match": true
+    },
+    {
+      "rank": 26,
+      "signature": "\" 물\"→\"\n굴 \"",
+      "real_count": 1,
+      "synth_count": 7,
+      "is_match": true
+    },
+    {
+      "rank": 27,
+      "signature": "INSERT[\"'\"]",
+      "real_count": 1,
+      "synth_count": 0,
+      "is_match": false
+    },
+    {
+      "rank": 28,
+      "signature": "U+C6C0→U+B0C8",
+      "real_count": 1,
+      "synth_count": 5,
+      "is_match": true
+    },
+    {
+      "rank": 29,
+      "signature": "\" 감\"→\"\n람\"",
+      "real_count": 1,
+      "synth_count": 12,
+      "is_match": true
+    },
+    {
+      "rank": 30,
+      "signature": "\" ) \"→\">\n\"",
+      "real_count": 1,
+      "synth_count": 4,
+      "is_match": true
+    },
+    {
+      "rank": 31,
+      "signature": "\"됐\"→\"되었\"",
+      "real_count": 1,
+      "synth_count": 2,
+      "is_match": true
+    },
+    {
+      "rank": 32,
+      "signature": "U+ACC4→U+AC8C",
+      "real_count": 1,
+      "synth_count": 7,
+      "is_match": true
+    },
+    {
+      "rank": 33,
+      "signature": "U+BC18→U+BC1B",
+      "real_count": 1,
+      "synth_count": 7,
+      "is_match": true
+    },
+    {
+      "rank": 34,
+      "signature": "\" \"→\".\n\"",
+      "real_count": 1,
+      "synth_count": 7,
+      "is_match": true
+    },
+    {
+      "rank": 35,
+      "signature": "\" 을\"→\"\n을 \"",
+      "real_count": 1,
+      "synth_count": 5,
+      "is_match": true
+    },
+    {
+      "rank": 36,
+      "signature": "\"rn\"→\"m\"",
+      "real_count": 1,
+      "synth_count": 2,
+      "is_match": true
+    },
+    {
+      "rank": 37,
+      "signature": "U+D2C0→U+B97C",
+      "real_count": 1,
+      "synth_count": 6,
+      "is_match": true
+    },
+    {
+      "rank": 38,
+      "signature": "\" 힘\"→\"\n험\"",
+      "real_count": 1,
+      "synth_count": 6,
+      "is_match": true
+    },
+    {
+      "rank": 39,
+      "signature": "U+003B→U+002C",
+      "real_count": 1,
+      "synth_count": 5,
+      "is_match": true
+    },
+    {
+      "rank": 40,
+      "signature": "\" ( \"→\"》, 《\"",
+      "real_count": 1,
+      "synth_count": 4,
+      "is_match": true
+    },
+    {
+      "rank": 41,
+      "signature": "U+0020→U+300B",
+      "real_count": 1,
+      "synth_count": 6,
+      "is_match": true
+    },
+    {
+      "rank": 42,
+      "signature": "\" )\"→\">\"",
+      "real_count": 1,
+      "synth_count": 2,
+      "is_match": true
+    },
+    {
+      "rank": 43,
+      "signature": "\": \"→\".\nwww.untetheredsoul.com\n\"",
+      "real_count": 1,
+      "synth_count": 7,
+      "is_match": true
+    },
+    {
+      "rank": 44,
+      "signature": "U+CE58→U+C9C0",
+      "real_count": 1,
+      "synth_count": 4,
+      "is_match": true
+    },
+    {
+      "rank": 45,
+      "signature": "U+004F→U+00A9",
+      "real_count": 1,
+      "synth_count": 7,
+      "is_match": true
+    },
+    {
+      "rank": 46,
+      "signature": "\" 다사\"→\"\n디자\"",
+      "real_count": 1,
+      "synth_count": 4,
+      "is_match": true
+    },
+    {
+      "rank": 47,
+      "signature": "U+C2DD→U+C11D",
+      "real_count": 1,
+      "synth_count": 5,
+      "is_match": true
+    },
+    {
+      "rank": 48,
+      "signature": "DELETE[\" WWW untethieredsoulcom\"]",
+      "real_count": 1,
+      "synth_count": 1,
+      "is_match": true
+    },
+    {
+      "rank": 49,
+      "signature": "DELETE[\"':\" \" l; ' ' \"]",
+      "real_count": 1,
+      "synth_count": 6,
+      "is_match": true
+    },
+    {
+      "rank": 50,
+      "signature": "\" ) \"→\">\"",
+      "real_count": 1,
+      "synth_count": 7,
+      "is_match": true
+    }
+  ],
+  "synthetic_distribution": [
+    {
+      "signature": "U+0020→U+000A",
+      "frequency": 0.1178082191780822
+    },
+    {
+      "signature": "DELETE[\" \"]",
+      "frequency": 0.09315068493150686
+    },
+    {
+      "signature": "INSERT[\"\n\"]",
+      "frequency": 0.06027397260273973
+    },
+    {
+      "signature": "INSERT[\".\"]",
+      "frequency": 0.024657534246575342
+    },
+    {
+      "signature": "INSERT[\",\"]",
+      "frequency": 0.0
+    },
+    {
+      "signature": "U+003A→U+002E",
+      "frequency": 0.06027397260273973
+    },
+    {
+      "signature": "\"( \"→\"《\"",
+      "frequency": 0.038356164383561646
+    },
+    {
+      "signature": "INSERT[\" \"]",
+      "frequency": 0.030136986301369864
+    },
+    {
+      "signature": "U+C5EC→U+BA70",
+      "frequency": 0.019178082191780823
+    },
+    {
+      "signature": "\"( \"→\"<\"",
+      "frequency": 0.0273972602739726
+    },
+    {
+      "signature": "\"말\"→\"마이클\"",
+      "frequency": 0.01643835616438356
+    },
+    {
+      "signature": "INSERT[\"어\"]",
+      "frequency": 0.0
+    },
+    {
+      "signature": "\"짐\"→\"지음\"",
+      "frequency": 0.00821917808219178
+    },
+    {
+      "signature": "U+005F→U+007C",
+      "frequency": 0.00821917808219178
+    },
+    {
+      "signature": "\"숲\"→\"노진선\"",
+      "frequency": 0.010958904109589041
+    },
+    {
+      "signature": "\"움 빵 섬 방\"→\"옮김\n명상저널\n상\"",
+      "frequency": 0.0136986301369863
+    },
+    {
+      "signature": "U+C9C0→U+CE58",
+      "frequency": 0.010958904109589041
+    },
+    {
+      "signature": "\" II 고양시림놈빛도 서관 X\"→\"\nT\"",
+      "frequency": 0.010958904109589041
+    },
+    {
+      "signature": "\" \"→\"t\n고양시립높빛도서관\n\"",
+      "frequency": 0.0273972602739726
+    },
+    {
+      "signature": "U+0073→U+0061",
+      "frequency": 0.0136986301369863
+    },
+    {
+      "signature": "\"l \"→\"\n\"",
+      "frequency": 0.01643835616438356
+    },
+    {
+      "signature": "\"OO\"→\"00\"",
+      "frequency": 0.005479452054794521
+    },
+    {
+      "signature": "\"ll 그\"→\"11\n라\"",
+      "frequency": 0.010958904109589041
+    },
+    {
+      "signature": "U+C6B4→U+C6B0",
+      "frequency": 0.005479452054794521
+    },
+    {
+      "signature": "\"컨생\"→\"클싱\"",
+      "frequency": 0.019178082191780823
+    },
+    {
+      "signature": "\" 물\"→\"\n굴 \"",
+      "frequency": 0.019178082191780823
+    },
+    {
+      "signature": "INSERT[\"'\"]",
+      "frequency": 0.0
+    },
+    {
+      "signature": "U+C6C0→U+B0C8",
+      "frequency": 0.0136986301369863
+    },
+    {
+      "signature": "\" 감\"→\"\n람\"",
+      "frequency": 0.03287671232876712
+    },
+    {
+      "signature": "\" ) \"→\">\n\"",
+      "frequency": 0.010958904109589041
+    },
+    {
+      "signature": "\"됐\"→\"되었\"",
+      "frequency": 0.005479452054794521
+    },
+    {
+      "signature": "U+ACC4→U+AC8C",
+      "frequency": 0.019178082191780823
+    },
+    {
+      "signature": "U+BC18→U+BC1B",
+      "frequency": 0.019178082191780823
+    },
+    {
+      "signature": "\" \"→\".\n\"",
+      "frequency": 0.019178082191780823
+    },
+    {
+      "signature": "\" 을\"→\"\n을 \"",
+      "frequency": 0.0136986301369863
+    },
+    {
+      "signature": "\"rn\"→\"m\"",
+      "frequency": 0.005479452054794521
+    },
+    {
+      "signature": "U+D2C0→U+B97C",
+      "frequency": 0.01643835616438356
+    },
+    {
+      "signature": "\" 힘\"→\"\n험\"",
+      "frequency": 0.01643835616438356
+    },
+    {
+      "signature": "U+003B→U+002C",
+      "frequency": 0.0136986301369863
+    },
+    {
+      "signature": "\" ( \"→\"》, 《\"",
+      "frequency": 0.010958904109589041
+    },
+    {
+      "signature": "U+0020→U+300B",
+      "frequency": 0.01643835616438356
+    },
+    {
+      "signature": "\" )\"→\">\"",
+      "frequency": 0.005479452054794521
+    },
+    {
+      "signature": "\": \"→\".\nwww.untetheredsoul.com\n\"",
+      "frequency": 0.019178082191780823
+    },
+    {
+      "signature": "U+CE58→U+C9C0",
+      "frequency": 0.010958904109589041
+    },
+    {
+      "signature": "U+004F→U+00A9",
+      "frequency": 0.019178082191780823
+    },
+    {
+      "signature": "\" 다사\"→\"\n디자\"",
+      "frequency": 0.010958904109589041
+    },
+    {
+      "signature": "U+C2DD→U+C11D",
+      "frequency": 0.0136986301369863
+    },
+    {
+      "signature": "DELETE[\" WWW untethieredsoulcom\"]",
+      "frequency": 0.0027397260273972603
+    },
+    {
+      "signature": "DELETE[\"':\" \" l; ' ' \"]",
+      "frequency": 0.01643835616438356
+    },
+    {
+      "signature": "\" ) \"→\">\"",
+      "frequency": 0.019178082191780823
+    }
+  ],
+  "validation_quality": "FAIL",
+  "pass_conditions": [
+    {
+      "condition": "Top50 coverage ≥ 0.9",
+      "result": "PASS"
+    },
+    {
+      "condition": "Spearman ≥ 0.85",
+      "result": "FAIL"
+    }
+  ],
+  "files_generated": [
+    "real_top50_signatures_20260304_074842.txt",
+    "synth_top50_signatures_20260304_074842.txt",
+    "distribution_comparison_20260304_074842.txt"
+  ]
+}

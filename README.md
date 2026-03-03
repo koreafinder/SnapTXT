@@ -1,5 +1,7 @@
 # SnapTXT 📸➡️📝🔊
 
+> **Quick Navigation**: [🗺️ Roadmap](ROADMAP.md) • [📋 Current Work](docs/status/current-work.md) • [🏗️ Architecture](docs/foundation/architecture.md) • [📚 Documentation](docs/)
+
 **이미지에서 텍스트 추출 후 음성으로 듣는 학습 도구**
 
 스크린샷이나 이미지 파일에서 한국어/영어 텍스트를 추출하고, 웹 브라우저에서 음성으로 들을 수 있는 웹 애플리케이션입니다.

@@ -1,0 +1,18 @@
+{
+  "version_id": "v005_20260304_043301",
+  "name": "Test Bad Version",
+  "description": "롤백 테스트용 나쁜 버전",
+  "rules": {
+    "bad_test_rule": {
+      "pattern": "테스트용 문제 규칙",
+      "confidence": 0.1,
+      "validation_status": "test_only"
+    }
+  },
+  "created_at": "2026-03-04T04:33:01.941501",
+  "created_by": "test_system",
+  "status": "standby",
+  "validation_report": null,
+  "performance_metrics": null,
+  "hash_signature": "3e3c436c40e493f4"
+}
