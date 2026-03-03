@@ -5,6 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 import logging
 import re
+import time
 import unicodedata
 from typing import Any, Callable, Sequence, Tuple, TYPE_CHECKING
 
@@ -64,22 +65,73 @@ def apply_stage3_rules(text: str, config: Stage3Config | None = None) -> str:
 
     cfg = config or Stage3Config()
     logger = cfg.logger or logging.getLogger(__name__)
+    
+    original_text = text
+    stage_changes = []
 
     if cfg.enable_spacing_normalization:
+        before = text
         text = _normalize_spacing_overseparation(text, logger)
+        if before != text:
+            change = abs(len(text) - len(before))
+            stage_changes.append(f"띄어쓰기: {change}자")
+            logger.debug(f"      📏 띄어쓰기 정규화: {change}자 조정")
+
     if cfg.enable_character_fixes:
+        before = text
         text = _fix_clear_character_errors(text, logger)
+        if before != text:
+            change = abs(len(text) - len(before))
+            stage_changes.append(f"문자교정: {change}자")
+            logger.debug(f"      🔧 문자 오류 수정: {change}자 교정")
+
     if cfg.enable_ending_normalization:
+        before = text
         text = _normalize_korean_endings(text, logger)
+        if before != text:
+            change = abs(len(text) - len(before))
+            stage_changes.append(f"어미정리: {change}자")
+            logger.debug(f"      📝 한국어 어미: {change}자 정규화")
+
     if cfg.enable_spellcheck_enhancement:
+        before = text
         text = _apply_spellcheck_and_spacing(text, cfg, logger)
+        if before != text:
+            change = abs(len(text) - len(before))
+            stage_changes.append(f"맞춤법: {change}자")
+            logger.debug(f"      ✏️ 맞춤법 검사: {change}자 수정")
+
     if cfg.enable_punctuation_normalization:
+        before = text
         text = _normalize_symbols_and_quotes(text, cfg, logger)
+        if before != text:
+            change = abs(len(text) - len(before))
+            stage_changes.append(f"구두점: {change}자")
+            logger.debug(f"      🔤 구두점 정규화: {change}자 조정")
+
     if cfg.enable_paragraph_formatting:
+        before = text
         text = _add_paragraph_breaks(text, logger)
+        if before != text:
+            change = abs(len(text) - len(before))
+            stage_changes.append(f"문단: {change}자")
+            logger.debug(f"      📄 문단 구분: {change}자 추가")
+
     if cfg.enable_tts_friendly_processing:
+        before = text
         tts_cfg = cfg.tts_config or Stage3_5Config(logger=logger)
         text = apply_stage3_5_rules(text, tts_cfg)
+        if before != text:
+            change = abs(len(text) - len(before))
+            stage_changes.append(f"TTS: {change}자")
+            logger.debug(f"      🔊 TTS 최적화: {change}자 조정")
+
+    # Stage3 전체 결과 요약
+    if stage_changes:
+        total_change = abs(len(text) - len(original_text))
+        logger.debug(f"      ✅ Stage3 세부 처리: {', '.join(stage_changes)} (총 {total_change}자)")
+    else:
+        logger.debug(f"      ⚪ Stage3 변경 없음 (입력 품질 양호)")
 
     return text
 

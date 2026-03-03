@@ -1,0 +1,326 @@
+{
+  "timestamp": "2026-03-02 18:15:13",
+  "total_patterns": 38,
+  "validation_summary": {
+    "total_validated": 38,
+    "passed": 10,
+    "failed_safety": 19,
+    "failed_conflict": 0,
+    "failed_linguistic": 21,
+    "failed_frequency": 0,
+    "safe_count": 10,
+    "unsafe_count": 28,
+    "medium_risk_count": 0
+  },
+  "safe_patterns": [
+    {
+      "pattern": "마",
+      "replacement": "머",
+      "confidence": 0.88,
+      "frequency": 9,
+      "rank": 1
+    },
+    {
+      "pattern": "마",
+      "replacement": "모",
+      "confidence": 0.88,
+      "frequency": 8,
+      "rank": 2
+    },
+    {
+      "pattern": "상",
+      "replacement": "샹",
+      "confidence": 0.88,
+      "frequency": 7,
+      "rank": 3
+    },
+    {
+      "pattern": "있",
+      "replacement": "잇",
+      "confidence": 0.88,
+      "frequency": 7,
+      "rank": 4
+    },
+    {
+      "pattern": "하",
+      "replacement": "호",
+      "confidence": 0.88,
+      "frequency": 5,
+      "rank": 5
+    },
+    {
+      "pattern": "것",
+      "replacement": "걷",
+      "confidence": 0.88,
+      "frequency": 5,
+      "rank": 6
+    },
+    {
+      "pattern": "자",
+      "replacement": "저",
+      "confidence": 0.88,
+      "frequency": 5,
+      "rank": 7
+    },
+    {
+      "pattern": "수",
+      "replacement": "소",
+      "confidence": 0.88,
+      "frequency": 5,
+      "rank": 8
+    },
+    {
+      "pattern": "자",
+      "replacement": "조",
+      "confidence": 0.88,
+      "frequency": 4,
+      "rank": 9
+    },
+    {
+      "pattern": "상",
+      "replacement": "강",
+      "confidence": 0.88,
+      "frequency": 4,
+      "rank": 10
+    }
+  ],
+  "unsafe_patterns": [
+    {
+      "pattern": "는",
+      "replacement": "능",
+      "risk_level": "high",
+      "reasons": [
+        "위험한 단일 문자 치환: '는' → '능'",
+        "Context 없는 조사/어미 치환: '는'"
+      ]
+    },
+    {
+      "pattern": "기",
+      "replacement": "가",
+      "risk_level": "critical",
+      "reasons": [
+        "위험한 단일 문자 치환: '기' → '가'"
+      ]
+    },
+    {
+      "pattern": "어",
+      "replacement": "여",
+      "risk_level": "high",
+      "reasons": [
+        "위험한 단일 문자 치환: '어' → '여'",
+        "Context 없는 조사/어미 치환: '어'"
+      ]
+    },
+    {
+      "pattern": "할",
+      "replacement": "향",
+      "risk_level": "high",
+      "reasons": [
+        "위험한 단일 문자 치환: '할' → '향'",
+        "문자 구조 차이 과다: '할' → '향'"
+      ]
+    },
+    {
+      "pattern": "과",
+      "replacement": "광",
+      "risk_level": "high",
+      "reasons": [
+        "위험한 단일 문자 치환: '과' → '광'",
+        "Context 없는 조사/어미 치환: '과'"
+      ]
+    },
+    {
+      "pattern": "다",
+      "replacement": "도",
+      "risk_level": "high",
+      "reasons": [
+        "위험한 단일 문자 치환: '다' → '도'",
+        "Context 없는 조사/어미 치환: '다'"
+      ]
+    },
+    {
+      "pattern": "든",
+      "replacement": "들",
+      "risk_level": "critical",
+      "reasons": [
+        "위험한 단일 문자 치환: '든' → '들'"
+      ]
+    },
+    {
+      "pattern": "든",
+      "replacement": "돈",
+      "risk_level": "critical",
+      "reasons": [
+        "위험한 단일 문자 치환: '든' → '돈'"
+      ]
+    },
+    {
+      "pattern": "그",
+      "replacement": "글",
+      "risk_level": "critical",
+      "reasons": [
+        "위험한 단일 문자 치환: '그' → '글'"
+      ]
+    },
+    {
+      "pattern": "가",
+      "replacement": "고",
+      "risk_level": "high",
+      "reasons": [
+        "위험한 단일 문자 치환: '가' → '고'",
+        "Context 없는 조사/어미 치환: '가'"
+      ]
+    },
+    {
+      "pattern": "로",
+      "replacement": "노",
+      "risk_level": "high",
+      "reasons": [
+        "위험한 단일 문자 치환: '로' → '노'",
+        "Context 없는 조사/어미 치환: '로'"
+      ]
+    },
+    {
+      "pattern": "다",
+      "replacement": "더",
+      "risk_level": "high",
+      "reasons": [
+        "위험한 단일 문자 치환: '다' → '더'",
+        "Context 없는 조사/어미 치환: '다'"
+      ]
+    },
+    {
+      "pattern": "어",
+      "replacement": "오",
+      "risk_level": "high",
+      "reasons": [
+        "위험한 단일 문자 치환: '어' → '오'",
+        "Context 없는 조사/어미 치환: '어'"
+      ]
+    },
+    {
+      "pattern": "이",
+      "replacement": "리",
+      "risk_level": "high",
+      "reasons": [
+        "Context 없는 조사/어미 치환: '이'"
+      ]
+    },
+    {
+      "pattern": "의",
+      "replacement": "어",
+      "risk_level": "high",
+      "reasons": [
+        "Context 없는 조사/어미 치환: '의'"
+      ]
+    },
+    {
+      "pattern": "에",
+      "replacement": "어",
+      "risk_level": "high",
+      "reasons": [
+        "Context 없는 조사/어미 치환: '에'"
+      ]
+    },
+    {
+      "pattern": "을",
+      "replacement": "올",
+      "risk_level": "high",
+      "reasons": [
+        "Context 없는 조사/어미 치환: '을'"
+      ]
+    },
+    {
+      "pattern": "에",
+      "replacement": "예",
+      "risk_level": "high",
+      "reasons": [
+        "Context 없는 조사/어미 치환: '에'"
+      ]
+    },
+    {
+      "pattern": "을",
+      "replacement": "일",
+      "risk_level": "high",
+      "reasons": [
+        "Context 없는 조사/어미 치환: '을'"
+      ]
+    },
+    {
+      "pattern": "의",
+      "replacement": "에",
+      "risk_level": "high",
+      "reasons": [
+        "Context 없는 조사/어미 치환: '의'"
+      ]
+    },
+    {
+      "pattern": "기",
+      "replacement": "고",
+      "risk_level": "critical",
+      "reasons": [
+        "위험한 단일 문자 치환: '기' → '고'"
+      ]
+    },
+    {
+      "pattern": "는",
+      "replacement": "늘",
+      "risk_level": "high",
+      "reasons": [
+        "위험한 단일 문자 치환: '는' → '늘'",
+        "Context 없는 조사/어미 치환: '는'"
+      ]
+    },
+    {
+      "pattern": "로",
+      "replacement": "료",
+      "risk_level": "high",
+      "reasons": [
+        "위험한 단일 문자 치환: '로' → '료'",
+        "Context 없는 조사/어미 치환: '로'"
+      ]
+    },
+    {
+      "pattern": "가",
+      "replacement": "거",
+      "risk_level": "high",
+      "reasons": [
+        "위험한 단일 문자 치환: '가' → '거'",
+        "Context 없는 조사/어미 치환: '가'"
+      ]
+    },
+    {
+      "pattern": "할",
+      "replacement": "한",
+      "risk_level": "critical",
+      "reasons": [
+        "위험한 단일 문자 치환: '할' → '한'"
+      ]
+    },
+    {
+      "pattern": "그",
+      "replacement": "긍",
+      "risk_level": "critical",
+      "reasons": [
+        "위험한 단일 문자 치환: '그' → '긍'"
+      ]
+    },
+    {
+      "pattern": "이",
+      "replacement": "기",
+      "risk_level": "high",
+      "reasons": [
+        "Context 없는 조사/어미 치환: '이'"
+      ]
+    },
+    {
+      "pattern": "것",
+      "replacement": "겷",
+      "risk_level": "high",
+      "reasons": [
+        "문자 구조 차이 과다: '것' → '겷'"
+      ]
+    }
+  ],
+  "medium_risk_patterns": []
+}

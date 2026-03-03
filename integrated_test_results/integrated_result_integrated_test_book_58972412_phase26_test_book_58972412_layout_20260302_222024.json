@@ -1,0 +1,30 @@
+{
+  "test_id": "integrated_test_book_58972412_phase26_test_book_58972412_layout_20260302_222024",
+  "test_date": "DecomposedMetrics(cer_all=0.21719635378171964, cer_no_space=0.0, cer_space_only=0.21719635378171964, cer_punctuation=0.0, wer=0.3846595655806182)",
+  "phase26_analysis": {
+    "baseline_cer_all": 0.23939962476547844,
+    "baseline_cer_space": 0.23939962476547844,
+    "original_improvement": 0.0,
+    "diagnosis": "공백 처리가 주 병목"
+  },
+  "phase27_layout": {
+    "rule_count": 4,
+    "rule_types": {
+      "line_break_merge": 2,
+      "broken_word_merge": 2,
+      "dialogue_boundary": 0
+    },
+    "avg_confidence": 0.85
+  },
+  "integrated_result": {
+    "final_cer_all": 0.21719635378171964,
+    "final_cer_space": 0.21719635378171964,
+    "total_improvement": 0.022203270983758794,
+    "space_improvement": 0.022203270983758794
+  },
+  "strategy_validation": {
+    "target_confirmed": "공백 복원이 올바른 방향",
+    "layout_rules_effective": true,
+    "next_focus": "layout_specific 규칙 확대"
+  }
+}

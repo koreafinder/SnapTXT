@@ -18,7 +18,61 @@
 - **Phase 2 규칙**: `snaptxt/learning/learning_data/learned_rules.yaml` (4개 학습 규칙)
 - **총 활성 규칙**: 9개
 
+### 4. 🚨 확인된 문제점 (2026-03-03)
+- **Ground Truth 파일명 불일치**: 
+  - `ground_truth_map.json` vs 실제 `samples/` 파일명 매핑 오류
+  - UI 이미지 미표시 원인
+- **샘플 복사 기능 실패**: 
+  - `.snaptxt/samples/` 폴더 비어있음
+  - GPT 업로드 워크플로우 차단
+- **사용자 경험 문제**: 
+  - 선정된 샘플 파일들의 GPT 일괄 업로드 어려움
+  - 책 폴더에서 수동 검색 필요
+
+### 5. ✅ 완료된 Phase 2.2 패턴 검증 시스템 (2026-03-02)
+- **PatternValidator 구현**: 495줄 완전 구현 완료
+- **39개 규칙 정제**: → **10개 안전한 규칙 성공적 선별**
+- **위험 패턴 차단**: 는→늘, 기→가 등 무차별 치환 완전 방지
+- **Context-aware 변환**: ContextAwareRuleConverter 구현 완료
+- **A/B 테스트 프레임워크**: 470줄 완전 구현 완료
+- **검증 결과**: `tools/safe_rules_filtered.yaml`, `pattern_validation_results.json`
+
 ## 🎯 데이터 관리 및 운영 전략
+
+### 🚨 긴급 수정 사항 (2026-03-03)
+
+#### A. Ground Truth 파일명 매핑 수정
+```bash
+# 즉시 수정 필요
+ground_truth_map.json:
+- sample_01_IMG_4975.JPG → sample_01_IMG_4789.JPG 
+- sample_02_IMG_4976.JPG → sample_02_IMG_4790.JPG
+- ... (패턴 통일)
+```
+
+#### B. 샘플 복사 기능 강화
+```python
+# book_profile_experiment_ui.py 개선사항
+1. copy_samples_to_directory() 디버깅 강화
+   - 파일 존재 검증 추가
+   - 상세 에러 로깅
+   - 복사 후 검증 절차
+
+2. UI 개선
+   - "샘플 폴더 열기" 버튼 추가
+   - 복사 상태 실시간 표시
+   - GPT 업로드 가이드 팝업
+```
+
+#### C. 워크플로우 최적화
+```
+새로운 사용자 플로우:
+1. 책 폴더 선택
+2. 샘플 생성 → 자동으로 .snaptxt/samples/ 복사
+3. "샘플 폴더 열기" 버튼 → 파일 탐색기 자동 열기
+4. 10개 파일 선택하여 GPT에 일괄 업로드
+5. Ground Truth 입력 → JSON 생성
+```
 
 ### 1. 데이터 구조 표준화
 
@@ -98,6 +152,36 @@ python tools/learning_effectiveness_monitor.py
 #### A. 새로운 이미지 추가 시
 1. **이미지 업로드**: `samples/training_images/` 폴더
 2. **OCR 실행**: 기본 OCR + 현재 규칙 적용
+
+#### B. Ground Truth 관리 도구 현황 (2026-03-03)
+```
+1. gpt_text_to_json_converter.py (422줄)
+   - GPT 텍스트 → JSON 자동 변환기
+   - 완전히 기능하는 독립 도구
+   - 파일명 매핑 테이블 포함
+
+2. book_profile_experiment_ui.py 내장 GT 시스템
+   - 메인 UI에 통합된 Ground Truth 입력 
+   - 샘플별 시각적 입력 위젯
+   - JSON 생성/미리보기 기능
+
+3. ground_truth_map.json
+   - "이 순간의 나" 책 전용 매핑 파일
+   - ⚠️ 파일명 불일치 문제 확인됨
+```
+
+#### C. 현재 권장 워크플로우
+```
+GPT Ground Truth 준비:
+1. 책 폴더 선택 → 샘플 생성
+2. "샘플 폴더 열기" → 10개 파일 GPT 업로드  
+3. GPT 결과 → 메인 UI Ground Truth 입력
+4. JSON 생성 완료
+
+⚠️ 임시 우회방안 (복사 기능 수정 전):
+- gpt_text_to_json_converter.py 독립 도구 사용
+- 수동 파일명 매핑 확인 필수
+```
 3. **품질 검증**: Ground Truth와 비교 (있는 경우)
 4. **피드백 수집**: 사용자 수정사항 기록
 5. **학습 실행**: Phase 2 자동 패턴 학습

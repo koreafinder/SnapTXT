@@ -1,0 +1,161 @@
+{
+  "book_info": {
+    "book_id": "e374dc49792e2614",
+    "title": "Python 프로그래밍 기초서",
+    "domain": "textbook",
+    "language_style": "korean_formal",
+    "created_at": "2026-03-02T21:47:45.185100",
+    "fingerprint_hash": "57bab3f3186a9e983bd9d8493a61dda1"
+  },
+  "analysis_summary": {
+    "total_rules": 5,
+    "confidence_score": 0.9,
+    "avg_ocr_confidence": 0.913,
+    "sample_count": 3,
+    "approval_required_rules": 1
+  },
+  "typography_profile": {
+    "avg_line_length": 39.3,
+    "paragraph_style": "single_newline",
+    "formatting_style": "plain_text",
+    "punctuation_density": {
+      ".": 0.0417,
+      ",": 0.0104,
+      ":": 0.0104,
+      "(": 0.0104,
+      ")": 0.0104
+    }
+  },
+  "correction_rules": [
+    {
+      "id": 1,
+      "pattern": "Python",
+      "replacement": "Python",
+      "correction_type": "domain_specific",
+      "scope": "book_only",
+      "confidence": 0.95,
+      "explanation": "'Python' 단어는 프로그래밍 언어명으로 대소문자가 중요함",
+      "examples": [
+        "python 프로그래밍",
+        "Python 프로그래밍"
+      ],
+      "risk_level": "low",
+      "priority_level": "high",
+      "requires_approval": false,
+      "enabled": true
+    },
+    {
+      "id": 2,
+      "pattern": "def\\s+",
+      "replacement": "def",
+      "correction_type": "font_specific",
+      "scope": "book_only",
+      "confidence": 0.88,
+      "explanation": "코드 블록에서 'def' 키워드 뒤 공백이 불규칙하게 인식됨",
+      "examples": [
+        "def함수",
+        "def 함수, def  func",
+        "def func"
+      ],
+      "risk_level": "medium",
+      "priority_level": "high",
+      "requires_approval": true,
+      "enabled": true
+    },
+    {
+      "id": 3,
+      "pattern": "함수는",
+      "replacement": "함수는",
+      "correction_type": "language_specific",
+      "scope": "domain_wide",
+      "confidence": 0.92,
+      "explanation": "'함수는' 표현에서 조사 '는'이 누락되는 OCR 오류 빈발",
+      "examples": [
+        "함수 코드의",
+        "함수는 코드의"
+      ],
+      "risk_level": "low",
+      "priority_level": "medium",
+      "requires_approval": false,
+      "enabled": true
+    },
+    {
+      "id": 4,
+      "pattern": "\\n\\n\\n+",
+      "replacement": "\\n\\n",
+      "correction_type": "formatting",
+      "scope": "book_only",
+      "confidence": 0.85,
+      "explanation": "과도한 줄바꿈을 표준 문단 구분으로 정리",
+      "examples": [
+        "줄1[3개개행]줄2",
+        "줄1[2개개행]줄2"
+      ],
+      "risk_level": "low",
+      "priority_level": "medium",
+      "requires_approval": false,
+      "enabled": true
+    },
+    {
+      "id": 5,
+      "pattern": "객체지향",
+      "replacement": "객체지향",
+      "correction_type": "domain_specific",
+      "scope": "domain_wide",
+      "confidence": 0.9,
+      "explanation": "프로그래밍 전문용어로 공백 없이 사용되어야 함",
+      "examples": [
+        "객체 지향",
+        "객체지향"
+      ],
+      "risk_level": "low",
+      "priority_level": "high",
+      "requires_approval": false,
+      "enabled": true
+    }
+  ],
+  "priority_matrix": {
+    "critical": [],
+    "high": [
+      1,
+      2,
+      5
+    ],
+    "medium": [
+      3,
+      4
+    ],
+    "low": []
+  },
+  "user_settings": {
+    "profile_approved": true,
+    "auto_apply_safe_rules": true,
+    "require_confirmation_for": [
+      "high_risk",
+      "domain_wide",
+      "universal"
+    ],
+    "disabled_rules": [],
+    "custom_rules": [
+      {
+        "pattern": "print(",
+        "replacement": "print(",
+        "explanation": "print 함수 호출 정규화",
+        "enabled": true,
+        "added_at": "2026-03-02T21:47:45.215982"
+      }
+    ]
+  },
+  "version_info": {
+    "version": "1.0.1",
+    "last_updated": "2026-03-02T21:47:45.216000",
+    "gpt_model_used": "gpt-4-simulation",
+    "created_by": "SnapTXT Book Sense Engine v2.0"
+  },
+  "usage_stats": {
+    "applied_count": 10,
+    "success_count": 9,
+    "user_overrides": 1,
+    "performance_score": 0.9
+  }
+}

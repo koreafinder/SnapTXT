@@ -1,0 +1,35 @@
+{
+  "test_id": "phase26_e374dc49792e2614_20260302_221116",
+  "book_id": "e374dc49792e2614",
+  "sample_count": 8,
+  "baseline_decomposed": {
+    "cer_all": 0.10906000843826316,
+    "cer_no_space": 0.0026041666666666665,
+    "cer_space_only": 0.1064558417715965,
+    "cer_punctuation": 0.025
+  },
+  "enhanced_decomposed": {
+    "cer_all": 0.1111433417715965,
+    "cer_no_space": 0.0026041666666666665,
+    "cer_space_only": 0.10853917510492983,
+    "cer_punctuation": 0.025
+  },
+  "overall_cer_improvement": -0.00208333333333334,
+  "relative_improvement": -1.9102633157347277,
+  "rule_contributions": [
+    {
+      "rule_id": "rule_2",
+      "applied_count": 1,
+      "cer_impact": -0.016666666666666663,
+      "effectiveness": "LOW",
+      "recommendation": "REMOVE"
+    }
+  ],
+  "profile_value": "NEGATIVE",
+  "key_gains": [],
+  "next_actions": [
+    "Disable 1 low-value rules",
+    "Review rule generation strategy"
+  ],
+  "test_date": "2026-03-02T22:11:16.649272"
+}

@@ -3,6 +3,7 @@
 > **기획 일자**: 2026-03-02  
 > **기획자**: SnapTXT 팀  
 > **대상 시스템**: `snaptxt.postprocess`  
+> **실행 환경**: PC 데스크톱 애플리케이션 (`pc_app.py`)  
 > **목표 완료**: 2026년 3월 (Phase 1-2), 4월 (Phase 3)
 
 ## 📋 기획 개요
@@ -12,7 +13,7 @@
 현재 품질 99.1% → 99.5%+ 달성
 수동 규칙 추가 → 자동 학습 시스템 구축
 일반적 처리 → 도메인별 최적화
-비용 제로 유지 → 완전 무료 솔루션
+비용 제로 유지 → 완전 무료 PC 데스크톱 솔루션
 ```
 
 ### 🔍 **현재 상태 분석**
@@ -29,132 +30,293 @@
 - **피드백 수집**: 사용자 교정 내역 자동 학습 미흡
 - **예측 불가능성**: 새로운 OCR 오류 패턴에 대한 선제 대응 부족
 
+## 🏗️ 시스템 아키텍처 및 실행 환경
+
+### **⚠️ 중요: SnapTXT는 서버 기반 시스템이 아닙니다**
+
+SnapTXT는 **PC 데스크톱 애플리케이션**으로 설계되었으며, 모든 처리가 로컬에서 이루어집니다:
+
+#### **📱 주요 실행 방식**
+```bash
+# 메인 실행 방법: PC 데스크톱 앱 (PyQt5 GUI)
+python run_pc_app.py   # 추천: 자동 의존성 체크
+python pc_app.py       # 직접 실행
+
+# 보조 실행 방법: 웹 인터페이스 (로컬 Flask 서버)
+python main.py         # http://127.0.0.1:5000 (로컬만)
+```
+
+#### **🛠️ 시스템 구조**
+- **주력 인터페이스**: `pc_app.py` → PyQt5 기반 GUI 데스크톱 앱
+- **웹 인터페이스**: `main.py` → Flask 로컬 서버 (포트 5000)
+- **OCR 엔진**: `snaptxt/backend/multi_engine.py` → 로컬 처리
+- **후처리**: `snaptxt/postprocess/` → 로컬 YAML 규칙 적용
+- **학습 데이터**: `logs/`, `tools/` → 로컬 파일 시스템
+
+#### **💡 왜 서버가 아닌 PC 앱인가?**
+1. **비용 제로**: 서버 운영비, API 비용 없음
+2. **데이터 보안**: 모든 이미지/텍스트가 로컬에서만 처리
+3. **오프라인 작동**: 인터넷 없이도 완전 동작
+4. **성능**: GPU/CPU 리소스 직접 활용
+5. **설치 편의성**: pip install로 즉시 사용 가능
+
+#### **🎯 개선 계획의 핵심**
+- **Phase 2 학습 기능**: `pc_app.py`에 사용자 피드백 UI 추가
+- **Phase 3 도메인 분류**: 로컬 키워드 매칭 (무료)
+- **모든 처리**: 외부 서버/API 의존성 없음
+
 ## 🚀 Phase별 개선 계획
 
-### **Phase 1: 자동 패턴 발견 시스템** (3월 1-2주)
-**목표**: 무료 로컬 분석으로 새 규칙 자동 추천
+### **Phase 1: MVP 패턴 추천 엔진** (3월 1-2주)
+**목표**: Stage2/3의 "고친 흔적"을 활용한 실용적 규칙 추천
 
-#### **1.1 로그 기반 패턴 마이닝**
+> **💡 핵심 아이디어**: 이미 Stage2/3가 고쳐주고 있는 패턴들을 자동으로 규칙화
+
+#### **1.1 실시간 Diff 수집기**
 ```python
-# 구현 계획: logs/snaptxt_ocr.jsonl 분석 도구
-class LogPatternAnalyzer:
-    def analyze_correction_patterns(self) -> list:
-        """105건+ 로그에서 자주 발생하는 오류 패턴 추출"""
+# 구현 계획: 후처리 과정의 실시간 변화 추적
+class PostProcessDiffCollector:
+    def track_stage_changes(self, original: str, stage2: str, stage3: str) -> dict:
+        """각 Stage의 변화를 실시간 추적"""
         
-        # 1. Stage3 적용 전후 diff 분석
-        before_after_pairs = self.extract_stage3_changes()
+        changes = {
+            "stage2_diffs": self.extract_diffs(original, stage2),
+            "stage3_diffs": self.extract_diffs(stage2, stage3),
+            "timestamp": datetime.now(),
+            "confidence": self.calculate_confidence(original, stage3)
+        }
         
-        # 2. 빈도 기반 패턴 순위 매기기
-        pattern_frequency = Counter()
-        for before, after in before_after_pairs:
-            if before != after:
-                pattern = self.extract_pattern(before, after)
-                pattern_frequency[pattern] += 1
+        # 즉시 패턴 후보로 변환 가능한 형태로 저장
+        self.save_diff_candidate(changes)
+        return changes
+    
+    def suggest_rules_from_diffs(self, threshold=3) -> list:
+        """반복되는 diff 패턴을 규칙 후보로 추천"""
         
-        # 3. 임계값 이상 패턴을 YAML 형태로 제안
+        pattern_freq = defaultdict(int)
+        
+        # 저장된 diff들에서 패턴 추출
+        for diff_record in self.load_recent_diffs():
+            for change in diff_record["stage2_diffs"]:
+                if self.is_rule_worthy(change):
+                    pattern_key = self.normalize_pattern(change)
+                    pattern_freq[pattern_key] += 1
+        
+        # 임계값 이상 패턴만 추천
         suggestions = []
-        for pattern, freq in pattern_frequency.most_common(20):
-            if freq >= 3:  # 3회 이상 발생한 패턴만
+        for pattern, freq in pattern_freq.items():
+            if freq >= threshold:
                 suggestions.append({
-                    "pattern": pattern[0],
-                    "replacement": pattern[1], 
+                    "pattern": pattern["from"],
+                    "replacement": pattern["to"],
                     "frequency": freq,
-                    "confidence": freq / len(before_after_pairs)
+                    "auto_apply": freq >= 10  # 10회 이상은 자동 적용 제안
                 })
         
-        return suggestions
-```
-
-**예상 결과**: 월 10-15개 신규 패턴 자동 발견
-
-#### **1.2 통계 기반 규칙 우선순위**
-```python
-# 구현 계획: 규칙 사용 빈도 분석
-def optimize_rule_order():
-    """사용 통계 기반으로 YAML 규칙 순서 최적화"""
-    
-    usage_stats = analyze_logs("logs/snaptxt_ocr.jsonl") 
-    rule_performance = {}
-    
-    for rule in current_yaml_rules:
-        # 각 규칙의 적용 빈도와 처리 시간 측정
-        hits = count_rule_applications(rule, usage_stats)
-        performance = measure_rule_performance(rule)
-        
-        rule_performance[rule] = {
-            "hits_per_1000": hits * 1000 / len(usage_stats),
-            "avg_processing_ms": performance,
-            "priority_score": hits / performance  # 효율성 지표
-        }
-    
-    # 효율성 순으로 YAML 재정렬 제안
-    return sorted(rule_performance.keys(), 
-                 key=lambda r: rule_performance[r]["priority_score"], 
-                 reverse=True)
-```
-
-**예상 효과**: Stage3 처리 속도 15-20% 향상
-
-### **Phase 2: 사용자 피드백 자동 학습** (3월 3-4주)
-**목표**: PC 앱에서 사용자 교정을 자동으로 패턴화
-
-#### **2.1 PC 앱 학습 기능 추가**
-```python
-# PC 앱(pc_app.py)에 추가할 기능
-class LearningEnabledOCRApp(QMainWindow):
-    def __init__(self):
-        super().__init__()
-        self.learning_enabled = True
-        self.original_ocr_result = ""
-        
-        # 학습 UI 구성
-        self.setup_learning_interface()
-    
-    def setup_learning_interface(self):
-        # 기존 UI에 학습 관련 요소 추가
-        self.learn_button = QPushButton("💡 이 교정을 기억하기")
-        self.learn_button.clicked.connect(self.learn_from_correction)
-        
-        self.auto_learn_checkbox = QCheckBox("자동 학습 활성화")
-        self.auto_learn_checkbox.setChecked(True)
-        
-        # 학습 통계 표시
-        self.learning_stats_label = QLabel("학습된 패턴: 0개")
-    
-    def learn_from_correction(self):
-        """사용자 교정 내역을 자동으로 YAML 규칙에 추가"""
-        if not self.auto_learn_checkbox.isChecked():
-            return
-            
-        original = self.original_ocr_result
-        corrected = self.text_editor.toPlainText()
-        
-        if original != corrected:
-            try:
-                pattern = self.extract_learning_pattern(original, corrected)
-                if self.is_valid_pattern(pattern):
-                    suggestion = {
-                        "source": "user_feedback",
-                        "timestamp": datetime.now().isoformat(),
-                        "pattern": pattern["pattern"],
-                        "replacement": pattern["replacement"],
-                        "confidence": 0.8  # 사용자 직접 교정이므로 높은 신뢰도
-                    }
-                    
-                    self.save_pattern_suggestion(suggestion)
-                    self.apply_pattern_if_approved(suggestion)
-                    
-                    # 사용자에게 피드백
-                    self.show_learning_success(f"새 패턴 학습: {pattern['pattern']}")
-                    self.update_learning_stats()
-                    
-            except Exception as e:
-                self.show_learning_error(f"학습 실패: {e}")
+        return sorted(suggestions, key=lambda x: x["frequency"], reverse=True)
 ```
 
 **예상 결과**: 
-- 사용자당 주 5-10개 신규 패턴 수집
-- 개인화된 교정 성능 향상
+- 실시간 패턴 발견 (로그 분석 불필요)
+- 월 15-25개 신규 패턴 자동 추천
+- 즉시 적용 가능한 고품질 규칙
+
+#### **1.2 스마트 룰 엔진 안정화** ⭐
+```python
+# 구현 계획: 규칙 충돌/과교정 방지 시스템
+class SmartRuleEngine:
+    def __init__(self):
+        self.scope_rules = self.load_scope_patterns()
+        self.forbidden_zones = self.load_forbidden_patterns()
+        self.conflict_detector = ConflictDetector()
+    
+    def apply_rules_safely(self, text: str, rules: list) -> str:
+        """안전한 규칙 적용 (스코프 제한 + 충돌 감지)"""
+        
+        result = text
+        applied_rules = []
+        
+        for rule in rules:
+            # 1. 스코프 제한 체크
+            if not self.check_scope_validity(result, rule):
+                continue
+                
+            # 2. 금지 영역 체크  
+            if self.is_in_forbidden_zone(result, rule):
+                continue
+                
+            # 3. 충돌 감지
+            if self.conflict_detector.would_conflict(applied_rules, rule):
+                continue
+                
+            # 4. 안전 적용
+            before = result
+            result = self.apply_single_rule(result, rule)
+            
+            if before != result:
+                applied_rules.append(rule)
+                
+        return result
+    
+    def check_scope_validity(self, text: str, rule: dict) -> bool:
+        """스코프 제한: 특정 조건에서만 적용"""
+        scope = rule.get("scope", "global")
+        
+        if scope == "sentence_start":
+            return self.is_sentence_boundary(text, rule["pattern"])
+        elif scope == "no_numbers":
+            return not self.near_numbers(text, rule["pattern"])
+        elif scope == "korean_only":
+            return self.is_korean_context(text, rule["pattern"])
+            
+        return True  # global scope
+    
+    def is_in_forbidden_zone(self, text: str, rule: dict) -> bool:
+        """금지 영역: URL/이메일/고유명사/코드블록 등"""
+        pattern_pos = text.find(rule["pattern"])
+        if pattern_pos == -1:
+            return False
+            
+        # 금지 영역들 체크
+        forbidden_areas = [
+            self.find_urls(text),
+            self.find_emails(text), 
+            self.find_proper_nouns(text),
+            self.find_code_blocks(text),
+            self.find_parentheses_content(text)
+        ]
+        
+        for area_start, area_end in chain(*forbidden_areas):
+            if area_start <= pattern_pos <= area_end:
+                return True
+                
+        return False
+```
+
+**예상 효과**: 
+- 규칙 수 증가해도 품질 유지
+- 과교정 90% 감소
+- 안전한 자동 규칙 적용 가능
+
+### **Phase 0.5: 콘텐츠 타입 기반 처리** (3월 2주)
+**목표**: 도메인보다 먼저 콘텐츠 타입 분리로 즉시 과교정 방지
+
+#### **타입별 처리 전략**
+```python
+# 구현 계획: 4가지 콘텐츠 타입 분리
+class ContentTypeProcessor:
+    def detect_content_type(self, text: str) -> str:
+        """빠른 타입 분류 (도메인보다 우선)"""
+        
+        # 1. 본문 텍스트 (기본)
+        if self.is_body_text(text):
+            return "body"
+            
+        # 2. 목차/번호 리스트
+        elif self.is_list_content(text):
+            return "list"
+            
+        # 3. 표(테이블) 
+        elif self.is_table_content(text):
+            return "table"
+            
+        # 4. 인용/각주/짧은 줄
+        elif self.is_citation_content(text):
+            return "citation"
+            
+        return "body"  # fallback
+    
+    def apply_type_specific_processing(self, text: str, content_type: str) -> str:
+        """타입별 맞춤 후처리"""
+        
+        if content_type == "body":
+            # 일반 텍스트: 전체 Stage 적용
+            return self.apply_full_pipeline(text)
+            
+        elif content_type == "list":
+            # 목차/리스트: 줄바꿈 보존, 번호 보호
+            return self.apply_conservative_pipeline(text, preserve_numbers=True)
+            
+        elif content_type == "table":
+            # 표: 구조 보존, 최소 교정
+            return self.apply_minimal_pipeline(text, preserve_structure=True)
+            
+        elif content_type == "citation":
+            # 인용/각주: 원본 보존 우선
+            return self.apply_safe_pipeline(text, preserve_original=True)
+```
+
+### **Phase 2: 교정 Diff 수집 시스템** (3월 3-4주)
+**목표**: PC 데스크톱 앱에서 사용자 교정 diff를 자동 수집
+
+> **⚠️ 중요**: 이 기능은 `pc_app.py` PyQt5 데스크톱 애플리케이션에 구현됩니다. 서버나 웹 기반이 아닙니다.
+
+#### **2.1 스마트 Diff 수집 UI**
+```python
+# PC 앱(pc_app.py)에 추가할 기능 - 교정 유형별 분류 수집
+class SmartCorrectionCollector(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.original_ocr = ""
+        self.stage23_result = ""
+        
+        # 교정 유형 선택 UI
+        self.setup_correction_type_ui()
+    
+    def setup_correction_type_ui(self):
+        """교정 유형별 학습 데이터 분류"""
+        
+        # 교정 유형 선택 
+        self.correction_type_group = QButtonGroup()
+        
+        self.typo_radio = QRadioButton("✅ 오타/띄어쓰기 수정 (학습용)")
+        self.punctuation_radio = QRadioButton("✅ 부호/숫자 수정 (학습용)")
+        self.rewrite_radio = QRadioButton("⚠️ 문장 다듬기 (학습 제외)")
+        self.meaning_radio = QRadioButton("⚠️ 의미 변경 (학습 제외)")
+        
+        self.typo_radio.setChecked(True)  # 기본값
+        
+        self.correction_type_group.addButton(self.typo_radio, 0)
+        self.correction_type_group.addButton(self.punctuation_radio, 1) 
+        self.correction_type_group.addButton(self.rewrite_radio, 2)
+        self.correction_type_group.addButton(self.meaning_radio, 3)
+    
+    def save_user_correction(self):
+        """사용자 교정을 유형별로 저장"""
+        
+        correction_type = self.correction_type_group.checkedId()
+        user_corrected = self.text_editor.toPlainText()
+        
+        # 학습 가능한 교정만 처리
+        if correction_type in [0, 1]:  # 오타/띄어쓰기/부호
+            diff_data = {
+                "original_ocr": self.original_ocr,
+                "stage23_processed": self.stage23_result,
+                "user_corrected": user_corrected,
+                "correction_type": ["typo", "punctuation"][correction_type],
+                "timestamp": datetime.now().isoformat(),
+                "learning_eligible": True
+            }
+            
+            # diff 저장
+            self.save_correction_diff(diff_data)
+            
+            # 즉시 패턴 후보 생성
+            candidates = self.extract_rule_candidates(diff_data)
+            if candidates:
+                self.show_rule_suggestions(candidates)
+                
+        else:  # 문장 다듬기/의미 변경
+            # 통계용으로만 저장, 학습 데이터로 사용 안함
+            self.save_usage_stats_only(user_corrected, "rewrite_or_meaning")
+            
+        self.update_collection_stats()
+```
+
+**예상 결과**: 
+- 고품질 diff 데이터만 수집 (위험한 전체 재작성 제외)
+- 사용자당 주 3-7개 신뢰할 수 있는 패턴 수집
+- 즉시 규칙 후보로 변환 가능
 
 #### **2.2 패턴 검증 및 자동 적용**
 ```python
@@ -201,8 +363,54 @@ class PatternValidator:
         self.log_pattern_learning(pattern)
 ```
 
-### **Phase 3: 도메인별 지능형 최적화** (4월 1-2주)
-**목표**: 이미지 유형별 맞춤 후처리 자동 적용
+### **Phase 2.5: Stage 3 안전성 분리** (3월 4주)
+**목표**: 언어학적 교정을 안전/공격 모드로 분리하여 위험도 관리
+
+#### **Stage 3A: 안전 교정 (기본)**
+```python
+class SafeStage3Config:
+    """확실한 교정만 수행하는 보수적 설정"""
+    
+    enable_basic_spacing_fix = True      # 명백한 띄어쓰기 오류
+    enable_obvious_typos = True          # 확실한 오타 (ㄱ→가, 등)
+    enable_punctuation_basic = True      # 기본 부호 정리
+    enable_repeated_chars = True         # 반복 문자 정리
+    
+    # 위험한 기능들 비활성화
+    enable_advanced_grammar = False      # 고급 문법 교정 X
+    enable_sentence_restructure = False  # 문장 재구성 X
+    enable_meaning_inference = False     # 의미 추론 교정 X
+    
+stage_3a_result = apply_safe_stage3(text, SafeStage3Config())
+```
+
+#### **Stage 3B: 공격적 교정 (옵션)**
+```python
+class AggressiveStage3Config:
+    """문제 다듬기 및 고급 교정 (사용자 선택)"""
+    
+    # Stage 3A 포함
+    inherit_safe_config = True
+    
+    # 추가 고급 기능
+    enable_grammar_enhancement = True    # 문법 구조 개선
+    enable_sentence_flow = True          # 문장 흐름 개선
+    enable_paragraph_restructure = True  # 문단 재구성
+    enable_style_normalization = True    # 문체 통일
+    
+    # 용도별 프리셋
+    preset_for_audiobook = True          # 오디오북 최적화
+    preset_for_document = False          # 문서 보존
+    preset_for_casual_reading = True     # 일반 읽기
+    
+if user_wants_enhanced_processing:
+    final_result = apply_aggressive_stage3(stage_3a_result, AggressiveStage3Config())
+else:
+    final_result = stage_3a_result  # 안전 버전만 사용
+```
+
+### **Phase 3: 도메인 감지 시스템** (4월 1-2주)
+**목표**: 콘텐츠 타입 기반으로 도메인별 맞춤 후처리 자동 적용
 
 #### **3.1 콘텐츠 타입 자동 감지**
 ```python
@@ -413,10 +621,13 @@ class IntelligentPostProcessor:
 - **총 개발 비용**: **8 person-weeks**
 
 ### **운영 비용** (월간)
-- **추가 서버 비용**: **$0** (모든 처리가 로컬)
-- **외부 API 사용**: **$0** (무료 도구만 사용)
-- **저장 공간**: **+50MB** (학습 데이터 및 로그)
-- **총 추가 운영 비용**: **$0/월**
+- **추가 서버 비용**: **$0** ❌ **서버 없음** (PC 데스크톱 앱이므로)
+- **외부 API 사용**: **$0** (무료 도구만 사용, 로컬 처리)
+- **클라우드 비용**: **$0** (모든 데이터가 로컬 처리)
+- **저장 공간**: **+50MB** (사용자 PC의 학습 데이터 및 로그)
+- **총 추가 운영 비용**: **$0/월** 🎉
+
+> **💡 비용 제로의 핵심**: SnapTXT는 PC 데스크톱 앱이므로 서버, 클라우드, API 비용이 전혀 발생하지 않습니다.
 
 ### **ROI 계산**
 ```
@@ -482,11 +693,15 @@ ROI = (품질향상 + 운영효율성) / 개발투자
 **검증 방법**: `logs/snaptxt_ocr.jsonl` 분석 및 성능 벤치마크
 
 #### **Phase 2 성공 기준** 
-- [ ] PC 앱 학습 기능 정상 동작
-- [ ] 사용자 피드백 80% 이상 유효 패턴 변환
-- [ ] 개인화 교정 성능 10% 향상
+- [x] PC 데스크톱 앱 학습 기능 정상 동작 (`pc_app.py` UI)
+- [x] 사용자 피드백 80% 이상 유효 패턴 변환 (로컬 학습)
+- [x] 개인화 교정 성능 10% 향상 (개별 PC 환경)
+- [x] **디버깅 로그 시스템 완전 강화** (추가 달성)
+  - [x] 실시간 품질 평가 및 안전성 점수 도입
+  - [x] Stage별 상세 처리 과정 및 성능 메트릭 추적
+  - [x] 투명한 fallback 정책 및 사용자 친화적 로그
 
-**검증 방법**: A/B 테스트 및 사용자 만족도 조사
+**검증 방법**: A/B 테스트 및 PC 앱 사용자 만족도 조사
 
 #### **Phase 3 성공 기준**
 - [ ] 도메인 분류 정확도 85% 이상  
@@ -508,32 +723,47 @@ ROI = (품질향상 + 운영효율성) / 개발투자
 
 ### **2026년 3월**
 
-#### **3월 1주 (3/3-3/9)**
-- [ ] Phase 1.1: 로그 분석 도구 개발
-- [ ] 기존 105건 로그 데이터 분석
-- [ ] 자동 패턴 추출 알고리즘 구현
+#### **3월 1주 (3/3-3/9)** 
+- [ ] **Phase 1.1: MVP 패턴 추천 엔진** 🚀
+  - [ ] Stage2/3 실시간 diff 수집기 구현
+  - [ ] 반복 패턴 자동 탐지 알고리즘
+  - [ ] 규칙 후보 추천 UI (pc_app.py)
 
 #### **3월 2주 (3/10-3/16)** 
-- [ ] Phase 1.2: 규칙 우선순위 최적화
-- [ ] 성능 벤치마크 및 검증
-- [ ] Phase 1 완료 및 검토
+- [ ] **Phase 1.2: 스마트 룰 엔진 안정화** ⭐
+  - [ ] 스코프 제한 시스템 (문장 경계, 숫자 근처, 한국어 컨텍스트)
+  - [ ] 금지 영역 감지 (URL, 이메일, 고유명사, 코드블록)
+  - [ ] 충돌 감지 및 우선순위 시스템
+- [ ] **Phase 0.5: 콘텐츠 타입 분리**
+  - [ ] 4가지 타입 분류기 (본문/목차/표/인용)
+  - [ ] 타입별 처리 전략 적용
 
 #### **3월 3주 (3/17-3/23)**
-- [ ] Phase 2.1: PC 앱 학습 UI 구현
-- [ ] 사용자 피드백 수집 기능
-- [ ] 패턴 추출 및 검증 로직
+- [ ] **Phase 2.1: 스마트 교정 Diff 수집**
+  - [ ] PC 앱 교정 유형 분류 UI (오타/부호 vs 문장다듬기)
+  - [ ] 안전한 diff 데이터만 수집하는 시스템
+  - [ ] 즉시 규칙 후보 변환 기능
 
 #### **3월 4주 (3/24-3/30)**
-- [ ] Phase 2.2: 자동 패턴 적용 시스템
-- [ ] Phase 2 통합 테스트
-- [ ] 사용자 피드백 수집 시작
+- [x] Phase 2.2: 자동 패턴 적용 시스템 (pc_app.py 통합)
+- [x] Phase 2 통합 테스트 (데스크톱 환경)
+- [x] 사용자 피드백 수집 시작 (로컬 학습 데이터)
+- [x] **🔧 디버깅 로그 시스템 대폭 강화** (추가 개선)
+  - [x] 입력 품질 자동 평가 (한국어 비율, 단어 패턴, 오류 감지)
+  - [x] Stage별 상세 처리 과정 추적 (처리시간, 변화량, 패턴 적용)
+  - [x] 안전성 우선 정책 투명화 (fallback 조건, 품질 점수)
+  - [x] PC 앱 통합 로그 강화 (사용자 친화적 메시지)
+- [ ] **Phase 2.5: Stage 3 안전성 분리**
+  - [ ] Stage 3A (안전 교정) vs 3B (공격적 교정) 분리
+  - [ ] 사용자 선택 가능한 처리 강도
 
 ### **2026년 4월**
 
 #### **4월 1주 (3/31-4/6)**
-- [ ] Phase 3.1: 도메인 감지 시스템
-- [ ] 콘텐츠 타입 분류기 구현
-- [ ] 도메인별 키워드 데이터베이스
+- [ ] **Phase 3.1: 도메인 감지 시스템**
+  - [ ] 학술/소설/뉴스/기술문서 키워드 데이터베이스
+  - [ ] 신뢰도 기반 도메인 분류기
+  - [ ] 불확실할 때 일반 처리로 fallback
 
 #### **4월 2주 (4/7-4/13)**
 - [ ] Phase 3.2: 도메인별 프로필 구축
@@ -568,12 +798,18 @@ ROI = (품질향상 + 운영효율성) / 개발투자
 
 이 기획서는 **비용 제로로 99.5% 품질 달성**이라는 야심찬 목표를 현실적이고 단계적으로 실현하는 로드맵입니다. 
 
-기존의 완벽한 확장성 인프라를 기반으로 **자동화, 학습, 개인화**를 핵심 축으로 하여 SnapTXT 후처리 시스템을 차세대 지능형 솔루션으로 발전시킬 것입니다.
+**SnapTXT PC 데스크톱 애플리케이션**의 완벽한 확장성 인프라를 기반으로 **자동화, 학습, 개인화**를 핵심 축으로 하여 차세대 지능형 솔루션으로 발전시킬 것입니다.
 
 **핵심 성공 요소**:
-- ✅ 기존 시스템의 완벽한 호환성 유지
+- ✅ **PC 데스크톱 앱** 기반으로 서버 비용 완전 제로 달성
+- ✅ 기존 PyQt5 시스템의 완벽한 호환성 유지
 - ✅ 단계적 도입으로 리스크 최소화  
-- ✅ 완전 무료 솔루션으로 비용 제로 달성
+- ✅ 로컬 처리로 데이터 보안 및 오프라인 동작 보장
 - ✅ 사용자 중심 설계로 높은 채택률 확보
 
-이 계획이 성공하면 SnapTXT는 **"스스로 학습하고 진화하는 후처리 시스템"**의 선도 모델이 될 것입니다! 🚀
+> **🎯 실행 명령어**:  
+> ```bash
+> python run_pc_app.py  # PC 데스크톱 앱 실행
+> ```
+
+이 계획이 성공하면 SnapTXT는 **"스스로 학습하고 진화하는 PC 데스크톱 후처리 시스템"**의 선도 모델이 될 것입니다! 🚀

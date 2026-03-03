@@ -13,6 +13,9 @@ import logging
 # OCR 프로세서 import
 from snaptxt.backend.multi_engine import MultiOCRProcessor, load_default_engine
 
+# 후처리 시스템 import 추가
+from snaptxt.postprocess import run_pipeline, Stage2Config, Stage3Config
+
 def ensure_utf8_console():
     """Force UTF-8 console output on Windows so Korean logs stay readable."""
 
@@ -168,6 +171,32 @@ class OCRWorkerThread(QThread):
                 # OCR 처리
                 filename = Path(file_path).name
                 extracted_text = self.ocr_processor.process_file(file_path, self.ocr_settings)
+                
+                # 후처리 파이프라인 적용 (새로 추가)
+                if extracted_text and not extracted_text.startswith("❌"):
+                    try:
+                        print(f"🧠 후처리 시작: {filename} ({len(extracted_text)}자)")
+                        
+                        # Stage2 + Stage3 후처리 실행
+                        processed_text = run_pipeline(
+                            extracted_text,
+                            stage2_config=Stage2Config(),
+                            stage3_config=Stage3Config()
+                        )
+                        
+                        # 후처리 결과 분석
+                        if processed_text:
+                            change_ratio = abs(len(processed_text) - len(extracted_text)) / len(extracted_text) * 100
+                            print(f"✅ 후처리 완료: {len(extracted_text)}자 → {len(processed_text)}자 ({change_ratio:.1f}% 변화)")
+                            extracted_text = processed_text
+                        else:
+                            print(f"⚠️  후처리 결과 없음 - 원본 유지")
+                            
+                    except Exception as e:
+                        # 후처리 실패시 원본 텍스트 사용 (안전성 우선)
+                        print(f"⚠️ 후처리 실패 {filename}: {e}")
+                        print(f"🛡️  안전성 우선 - 원본 텍스트 사용")
+                        # extracted_text는 그대로 유지
                 
                 # 결과 전송
                 self.text_extracted.emit(filename, extracted_text)

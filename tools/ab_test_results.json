@@ -1,0 +1,4983 @@
+{
+  "timestamp": "2026-03-02 18:20:47",
+  "test_summary": {
+    "total_rules": 10,
+    "total_texts": 29,
+    "total_test_combinations": 290
+  },
+  "rule_results": {
+    "마_머": {
+      "rule_info": {
+        "pattern": "마",
+        "replacement": "머",
+        "enhanced": true
+      },
+      "test_cases": [
+        {
+          "img_id": "IMG_4789",
+          "baseline_similarity": 0.9291,
+          "improved_similarity": 0.9291,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "상처",
+              "샹처"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4790",
+          "baseline_similarity": 0.9709,
+          "improved_similarity": 0.9556,
+          "improvement": -0.0153,
+          "result_type": "degradation",
+          "changes": [
+            "마음 → 머음",
+            "마이 → 머이"
+          ],
+          "applied_errors": [
+            [
+              "마이클",
+              "마이 클"
+            ],
+            [
+              "상처",
+              "상 처"
+            ],
+            [
+              "있습니다",
+              "있 습니다"
+            ]
+          ],
+          "text_sample": {
+            "original": "마이클 싱어 Michael A. Singer\n\n숲속의 명상가로 불리는 마이클 싱어는 대중 앞에 나서기를 꺼려\n'얼굴 없는 저자'로 알려져 있다가, 오프라 윈프리의 간곡한 부탁을 이...",
+            "corrupted": "마이 클 싱어 Michael A. Singer\n\n숲속의 명상가로 불리는 마이 클 싱어는 대중 앞에 나서기를 꺼려\n'얼굴 없는 저자'로 알려져 있다가, 오프라 윈프리의 간곡한 부탁을...",
+            "corrected": "머이 클 싱어 Michael A. Singer\n\n숲속의 명상가로 불리는 머이 클 싱어는 대중 앞에 나서기를 꺼려\n'얼굴 없는 저자'로 알려져 있다가, 오프라 윈프리의 간곡한 부탁을..."
+          }
+        },
+        {
+          "img_id": "IMG_4791",
+          "baseline_similarity": 0.9351,
+          "improved_similarity": 0.9351,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "있습니다",
+              "있 습니다"
+            ],
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "상처",
+              "샹처"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4792",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4793",
+          "baseline_similarity": 0.9744,
+          "improved_similarity": 0.9698,
+          "improvement": -0.0046,
+          "result_type": "neutral",
+          "changes": [
+            "마이 → 머이"
+          ],
+          "applied_errors": [
+            [
+              "마이클",
+              "마이 클"
+            ],
+            [
+              "상처",
+              "상 처"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4794",
+          "baseline_similarity": 0.9687,
+          "improved_similarity": 0.9687,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "상처",
+              "상 처"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4795",
+          "baseline_similarity": 0.9648,
+          "improved_similarity": 0.9648,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4796",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4797",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4798",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4799",
+          "baseline_similarity": 0.9718,
+          "improved_similarity": 0.9718,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4800",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4801",
+          "baseline_similarity": 0.9499,
+          "improved_similarity": 0.9499,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4802",
+          "baseline_similarity": 0.9694,
+          "improved_similarity": 0.9694,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4803",
+          "baseline_similarity": 0.9698,
+          "improved_similarity": 0.9698,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "하지만",
+              "하 지만"
+            ],
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4804",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4805",
+          "baseline_similarity": 0.9663,
+          "improved_similarity": 0.9663,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4806",
+          "baseline_similarity": 0.9857,
+          "improved_similarity": 0.9857,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4807",
+          "baseline_similarity": 0.9591,
+          "improved_similarity": 0.9591,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4808",
+          "baseline_similarity": 0.9667,
+          "improved_similarity": 0.9667,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4809",
+          "baseline_similarity": 0.9421,
+          "improved_similarity": 0.9421,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4810",
+          "baseline_similarity": 0.9772,
+          "improved_similarity": 0.9772,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4811",
+          "baseline_similarity": 0.9892,
+          "improved_similarity": 0.9892,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ],
+            [
+              "자유",
+              "조유"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4812",
+          "baseline_similarity": 0.9935,
+          "improved_similarity": 0.9935,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4813",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4814",
+          "baseline_similarity": 0.9771,
+          "improved_similarity": 0.9771,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "하지만",
+              "하 지만"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4815",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4816",
+          "baseline_similarity": 0.9698,
+          "improved_similarity": 0.9698,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "자신",
+              "저신"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4817",
+          "baseline_similarity": 0.9896,
+          "improved_similarity": 0.9848,
+          "improvement": -0.0049,
+          "result_type": "neutral",
+          "changes": [
+            "마치 → 머치"
+          ],
+          "applied_errors": [
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        }
+      ],
+      "performance": {
+        "total_tests": 29,
+        "improvement_count": 0,
+        "degradation_count": 1,
+        "neutral_count": 28,
+        "avg_improvement": -0.0008526796169751127
+      }
+    },
+    "마_모": {
+      "rule_info": {
+        "pattern": "마",
+        "replacement": "모",
+        "enhanced": true
+      },
+      "test_cases": [
+        {
+          "img_id": "IMG_4789",
+          "baseline_similarity": 0.9291,
+          "improved_similarity": 0.9291,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "상처",
+              "샹처"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4790",
+          "baseline_similarity": 0.9709,
+          "improved_similarity": 0.9556,
+          "improvement": -0.0153,
+          "result_type": "degradation",
+          "changes": [
+            "마음 → 모음",
+            "마이 → 모이"
+          ],
+          "applied_errors": [
+            [
+              "마이클",
+              "마이 클"
+            ],
+            [
+              "상처",
+              "상 처"
+            ],
+            [
+              "있습니다",
+              "있 습니다"
+            ]
+          ],
+          "text_sample": {
+            "original": "마이클 싱어 Michael A. Singer\n\n숲속의 명상가로 불리는 마이클 싱어는 대중 앞에 나서기를 꺼려\n'얼굴 없는 저자'로 알려져 있다가, 오프라 윈프리의 간곡한 부탁을 이...",
+            "corrupted": "마이 클 싱어 Michael A. Singer\n\n숲속의 명상가로 불리는 마이 클 싱어는 대중 앞에 나서기를 꺼려\n'얼굴 없는 저자'로 알려져 있다가, 오프라 윈프리의 간곡한 부탁을...",
+            "corrected": "모이 클 싱어 Michael A. Singer\n\n숲속의 명상가로 불리는 모이 클 싱어는 대중 앞에 나서기를 꺼려\n'얼굴 없는 저자'로 알려져 있다가, 오프라 윈프리의 간곡한 부탁을..."
+          }
+        },
+        {
+          "img_id": "IMG_4791",
+          "baseline_similarity": 0.9351,
+          "improved_similarity": 0.9351,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "있습니다",
+              "있 습니다"
+            ],
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "상처",
+              "샹처"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4792",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4793",
+          "baseline_similarity": 0.9744,
+          "improved_similarity": 0.9698,
+          "improvement": -0.0046,
+          "result_type": "neutral",
+          "changes": [
+            "마이 → 모이"
+          ],
+          "applied_errors": [
+            [
+              "마이클",
+              "마이 클"
+            ],
+            [
+              "상처",
+              "상 처"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4794",
+          "baseline_similarity": 0.9687,
+          "improved_similarity": 0.9687,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "상처",
+              "상 처"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4795",
+          "baseline_similarity": 0.9648,
+          "improved_similarity": 0.9648,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4796",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4797",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4798",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4799",
+          "baseline_similarity": 0.9718,
+          "improved_similarity": 0.9718,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4800",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4801",
+          "baseline_similarity": 0.9499,
+          "improved_similarity": 0.9499,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4802",
+          "baseline_similarity": 0.9694,
+          "improved_similarity": 0.9694,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4803",
+          "baseline_similarity": 0.9698,
+          "improved_similarity": 0.9698,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "하지만",
+              "하 지만"
+            ],
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4804",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4805",
+          "baseline_similarity": 0.9663,
+          "improved_similarity": 0.9663,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4806",
+          "baseline_similarity": 0.9857,
+          "improved_similarity": 0.9857,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4807",
+          "baseline_similarity": 0.9591,
+          "improved_similarity": 0.9591,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4808",
+          "baseline_similarity": 0.9667,
+          "improved_similarity": 0.9667,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4809",
+          "baseline_similarity": 0.9421,
+          "improved_similarity": 0.9421,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4810",
+          "baseline_similarity": 0.9772,
+          "improved_similarity": 0.9772,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4811",
+          "baseline_similarity": 0.9892,
+          "improved_similarity": 0.9892,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ],
+            [
+              "자유",
+              "조유"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4812",
+          "baseline_similarity": 0.9935,
+          "improved_similarity": 0.9935,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4813",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4814",
+          "baseline_similarity": 0.9771,
+          "improved_similarity": 0.9771,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "하지만",
+              "하 지만"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4815",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4816",
+          "baseline_similarity": 0.9698,
+          "improved_similarity": 0.9698,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "자신",
+              "저신"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4817",
+          "baseline_similarity": 0.9896,
+          "improved_similarity": 0.9848,
+          "improvement": -0.0049,
+          "result_type": "neutral",
+          "changes": [
+            "마치 → 모치"
+          ],
+          "applied_errors": [
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        }
+      ],
+      "performance": {
+        "total_tests": 29,
+        "improvement_count": 0,
+        "degradation_count": 1,
+        "neutral_count": 28,
+        "avg_improvement": -0.0008526796169751127
+      }
+    },
+    "상_샹": {
+      "rule_info": {
+        "pattern": "상",
+        "replacement": "샹",
+        "enhanced": true
+      },
+      "test_cases": [
+        {
+          "img_id": "IMG_4789",
+          "baseline_similarity": 0.9291,
+          "improved_similarity": 0.9291,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "상처",
+              "샹처"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4790",
+          "baseline_similarity": 0.9709,
+          "improved_similarity": 0.9709,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마이클",
+              "마이 클"
+            ],
+            [
+              "상처",
+              "상 처"
+            ],
+            [
+              "있습니다",
+              "있 습니다"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4791",
+          "baseline_similarity": 0.9351,
+          "improved_similarity": 0.9351,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "있습니다",
+              "있 습니다"
+            ],
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "상처",
+              "샹처"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4792",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4793",
+          "baseline_similarity": 0.9744,
+          "improved_similarity": 0.9684,
+          "improvement": -0.006,
+          "result_type": "neutral",
+          "changes": [
+            "상태 → 샹태"
+          ],
+          "applied_errors": [
+            [
+              "마이클",
+              "마이 클"
+            ],
+            [
+              "상처",
+              "상 처"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4794",
+          "baseline_similarity": 0.9687,
+          "improved_similarity": 0.9687,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "상처",
+              "상 처"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4795",
+          "baseline_similarity": 0.9648,
+          "improved_similarity": 0.9648,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4796",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4797",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4798",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4799",
+          "baseline_similarity": 0.9718,
+          "improved_similarity": 0.9718,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4800",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4801",
+          "baseline_similarity": 0.9499,
+          "improved_similarity": 0.9499,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4802",
+          "baseline_similarity": 0.9694,
+          "improved_similarity": 0.9694,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4803",
+          "baseline_similarity": 0.9698,
+          "improved_similarity": 0.9698,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "하지만",
+              "하 지만"
+            ],
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4804",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4805",
+          "baseline_similarity": 0.9663,
+          "improved_similarity": 0.9621,
+          "improvement": -0.0042,
+          "result_type": "neutral",
+          "changes": [
+            "상황 → 샹황"
+          ],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4806",
+          "baseline_similarity": 0.9857,
+          "improved_similarity": 0.9857,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4807",
+          "baseline_similarity": 0.9591,
+          "improved_similarity": 0.9182,
+          "improvement": -0.0409,
+          "result_type": "degradation",
+          "changes": [
+            "대상 → 대샹"
+          ],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ],
+          "text_sample": {
+            "original": "이제 외부에 보이는 것을 대상으로\n마음이 어떤 생각을 만들어 내는지\n적어 보자.",
+            "corrupted": "이제 외부에 보이는 것을 대상으로\n머음이 어떤 생각을 만들어 내는지\n적어 보자.",
+            "corrected": "이제 외부에 보이는 것을 대샹으로\n머음이 어떤 생각을 만들어 내는지\n적어 보자."
+          }
+        },
+        {
+          "img_id": "IMG_4808",
+          "baseline_similarity": 0.9667,
+          "improved_similarity": 0.9667,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4809",
+          "baseline_similarity": 0.9421,
+          "improved_similarity": 0.9421,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4810",
+          "baseline_similarity": 0.9772,
+          "improved_similarity": 0.9736,
+          "improvement": -0.0036,
+          "result_type": "neutral",
+          "changes": [
+            "상황 → 샹황"
+          ],
+          "applied_errors": [
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4811",
+          "baseline_similarity": 0.9892,
+          "improved_similarity": 0.9785,
+          "improvement": -0.0108,
+          "result_type": "degradation",
+          "changes": [
+            "상황 → 샹황"
+          ],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ],
+            [
+              "자유",
+              "조유"
+            ]
+          ],
+          "text_sample": {
+            "original": "결국 많은 문제를 품고 있는 내 안의 일부에서 해방되기 전에는 결코 문제로부터 자유로워질 수 없다. 문제가 당신을 괴롭히면 \"이걸 어떻게 해야 하지?\"라고 묻지 말고 \"이 일로 내...",
+            "corrupted": "결국 많은 문제를 품고 있는 내 안의 일부에서 해방되기 전에는 결코 문제로부터 조유로워질 수 없다. 문제가 당신을 괴롭히면 \"이걸 어떻게 해야 하지?\"라고 묻지 말고 \"이 일로 내...",
+            "corrected": "결국 많은 문제를 품고 있는 내 안의 일부에서 해방되기 전에는 결코 문제로부터 조유로워질 수 없다. 문제가 당신을 괴롭히면 \"이걸 어떻게 해야 하지?\"라고 묻지 말고 \"이 일로 내..."
+          }
+        },
+        {
+          "img_id": "IMG_4812",
+          "baseline_similarity": 0.9935,
+          "improved_similarity": 0.9935,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4813",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4814",
+          "baseline_similarity": 0.9771,
+          "improved_similarity": 0.9727,
+          "improvement": -0.0044,
+          "result_type": "neutral",
+          "changes": [
+            "상상 → 샹샹"
+          ],
+          "applied_errors": [
+            [
+              "하지만",
+              "하 지만"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4815",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4816",
+          "baseline_similarity": 0.9698,
+          "improved_similarity": 0.9698,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "자신",
+              "저신"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4817",
+          "baseline_similarity": 0.9896,
+          "improved_similarity": 0.9896,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        }
+      ],
+      "performance": {
+        "total_tests": 29,
+        "improvement_count": 0,
+        "degradation_count": 2,
+        "neutral_count": 27,
+        "avg_improvement": -0.0024089091501066236
+      }
+    },
+    "있_잇": {
+      "rule_info": {
+        "pattern": "있",
+        "replacement": "잇",
+        "enhanced": true
+      },
+      "test_cases": [
+        {
+          "img_id": "IMG_4789",
+          "baseline_similarity": 0.9291,
+          "improved_similarity": 0.9291,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "상처",
+              "샹처"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4790",
+          "baseline_similarity": 0.9709,
+          "improved_similarity": 0.9677,
+          "improvement": -0.0032,
+          "result_type": "neutral",
+          "changes": [
+            "있다 → 잇다"
+          ],
+          "applied_errors": [
+            [
+              "마이클",
+              "마이 클"
+            ],
+            [
+              "상처",
+              "상 처"
+            ],
+            [
+              "있습니다",
+              "있 습니다"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4791",
+          "baseline_similarity": 0.9351,
+          "improved_similarity": 0.9351,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "있습니다",
+              "있 습니다"
+            ],
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "상처",
+              "샹처"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4792",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4793",
+          "baseline_similarity": 0.9744,
+          "improved_similarity": 0.9684,
+          "improvement": -0.006,
+          "result_type": "neutral",
+          "changes": [
+            "있어 → 잇어"
+          ],
+          "applied_errors": [
+            [
+              "마이클",
+              "마이 클"
+            ],
+            [
+              "상처",
+              "상 처"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4794",
+          "baseline_similarity": 0.9687,
+          "improved_similarity": 0.9496,
+          "improvement": -0.0191,
+          "result_type": "degradation",
+          "changes": [
+            "있는 → 잇는",
+            "있다 → 잇다"
+          ],
+          "applied_errors": [
+            [
+              "상처",
+              "상 처"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ],
+          "text_sample": {
+            "original": "《상처받지 않는 영혼》은\n우리 안에 내재된 진실을 직접적으로 경험할 수 있는 여정으로\n우리를 안내한다.\n\n우리가 아닌 것을 놓아버릴 때,\n우리는 비로소 우리가 누구인지를 발견할 수...",
+            "corrupted": "《상 처받지 않는 영혼》은\n우리 안에 내재된 진실을 직접적으로 경험할 수 있는 여정으로\n우리를 안내한다.\n\n우리가 아닌 것을 놓아버릴 때,\n우리는 비로소 우리가 누구인지를 발견할 ...",
+            "corrected": "《상 처받지 않는 영혼》은\n우리 안에 내재된 진실을 직접적으로 경험할 수 잇는 여정으로\n우리를 안내한다.\n\n우리가 아닌 것을 놓아버릴 때,\n우리는 비로소 우리가 누구인지를 발견할 ..."
+          }
+        },
+        {
+          "img_id": "IMG_4795",
+          "baseline_similarity": 0.9648,
+          "improved_similarity": 0.9648,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4796",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4797",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4798",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4799",
+          "baseline_similarity": 0.9718,
+          "improved_similarity": 0.9612,
+          "improvement": -0.0106,
+          "result_type": "degradation",
+          "changes": [
+            "있어 → 잇어",
+            "있다 → 잇다"
+          ],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ],
+          "text_sample": {
+            "original": "이 끊임없는 마음의 수다에서 해방되는 방법은 뒤로 물러나서 그것을 객관적으로 바라보는 것이다. 마음의 소리를 그저 그 속에 누군가가 있어서 당신에게 말하는 것처럼 느끼게 만드는 '...",
+            "corrupted": "이 끊임없는 머음의 수다에서 해방되는 방법은 뒤로 물러나서 그것을 객관적으로 바라보는 것이다. 머음의 소리를 그저 그 속에 누군가가 있어서 당신에게 말하는 것처럼 느끼게 만드는 '...",
+            "corrected": "이 끊임없는 머음의 수다에서 해방되는 방법은 뒤로 물러나서 그것을 객관적으로 바라보는 것이다. 머음의 소리를 그저 그 속에 누군가가 잇어서 당신에게 말하는 것처럼 느끼게 만드는 '..."
+          }
+        },
+        {
+          "img_id": "IMG_4800",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4801",
+          "baseline_similarity": 0.9499,
+          "improved_similarity": 0.9389,
+          "improvement": -0.011,
+          "result_type": "degradation",
+          "changes": [
+            "있는 → 잇는",
+            "있다 → 잇다"
+          ],
+          "applied_errors": [
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ],
+          "text_sample": {
+            "original": "마음이 말하면 당신은 그걸 듣는다. 지금 마음속으로 \"안녕\"이라고 말해 보라. 서너 번 반복해 보라. 이번에는 속으로 크게 소리쳐 보라! 마음속에서 \"안녕\"하고 말하는 소리가 들리...",
+            "corrupted": "머음이 말하면 당신은 그걸 듣는다. 지금 머음속으로 \"안녕\"이라고 말해 보라. 서너 번 반복해 보라. 이번에는 속으로 크게 소리쳐 보라! 머음속에서 \"안녕\"하고 말하는 소리가 들리...",
+            "corrected": "머음이 말하면 당신은 그걸 듣는다. 지금 머음속으로 \"안녕\"이라고 말해 보라. 서너 번 반복해 보라. 이번에는 속으로 크게 소리쳐 보라! 머음속에서 \"안녕\"하고 말하는 소리가 들리..."
+          }
+        },
+        {
+          "img_id": "IMG_4802",
+          "baseline_similarity": 0.9694,
+          "improved_similarity": 0.9402,
+          "improvement": -0.0292,
+          "result_type": "degradation",
+          "changes": [
+            "있는 → 잇는",
+            "있다 → 잇다"
+          ],
+          "applied_errors": [
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ],
+          "text_sample": {
+            "original": "힘든 하루를 보내고 나면 자신에 대해 어떤 생각이 드는가?\n그 생각도 적어 보자.\n\n나에 대한 생각이 얼마나 크게 달라질 수 있는지 보자.\n이 관점에서 보면 마음의 소리가 내가 아...",
+            "corrupted": "힘든 하루를 보내고 나면 자 신에 대해 어떤 생각이 드는가?\n그 생각도 적어 보자.\n\n나에 대한 생각이 얼마나 크게 달라질 수 있는지 보자.\n이 관점에서 보면 머음의 소리가 내가 ...",
+            "corrected": "힘든 하루를 보내고 나면 자 신에 대해 어떤 생각이 드는가?\n그 생각도 적어 보자.\n\n나에 대한 생각이 얼마나 크게 달라질 수 잇는지 보자.\n이 관점에서 보면 머음의 소리가 내가 ..."
+          }
+        },
+        {
+          "img_id": "IMG_4803",
+          "baseline_similarity": 0.9698,
+          "improved_similarity": 0.9575,
+          "improvement": -0.0123,
+          "result_type": "degradation",
+          "changes": [
+            "있는 → 잇는",
+            "있다 → 잇다"
+          ],
+          "applied_errors": [
+            [
+              "하지만",
+              "하 지만"
+            ],
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ],
+          "text_sample": {
+            "original": "진정한 성장을 위해서는 마음의 소리가 곧 내가 아니고, 나는 그 소리를 듣는 자임을 깨닫는 것이 가장 중요하다. 이걸 이해하지 못하면 당신은 마음의 소리가 말하는 온갖 것들 중에서...",
+            "corrupted": "진정한 성장을 위해서는 머음의 소리가 곧 내가 아니고, 나는 그 소리를 듣는 자임을 깨닫는 것이 가장 중요하다. 이걸 이해하지 못하면 당신은 머음의 소리가 말하는 온갖 것들 중에서...",
+            "corrected": "진정한 성장을 위해서는 머음의 소리가 곧 내가 아니고, 나는 그 소리를 듣는 자임을 깨닫는 것이 가장 중요하다. 이걸 이해하지 못하면 당신은 머음의 소리가 말하는 온갖 것들 중에서..."
+          }
+        },
+        {
+          "img_id": "IMG_4804",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4805",
+          "baseline_similarity": 0.9663,
+          "improved_similarity": 0.9621,
+          "improvement": -0.0042,
+          "result_type": "neutral",
+          "changes": [
+            "있다 → 잇다"
+          ],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4806",
+          "baseline_similarity": 0.9857,
+          "improved_similarity": 0.9714,
+          "improvement": -0.0143,
+          "result_type": "degradation",
+          "changes": [
+            "있는 → 잇는"
+          ],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ],
+          "text_sample": {
+            "original": "외부 세계에서의 경험과 당신이 내면세계와 맺는 상호작용 사이에는 어떤 차이점이 있는지 잠시 살펴보자. 당신은 이 마음의 놀이터에 자리를 잡고, 생각을 만들어 내고 조종하는 데 매우...",
+            "corrupted": "외부 세계에서의 경험과 당신이 내면세계와 맺는 상호작용 사이에는 어떤 차이점이 있는지 잠시 살펴보자. 당신은 이 머음의 놀이터에 자리를 잡고, 생각을 만들어 내고 조종하는 데 매우...",
+            "corrected": "외부 세계에서의 경험과 당신이 내면세계와 맺는 상호작용 사이에는 어떤 차이점이 잇는지 잠시 살펴보자. 당신은 이 머음의 놀이터에 자리를 잡고, 생각을 만들어 내고 조종하는 데 매우..."
+          }
+        },
+        {
+          "img_id": "IMG_4807",
+          "baseline_similarity": 0.9591,
+          "improved_similarity": 0.9591,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4808",
+          "baseline_similarity": 0.9667,
+          "improved_similarity": 0.9543,
+          "improvement": -0.0125,
+          "result_type": "degradation",
+          "changes": [
+            "있는 → 잇는",
+            "있다 → 잇다"
+          ],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ],
+          "text_sample": {
+            "original": "결국 당신이 경험하는 것은 꾸밈없고 여과되지 않은, 있는 그대로의 진짜 세상이라기보다 당신의 해석에 따른 당신만의 세상이다. 외부 세계의 경험에 대한 이러한 마음의 조작은 있는 그...",
+            "corrupted": "결국 당신이 경험하는 것은 꾸밈없고 여과되지 않은, 있는 그대로의 진짜 세상이라기보다 당신의 해석에 따른 당신만의 세상이다. 외부 세계의 경험에 대한 이러한 머음의 조작은 있는 그...",
+            "corrected": "결국 당신이 경험하는 것은 꾸밈없고 여과되지 않은, 잇는 그대로의 진짜 세상이라기보다 당신의 해석에 따른 당신만의 세상이다. 외부 세계의 경험에 대한 이러한 머음의 조작은 잇는 그..."
+          }
+        },
+        {
+          "img_id": "IMG_4809",
+          "baseline_similarity": 0.9421,
+          "improved_similarity": 0.9421,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4810",
+          "baseline_similarity": 0.9772,
+          "improved_similarity": 0.9487,
+          "improvement": -0.0285,
+          "result_type": "degradation",
+          "changes": [
+            "있는 → 잇는",
+            "있다 → 잇다"
+          ],
+          "applied_errors": [
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ],
+          "text_sample": {
+            "original": "사실 당신은 세상을 지킨다는 핑계 아래 당신 자신을 지키려고 발버둥치고 있다.\n\n개인의 진정한 성장이란, 불안해하면서 보호를 요청하는 자기 안의 어떤 부분을 뛰어넘는 것에 관한 문...",
+            "corrupted": "사실 당신은 세상을 지킨다는 핑계 아래 당신 자 신을 지키려고 발버둥치고 있다.\n\n개인의 진정한 성장이란, 불안해하면서 보호를 요청하는 자기 안의 어떤 부분을 뛰어넘는 것에 관한 ...",
+            "corrected": "사실 당신은 세상을 지킨다는 핑계 아래 당신 자 신을 지키려고 발버둥치고 잇다.\n\n개인의 진정한 성장이란, 불안해하면서 보호를 요청하는 자기 안의 어떤 부분을 뛰어넘는 것에 관한 ..."
+          }
+        },
+        {
+          "img_id": "IMG_4811",
+          "baseline_similarity": 0.9892,
+          "improved_similarity": 0.9785,
+          "improvement": -0.0108,
+          "result_type": "degradation",
+          "changes": [
+            "있는 → 잇는",
+            "있다 → 잇다"
+          ],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ],
+            [
+              "자유",
+              "조유"
+            ]
+          ],
+          "text_sample": {
+            "original": "결국 많은 문제를 품고 있는 내 안의 일부에서 해방되기 전에는 결코 문제로부터 자유로워질 수 없다. 문제가 당신을 괴롭히면 \"이걸 어떻게 해야 하지?\"라고 묻지 말고 \"이 일로 내...",
+            "corrupted": "결국 많은 문제를 품고 있는 내 안의 일부에서 해방되기 전에는 결코 문제로부터 조유로워질 수 없다. 문제가 당신을 괴롭히면 \"이걸 어떻게 해야 하지?\"라고 묻지 말고 \"이 일로 내...",
+            "corrected": "결국 많은 문제를 품고 잇는 내 안의 일부에서 해방되기 전에는 결코 문제로부터 조유로워질 수 없다. 문제가 당신을 괴롭히면 \"이걸 어떻게 해야 하지?\"라고 묻지 말고 \"이 일로 내..."
+          }
+        },
+        {
+          "img_id": "IMG_4812",
+          "baseline_similarity": 0.9935,
+          "improved_similarity": 0.9804,
+          "improvement": -0.0131,
+          "result_type": "degradation",
+          "changes": [
+            "있는 → 잇는",
+            "있다 → 잇다"
+          ],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ],
+          "text_sample": {
+            "original": "대부분의 문제는 겉으로 보이는 것과 다르다. 진정한 문제는 사사건건 말썽을 일으킬 소지가 이미 당신 내부에 있다는 것이다. 문제를 해결하려면 외부 조건을 바꿔야 한다고 생각하는 습...",
+            "corrupted": "대부분의 문제는 겉으로 보이는 것과 다르다. 진정한 문제는 사사건건 말썽을 일으킬 소지가 이미 당신 내부에 있다는 것이다. 문제를 해결하려면 외부 조건을 바꿔야 한다고 생각하는 습...",
+            "corrected": "대부분의 문제는 겉으로 보이는 것과 다르다. 진정한 문제는 사사건건 말썽을 일으킬 소지가 이미 당신 내부에 잇다는 것이다. 문제를 해결하려면 외부 조건을 바꿔야 한다고 생각하는 습..."
+          }
+        },
+        {
+          "img_id": "IMG_4813",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 0.8955,
+          "improvement": -0.1045,
+          "result_type": "degradation",
+          "changes": [
+            "있는 → 잇는"
+          ],
+          "applied_errors": [],
+          "text_sample": {
+            "original": "바깥세상을 바꾸기보다\n당신 안에서 놓아줄 수 있는 무언가가 있는가?",
+            "corrupted": "바깥세상을 바꾸기보다\n당신 안에서 놓아줄 수 있는 무언가가 있는가?",
+            "corrected": "바깥세상을 바꾸기보다\n당신 안에서 놓아줄 수 잇는 무언가가 잇는가?"
+          }
+        },
+        {
+          "img_id": "IMG_4814",
+          "baseline_similarity": 0.9771,
+          "improved_similarity": 0.9611,
+          "improvement": -0.016,
+          "result_type": "degradation",
+          "changes": [
+            "있을 → 잇을",
+            "있다 → 잇다"
+          ],
+          "applied_errors": [
+            [
+              "하지만",
+              "하 지만"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ],
+          "text_sample": {
+            "original": "당신의 내적 존재에는 뚜렷이 구별되는 두 가지 측면이 있다. 첫째는 의식이며, 지켜보는 자이며, 의지의 중심인 당신이다. 둘째는 당신이 지켜보는 그것이다. 문제는 당신이 지켜보는 ...",
+            "corrupted": "당신의 내적 존재에는 뚜렷이 구별되는 두 가지 측면이 있다. 첫째는 의식이며, 지켜보는 자이며, 의지의 중심인 당신이다. 둘째는 당신이 지켜보는 그것이다. 문제는 당신이 지켜보는 ...",
+            "corrected": "당신의 내적 존재에는 뚜렷이 구별되는 두 가지 측면이 잇다. 첫째는 의식이며, 지켜보는 자이며, 의지의 중심인 당신이다. 둘째는 당신이 지켜보는 그것이다. 문제는 당신이 지켜보는 ..."
+          }
+        },
+        {
+          "img_id": "IMG_4815",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4816",
+          "baseline_similarity": 0.9698,
+          "improved_similarity": 0.9395,
+          "improvement": -0.0302,
+          "result_type": "degradation",
+          "changes": [
+            "있다 → 잇다"
+          ],
+          "applied_errors": [
+            [
+              "자신",
+              "저신"
+            ]
+          ],
+          "text_sample": {
+            "original": "평화와 만족을 찾는 유일한 길은\n자신에 대한 생각을 멈추는 것임을 깨달아야만\n비로소 내적으로 성장할 수 있다.",
+            "corrupted": "평화와 만족을 찾는 유일한 길은\n저신에 대한 생각을 멈추는 것임을 깨달아야만\n비로소 내적으로 성장할 수 있다.",
+            "corrected": "평화와 만족을 찾는 유일한 길은\n저신에 대한 생각을 멈추는 것임을 깨달아야만\n비로소 내적으로 성장할 수 잇다."
+          }
+        },
+        {
+          "img_id": "IMG_4817",
+          "baseline_similarity": 0.9896,
+          "improved_similarity": 0.975,
+          "improvement": -0.0146,
+          "result_type": "degradation",
+          "changes": [
+            "있는 → 잇는",
+            "있다 → 잇다"
+          ],
+          "applied_errors": [
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ],
+          "text_sample": {
+            "original": "분노나 질투는 내가 아니다. 나는 그런 감정을 알아차리는 자이다. 일단 그런 의식의 자리에 앉게 되면 마음의 혼란을 없애 버릴 수 있다. 지켜보는 것으로써 그 작업을 시작하자. 당...",
+            "corrupted": "분노나 질투는 내가 아니다. 나는 그런 감정을 알아차리는 자이다. 일단 그런 의식의 자리에 앉게 되면 머음의 혼란을 없애 버릴 수 있다. 지켜보는 것으로써 그 작업을 시작하자. 당...",
+            "corrected": "분노나 질투는 내가 아니다. 나는 그런 감정을 알아차리는 자이다. 일단 그런 의식의 자리에 앉게 되면 머음의 혼란을 없애 버릴 수 잇다. 지켜보는 것으로써 그 작업을 시작하자. 당..."
+          }
+        }
+      ],
+      "performance": {
+        "total_tests": 29,
+        "improvement_count": 0,
+        "degradation_count": 14,
+        "neutral_count": 15,
+        "avg_improvement": -0.011726552763820489
+      }
+    },
+    "하_호": {
+      "rule_info": {
+        "pattern": "하",
+        "replacement": "호",
+        "enhanced": true
+      },
+      "test_cases": [
+        {
+          "img_id": "IMG_4789",
+          "baseline_similarity": 0.9291,
+          "improved_similarity": 0.9291,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "상처",
+              "샹처"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4790",
+          "baseline_similarity": 0.9709,
+          "improved_similarity": 0.9614,
+          "improvement": -0.0095,
+          "result_type": "neutral",
+          "changes": [
+            "하는 → 호는",
+            "하여 → 호여",
+            "하게 → 호게"
+          ],
+          "applied_errors": [
+            [
+              "마이클",
+              "마이 클"
+            ],
+            [
+              "상처",
+              "상 처"
+            ],
+            [
+              "있습니다",
+              "있 습니다"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4791",
+          "baseline_similarity": 0.9351,
+          "improved_similarity": 0.8895,
+          "improvement": -0.0456,
+          "result_type": "degradation",
+          "changes": [
+            "하고 → 호고",
+            "하면 → 호면"
+          ],
+          "applied_errors": [
+            [
+              "있습니다",
+              "있 습니다"
+            ],
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "상처",
+              "샹처"
+            ]
+          ],
+          "text_sample": {
+            "original": "일러두기 :\n《명상 저널》은 저자가 《상처받지 않는 영혼》에서 직접 발췌한 핵심 문장과\n이어지는 길잡이 글을 통해 독자가 저자의 질문에 답하면서\n자신의 내면을 관찰하고 상처를 발견...",
+            "corrupted": "일러두기 :\n《명상 저널》은 저자가 《샹처받지 않는 영혼》에서 직접 발췌한 핵심 문장과\n이어지는 길잡이 글을 통해 독자가 저자의 질문에 답하면서\n자 신의 내면을 관찰하고 샹처를 발...",
+            "corrected": "일러두기 :\n《명상 저널》은 저자가 《샹처받지 않는 영혼》에서 직접 발췌한 핵심 문장과\n이어지는 길잡이 글을 통해 독자가 저자의 질문에 답호면서\n자 신의 내면을 관찰호고 샹처를 발..."
+          }
+        },
+        {
+          "img_id": "IMG_4792",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4793",
+          "baseline_similarity": 0.9744,
+          "improved_similarity": 0.9563,
+          "improvement": -0.0181,
+          "result_type": "degradation",
+          "changes": [
+            "하고 → 호고",
+            "하는 → 호는"
+          ],
+          "applied_errors": [
+            [
+              "마이클",
+              "마이 클"
+            ],
+            [
+              "상처",
+              "상 처"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ],
+          "text_sample": {
+            "original": "서문\n\n가장 진실한 자아를 만나기 위한 여정\n\n\"참된 성장을 위해서는 마음의 소리가 곧 내가 아니고,\n나는 그 소리를 듣는 자임을 깨닫는 것이 가장 중요하다.\"\n— 마이클 A. 싱...",
+            "corrupted": "서문\n\n가장 진실한 자아를 만나기 위한 여정\n\n\"참된 성장을 위해서는 머음의 소리가 곧 내가 아니고,\n나는 그 소리를 듣는 자임을 깨닫는 것이 가장 중요하다.\"\n— 마이 클 A. ...",
+            "corrected": "서문\n\n가장 진실한 자아를 만나기 위한 여정\n\n\"참된 성장을 위해서는 머음의 소리가 곧 내가 아니고,\n나는 그 소리를 듣는 자임을 깨닫는 것이 가장 중요하다.\"\n— 마이 클 A. ..."
+          }
+        },
+        {
+          "img_id": "IMG_4794",
+          "baseline_similarity": 0.9687,
+          "improved_similarity": 0.9591,
+          "improvement": -0.0095,
+          "result_type": "neutral",
+          "changes": [
+            "하는 → 호는"
+          ],
+          "applied_errors": [
+            [
+              "상처",
+              "상 처"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4795",
+          "baseline_similarity": 0.9648,
+          "improved_similarity": 0.9648,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4796",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4797",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4798",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4799",
+          "baseline_similarity": 0.9718,
+          "improved_similarity": 0.9573,
+          "improvement": -0.0145,
+          "result_type": "degradation",
+          "changes": [
+            "하는 → 호는",
+            "하지 → 호지"
+          ],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ],
+          "text_sample": {
+            "original": "이 끊임없는 마음의 수다에서 해방되는 방법은 뒤로 물러나서 그것을 객관적으로 바라보는 것이다. 마음의 소리를 그저 그 속에 누군가가 있어서 당신에게 말하는 것처럼 느끼게 만드는 '...",
+            "corrupted": "이 끊임없는 머음의 수다에서 해방되는 방법은 뒤로 물러나서 그것을 객관적으로 바라보는 것이다. 머음의 소리를 그저 그 속에 누군가가 있어서 당신에게 말하는 것처럼 느끼게 만드는 '...",
+            "corrected": "이 끊임없는 머음의 수다에서 해방되는 방법은 뒤로 물러나서 그것을 객관적으로 바라보는 것이다. 머음의 소리를 그저 그 속에 누군가가 있어서 당신에게 말호는 것처럼 느끼게 만드는 '..."
+          }
+        },
+        {
+          "img_id": "IMG_4800",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4801",
+          "baseline_similarity": 0.9499,
+          "improved_similarity": 0.9158,
+          "improvement": -0.0341,
+          "result_type": "degradation",
+          "changes": [
+            "하고 → 호고",
+            "하는 → 호는",
+            "하면 → 호면"
+          ],
+          "applied_errors": [
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ],
+          "text_sample": {
+            "original": "마음이 말하면 당신은 그걸 듣는다. 지금 마음속으로 \"안녕\"이라고 말해 보라. 서너 번 반복해 보라. 이번에는 속으로 크게 소리쳐 보라! 마음속에서 \"안녕\"하고 말하는 소리가 들리...",
+            "corrupted": "머음이 말하면 당신은 그걸 듣는다. 지금 머음속으로 \"안녕\"이라고 말해 보라. 서너 번 반복해 보라. 이번에는 속으로 크게 소리쳐 보라! 머음속에서 \"안녕\"하고 말하는 소리가 들리...",
+            "corrected": "머음이 말호면 당신은 그걸 듣는다. 지금 머음속으로 \"안녕\"이라고 말해 보라. 서너 번 반복해 보라. 이번에는 속으로 크게 소리쳐 보라! 머음속에서 \"안녕\"호고 말호는 소리가 들리..."
+          }
+        },
+        {
+          "img_id": "IMG_4802",
+          "baseline_similarity": 0.9694,
+          "improved_similarity": 0.9694,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4803",
+          "baseline_similarity": 0.9698,
+          "improved_similarity": 0.9282,
+          "improvement": -0.0416,
+          "result_type": "degradation",
+          "changes": [
+            "하는 → 호는",
+            "하지 → 호지",
+            "하면 → 호면"
+          ],
+          "applied_errors": [
+            [
+              "하지만",
+              "하 지만"
+            ],
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ],
+          "text_sample": {
+            "original": "진정한 성장을 위해서는 마음의 소리가 곧 내가 아니고, 나는 그 소리를 듣는 자임을 깨닫는 것이 가장 중요하다. 이걸 이해하지 못하면 당신은 마음의 소리가 말하는 온갖 것들 중에서...",
+            "corrupted": "진정한 성장을 위해서는 머음의 소리가 곧 내가 아니고, 나는 그 소리를 듣는 자임을 깨닫는 것이 가장 중요하다. 이걸 이해하지 못하면 당신은 머음의 소리가 말하는 온갖 것들 중에서...",
+            "corrected": "진정한 성장을 위해서는 머음의 소리가 곧 내가 아니고, 나는 그 소리를 듣는 자임을 깨닫는 것이 가장 중요하다. 이걸 이해호지 못호면 당신은 머음의 소리가 말호는 온갖 것들 중에서..."
+          }
+        },
+        {
+          "img_id": "IMG_4804",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4805",
+          "baseline_similarity": 0.9663,
+          "improved_similarity": 0.938,
+          "improvement": -0.0283,
+          "result_type": "degradation",
+          "changes": [
+            "하고 → 호고",
+            "하는 → 호는",
+            "하지 → 호지",
+            "하게 → 호게"
+          ],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ],
+          "text_sample": {
+            "original": "객관적으로 바라보면, 내면에 불안과 두려움 혹은 욕망의 에너지가 쌓일수록 마음이 극도로 심하게 떠들어 대는 걸 알게 될 것이다. 누군가에게 화가 나서 야단치고 싶을 때 이것을 쉽게...",
+            "corrupted": "객관적으로 바라보면, 내면에 불안과 두려움 혹은 욕망의 에너지가 쌓일수록 머음이 극도로 심하게 떠들어 대는 걸 알게 될 것이다. 누군가에게 화가 나서 야단치고 싶을 때 이것을 쉽게...",
+            "corrected": "객관적으로 바라보면, 내면에 불안과 두려움 혹은 욕망의 에너지가 쌓일수록 머음이 극도로 심호게 떠들어 대는 걸 알게 될 것이다. 누군가에게 화가 나서 야단치고 싶을 때 이것을 쉽게..."
+          }
+        },
+        {
+          "img_id": "IMG_4806",
+          "baseline_similarity": 0.9857,
+          "improved_similarity": 0.9714,
+          "improvement": -0.0143,
+          "result_type": "degradation",
+          "changes": [
+            "하는 → 호는"
+          ],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ],
+          "text_sample": {
+            "original": "외부 세계에서의 경험과 당신이 내면세계와 맺는 상호작용 사이에는 어떤 차이점이 있는지 잠시 살펴보자. 당신은 이 마음의 놀이터에 자리를 잡고, 생각을 만들어 내고 조종하는 데 매우...",
+            "corrupted": "외부 세계에서의 경험과 당신이 내면세계와 맺는 상호작용 사이에는 어떤 차이점이 있는지 잠시 살펴보자. 당신은 이 머음의 놀이터에 자리를 잡고, 생각을 만들어 내고 조종하는 데 매우...",
+            "corrected": "외부 세계에서의 경험과 당신이 내면세계와 맺는 상호작용 사이에는 어떤 차이점이 있는지 잠시 살펴보자. 당신은 이 머음의 놀이터에 자리를 잡고, 생각을 만들어 내고 조종호는 데 매우..."
+          }
+        },
+        {
+          "img_id": "IMG_4807",
+          "baseline_similarity": 0.9591,
+          "improved_similarity": 0.9591,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4808",
+          "baseline_similarity": 0.9667,
+          "improved_similarity": 0.9501,
+          "improvement": -0.0166,
+          "result_type": "degradation",
+          "changes": [
+            "하고 → 호고",
+            "하는 → 호는"
+          ],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ],
+          "text_sample": {
+            "original": "결국 당신이 경험하는 것은 꾸밈없고 여과되지 않은, 있는 그대로의 진짜 세상이라기보다 당신의 해석에 따른 당신만의 세상이다. 외부 세계의 경험에 대한 이러한 마음의 조작은 있는 그...",
+            "corrupted": "결국 당신이 경험하는 것은 꾸밈없고 여과되지 않은, 있는 그대로의 진짜 세상이라기보다 당신의 해석에 따른 당신만의 세상이다. 외부 세계의 경험에 대한 이러한 머음의 조작은 있는 그...",
+            "corrected": "결국 당신이 경험호는 것은 꾸밈없고 여과되지 않은, 있는 그대로의 진짜 세상이라기보다 당신의 해석에 따른 당신만의 세상이다. 외부 세계의 경험에 대한 이러한 머음의 조작은 있는 그..."
+          }
+        },
+        {
+          "img_id": "IMG_4809",
+          "baseline_similarity": 0.9421,
+          "improved_similarity": 0.9255,
+          "improvement": -0.0165,
+          "result_type": "degradation",
+          "changes": [
+            "하는 → 호는"
+          ],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ],
+          "text_sample": {
+            "original": "당신이 마음에게 그 임무를 맡겼기 때문에 마음이 그토록 끊임없이 떠들어 댄다는 것을 이제 당신도 깨닫게 될 것이다. 당신은 이런 마음의 수다를 일종의 보호 장치이자 방어 수단으로 ...",
+            "corrupted": "당신이 머음에게 그 임무를 맡겼기 때문에 머음이 그토록 끊임없이 떠들어 댄다는 것을 이제 당신도 깨닫게 될 것이다. 당신은 이런 머음의 수다를 일종의 보호 장치이자 방어 수단으로 ...",
+            "corrected": "당신이 머음에게 그 임무를 맡겼기 때문에 머음이 그토록 끊임없이 떠들어 댄다는 것을 이제 당신도 깨닫게 될 것이다. 당신은 이런 머음의 수다를 일종의 보호 장치이자 방어 수단으로 ..."
+          }
+        },
+        {
+          "img_id": "IMG_4810",
+          "baseline_similarity": 0.9772,
+          "improved_similarity": 0.9487,
+          "improvement": -0.0285,
+          "result_type": "degradation",
+          "changes": [
+            "하고 → 호고",
+            "하는 → 호는",
+            "하면 → 호면"
+          ],
+          "applied_errors": [
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ],
+          "text_sample": {
+            "original": "사실 당신은 세상을 지킨다는 핑계 아래 당신 자신을 지키려고 발버둥치고 있다.\n\n개인의 진정한 성장이란, 불안해하면서 보호를 요청하는 자기 안의 어떤 부분을 뛰어넘는 것에 관한 문...",
+            "corrupted": "사실 당신은 세상을 지킨다는 핑계 아래 당신 자 신을 지키려고 발버둥치고 있다.\n\n개인의 진정한 성장이란, 불안해하면서 보호를 요청하는 자기 안의 어떤 부분을 뛰어넘는 것에 관한 ...",
+            "corrected": "사실 당신은 세상을 지킨다는 핑계 아래 당신 자 신을 지키려고 발버둥치고 있다.\n\n개인의 진정한 성장이란, 불안해호면서 보호를 요청호는 자기 안의 어떤 부분을 뛰어넘는 것에 관한 ..."
+          }
+        },
+        {
+          "img_id": "IMG_4811",
+          "baseline_similarity": 0.9892,
+          "improved_similarity": 0.9731,
+          "improvement": -0.0161,
+          "result_type": "degradation",
+          "changes": [
+            "하지 → 호지"
+          ],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ],
+            [
+              "자유",
+              "조유"
+            ]
+          ],
+          "text_sample": {
+            "original": "결국 많은 문제를 품고 있는 내 안의 일부에서 해방되기 전에는 결코 문제로부터 자유로워질 수 없다. 문제가 당신을 괴롭히면 \"이걸 어떻게 해야 하지?\"라고 묻지 말고 \"이 일로 내...",
+            "corrupted": "결국 많은 문제를 품고 있는 내 안의 일부에서 해방되기 전에는 결코 문제로부터 조유로워질 수 없다. 문제가 당신을 괴롭히면 \"이걸 어떻게 해야 하지?\"라고 묻지 말고 \"이 일로 내...",
+            "corrected": "결국 많은 문제를 품고 있는 내 안의 일부에서 해방되기 전에는 결코 문제로부터 조유로워질 수 없다. 문제가 당신을 괴롭히면 \"이걸 어떻게 해야 호지?\"라고 묻지 말고 \"이 일로 내..."
+          }
+        },
+        {
+          "img_id": "IMG_4812",
+          "baseline_similarity": 0.9935,
+          "improved_similarity": 0.9869,
+          "improvement": -0.0065,
+          "result_type": "neutral",
+          "changes": [
+            "하는 → 호는"
+          ],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4813",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4814",
+          "baseline_similarity": 0.9771,
+          "improved_similarity": 0.9707,
+          "improvement": -0.0064,
+          "result_type": "neutral",
+          "changes": [
+            "하고 → 호고"
+          ],
+          "applied_errors": [
+            [
+              "하지만",
+              "하 지만"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4815",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4816",
+          "baseline_similarity": 0.9698,
+          "improved_similarity": 0.9698,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "자신",
+              "저신"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4817",
+          "baseline_similarity": 0.9896,
+          "improved_similarity": 0.975,
+          "improvement": -0.0146,
+          "result_type": "degradation",
+          "changes": [
+            "하고 → 호고",
+            "하는 → 호는"
+          ],
+          "applied_errors": [
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ],
+          "text_sample": {
+            "original": "분노나 질투는 내가 아니다. 나는 그런 감정을 알아차리는 자이다. 일단 그런 의식의 자리에 앉게 되면 마음의 혼란을 없애 버릴 수 있다. 지켜보는 것으로써 그 작업을 시작하자. 당...",
+            "corrupted": "분노나 질투는 내가 아니다. 나는 그런 감정을 알아차리는 자이다. 일단 그런 의식의 자리에 앉게 되면 머음의 혼란을 없애 버릴 수 있다. 지켜보는 것으로써 그 작업을 시작하자. 당...",
+            "corrected": "분노나 질투는 내가 아니다. 나는 그런 감정을 알아차리는 자이다. 일단 그런 의식의 자리에 앉게 되면 머음의 혼란을 없애 버릴 수 있다. 지켜보는 것으로써 그 작업을 시작하자. 당..."
+          }
+        }
+      ],
+      "performance": {
+        "total_tests": 29,
+        "improvement_count": 0,
+        "degradation_count": 12,
+        "neutral_count": 17,
+        "avg_improvement": -0.011063709702090458
+      }
+    },
+    "것_걷": {
+      "rule_info": {
+        "pattern": "것",
+        "replacement": "걷",
+        "enhanced": true
+      },
+      "test_cases": [
+        {
+          "img_id": "IMG_4789",
+          "baseline_similarity": 0.9291,
+          "improved_similarity": 0.9291,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "상처",
+              "샹처"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4790",
+          "baseline_similarity": 0.9709,
+          "improved_similarity": 0.9709,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마이클",
+              "마이 클"
+            ],
+            [
+              "상처",
+              "상 처"
+            ],
+            [
+              "있습니다",
+              "있 습니다"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4791",
+          "baseline_similarity": 0.9351,
+          "improved_similarity": 0.9351,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "있습니다",
+              "있 습니다"
+            ],
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "상처",
+              "샹처"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4792",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4793",
+          "baseline_similarity": 0.9744,
+          "improved_similarity": 0.9684,
+          "improvement": -0.006,
+          "result_type": "neutral",
+          "changes": [
+            "것이 → 걷이"
+          ],
+          "applied_errors": [
+            [
+              "마이클",
+              "마이 클"
+            ],
+            [
+              "상처",
+              "상 처"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4794",
+          "baseline_similarity": 0.9687,
+          "improved_similarity": 0.9591,
+          "improvement": -0.0095,
+          "result_type": "neutral",
+          "changes": [
+            "것을 → 걷을"
+          ],
+          "applied_errors": [
+            [
+              "상처",
+              "상 처"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4795",
+          "baseline_similarity": 0.9648,
+          "improved_similarity": 0.9297,
+          "improvement": -0.0352,
+          "result_type": "degradation",
+          "changes": [
+            "것이 → 걷이"
+          ],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ],
+          "text_sample": {
+            "original": "마음의 소리를 지켜보는 자가 누구인지 알게 되면\n창조의 가장 위대한 비밀을 알게 될 것이다.",
+            "corrupted": "머음의 소리를 지켜보는 자가 누구인지 알게 되면\n창조의 가장 위대한 비밀을 알게 될 것이다.",
+            "corrected": "머음의 소리를 지켜보는 자가 누구인지 알게 되면\n창조의 가장 위대한 비밀을 알게 될 걷이다."
+          }
+        },
+        {
+          "img_id": "IMG_4796",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4797",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4798",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4799",
+          "baseline_similarity": 0.9718,
+          "improved_similarity": 0.9525,
+          "improvement": -0.0193,
+          "result_type": "degradation",
+          "changes": [
+            "것이 → 걷이",
+            "것을 → 걷을"
+          ],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ],
+          "text_sample": {
+            "original": "이 끊임없는 마음의 수다에서 해방되는 방법은 뒤로 물러나서 그것을 객관적으로 바라보는 것이다. 마음의 소리를 그저 그 속에 누군가가 있어서 당신에게 말하는 것처럼 느끼게 만드는 '...",
+            "corrupted": "이 끊임없는 머음의 수다에서 해방되는 방법은 뒤로 물러나서 그것을 객관적으로 바라보는 것이다. 머음의 소리를 그저 그 속에 누군가가 있어서 당신에게 말하는 것처럼 느끼게 만드는 '...",
+            "corrected": "이 끊임없는 머음의 수다에서 해방되는 방법은 뒤로 물러나서 그걷을 객관적으로 바라보는 걷이다. 머음의 소리를 그저 그 속에 누군가가 있어서 당신에게 말하는 것처럼 느끼게 만드는 '..."
+          }
+        },
+        {
+          "img_id": "IMG_4800",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4801",
+          "baseline_similarity": 0.9499,
+          "improved_similarity": 0.9308,
+          "improvement": -0.0191,
+          "result_type": "degradation",
+          "changes": [
+            "것이 → 걷이"
+          ],
+          "applied_errors": [
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ],
+          "text_sample": {
+            "original": "마음이 말하면 당신은 그걸 듣는다. 지금 마음속으로 \"안녕\"이라고 말해 보라. 서너 번 반복해 보라. 이번에는 속으로 크게 소리쳐 보라! 마음속에서 \"안녕\"하고 말하는 소리가 들리...",
+            "corrupted": "머음이 말하면 당신은 그걸 듣는다. 지금 머음속으로 \"안녕\"이라고 말해 보라. 서너 번 반복해 보라. 이번에는 속으로 크게 소리쳐 보라! 머음속에서 \"안녕\"하고 말하는 소리가 들리...",
+            "corrected": "머음이 말하면 당신은 그걸 듣는다. 지금 머음속으로 \"안녕\"이라고 말해 보라. 서너 번 반복해 보라. 이번에는 속으로 크게 소리쳐 보라! 머음속에서 \"안녕\"하고 말하는 소리가 들리..."
+          }
+        },
+        {
+          "img_id": "IMG_4802",
+          "baseline_similarity": 0.9694,
+          "improved_similarity": 0.9694,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4803",
+          "baseline_similarity": 0.9698,
+          "improved_similarity": 0.9575,
+          "improvement": -0.0123,
+          "result_type": "degradation",
+          "changes": [
+            "것이 → 걷이",
+            "것도 → 걷도"
+          ],
+          "applied_errors": [
+            [
+              "하지만",
+              "하 지만"
+            ],
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ],
+          "text_sample": {
+            "original": "진정한 성장을 위해서는 마음의 소리가 곧 내가 아니고, 나는 그 소리를 듣는 자임을 깨닫는 것이 가장 중요하다. 이걸 이해하지 못하면 당신은 마음의 소리가 말하는 온갖 것들 중에서...",
+            "corrupted": "진정한 성장을 위해서는 머음의 소리가 곧 내가 아니고, 나는 그 소리를 듣는 자임을 깨닫는 것이 가장 중요하다. 이걸 이해하지 못하면 당신은 머음의 소리가 말하는 온갖 것들 중에서...",
+            "corrected": "진정한 성장을 위해서는 머음의 소리가 곧 내가 아니고, 나는 그 소리를 듣는 자임을 깨닫는 걷이 가장 중요하다. 이걸 이해하지 못하면 당신은 머음의 소리가 말하는 온갖 것들 중에서..."
+          }
+        },
+        {
+          "img_id": "IMG_4804",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4805",
+          "baseline_similarity": 0.9663,
+          "improved_similarity": 0.9495,
+          "improvement": -0.0168,
+          "result_type": "degradation",
+          "changes": [
+            "것이 → 걷이",
+            "것을 → 걷을"
+          ],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ],
+          "text_sample": {
+            "original": "객관적으로 바라보면, 내면에 불안과 두려움 혹은 욕망의 에너지가 쌓일수록 마음이 극도로 심하게 떠들어 대는 걸 알게 될 것이다. 누군가에게 화가 나서 야단치고 싶을 때 이것을 쉽게...",
+            "corrupted": "객관적으로 바라보면, 내면에 불안과 두려움 혹은 욕망의 에너지가 쌓일수록 머음이 극도로 심하게 떠들어 대는 걸 알게 될 것이다. 누군가에게 화가 나서 야단치고 싶을 때 이것을 쉽게...",
+            "corrected": "객관적으로 바라보면, 내면에 불안과 두려움 혹은 욕망의 에너지가 쌓일수록 머음이 극도로 심하게 떠들어 대는 걸 알게 될 걷이다. 누군가에게 화가 나서 야단치고 싶을 때 이걷을 쉽게..."
+          }
+        },
+        {
+          "img_id": "IMG_4806",
+          "baseline_similarity": 0.9857,
+          "improved_similarity": 0.9714,
+          "improvement": -0.0143,
+          "result_type": "degradation",
+          "changes": [
+            "것을 → 걷을"
+          ],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ],
+          "text_sample": {
+            "original": "외부 세계에서의 경험과 당신이 내면세계와 맺는 상호작용 사이에는 어떤 차이점이 있는지 잠시 살펴보자. 당신은 이 마음의 놀이터에 자리를 잡고, 생각을 만들어 내고 조종하는 데 매우...",
+            "corrupted": "외부 세계에서의 경험과 당신이 내면세계와 맺는 상호작용 사이에는 어떤 차이점이 있는지 잠시 살펴보자. 당신은 이 머음의 놀이터에 자리를 잡고, 생각을 만들어 내고 조종하는 데 매우...",
+            "corrected": "외부 세계에서의 경험과 당신이 내면세계와 맺는 상호작용 사이에는 어떤 차이점이 있는지 잠시 살펴보자. 당신은 이 머음의 놀이터에 자리를 잡고, 생각을 만들어 내고 조종하는 데 매우..."
+          }
+        },
+        {
+          "img_id": "IMG_4807",
+          "baseline_similarity": 0.9591,
+          "improved_similarity": 0.9182,
+          "improvement": -0.0409,
+          "result_type": "degradation",
+          "changes": [
+            "것을 → 걷을"
+          ],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ],
+          "text_sample": {
+            "original": "이제 외부에 보이는 것을 대상으로\n마음이 어떤 생각을 만들어 내는지\n적어 보자.",
+            "corrupted": "이제 외부에 보이는 것을 대상으로\n머음이 어떤 생각을 만들어 내는지\n적어 보자.",
+            "corrected": "이제 외부에 보이는 걷을 대상으로\n머음이 어떤 생각을 만들어 내는지\n적어 보자."
+          }
+        },
+        {
+          "img_id": "IMG_4808",
+          "baseline_similarity": 0.9667,
+          "improved_similarity": 0.9667,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4809",
+          "baseline_similarity": 0.9421,
+          "improved_similarity": 0.9255,
+          "improvement": -0.0165,
+          "result_type": "degradation",
+          "changes": [
+            "것이 → 걷이",
+            "것을 → 걷을"
+          ],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ],
+          "text_sample": {
+            "original": "당신이 마음에게 그 임무를 맡겼기 때문에 마음이 그토록 끊임없이 떠들어 댄다는 것을 이제 당신도 깨닫게 될 것이다. 당신은 이런 마음의 수다를 일종의 보호 장치이자 방어 수단으로 ...",
+            "corrupted": "당신이 머음에게 그 임무를 맡겼기 때문에 머음이 그토록 끊임없이 떠들어 댄다는 것을 이제 당신도 깨닫게 될 것이다. 당신은 이런 머음의 수다를 일종의 보호 장치이자 방어 수단으로 ...",
+            "corrected": "당신이 머음에게 그 임무를 맡겼기 때문에 머음이 그토록 끊임없이 떠들어 댄다는 걷을 이제 당신도 깨닫게 될 걷이다. 당신은 이런 머음의 수다를 일종의 보호 장치이자 방어 수단으로 ..."
+          }
+        },
+        {
+          "img_id": "IMG_4810",
+          "baseline_similarity": 0.9772,
+          "improved_similarity": 0.97,
+          "improvement": -0.0071,
+          "result_type": "neutral",
+          "changes": [
+            "것이 → 걷이"
+          ],
+          "applied_errors": [
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4811",
+          "baseline_similarity": 0.9892,
+          "improved_similarity": 0.9892,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ],
+            [
+              "자유",
+              "조유"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4812",
+          "baseline_similarity": 0.9935,
+          "improved_similarity": 0.9869,
+          "improvement": -0.0065,
+          "result_type": "neutral",
+          "changes": [
+            "것이 → 걷이"
+          ],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4813",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4814",
+          "baseline_similarity": 0.9771,
+          "improved_similarity": 0.9424,
+          "improvement": -0.0347,
+          "result_type": "degradation",
+          "changes": [
+            "것이 → 걷이"
+          ],
+          "applied_errors": [
+            [
+              "하지만",
+              "하 지만"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ],
+          "text_sample": {
+            "original": "당신의 내적 존재에는 뚜렷이 구별되는 두 가지 측면이 있다. 첫째는 의식이며, 지켜보는 자이며, 의지의 중심인 당신이다. 둘째는 당신이 지켜보는 그것이다. 문제는 당신이 지켜보는 ...",
+            "corrupted": "당신의 내적 존재에는 뚜렷이 구별되는 두 가지 측면이 있다. 첫째는 의식이며, 지켜보는 자이며, 의지의 중심인 당신이다. 둘째는 당신이 지켜보는 그것이다. 문제는 당신이 지켜보는 ...",
+            "corrected": "당신의 내적 존재에는 뚜렷이 구별되는 두 가지 측면이 있다. 첫째는 의식이며, 지켜보는 자이며, 의지의 중심인 당신이다. 둘째는 당신이 지켜보는 그걷이다. 문제는 당신이 지켜보는 ..."
+          }
+        },
+        {
+          "img_id": "IMG_4815",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4816",
+          "baseline_similarity": 0.9698,
+          "improved_similarity": 0.9698,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "자신",
+              "저신"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4817",
+          "baseline_similarity": 0.9896,
+          "improved_similarity": 0.9848,
+          "improvement": -0.0049,
+          "result_type": "neutral",
+          "changes": [
+            "것이 → 걷이"
+          ],
+          "applied_errors": [
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        }
+      ],
+      "performance": {
+        "total_tests": 29,
+        "improvement_count": 0,
+        "degradation_count": 9,
+        "neutral_count": 20,
+        "avg_improvement": -0.008385770282791105
+      }
+    },
+    "자_저": {
+      "rule_info": {
+        "pattern": "자",
+        "replacement": "저",
+        "enhanced": true
+      },
+      "test_cases": [
+        {
+          "img_id": "IMG_4789",
+          "baseline_similarity": 0.9291,
+          "improved_similarity": 0.9291,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "상처",
+              "샹처"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4790",
+          "baseline_similarity": 0.9709,
+          "improved_similarity": 0.9645,
+          "improvement": -0.0063,
+          "result_type": "neutral",
+          "changes": [
+            "자아 → 저아",
+            "자유 → 저유"
+          ],
+          "applied_errors": [
+            [
+              "마이클",
+              "마이 클"
+            ],
+            [
+              "상처",
+              "상 처"
+            ],
+            [
+              "있습니다",
+              "있 습니다"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4791",
+          "baseline_similarity": 0.9351,
+          "improved_similarity": 0.9351,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "있습니다",
+              "있 습니다"
+            ],
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "상처",
+              "샹처"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4792",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4793",
+          "baseline_similarity": 0.9744,
+          "improved_similarity": 0.9563,
+          "improvement": -0.0181,
+          "result_type": "degradation",
+          "changes": [
+            "자아 → 저아",
+            "자유 → 저유"
+          ],
+          "applied_errors": [
+            [
+              "마이클",
+              "마이 클"
+            ],
+            [
+              "상처",
+              "상 처"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ],
+          "text_sample": {
+            "original": "서문\n\n가장 진실한 자아를 만나기 위한 여정\n\n\"참된 성장을 위해서는 마음의 소리가 곧 내가 아니고,\n나는 그 소리를 듣는 자임을 깨닫는 것이 가장 중요하다.\"\n— 마이클 A. 싱...",
+            "corrupted": "서문\n\n가장 진실한 자아를 만나기 위한 여정\n\n\"참된 성장을 위해서는 머음의 소리가 곧 내가 아니고,\n나는 그 소리를 듣는 자임을 깨닫는 것이 가장 중요하다.\"\n— 마이 클 A. ...",
+            "corrected": "서문\n\n가장 진실한 저아를 만나기 위한 여정\n\n\"참된 성장을 위해서는 머음의 소리가 곧 내가 아니고,\n나는 그 소리를 듣는 자임을 깨닫는 것이 가장 중요하다.\"\n— 마이 클 A. ..."
+          }
+        },
+        {
+          "img_id": "IMG_4794",
+          "baseline_similarity": 0.9687,
+          "improved_similarity": 0.9687,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "상처",
+              "상 처"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4795",
+          "baseline_similarity": 0.9648,
+          "improved_similarity": 0.9648,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4796",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4797",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4798",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4799",
+          "baseline_similarity": 0.9718,
+          "improved_similarity": 0.9718,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4800",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4801",
+          "baseline_similarity": 0.9499,
+          "improved_similarity": 0.9499,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4802",
+          "baseline_similarity": 0.9694,
+          "improved_similarity": 0.9694,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4803",
+          "baseline_similarity": 0.9698,
+          "improved_similarity": 0.9698,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "하지만",
+              "하 지만"
+            ],
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4804",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4805",
+          "baseline_similarity": 0.9663,
+          "improved_similarity": 0.9663,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4806",
+          "baseline_similarity": 0.9857,
+          "improved_similarity": 0.9714,
+          "improvement": -0.0143,
+          "result_type": "degradation",
+          "changes": [
+            "자리 → 저리"
+          ],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ],
+          "text_sample": {
+            "original": "외부 세계에서의 경험과 당신이 내면세계와 맺는 상호작용 사이에는 어떤 차이점이 있는지 잠시 살펴보자. 당신은 이 마음의 놀이터에 자리를 잡고, 생각을 만들어 내고 조종하는 데 매우...",
+            "corrupted": "외부 세계에서의 경험과 당신이 내면세계와 맺는 상호작용 사이에는 어떤 차이점이 있는지 잠시 살펴보자. 당신은 이 머음의 놀이터에 자리를 잡고, 생각을 만들어 내고 조종하는 데 매우...",
+            "corrected": "외부 세계에서의 경험과 당신이 내면세계와 맺는 상호작용 사이에는 어떤 차이점이 있는지 잠시 살펴보자. 당신은 이 머음의 놀이터에 저리를 잡고, 생각을 만들어 내고 조종하는 데 매우..."
+          }
+        },
+        {
+          "img_id": "IMG_4807",
+          "baseline_similarity": 0.9591,
+          "improved_similarity": 0.9591,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4808",
+          "baseline_similarity": 0.9667,
+          "improved_similarity": 0.9667,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4809",
+          "baseline_similarity": 0.9421,
+          "improved_similarity": 0.9421,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4810",
+          "baseline_similarity": 0.9772,
+          "improved_similarity": 0.9772,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4811",
+          "baseline_similarity": 0.9892,
+          "improved_similarity": 0.9892,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ],
+            [
+              "자유",
+              "조유"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4812",
+          "baseline_similarity": 0.9935,
+          "improved_similarity": 0.9935,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4813",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4814",
+          "baseline_similarity": 0.9771,
+          "improved_similarity": 0.9771,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "하지만",
+              "하 지만"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4815",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 0.9581,
+          "improvement": -0.0419,
+          "result_type": "degradation",
+          "changes": [
+            "자유 → 저유"
+          ],
+          "applied_errors": [],
+          "text_sample": {
+            "original": "이번에는 생각이 만들어 내는\n끊임없는 소음에서 자유로워진다면\n어떤 기분일지 적어 보자.",
+            "corrupted": "이번에는 생각이 만들어 내는\n끊임없는 소음에서 자유로워진다면\n어떤 기분일지 적어 보자.",
+            "corrected": "이번에는 생각이 만들어 내는\n끊임없는 소음에서 저유로워진다면\n어떤 기분일지 적어 보자."
+          }
+        },
+        {
+          "img_id": "IMG_4816",
+          "baseline_similarity": 0.9698,
+          "improved_similarity": 0.9698,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "자신",
+              "저신"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4817",
+          "baseline_similarity": 0.9896,
+          "improved_similarity": 0.9848,
+          "improvement": -0.0049,
+          "result_type": "neutral",
+          "changes": [
+            "자리 → 저리"
+          ],
+          "applied_errors": [
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        }
+      ],
+      "performance": {
+        "total_tests": 29,
+        "improvement_count": 0,
+        "degradation_count": 3,
+        "neutral_count": 26,
+        "avg_improvement": -0.002946355419539122
+      }
+    },
+    "수_소": {
+      "rule_info": {
+        "pattern": "수",
+        "replacement": "소",
+        "enhanced": true
+      },
+      "test_cases": [
+        {
+          "img_id": "IMG_4789",
+          "baseline_similarity": 0.9291,
+          "improved_similarity": 0.9291,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "상처",
+              "샹처"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4790",
+          "baseline_similarity": 0.9709,
+          "improved_similarity": 0.9709,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마이클",
+              "마이 클"
+            ],
+            [
+              "상처",
+              "상 처"
+            ],
+            [
+              "있습니다",
+              "있 습니다"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4791",
+          "baseline_similarity": 0.9351,
+          "improved_similarity": 0.9351,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "있습니다",
+              "있 습니다"
+            ],
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "상처",
+              "샹처"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4792",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4793",
+          "baseline_similarity": 0.9744,
+          "improved_similarity": 0.9744,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마이클",
+              "마이 클"
+            ],
+            [
+              "상처",
+              "상 처"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4794",
+          "baseline_similarity": 0.9687,
+          "improved_similarity": 0.9687,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "상처",
+              "상 처"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4795",
+          "baseline_similarity": 0.9648,
+          "improved_similarity": 0.9648,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4796",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4797",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4798",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4799",
+          "baseline_similarity": 0.9718,
+          "improved_similarity": 0.9718,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4800",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4801",
+          "baseline_similarity": 0.9499,
+          "improved_similarity": 0.9499,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4802",
+          "baseline_similarity": 0.9694,
+          "improved_similarity": 0.9694,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4803",
+          "baseline_similarity": 0.9698,
+          "improved_similarity": 0.9657,
+          "improvement": -0.0041,
+          "result_type": "neutral",
+          "changes": [
+            "수도 → 소도"
+          ],
+          "applied_errors": [
+            [
+              "하지만",
+              "하 지만"
+            ],
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4804",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4805",
+          "baseline_similarity": 0.9663,
+          "improved_similarity": 0.9663,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4806",
+          "baseline_similarity": 0.9857,
+          "improved_similarity": 0.9857,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4807",
+          "baseline_similarity": 0.9591,
+          "improved_similarity": 0.9591,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4808",
+          "baseline_similarity": 0.9667,
+          "improved_similarity": 0.9667,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4809",
+          "baseline_similarity": 0.9421,
+          "improved_similarity": 0.9421,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4810",
+          "baseline_similarity": 0.9772,
+          "improved_similarity": 0.9772,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4811",
+          "baseline_similarity": 0.9892,
+          "improved_similarity": 0.9892,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ],
+            [
+              "자유",
+              "조유"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4812",
+          "baseline_similarity": 0.9935,
+          "improved_similarity": 0.9935,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4813",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4814",
+          "baseline_similarity": 0.9771,
+          "improved_similarity": 0.9771,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "하지만",
+              "하 지만"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4815",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4816",
+          "baseline_similarity": 0.9698,
+          "improved_similarity": 0.9698,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "자신",
+              "저신"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4817",
+          "baseline_similarity": 0.9896,
+          "improved_similarity": 0.9848,
+          "improvement": -0.0049,
+          "result_type": "neutral",
+          "changes": [
+            "수도 → 소도"
+          ],
+          "applied_errors": [
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        }
+      ],
+      "performance": {
+        "total_tests": 29,
+        "improvement_count": 0,
+        "degradation_count": 0,
+        "neutral_count": 29,
+        "avg_improvement": -0.00030999573830698036
+      }
+    },
+    "자_조": {
+      "rule_info": {
+        "pattern": "자",
+        "replacement": "조",
+        "enhanced": true
+      },
+      "test_cases": [
+        {
+          "img_id": "IMG_4789",
+          "baseline_similarity": 0.9291,
+          "improved_similarity": 0.9291,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "상처",
+              "샹처"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4790",
+          "baseline_similarity": 0.9709,
+          "improved_similarity": 0.9645,
+          "improvement": -0.0063,
+          "result_type": "neutral",
+          "changes": [
+            "자아 → 조아",
+            "자유 → 조유"
+          ],
+          "applied_errors": [
+            [
+              "마이클",
+              "마이 클"
+            ],
+            [
+              "상처",
+              "상 처"
+            ],
+            [
+              "있습니다",
+              "있 습니다"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4791",
+          "baseline_similarity": 0.9351,
+          "improved_similarity": 0.9351,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "있습니다",
+              "있 습니다"
+            ],
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "상처",
+              "샹처"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4792",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4793",
+          "baseline_similarity": 0.9744,
+          "improved_similarity": 0.9563,
+          "improvement": -0.0181,
+          "result_type": "degradation",
+          "changes": [
+            "자아 → 조아",
+            "자유 → 조유"
+          ],
+          "applied_errors": [
+            [
+              "마이클",
+              "마이 클"
+            ],
+            [
+              "상처",
+              "상 처"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ],
+          "text_sample": {
+            "original": "서문\n\n가장 진실한 자아를 만나기 위한 여정\n\n\"참된 성장을 위해서는 마음의 소리가 곧 내가 아니고,\n나는 그 소리를 듣는 자임을 깨닫는 것이 가장 중요하다.\"\n— 마이클 A. 싱...",
+            "corrupted": "서문\n\n가장 진실한 자아를 만나기 위한 여정\n\n\"참된 성장을 위해서는 머음의 소리가 곧 내가 아니고,\n나는 그 소리를 듣는 자임을 깨닫는 것이 가장 중요하다.\"\n— 마이 클 A. ...",
+            "corrected": "서문\n\n가장 진실한 조아를 만나기 위한 여정\n\n\"참된 성장을 위해서는 머음의 소리가 곧 내가 아니고,\n나는 그 소리를 듣는 자임을 깨닫는 것이 가장 중요하다.\"\n— 마이 클 A. ..."
+          }
+        },
+        {
+          "img_id": "IMG_4794",
+          "baseline_similarity": 0.9687,
+          "improved_similarity": 0.9687,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "상처",
+              "상 처"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4795",
+          "baseline_similarity": 0.9648,
+          "improved_similarity": 0.9648,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4796",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4797",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4798",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4799",
+          "baseline_similarity": 0.9718,
+          "improved_similarity": 0.9718,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4800",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4801",
+          "baseline_similarity": 0.9499,
+          "improved_similarity": 0.9499,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4802",
+          "baseline_similarity": 0.9694,
+          "improved_similarity": 0.9694,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4803",
+          "baseline_similarity": 0.9698,
+          "improved_similarity": 0.9698,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "하지만",
+              "하 지만"
+            ],
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4804",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4805",
+          "baseline_similarity": 0.9663,
+          "improved_similarity": 0.9663,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4806",
+          "baseline_similarity": 0.9857,
+          "improved_similarity": 0.9714,
+          "improvement": -0.0143,
+          "result_type": "degradation",
+          "changes": [
+            "자리 → 조리"
+          ],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ],
+          "text_sample": {
+            "original": "외부 세계에서의 경험과 당신이 내면세계와 맺는 상호작용 사이에는 어떤 차이점이 있는지 잠시 살펴보자. 당신은 이 마음의 놀이터에 자리를 잡고, 생각을 만들어 내고 조종하는 데 매우...",
+            "corrupted": "외부 세계에서의 경험과 당신이 내면세계와 맺는 상호작용 사이에는 어떤 차이점이 있는지 잠시 살펴보자. 당신은 이 머음의 놀이터에 자리를 잡고, 생각을 만들어 내고 조종하는 데 매우...",
+            "corrected": "외부 세계에서의 경험과 당신이 내면세계와 맺는 상호작용 사이에는 어떤 차이점이 있는지 잠시 살펴보자. 당신은 이 머음의 놀이터에 조리를 잡고, 생각을 만들어 내고 조종하는 데 매우..."
+          }
+        },
+        {
+          "img_id": "IMG_4807",
+          "baseline_similarity": 0.9591,
+          "improved_similarity": 0.9591,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4808",
+          "baseline_similarity": 0.9667,
+          "improved_similarity": 0.9667,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4809",
+          "baseline_similarity": 0.9421,
+          "improved_similarity": 0.9421,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4810",
+          "baseline_similarity": 0.9772,
+          "improved_similarity": 0.9772,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4811",
+          "baseline_similarity": 0.9892,
+          "improved_similarity": 0.9892,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ],
+            [
+              "자유",
+              "조유"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4812",
+          "baseline_similarity": 0.9935,
+          "improved_similarity": 0.9935,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4813",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4814",
+          "baseline_similarity": 0.9771,
+          "improved_similarity": 0.9771,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "하지만",
+              "하 지만"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4815",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 0.9581,
+          "improvement": -0.0419,
+          "result_type": "degradation",
+          "changes": [
+            "자유 → 조유"
+          ],
+          "applied_errors": [],
+          "text_sample": {
+            "original": "이번에는 생각이 만들어 내는\n끊임없는 소음에서 자유로워진다면\n어떤 기분일지 적어 보자.",
+            "corrupted": "이번에는 생각이 만들어 내는\n끊임없는 소음에서 자유로워진다면\n어떤 기분일지 적어 보자.",
+            "corrected": "이번에는 생각이 만들어 내는\n끊임없는 소음에서 조유로워진다면\n어떤 기분일지 적어 보자."
+          }
+        },
+        {
+          "img_id": "IMG_4816",
+          "baseline_similarity": 0.9698,
+          "improved_similarity": 0.9698,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "자신",
+              "저신"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4817",
+          "baseline_similarity": 0.9896,
+          "improved_similarity": 0.9848,
+          "improvement": -0.0049,
+          "result_type": "neutral",
+          "changes": [
+            "자리 → 조리"
+          ],
+          "applied_errors": [
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        }
+      ],
+      "performance": {
+        "total_tests": 29,
+        "improvement_count": 0,
+        "degradation_count": 3,
+        "neutral_count": 26,
+        "avg_improvement": -0.002946355419539122
+      }
+    },
+    "상_강": {
+      "rule_info": {
+        "pattern": "상",
+        "replacement": "강",
+        "enhanced": true
+      },
+      "test_cases": [
+        {
+          "img_id": "IMG_4789",
+          "baseline_similarity": 0.9291,
+          "improved_similarity": 0.9291,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "상처",
+              "샹처"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4790",
+          "baseline_similarity": 0.9709,
+          "improved_similarity": 0.9709,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마이클",
+              "마이 클"
+            ],
+            [
+              "상처",
+              "상 처"
+            ],
+            [
+              "있습니다",
+              "있 습니다"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4791",
+          "baseline_similarity": 0.9351,
+          "improved_similarity": 0.9351,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "있습니다",
+              "있 습니다"
+            ],
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "상처",
+              "샹처"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4792",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4793",
+          "baseline_similarity": 0.9744,
+          "improved_similarity": 0.9684,
+          "improvement": -0.006,
+          "result_type": "neutral",
+          "changes": [
+            "상태 → 강태"
+          ],
+          "applied_errors": [
+            [
+              "마이클",
+              "마이 클"
+            ],
+            [
+              "상처",
+              "상 처"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4794",
+          "baseline_similarity": 0.9687,
+          "improved_similarity": 0.9687,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "상처",
+              "상 처"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4795",
+          "baseline_similarity": 0.9648,
+          "improved_similarity": 0.9648,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4796",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4797",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4798",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4799",
+          "baseline_similarity": 0.9718,
+          "improved_similarity": 0.9718,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4800",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4801",
+          "baseline_similarity": 0.9499,
+          "improved_similarity": 0.9499,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4802",
+          "baseline_similarity": 0.9694,
+          "improved_similarity": 0.9694,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4803",
+          "baseline_similarity": 0.9698,
+          "improved_similarity": 0.9698,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "하지만",
+              "하 지만"
+            ],
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4804",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4805",
+          "baseline_similarity": 0.9663,
+          "improved_similarity": 0.9621,
+          "improvement": -0.0042,
+          "result_type": "neutral",
+          "changes": [
+            "상황 → 강황"
+          ],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4806",
+          "baseline_similarity": 0.9857,
+          "improved_similarity": 0.9857,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4807",
+          "baseline_similarity": 0.9591,
+          "improved_similarity": 0.9182,
+          "improvement": -0.0409,
+          "result_type": "degradation",
+          "changes": [
+            "대상 → 대강"
+          ],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ],
+          "text_sample": {
+            "original": "이제 외부에 보이는 것을 대상으로\n마음이 어떤 생각을 만들어 내는지\n적어 보자.",
+            "corrupted": "이제 외부에 보이는 것을 대상으로\n머음이 어떤 생각을 만들어 내는지\n적어 보자.",
+            "corrected": "이제 외부에 보이는 것을 대강으로\n머음이 어떤 생각을 만들어 내는지\n적어 보자."
+          }
+        },
+        {
+          "img_id": "IMG_4808",
+          "baseline_similarity": 0.9667,
+          "improved_similarity": 0.9667,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4809",
+          "baseline_similarity": 0.9421,
+          "improved_similarity": 0.9421,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4810",
+          "baseline_similarity": 0.9772,
+          "improved_similarity": 0.9736,
+          "improvement": -0.0036,
+          "result_type": "neutral",
+          "changes": [
+            "상황 → 강황"
+          ],
+          "applied_errors": [
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4811",
+          "baseline_similarity": 0.9892,
+          "improved_similarity": 0.9785,
+          "improvement": -0.0108,
+          "result_type": "degradation",
+          "changes": [
+            "상황 → 강황"
+          ],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ],
+            [
+              "자유",
+              "조유"
+            ]
+          ],
+          "text_sample": {
+            "original": "결국 많은 문제를 품고 있는 내 안의 일부에서 해방되기 전에는 결코 문제로부터 자유로워질 수 없다. 문제가 당신을 괴롭히면 \"이걸 어떻게 해야 하지?\"라고 묻지 말고 \"이 일로 내...",
+            "corrupted": "결국 많은 문제를 품고 있는 내 안의 일부에서 해방되기 전에는 결코 문제로부터 조유로워질 수 없다. 문제가 당신을 괴롭히면 \"이걸 어떻게 해야 하지?\"라고 묻지 말고 \"이 일로 내...",
+            "corrected": "결국 많은 문제를 품고 있는 내 안의 일부에서 해방되기 전에는 결코 문제로부터 조유로워질 수 없다. 문제가 당신을 괴롭히면 \"이걸 어떻게 해야 하지?\"라고 묻지 말고 \"이 일로 내..."
+          }
+        },
+        {
+          "img_id": "IMG_4812",
+          "baseline_similarity": 0.9935,
+          "improved_similarity": 0.9935,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4813",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4814",
+          "baseline_similarity": 0.9771,
+          "improved_similarity": 0.9727,
+          "improvement": -0.0044,
+          "result_type": "neutral",
+          "changes": [
+            "상상 → 강강"
+          ],
+          "applied_errors": [
+            [
+              "하지만",
+              "하 지만"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4815",
+          "baseline_similarity": 1.0,
+          "improved_similarity": 1.0,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": []
+        },
+        {
+          "img_id": "IMG_4816",
+          "baseline_similarity": 0.9698,
+          "improved_similarity": 0.9698,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "자신",
+              "저신"
+            ]
+          ]
+        },
+        {
+          "img_id": "IMG_4817",
+          "baseline_similarity": 0.9896,
+          "improved_similarity": 0.9896,
+          "improvement": 0.0,
+          "result_type": "neutral",
+          "changes": [],
+          "applied_errors": [
+            [
+              "자신",
+              "자 신"
+            ],
+            [
+              "마음",
+              "머음"
+            ]
+          ]
+        }
+      ],
+      "performance": {
+        "total_tests": 29,
+        "improvement_count": 0,
+        "degradation_count": 2,
+        "neutral_count": 27,
+        "avg_improvement": -0.0024089091501066236
+      }
+    }
+  },
+  "ranking": [
+    {
+      "rule": {
+        "pattern": "마",
+        "replacement": "머",
+        "enhanced": true
+      },
+      "avg_improvement": -0.0008526796169751127,
+      "improvement_rate": 0.0,
+      "degradation_rate": 0.034482758620689655,
+      "total_tests": 29,
+      "rank_score": -0.0
+    },
+    {
+      "rule": {
+        "pattern": "마",
+        "replacement": "모",
+        "enhanced": true
+      },
+      "avg_improvement": -0.0008526796169751127,
+      "improvement_rate": 0.0,
+      "degradation_rate": 0.034482758620689655,
+      "total_tests": 29,
+      "rank_score": -0.0
+    },
+    {
+      "rule": {
+        "pattern": "상",
+        "replacement": "샹",
+        "enhanced": true
+      },
+      "avg_improvement": -0.0024089091501066236,
+      "improvement_rate": 0.0,
+      "degradation_rate": 0.06896551724137931,
+      "total_tests": 29,
+      "rank_score": -0.0
+    },
+    {
+      "rule": {
+        "pattern": "있",
+        "replacement": "잇",
+        "enhanced": true
+      },
+      "avg_improvement": -0.011726552763820489,
+      "improvement_rate": 0.0,
+      "degradation_rate": 0.4827586206896552,
+      "total_tests": 29,
+      "rank_score": -0.0
+    },
+    {
+      "rule": {
+        "pattern": "하",
+        "replacement": "호",
+        "enhanced": true
+      },
+      "avg_improvement": -0.011063709702090458,
+      "improvement_rate": 0.0,
+      "degradation_rate": 0.41379310344827586,
+      "total_tests": 29,
+      "rank_score": -0.0
+    },
+    {
+      "rule": {
+        "pattern": "것",
+        "replacement": "걷",
+        "enhanced": true
+      },
+      "avg_improvement": -0.008385770282791105,
+      "improvement_rate": 0.0,
+      "degradation_rate": 0.3103448275862069,
+      "total_tests": 29,
+      "rank_score": -0.0
+    },
+    {
+      "rule": {
+        "pattern": "자",
+        "replacement": "저",
+        "enhanced": true
+      },
+      "avg_improvement": -0.002946355419539122,
+      "improvement_rate": 0.0,
+      "degradation_rate": 0.10344827586206896,
+      "total_tests": 29,
+      "rank_score": -0.0
+    },
+    {
+      "rule": {
+        "pattern": "수",
+        "replacement": "소",
+        "enhanced": true
+      },
+      "avg_improvement": -0.00030999573830698036,
+      "improvement_rate": 0.0,
+      "degradation_rate": 0.0,
+      "total_tests": 29,
+      "rank_score": -0.0
+    },
+    {
+      "rule": {
+        "pattern": "자",
+        "replacement": "조",
+        "enhanced": true
+      },
+      "avg_improvement": -0.002946355419539122,
+      "improvement_rate": 0.0,
+      "degradation_rate": 0.10344827586206896,
+      "total_tests": 29,
+      "rank_score": -0.0
+    },
+    {
+      "rule": {
+        "pattern": "상",
+        "replacement": "강",
+        "enhanced": true
+      },
+      "avg_improvement": -0.0024089091501066236,
+      "improvement_rate": 0.0,
+      "degradation_rate": 0.06896551724137931,
+      "total_tests": 29,
+      "rank_score": -0.0
+    }
+  ],
+  "recommendations": [
+    "❌ 전체 평균 개선도 -0.004: 성능 향상 제한적",
+    "🥇 최고 성능 규칙: '마 → 머' (개선도: -0.001)",
+    "⚠️ 성능 저하 규칙 2개 발견 - 제거 고려 필요"
+  ]
+}

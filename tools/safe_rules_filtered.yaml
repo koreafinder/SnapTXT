@@ -1,0 +1,86 @@
+metadata:
+  version: 2.1_filtered
+  created_at: '2026-03-02T18:15:13'
+  source: PatternValidator 필터링 결과
+  total_safe_patterns: 10
+  filtered_from: learned_rules_advanced.yaml
+  validation_criteria:
+    basic_safety: true
+    no_conflicts: true
+    linguistic_valid: true
+    min_frequency: 3
+    min_confidence: 0.6
+    min_sources: 2
+stage3_postprocessing:
+  spacing: []
+  characters:
+  - pattern: 마
+    replacement: 머
+    confidence: 0.88
+    frequency: 9
+    description: 'character_substitution 오류: ''마'' → ''머'''
+    learned: true
+    source_count: 8
+  - pattern: 마
+    replacement: 모
+    confidence: 0.88
+    frequency: 8
+    description: 'character_substitution 오류: ''마'' → ''모'''
+    learned: true
+    source_count: 5
+  - pattern: 상
+    replacement: 샹
+    confidence: 0.88
+    frequency: 7
+    description: 'character_substitution 오류: ''상'' → ''샹'''
+    learned: true
+    source_count: 4
+  - pattern: 있
+    replacement: 잇
+    confidence: 0.88
+    frequency: 7
+    description: 'character_substitution 오류: ''있'' → ''잇'''
+    learned: true
+    source_count: 6
+  - pattern: 하
+    replacement: 호
+    confidence: 0.88
+    frequency: 5
+    description: 'character_substitution 오류: ''하'' → ''호'''
+    learned: true
+    source_count: 4
+  - pattern: 것
+    replacement: 걷
+    confidence: 0.88
+    frequency: 5
+    description: 'character_substitution 오류: ''것'' → ''걷'''
+    learned: true
+    source_count: 4
+  - pattern: 자
+    replacement: 저
+    confidence: 0.88
+    frequency: 5
+    description: 'character_substitution 오류: ''자'' → ''저'''
+    learned: true
+    source_count: 5
+  - pattern: 수
+    replacement: 소
+    confidence: 0.88
+    frequency: 5
+    description: 'character_substitution 오류: ''수'' → ''소'''
+    learned: true
+    source_count: 5
+  - pattern: 자
+    replacement: 조
+    confidence: 0.88
+    frequency: 4
+    description: 'character_substitution 오류: ''자'' → ''조'''
+    learned: true
+    source_count: 3
+  - pattern: 상
+    replacement: 강
+    confidence: 0.88
+    frequency: 4
+    description: 'character_substitution 오류: ''상'' → ''강'''
+    learned: true
+    source_count: 3

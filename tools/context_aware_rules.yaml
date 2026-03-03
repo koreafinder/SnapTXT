@@ -1,0 +1,544 @@
+metadata:
+  version: 2.2_context_aware
+  created_at: '2026-03-02T18:17:57'
+  source: Context-aware 규칙 변환 결과
+  total_enhanced_rules: 10
+  conversion_strategy:
+    simple_rules: 0
+    context_enhanced: 0
+    pattern_enhanced: 10
+  safety_level: production_ready
+stage3_postprocessing:
+  spacing: []
+  characters:
+  - pattern: 마
+    replacement: 머
+    confidence: 0.88
+    frequency: 9
+    description: 'character_substitution 오류: ''마'' → ''머'''
+    learned: true
+    source_count: 8
+    original_pattern: 마
+    strategy: pattern_match
+    enhanced: true
+    context_patterns: &id001
+      safe_contexts:
+      - 마음
+      - 마이
+      - 마지막
+      - 마치
+      - 그러나마
+      risky_contexts:
+      - ^마$
+      - 마\.
+      - 마,
+      - 마\?
+      - 마!
+    enhanced_patterns:
+    - type: safe_context
+      context_pattern: 마음
+      target_pattern: 마
+      replacement: 머
+      regex: (마)음
+    - type: safe_context
+      context_pattern: 마이
+      target_pattern: 마
+      replacement: 머
+      regex: (마)이
+    - type: safe_context
+      context_pattern: 마지막
+      target_pattern: 마
+      replacement: 머
+      regex: (마)지막
+    - type: safe_context
+      context_pattern: 마치
+      target_pattern: 마
+      replacement: 머
+      regex: (마)치
+    - type: safe_context
+      context_pattern: 그러나마
+      target_pattern: 마
+      replacement: 머
+      regex: 그러나(마)
+    - type: avoid_context
+      risky_pattern: ^마$
+      target_pattern: 마
+      action: skip
+    - type: avoid_context
+      risky_pattern: 마\.
+      target_pattern: 마
+      action: skip
+    - type: avoid_context
+      risky_pattern: 마,
+      target_pattern: 마
+      action: skip
+    - type: avoid_context
+      risky_pattern: 마\?
+      target_pattern: 마
+      action: skip
+    - type: avoid_context
+      risky_pattern: 마!
+      target_pattern: 마
+      action: skip
+  - pattern: 마
+    replacement: 모
+    confidence: 0.88
+    frequency: 8
+    description: 'character_substitution 오류: ''마'' → ''모'''
+    learned: true
+    source_count: 5
+    original_pattern: 마
+    strategy: pattern_match
+    enhanced: true
+    context_patterns: *id001
+    enhanced_patterns:
+    - type: safe_context
+      context_pattern: 마음
+      target_pattern: 마
+      replacement: 모
+      regex: (마)음
+    - type: safe_context
+      context_pattern: 마이
+      target_pattern: 마
+      replacement: 모
+      regex: (마)이
+    - type: safe_context
+      context_pattern: 마지막
+      target_pattern: 마
+      replacement: 모
+      regex: (마)지막
+    - type: safe_context
+      context_pattern: 마치
+      target_pattern: 마
+      replacement: 모
+      regex: (마)치
+    - type: safe_context
+      context_pattern: 그러나마
+      target_pattern: 마
+      replacement: 모
+      regex: 그러나(마)
+    - type: avoid_context
+      risky_pattern: ^마$
+      target_pattern: 마
+      action: skip
+    - type: avoid_context
+      risky_pattern: 마\.
+      target_pattern: 마
+      action: skip
+    - type: avoid_context
+      risky_pattern: 마,
+      target_pattern: 마
+      action: skip
+    - type: avoid_context
+      risky_pattern: 마\?
+      target_pattern: 마
+      action: skip
+    - type: avoid_context
+      risky_pattern: 마!
+      target_pattern: 마
+      action: skip
+  - pattern: 상
+    replacement: 샹
+    confidence: 0.88
+    frequency: 7
+    description: 'character_substitution 오류: ''상'' → ''샹'''
+    learned: true
+    source_count: 4
+    original_pattern: 상
+    strategy: pattern_match
+    enhanced: true
+    context_patterns: &id003
+      safe_contexts:
+      - 상처
+      - 상황
+      - 상태
+      - 상상
+      - 대상
+      - 사상
+      risky_contexts:
+      - ^상$
+    enhanced_patterns:
+    - type: safe_context
+      context_pattern: 상처
+      target_pattern: 상
+      replacement: 샹
+      regex: (상)처
+    - type: safe_context
+      context_pattern: 상황
+      target_pattern: 상
+      replacement: 샹
+      regex: (상)황
+    - type: safe_context
+      context_pattern: 상태
+      target_pattern: 상
+      replacement: 샹
+      regex: (상)태
+    - type: safe_context
+      context_pattern: 상상
+      target_pattern: 상
+      replacement: 샹
+      regex: (상)(상)
+    - type: safe_context
+      context_pattern: 대상
+      target_pattern: 상
+      replacement: 샹
+      regex: 대(상)
+    - type: safe_context
+      context_pattern: 사상
+      target_pattern: 상
+      replacement: 샹
+      regex: 사(상)
+    - type: avoid_context
+      risky_pattern: ^상$
+      target_pattern: 상
+      action: skip
+  - pattern: 있
+    replacement: 잇
+    confidence: 0.88
+    frequency: 7
+    description: 'character_substitution 오류: ''있'' → ''잇'''
+    learned: true
+    source_count: 6
+    original_pattern: 있
+    strategy: pattern_match
+    enhanced: true
+    context_patterns:
+      safe_contexts:
+      - 있습니다
+      - 있는
+      - 있을
+      - 있어
+      - 있다
+      risky_contexts:
+      - ^있$
+    enhanced_patterns:
+    - type: safe_context
+      context_pattern: 있습니다
+      target_pattern: 있
+      replacement: 잇
+      regex: (있)습니다
+    - type: safe_context
+      context_pattern: 있는
+      target_pattern: 있
+      replacement: 잇
+      regex: (있)는
+    - type: safe_context
+      context_pattern: 있을
+      target_pattern: 있
+      replacement: 잇
+      regex: (있)을
+    - type: safe_context
+      context_pattern: 있어
+      target_pattern: 있
+      replacement: 잇
+      regex: (있)어
+    - type: safe_context
+      context_pattern: 있다
+      target_pattern: 있
+      replacement: 잇
+      regex: (있)다
+    - type: avoid_context
+      risky_pattern: ^있$
+      target_pattern: 있
+      action: skip
+  - pattern: 하
+    replacement: 호
+    confidence: 0.88
+    frequency: 5
+    description: 'character_substitution 오류: ''하'' → ''호'''
+    learned: true
+    source_count: 4
+    original_pattern: 하
+    strategy: pattern_match
+    enhanced: true
+    context_patterns:
+      safe_contexts:
+      - 하고
+      - 하는
+      - 하지
+      - 하여
+      - 하면
+      - 하게
+      risky_contexts:
+      - ^하$
+    enhanced_patterns:
+    - type: safe_context
+      context_pattern: 하고
+      target_pattern: 하
+      replacement: 호
+      regex: (하)고
+    - type: safe_context
+      context_pattern: 하는
+      target_pattern: 하
+      replacement: 호
+      regex: (하)는
+    - type: safe_context
+      context_pattern: 하지
+      target_pattern: 하
+      replacement: 호
+      regex: (하)지
+    - type: safe_context
+      context_pattern: 하여
+      target_pattern: 하
+      replacement: 호
+      regex: (하)여
+    - type: safe_context
+      context_pattern: 하면
+      target_pattern: 하
+      replacement: 호
+      regex: (하)면
+    - type: safe_context
+      context_pattern: 하게
+      target_pattern: 하
+      replacement: 호
+      regex: (하)게
+    - type: avoid_context
+      risky_pattern: ^하$
+      target_pattern: 하
+      action: skip
+  - pattern: 것
+    replacement: 걷
+    confidence: 0.88
+    frequency: 5
+    description: 'character_substitution 오류: ''것'' → ''걷'''
+    learned: true
+    source_count: 4
+    original_pattern: 것
+    strategy: pattern_match
+    enhanced: true
+    context_patterns:
+      safe_contexts:
+      - 것이
+      - 것을
+      - 것입니다
+      - 것입니
+      - 것도
+      - 아무것
+      risky_contexts:
+      - ^것$
+    enhanced_patterns:
+    - type: safe_context
+      context_pattern: 것이
+      target_pattern: 것
+      replacement: 걷
+      regex: (것)이
+    - type: safe_context
+      context_pattern: 것을
+      target_pattern: 것
+      replacement: 걷
+      regex: (것)을
+    - type: safe_context
+      context_pattern: 것입니다
+      target_pattern: 것
+      replacement: 걷
+      regex: (것)입니다
+    - type: safe_context
+      context_pattern: 것입니
+      target_pattern: 것
+      replacement: 걷
+      regex: (것)입니
+    - type: safe_context
+      context_pattern: 것도
+      target_pattern: 것
+      replacement: 걷
+      regex: (것)도
+    - type: safe_context
+      context_pattern: 아무것
+      target_pattern: 것
+      replacement: 걷
+      regex: 아무(것)
+    - type: avoid_context
+      risky_pattern: ^것$
+      target_pattern: 것
+      action: skip
+  - pattern: 자
+    replacement: 저
+    confidence: 0.88
+    frequency: 5
+    description: 'character_substitution 오류: ''자'' → ''저'''
+    learned: true
+    source_count: 5
+    original_pattern: 자
+    strategy: pattern_match
+    enhanced: true
+    context_patterns: &id002
+      safe_contexts:
+      - 자신
+      - 자아
+      - 자유
+      - 자료
+      - 자리
+      - 문자
+      risky_contexts:
+      - ^자$
+    enhanced_patterns:
+    - type: safe_context
+      context_pattern: 자신
+      target_pattern: 자
+      replacement: 저
+      regex: (자)신
+    - type: safe_context
+      context_pattern: 자아
+      target_pattern: 자
+      replacement: 저
+      regex: (자)아
+    - type: safe_context
+      context_pattern: 자유
+      target_pattern: 자
+      replacement: 저
+      regex: (자)유
+    - type: safe_context
+      context_pattern: 자료
+      target_pattern: 자
+      replacement: 저
+      regex: (자)료
+    - type: safe_context
+      context_pattern: 자리
+      target_pattern: 자
+      replacement: 저
+      regex: (자)리
+    - type: safe_context
+      context_pattern: 문자
+      target_pattern: 자
+      replacement: 저
+      regex: 문(자)
+    - type: avoid_context
+      risky_pattern: ^자$
+      target_pattern: 자
+      action: skip
+  - pattern: 수
+    replacement: 소
+    confidence: 0.88
+    frequency: 5
+    description: 'character_substitution 오류: ''수'' → ''소'''
+    learned: true
+    source_count: 5
+    original_pattern: 수
+    strategy: pattern_match
+    enhanced: true
+    context_patterns:
+      safe_contexts:
+      - 수있
+      - 수도
+      - 숫자
+      - 방수
+      - 다수
+      risky_contexts:
+      - ^수$
+    enhanced_patterns:
+    - type: safe_context
+      context_pattern: 수있
+      target_pattern: 수
+      replacement: 소
+      regex: (수)있
+    - type: safe_context
+      context_pattern: 수도
+      target_pattern: 수
+      replacement: 소
+      regex: (수)도
+    - type: safe_context
+      context_pattern: 방수
+      target_pattern: 수
+      replacement: 소
+      regex: 방(수)
+    - type: safe_context
+      context_pattern: 다수
+      target_pattern: 수
+      replacement: 소
+      regex: 다(수)
+    - type: avoid_context
+      risky_pattern: ^수$
+      target_pattern: 수
+      action: skip
+  - pattern: 자
+    replacement: 조
+    confidence: 0.88
+    frequency: 4
+    description: 'character_substitution 오류: ''자'' → ''조'''
+    learned: true
+    source_count: 3
+    original_pattern: 자
+    strategy: pattern_match
+    enhanced: true
+    context_patterns: *id002
+    enhanced_patterns:
+    - type: safe_context
+      context_pattern: 자신
+      target_pattern: 자
+      replacement: 조
+      regex: (자)신
+    - type: safe_context
+      context_pattern: 자아
+      target_pattern: 자
+      replacement: 조
+      regex: (자)아
+    - type: safe_context
+      context_pattern: 자유
+      target_pattern: 자
+      replacement: 조
+      regex: (자)유
+    - type: safe_context
+      context_pattern: 자료
+      target_pattern: 자
+      replacement: 조
+      regex: (자)료
+    - type: safe_context
+      context_pattern: 자리
+      target_pattern: 자
+      replacement: 조
+      regex: (자)리
+    - type: safe_context
+      context_pattern: 문자
+      target_pattern: 자
+      replacement: 조
+      regex: 문(자)
+    - type: avoid_context
+      risky_pattern: ^자$
+      target_pattern: 자
+      action: skip
+  - pattern: 상
+    replacement: 강
+    confidence: 0.88
+    frequency: 4
+    description: 'character_substitution 오류: ''상'' → ''강'''
+    learned: true
+    source_count: 3
+    original_pattern: 상
+    strategy: pattern_match
+    enhanced: true
+    context_patterns: *id003
+    enhanced_patterns:
+    - type: safe_context
+      context_pattern: 상처
+      target_pattern: 상
+      replacement: 강
+      regex: (상)처
+    - type: safe_context
+      context_pattern: 상황
+      target_pattern: 상
+      replacement: 강
+      regex: (상)황
+    - type: safe_context
+      context_pattern: 상태
+      target_pattern: 상
+      replacement: 강
+      regex: (상)태
+    - type: safe_context
+      context_pattern: 상상
+      target_pattern: 상
+      replacement: 강
+      regex: (상)(상)
+    - type: safe_context
+      context_pattern: 대상
+      target_pattern: 상
+      replacement: 강
+      regex: 대(상)
+    - type: safe_context
+      context_pattern: 사상
+      target_pattern: 상
+      replacement: 강
+      regex: 사(상)
+    - type: avoid_context
+      risky_pattern: ^상$
+      target_pattern: 상
+      action: skip

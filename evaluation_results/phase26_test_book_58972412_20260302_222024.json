@@ -1,0 +1,26 @@
+{
+  "test_id": "phase26_test_book_58972412_20260302_222024",
+  "book_id": "test_book_58972412",
+  "sample_count": 3,
+  "baseline_decomposed": {
+    "cer_all": 0.23939962476547844,
+    "cer_no_space": 0.0,
+    "cer_space_only": 0.23939962476547844,
+    "cer_punctuation": 0.0
+  },
+  "enhanced_decomposed": {
+    "cer_all": 0.23939962476547844,
+    "cer_no_space": 0.0,
+    "cer_space_only": 0.23939962476547844,
+    "cer_punctuation": 0.0
+  },
+  "overall_cer_improvement": 0.0,
+  "relative_improvement": 0.0,
+  "rule_contributions": [],
+  "profile_value": "NEGATIVE",
+  "key_gains": [],
+  "next_actions": [
+    "Review rule generation strategy"
+  ],
+  "test_date": "2026-03-02T22:20:24.336280"
+}

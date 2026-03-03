@@ -1,0 +1,58 @@
+{
+  "book_id": "fdec09d955502d07",
+  "domain": "textbook",
+  "generation_date": "2026-03-02T22:18:42.956884",
+  "confidence_metrics": {
+    "avg_confidence": 0.85,
+    "rule_count": 4,
+    "high_priority_count": 3,
+    "safe_rule_count": 4,
+    "layout_types": {
+      "line_break_merge": 2,
+      "broken_word_merge": 2,
+      "dialogue_boundary": 0
+    }
+  },
+  "layout_rules": [
+    {
+      "rule_id": "layout_1",
+      "rule_type": "line_break_merge",
+      "pattern": "([가-힣]+)\\s+(을|를|이|가|은|는)(\\s|$)",
+      "replacement": "\\1\\2\\3",
+      "context": "조사가 분리되어 다음 줄에 나타날 때",
+      "confidence": 0.9,
+      "priority": "HIGH",
+      "risk_level": "SAFE"
+    },
+    {
+      "rule_id": "layout_2",
+      "rule_type": "broken_word_merge",
+      "pattern": "(하|되|만들)\\s+(었|였|어)\\s*(다|습니다)(\\s|$)",
+      "replacement": "\\1\\2\\3\\4",
+      "context": "동사 활용이 공백으로 분리될 때",
+      "confidence": 0.85,
+      "priority": "HIGH",
+      "risk_level": "SAFE"
+    },
+    {
+      "rule_id": "layout_3",
+      "rule_type": "broken_word_merge",
+      "pattern": "([가-힣]+)\\s+(의|과|와|에|로)\\s*([가-힣])",
+      "replacement": "\\1\\2 \\3",
+      "context": "조사 뒤에 공백이 누락되었을 때",
+      "confidence": 0.8,
+      "priority": "MEDIUM",
+      "risk_level": "SAFE"
+    },
+    {
+      "rule_id": "layout_4",
+      "rule_type": "line_break_merge",
+      "pattern": "([0-9]+)\\s*\\.\\s*([가-힣])",
+      "replacement": "\\1. \\2",
+      "context": "번호 목록에서 공백이 분리될 때",
+      "confidence": 0.85,
+      "priority": "HIGH",
+      "risk_level": "SAFE"
+    }
+  ]
+}

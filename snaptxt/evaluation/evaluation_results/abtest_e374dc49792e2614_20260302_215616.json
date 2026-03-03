@@ -1,0 +1,28 @@
+{
+  "test_id": "abtest_e374dc49792e2614_20260302_215616",
+  "book_id": "e374dc49792e2614",
+  "sample_count": 3,
+  "baseline_metrics": {
+    "cer": 0.07809139784946237,
+    "wer": 0.5333333333333333,
+    "punctuation_accuracy": 0.8333333333333334,
+    "spacing_accuracy": 0.4666666666666667
+  },
+  "enhanced_metrics": {
+    "cer": 0.07809139784946237,
+    "wer": 0.5333333333333333,
+    "punctuation_accuracy": 0.8333333333333334,
+    "spacing_accuracy": 0.4666666666666667
+  },
+  "improvements": {
+    "cer_improvement": 0.0,
+    "wer_improvement": 0.0,
+    "punct_improvement": 0.0,
+    "spacing_improvement": 0.0
+  },
+  "statistical_significance": false,
+  "confidence_level": 0.5,
+  "overall_success": false,
+  "improvement_summary": "❌ CER 0.0% 악화 | ❌ 문장부호 0.0% 악화",
+  "test_date": "2026-03-02T21:56:16.426700"
+}

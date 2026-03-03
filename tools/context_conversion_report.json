@@ -1,0 +1,97 @@
+{
+  "timestamp": "2026-03-02 18:17:57",
+  "input_rules_count": 10,
+  "enhanced_rules": [
+    {
+      "original_pattern": "마",
+      "replacement": "머",
+      "strategy": "pattern_match",
+      "needs_context": true,
+      "complexity": "complex",
+      "enhanced": true
+    },
+    {
+      "original_pattern": "마",
+      "replacement": "모",
+      "strategy": "pattern_match",
+      "needs_context": true,
+      "complexity": "complex",
+      "enhanced": true
+    },
+    {
+      "original_pattern": "상",
+      "replacement": "샹",
+      "strategy": "pattern_match",
+      "needs_context": true,
+      "complexity": "complex",
+      "enhanced": true
+    },
+    {
+      "original_pattern": "있",
+      "replacement": "잇",
+      "strategy": "pattern_match",
+      "needs_context": true,
+      "complexity": "complex",
+      "enhanced": true
+    },
+    {
+      "original_pattern": "하",
+      "replacement": "호",
+      "strategy": "pattern_match",
+      "needs_context": true,
+      "complexity": "complex",
+      "enhanced": true
+    },
+    {
+      "original_pattern": "것",
+      "replacement": "걷",
+      "strategy": "pattern_match",
+      "needs_context": true,
+      "complexity": "complex",
+      "enhanced": true
+    },
+    {
+      "original_pattern": "자",
+      "replacement": "저",
+      "strategy": "pattern_match",
+      "needs_context": true,
+      "complexity": "complex",
+      "enhanced": true
+    },
+    {
+      "original_pattern": "수",
+      "replacement": "소",
+      "strategy": "pattern_match",
+      "needs_context": true,
+      "complexity": "complex",
+      "enhanced": true
+    },
+    {
+      "original_pattern": "자",
+      "replacement": "조",
+      "strategy": "pattern_match",
+      "needs_context": true,
+      "complexity": "complex",
+      "enhanced": true
+    },
+    {
+      "original_pattern": "상",
+      "replacement": "강",
+      "strategy": "pattern_match",
+      "needs_context": true,
+      "complexity": "complex",
+      "enhanced": true
+    }
+  ],
+  "conversion_summary": {
+    "total_rules": 10,
+    "simple_rules": 0,
+    "context_enhanced": 0,
+    "pattern_enhanced": 10
+  },
+  "recommendations": [
+    "🔧 Context 강화 규칙이 다수: 세밀한 테스트 필요",
+    "🎯 패턴 매칭 규칙 10개: 정확성 향상 기대",
+    "📅 다음 단계: A/B 테스트로 실제 성능 검증 권장"
+  ]
+}

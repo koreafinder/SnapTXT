@@ -1,0 +1,13 @@
+metadata:
+  version: 2.3_production_ready
+  created_at: '2026-03-02T18:20:48'
+  source: A/B 테스트 검증 완료
+  total_production_rules: 0
+  selection_criteria:
+    min_improvement: 0.02
+    max_degradation_rate: 0.1
+    min_improvement_rate: 0.3
+  test_results_file: tools/ab_test_results.json
+stage3_postprocessing:
+  spacing: []
+  characters: []

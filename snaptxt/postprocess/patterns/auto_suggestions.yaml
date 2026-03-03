@@ -1,0 +1,35 @@
+metadata:
+  generated_at: '2026-03-02T20:07:08.062223'
+  total_candidates: 2
+  auto_apply_threshold: 10
+  high_confidence_threshold: 0.8
+auto_apply: []
+user_review:
+- id: pattern_000
+  pattern: SPACE_3
+  replacement: SPACE_1
+  frequency: 5
+  confidence: 0.8
+  examples:
+  - '''   '' → '' '''
+  metadata:
+    first_seen: '2026-03-02T20:07:08.060116'
+    last_seen: '2026-03-02T20:07:08.060130'
+    source_stage: stage2
+    source: auto_analysis
+    pattern_length: 7
+low_confidence:
+- id: pattern_001
+  pattern: ..
+  replacement: .
+  frequency: 4
+  confidence: 0.8
+  examples:
+  - '''..'' → ''.'''
+  metadata:
+    first_seen: '2026-03-02T20:07:08.060150'
+    last_seen: '2026-03-02T20:07:08.060190'
+    source_stage: stage2
+    source: auto_analysis
+    pattern_length: 2
+stage3_patterns: []
