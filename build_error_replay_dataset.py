@@ -1226,8 +1226,47 @@ class ErrorDistributionAnalyzer:
         return synthetic_samples
     
     def _collect_gt_text_pool(self) -> List[str]:
-        """GT 텍스트 풀 수집 (error_events.jsonl에서)"""
+        """실제 Vision GT 텍스트 풀 수집 (인위적 expansion 없음)"""
+        print("🔍 실제 Vision GT에서만 텍스트 풀 수집 (authentic distribution)")
+        
+        # Real Vision GT 폴더에서 직접 로딩
         gt_pool = set()  # 중복 제거용
+        
+        try:
+            # Real folder 기반 GT 로딩
+            real_folder = Path("real")
+            if not real_folder.exists():
+                print(f"❌ Real folder not found: {real_folder}")
+                # Fallback to error_events.jsonl but with authentic GT only
+                return self._collect_authentic_gt_from_events()
+            
+            print(f"📁 Real folder 발견: {real_folder}")
+            for gt_file in real_folder.glob("**/*_gt.txt"):
+                try:
+                    with open(gt_file, 'r', encoding='utf-8') as f:
+                        content = f.read().strip()
+                        if len(content) > 50:  # 최소 길이 필터
+                            # 문단으로 분할하여 추가
+                            paragraphs = [p.strip() for p in content.split('\n\n') if p.strip()]
+                            for para in paragraphs:
+                                if len(para) > 30:  # 문단 최소 길이
+                                    gt_pool.add(para)
+                except Exception as e:
+                    print(f"⚠️ GT 파일 읽기 실패: {gt_file} - {e}")
+                    
+        except Exception as e:
+            print(f"❌ Real folder GT 로딩 실패: {e}")
+            # Fallback to authentic events
+            return self._collect_authentic_gt_from_events()
+        
+        result = list(gt_pool)
+        print(f"✅ Authentic Vision GT 풀: {len(result)}개 문단 (Average: {sum(len(t) for t in result)/len(result):.0f} chars)" if result else "❌ GT 풀이 비어있음")
+        return result
+
+    def _collect_authentic_gt_from_events(self) -> List[str]:
+        """Error events에서 authentic GT만 추출 (expansion 없음)"""
+        print("🔄 Fallback: error_events.jsonl에서 authentic GT snippet만 수집")
+        gt_pool = set()
         
         try:
             if self.error_events_file.exists():
@@ -1235,62 +1274,23 @@ class ErrorDistributionAnalyzer:
                     for line in f:
                         try:
                             event = json.loads(line.strip())
-                            # context_before와 context_after를 합쳐서 GT 텍스트 생성
-                            context_before = event.get("context_before", "").strip()
-                            context_after = event.get("context_after", "").strip()
+                            # ⚠️ 인위적 조합 금지: GT snippet만 사용 
                             gt_snippet = event.get("gt_snippet", "").strip()
                             
-                            if context_before and context_after and gt_snippet:
-                                combined_context = f"{context_before} {gt_snippet} {context_after}"
-                                if len(combined_context) > 30:  # 최소 길이
-                                    gt_pool.add(combined_context)
+                            # GT snippet이 의미있는 길이면 그대로 사용
+                            if len(gt_snippet) > 5:  # 최소 길이
+                                gt_pool.add(gt_snippet)
+                                
                         except json.JSONDecodeError:
                             continue
         
         except Exception as e:
-            print(f"  ⚠️ GT 풀 수집 실패, 기본값 사용: {e}")
+            print(f"❌ Events GT 수집 실패: {e}")
         
-        gt_pool_list = list(gt_pool)
-        
-        # 항상 다양한 GT 텍스트 추가 (기본값과 병합)
-        additional_gt_texts = [
-            "이것은 책의 한 문단입니다. 여러 문장으로 구성되어 있으며, 일반적인 한국어 텍스트입니다.",
-            "과학 기술의 발전은 인류의 삶을 크게 변화시켰습니다! 특히 컴퓨터와 인터넷의 등장으로 정보 처리가 혁신되었습니다.",
-            "교육의 중요성은 아무리 강조해도 지나치지 않습니다. '지식은 힘이다'라는 말처럼, 사고 능력을 기르는 것이 핵심입니다.",
-            "연구자: \"이번 실험 결과는 매우 흥미롭네요.\" 동료: '정말 그렇습니다. 예상보다 좋은 성과입니다.'",
-            "가격표: 사과 1kg - ₩3,000, 배 1개 - ₩2,500 (10% 할인 중)",
-            "이메일 주소: research@university.ac.kr, 전화번호: 02-1234-5678",
-            "수학 공식: y = ax² + bx + c (여기서 a ≠ 0)",
-            "목록 항목:\n• 첫 번째 주제: 인공지능 발전사\n• 두 번째 주제: 머신러닝 적용 분야",
-            "인용구: \"과학의 발전은 인류의 미래를 밝혀준다.\" - 알버트 아인슈타인",
-            "웹사이트: https://www.example.com, 참고문헌: Smith, J. (2023). AI를 활용한 OCR 성능 개선.",
-            "현대 사회에서 소통의 중요성이 대두되고 있습니다. 서로 다른 배경을 가진 사람들과의 이해가 필요합니다.",
-            "자연 환경 보호는 우리 모두의 책임입니다. 지속 가능한 발전을 위해 노력해야 합니다."
-        ]
-        
-        # GT 풀과 추가 텍스트 병합 (중복 제거)
-        combined_texts = set(gt_pool_list + additional_gt_texts)
-        gt_pool_list = list(combined_texts)
-        
-        # GT 풀이 비어있으면 기본값만 사용
-        if not gt_pool_list:
-            gt_pool_list = [
-                "이것은 책의 한 문단입니다. 여러 문장으로 구성되어 있으며, 일반적인 한국어 텍스트입니다.",
-                "과학 기술의 발전은 인류의 삶을 크게 변화시켰습니다! 특히 컴퓨터와 인터넷의 등장으로 정보 처리가 혁신되었습니다.",
-                "교육의 중요성은 아무리 강조해도 지나치지 않습니다. '지식은 힘이다'라는 말처럼, 사고 능력을 기르는 것이 핵심입니다.",
-                "연구자: \"이번 실험 결과는 매우 흥미롭네요.\" 동료: '정말 그렇습니다. 예상보다 좋은 성과입니다.'",
-                "가격표: 사과 1kg - ₩3,000, 배 1개 - ₩2,500 (10% 할인 중)",
-                "이메일 주소: research@university.ac.kr, 전화번호: 02-1234-5678",
-                "수학 공식: y = ax² + bx + c (여기서 a ≠ 0)",
-                "목록 항목:\n• 첫 번째 주제: 인공지능 발전사\n• 두 번째 주제: 머신러닝 적용 분야",
-                "인용구: \"과학의 발전은 인류의 미래를 밝혀준다.\" - 알버트 아인슈타인",
-                "웹사이트: https://www.example.com, 참고문헌: Smith, J. (2023). AI를 활용한 OCR 성능 개선.",
-                "현대 사회에서 소통의 중요성이 대두되고 있습니다. 서로 다른 배경을 가진 사람들과의 이해가 필요합니다.",
-                "자연 환경 보호는 우리 모두의 책임입니다. 지속 가능한 발전을 위해 노력해야 합니다."
-            ]
-        
-        return gt_pool_list
-    
+        result = list(gt_pool)
+        print(f"✅ Authentic GT from events: {len(result)}개 snippet" if result else "❌ GT 풀이 비어있음")
+        return result
+
     def _apply_reverse_error_event(self, gt_text: str, event_example: Dict, op_type: str) -> str:
         """GT → Raw 역변환으로 오류 주입 (정확한 INSERT/DELETE 의미 반영)
         
@@ -1685,19 +1685,37 @@ class ErrorDistributionAnalyzer:
             spearman_corr = -1
             spearman_p = 1
         
-        # 🚨 PASS/FAIL 판정
+        # 🚨 PASS/FAIL 판정 (Authentic Distribution 기준)
         top10_coverage = coverage_rate if len(real_signatures) <= 10 else -1
         top50_coverage = coverage_rate if len(real_signatures) <= 50 else -1
         
-        # PASS 조건 체크
+        # Top10 signature ratio 계산 (authentic distribution 정확도)
+        top10_signature_ratio = None
+        if len(real_signatures) >= 10 and len(synth_signatures) >= 10:
+            top10_real = comparison_table[:10]
+            valid_ratios = []
+            for item in top10_real:
+                if item['real_count'] > 0 and item['synth_count'] > 0:
+                    ratio = item['synth_count'] / item['real_count']
+                    valid_ratios.append(ratio)
+            
+            if valid_ratios:
+                top10_signature_ratio = sum(valid_ratios) / len(valid_ratios)
+        
+        # PASS 조건 체크 (더 엄격한 기준)
         pass_conditions = []
         if len(real_signatures) <= 10:
-            pass_conditions.append(("Top10 coverage ≥ 0.8", coverage_rate >= 0.8))
+            pass_conditions.append(("Top10 coverage ≥ 0.9", coverage_rate >= 0.9))
         if len(real_signatures) <= 50:
             pass_conditions.append(("Top50 coverage ≥ 0.9", coverage_rate >= 0.9))
         pass_conditions.append(("Spearman ≥ 0.85", spearman_corr >= 0.85))
         
-        print(f"\n🎯 PASS/FAIL 판정:")
+        # Top10 signature ratio 조건 (authentic distribution 정확도)
+        if top10_signature_ratio is not None:
+            pass_conditions.append(("Top10 signature ratio in [0.5, 2.0]", 
+                                   0.5 <= top10_signature_ratio <= 2.0))
+        
+        print(f"\n🎯 Authentic Distribution 판정:")
         overall_pass = True
         for condition, result in pass_conditions:
             status = "✅ PASS" if result else "❌ FAIL"
@@ -1709,8 +1727,11 @@ class ErrorDistributionAnalyzer:
             print(f"  🚨 커버리지 0% → 무조건 FAIL")
             overall_pass = False
             
+        if top10_signature_ratio is not None:
+            print(f"  📊 Top10 signature ratio: {top10_signature_ratio:.3f}")
+            
         final_status = "✅ PASS" if overall_pass else "❌ FAIL"
-        print(f"\n📊 최종 판정: {final_status}")
+        print(f"\n📊 최종 판정: {final_status} (Authentic Distribution 기준)")
         
         # 🔍 INSERT 패턴 특별 분석 (Top10)
         insert_patterns = []
@@ -1933,17 +1954,131 @@ class ErrorDistributionAnalyzer:
         """Normalize 패턴 적용 (GT → Raw 역변환)"""
         return self._reverse_inject_error(text, pattern)
 
+    def _apply_context_anchored_replacement(
+        self, text: str, gt_snippet: str, raw_snippet: str, 
+        context_before: str, context_after: str, op_type: str
+    ) -> str:
+        """Context 정보를 활용한 정확한 위치 기반 replacement"""
+        debug_info = {
+            'text_len': len(text),
+            'gt_snippet': repr(gt_snippet),
+            'raw_snippet': repr(raw_snippet),
+            'context_before': repr(context_before),
+            'context_after': repr(context_after),
+            'op_type': op_type,
+            'method_used': 'unknown',
+            'success': False
+        }
+        
+        original_text = text
+        
+        # 1. Context 기반 정확한 위치 탐지
+        target_pattern = ""
+        replacement = ""
+        
+        if context_before and context_after:
+            target_pattern = f"{context_before}{gt_snippet}{context_after}"
+            replacement = f"{context_before}{raw_snippet}{context_after}"
+        elif context_before:
+            target_pattern = f"{context_before}{gt_snippet}"
+            replacement = f"{context_before}{raw_snippet}"
+        elif context_after:
+            target_pattern = f"{gt_snippet}{context_after}"
+            replacement = f"{raw_snippet}{context_after}"
+        else:
+            # Context가 없으면 fallback
+            if gt_snippet in text:
+                debug_info['method_used'] = 'direct_replace_no_context'
+                result = text.replace(gt_snippet, raw_snippet, 1)
+                debug_info['success'] = result != text
+                if not debug_info['success']:
+                    print(f"⚠️ INSERT DEBUG: Context 없이 직접 replace 실패 - {debug_info}")
+                return result
+            debug_info['method_used'] = 'no_context_no_match'
+            print(f"❌ INSERT DEBUG: Context도 없고 gt_snippet 매칭도 실패 - {debug_info}")
+            return text
+        
+        # 2. Pattern이 텍스트에 존재하면 정확한 교체
+        if target_pattern in text:
+            debug_info['method_used'] = 'exact_pattern_match'
+            result = text.replace(target_pattern, replacement, 1)
+            debug_info['success'] = result != text
+            if op_type == "insert" and not debug_info['success']:
+                print(f"⚠️ INSERT DEBUG: Exact pattern 교체했지만 변화없음 - {debug_info}")
+            return result
+        
+        # 3. Fuzzy matching으로 부분 매칭 시도
+        if context_before and context_before in text:
+            # context_before 다음 위치에서 작업
+            pos = text.find(context_before) + len(context_before)
+            debug_info['method_used'] = 'context_before_fuzzy'
+            
+            if op_type == "insert" and raw_snippet == "":
+                # GT snippet 제거 (INSERT는 GT에서 제거하여 Raw 만들기)
+                if text[pos:].startswith(gt_snippet):
+                    result = text[:pos] + text[pos + len(gt_snippet):]
+                    debug_info['success'] = result != text
+                    debug_info['method_used'] = 'insert_remove_exact'
+                    if not debug_info['success']:
+                        print(f"⚠️ INSERT DEBUG: GT snippet 제거했지만 변화없음 - {debug_info}")
+                    return result
+                else:
+                    # GT snippet이 정확히 매칭되지 않음 - INSERT 실패
+                    debug_info['method_used'] = 'insert_remove_failed'
+                    debug_info['next_chars'] = repr(text[pos:pos+len(gt_snippet)+5])
+                    print(f"❌ INSERT DEBUG: GT snippet 위치 불일치 - {debug_info}")
+                    return text
+            else:
+                # 일반적인 교체
+                if text[pos:].startswith(gt_snippet):
+                    result = text[:pos] + raw_snippet + text[pos + len(gt_snippet):]
+                    debug_info['success'] = result != text
+                    debug_info['method_used'] = 'replace_exact'
+                    return result
+                else:
+                    # gt_snippet이 정확히 매치되지 않으면 raw_snippet 삽입
+                    result = text[:pos] + raw_snippet + text[pos:]
+                    debug_info['success'] = result != text
+                    debug_info['method_used'] = 'insert_fallback'
+                    return result
+        
+        # 4. 마지막 수단: 기본 replace
+        if gt_snippet in text:
+            debug_info['method_used'] = 'basic_replace'
+            result = text.replace(gt_snippet, raw_snippet, 1)
+            debug_info['success'] = result != text
+            if op_type == "insert" and not debug_info['success']:
+                print(f"⚠️ INSERT DEBUG: 기본 replace 실패 - {debug_info}")
+            return result
+        
+        # 5. 완전 실패
+        debug_info['method_used'] = 'complete_failure'
+        if op_type == "insert":
+            print(f"❌ INSERT DEBUG: 모든 방법 실패 - {debug_info}")
+            
+        return text
+
     def _reverse_inject_error(self, gt_text, event):
-        """GT → Raw 역변환으로 오류 주입 (정확한 INSERT/DELETE 의미 반영)"""
+        """GT → Raw 역변환으로 오류 주입 (Context-anchored replacement 적용)"""
         gt_snippet = event.gt_snippet
         raw_snippet = event.raw_ocr_snippet
         op_type = event.op_type
         
-        # 1차 시도: 정확한 매칭이 가능한 경우 직접 교체
+        # Context 정보 추출 (실제 event 객체에서)
+        context_before = getattr(event, 'context_before', '') or event.get("context_before", "")
+        context_after = getattr(event, 'context_after', '') or event.get("context_after", "")
+        
+        # Context-anchored replacement: 정확한 위치에서 변환
+        if context_before or context_after:
+            return self._apply_context_anchored_replacement(
+                gt_text, gt_snippet, raw_snippet, context_before, context_after, op_type
+            )
+        
+        # 1차 시도: 정확한 매칭이 가능한 경우 직접 교체 (fallback)
         if gt_snippet in gt_text:
             return gt_text.replace(gt_snippet, raw_snippet, 1)
         else:
-            # 매칭되지 않으면 op_type별 역변환 수행 (2차 시도)
+            # 매칭되지 않으면 op_type별 역변환 수행 (2차 시도) 
             if op_type == "insert":
                 # INSERT 의미: GT에 있던 것을 OCR이 누락
                 # 역변환: GT에서 gt_snippet(있던 것)을 제거하여 Raw 생성
@@ -1952,39 +2087,13 @@ class ErrorDistributionAnalyzer:
                     if gt_snippet in gt_text:
                         return gt_text.replace(gt_snippet, "", 1)
                     else:
-                        # 스마트한 위치 선정: 컨텍스트 기반으로 적절한 위치에 추가
-                        context_before = getattr(event, 'context_before', '')
-                        context_after = getattr(event, 'context_after', '')
-                        
-                        # 컨텍스트 매칭 시도  
-                        if context_before and context_before in gt_text:
-                            pos = gt_text.find(context_before) + len(context_before)
-                            new_text = gt_text[:pos] + gt_snippet + gt_text[pos:]
-                            return new_text.replace(gt_snippet, "", 1)
-                        elif context_after and context_after in gt_text:
-                            pos = gt_text.find(context_after)
-                            new_text = gt_text[:pos] + gt_snippet + gt_text[pos:]  
-                            return new_text.replace(gt_snippet, "", 1)
-                        else:
-                            # 마지막 수단: 텍스트 끝에 추가 후 제거 (의미적 일관성 확보)
-                            new_text = gt_text + gt_snippet
-                            return new_text.replace(gt_snippet, "", 1)
+                        # 마지막 수단: 텍스트 끝에 추가 후 제거 (의미적 일관성 확보)
+                        new_text = gt_text + gt_snippet
+                        return new_text.replace(gt_snippet, "", 1)
                 else:
-                    # raw_snippet이 비어있지 않은 경우: 컨텍스트 기반 위치 선정
-                    context_before = getattr(event, 'context_before', '')
-                    context_after = getattr(event, 'context_after', '')
-                    
-                    if context_before and context_before in gt_text:
-                        pos = gt_text.find(context_before) + len(context_before)
-                        return gt_text[:pos] + raw_snippet + gt_text[pos:]
-                    elif context_after and context_after in gt_text:
-                        pos = gt_text.find(context_after)
-                        return gt_text[:pos] + raw_snippet + gt_text[pos:]
-                    else:
-                        # 기본값: 텍스트 중간에 추가
-                        pos = len(gt_text) // 2
-                        return gt_text[:pos] + raw_snippet + gt_text[pos:]
-                    
+                    # raw_snippet이 비어있지 않은 경우: 임의 위치에 배치
+                    return gt_text + raw_snippet
+                        
             elif op_type == "delete":
                 # DELETE 의미: GT에 없던 것을 OCR이 추가
                 # 역변환: GT에 raw_snippet을 추가하여 Raw 생성
@@ -2004,9 +2113,9 @@ class ErrorDistributionAnalyzer:
 
 
 def main():
-    """메인 실행 함수"""
+    """메인 실행 함수 - Authentic Distribution 기반"""
     parser = argparse.ArgumentParser(description="실제 오류 분포 기반 합성 데이터셋 구축")
-    parser.add_argument("--folder", required=True, help="이미지 폴더 경로")
+    parser.add_argument("--folder", required=True, help="이미지 폴더 경로 (real 폴더 권장)")
     parser.add_argument("--max-pages", type=int, default=30, help="최대 처리할 페이지 수 (default: 30)")
     parser.add_argument("--topk", type=int, default=200, help="상위 K개 패턴 (default: 200)")
     parser.add_argument("--synthetic-size", type=int, default=5000, help="합성 데이터셋 크기 (default: 5000)")
@@ -2014,16 +2123,37 @@ def main():
     parser.add_argument("--cache-dir", default="outputs/cache_google_vision", help="캐시 디렉토리")
     parser.add_argument("--output-dir", default=".snaptxt/analysis", help="출력 디렉토리")
     parser.add_argument("--convert-heic", action="store_true", default=True, help="HEIC를 JPG로 변환 (default: True)")
+    parser.add_argument("--force-authentic", action="store_true", help="Authentic Vision GT만 강제 사용")
     
     args = parser.parse_args()
     
-    print("🚀 실제 오류 분포 기반 합성 데이터셋 구축 시스템")
+    print("🚀 Authentic Distribution 기반 합성 데이터셋 구축")
     print("="*70)
     print(f"📁 이미지 폴더: {args.folder}")
+    
+    # Real folder 검증 및 경고
+    if "real" not in args.folder.lower():
+        print(f"⚠️  경고: 'real' 폴더가 아닌 '{args.folder}' 사용")
+        print(f"   Authentic Distribution을 위해 'real' 폴더 사용을 권장합니다.")
+        if not args.force_authentic:
+            response = input("계속하시겠습니까? (y/N): ")
+            if response.lower() != 'y':
+                print("🚫 중단됨. Real 폴더를 사용하세요.")
+                return
+    else:
+        print(f"✅ Real 폴더 사용 - Authentic Distribution 보장")
+    
     print(f"🔝 상위 패턴: {args.topk}개")
     print(f"🎲 시드: {args.seed}")
     print(f"💾 캐시 디렉토리: {args.cache_dir}")
     print(f"📤 출력 디렉토리: {args.output_dir}")
+    print()
+    
+    # GT Pool Expansion 금지 경고
+    print("🏛️  **Authentic Distribution 모드**")
+    print("   - GT Pool Expansion 사용 안함")
+    print("   - Context-anchored replacement 사용")
+    print("   - 실제 Vision GT로만 합성")
     print()
     
     # 환경 확인
@@ -2074,8 +2204,8 @@ def main():
         raise
 
 
-if __name__ == "__main__":
-    main()
+# Backward compatibility alias
+EventReplayDatasetBuilder = ErrorDistributionAnalyzer
 
 
 if __name__ == "__main__":

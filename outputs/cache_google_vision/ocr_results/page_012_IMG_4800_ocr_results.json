@@ -1,0 +1,16 @@
+{
+  "page_id": "page_012_IMG_4800",
+  "image_file": "samples\\IMG_4800.JPG",
+  "timestamp": "2026-03-04T09:23:51.701592",
+  "ocr_results": {
+    "raw_ocr": "l3",
+    "stage2_applied": "l3",
+    "stage23_applied": "",
+    "google_vision_gt": "13\n13"
+  },
+  "text_stats": {
+    "raw_length": 2,
+    "stage23_length": 0,
+    "gt_length": 5
+  }
+}
