@@ -1,0 +1,10 @@
+{
+  "google_vision_text": "11",
+  "easyocr_text": "ll",
+  "metrics": {
+    "google_vision_length": 2,
+    "easyocr_length": 2,
+    "similarity": 0.0,
+    "length_diff_percent": 0.0
+  }
+}

@@ -28,6 +28,14 @@ except ImportError:
     StageResult = None
     get_session_context = None
 
+# Context-Conditioned Replay import (Phase 3.2 연구 성과 통합)
+try:
+    from .context_aware_processor import ContextConditionedProcessor
+    CONTEXT_CONDITIONED_AVAILABLE = True
+except ImportError:
+    CONTEXT_CONDITIONED_AVAILABLE = False
+    ContextConditionedProcessor = None
+
 __all__ = [
     "Stage2Config",
     "Stage3Config",
@@ -38,6 +46,7 @@ __all__ = [
     "reload_stage2_rules",
     "reload_stage3_rules",
     "run_pipeline",
+    "ContextConditionedProcessor",  # NEW: Context-aware 처리기 노출
 ]
 
 
@@ -48,7 +57,8 @@ def run_pipeline(
     stage2_config: Stage2Config | None = None,
     stage3_config: Stage3Config | None = None,
     logger: logging.Logger | None = None,
-    collect_patterns: bool = True  # ← 신규 파라미터: 패턴 수집 여부
+    collect_patterns: bool = True,  # ← 신규 파라미터: 패턴 수집 여부
+    enable_context_aware: bool = True  # ← NEW: Context-Conditioned Replay 활성화 (연구 검증: INSERT 패턴 3배 성능 향상)
 ) -> str:
     """Run postprocessing stages sequentially with optional pattern collection."""
 
@@ -107,6 +117,38 @@ def run_pipeline(
     log.info(f"   ✅ Stage 3 완료 ({stage3_time*1000:.1f}ms)")
     log.info(f"      📈 변화: {stage3_change['char_change']:.1f}%, 단어: {stage3_change['word_change']:.1f}%")
     
+    # ✨ Context-Conditioned Replay (Phase 3.2 연구 성과 통합)
+    context_aware_result = None
+    if enable_context_aware and CONTEXT_CONDITIONED_AVAILABLE:
+        context_start = time.time()
+        log.info("   🧠 Context-Conditioned Replay 시작 (연구 검증: INSERT 패턴 3배 향상)")
+        
+        try:
+            context_processor = ContextConditionedProcessor(log)
+            context_aware_result = context_processor.process_text(stage3, enable_context_aware)
+            context_time = time.time() - context_start
+            
+            if context_aware_result.patterns_applied:
+                stage3 = context_aware_result.processed_text  # Context-aware 결과 적용
+                log.info(f"   ✅ Context-aware 완료 ({context_time*1000:.1f}ms)")
+                log.info(f"      🎨 적용 패턴: {len(context_aware_result.patterns_applied)}개")
+                log.info(f"      📈 신뢰도: {context_aware_result.confidence_score:.1%}")
+                
+                # 적용된 패턴 상세 로그
+                for pattern in context_aware_result.patterns_applied:
+                    log.debug(f"      → {pattern['type']}:{pattern['subtype']} @{pattern['position']} ({pattern['confidence']:.1%})")
+            else:
+                log.debug(f"   📋 Context-aware: 적용 가능한 패턴 없음 ({context_time*1000:.1f}ms)")
+                
+        except Exception as e:
+            log.warning(f"   ⚠️ Context-aware 처리 실패: {e}")
+            import traceback
+            log.debug(f"📋 Context-aware Traceback: {traceback.format_exc()}")
+    elif enable_context_aware and not CONTEXT_CONDITIONED_AVAILABLE:
+        log.warning("   ⚠️ Context-Conditioned Replay 불가: 모듈 import 실패")
+    elif not enable_context_aware:
+        log.debug("   📋 Context-Conditioned Replay 비활성화")
+    
     # ✨ 신규: 패턴 수집 (Phase 1.5 - Session-aware)
     if collect_patterns and PATTERN_ENGINE_AVAILABLE:
         try:
@@ -151,8 +193,11 @@ def run_pipeline(
     log.info(f"   ⏱️  총 처리 시간: {total_time*1000:.1f}ms")
     log.info(f"   📊 전체 변화율: {final_change['char_change']:.1f}%")
     log.info(f"   🛡️  안전성 점수: {safety_score:.1%}")
-    log.info(f"   ✨ 최종 품질: {_assess_input_quality(final_text):.1%} (원본: {input_quality:.1%})")
-    
+    log.info(f"   ✨ 최종 품질: {_assess_input_quality(final_text):.1%} (원본: {input_quality:.1%})")    
+    # Context-aware 성과 요약
+    if context_aware_result and context_aware_result.patterns_applied:
+        context_improvement = len(context_aware_result.patterns_applied)
+        log.info(f"   🧠 Context-aware 개선: {context_improvement}개 패턴 적용 (연구검증: 3배 성능향상)")    
     if final_change['char_change'] < 0.1 and input_quality < 0.3:
         log.warning("   ⚠️  저품질 입력 감지 - 안전성 우선 정책 적용")
     

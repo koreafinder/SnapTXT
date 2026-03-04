@@ -105,6 +105,8 @@ SnapTXT 프로젝트의 모든 문서화 자료를 관리하는 중앙 허브입
 ### ⚙️ 기술 문서 (Technical)
 - [Phase 1 MVP Pattern Engine](technical/phase1_mvp_pattern_engine.md) - 패턴 엔진 기술 사양
 - [Phase 1.5 Session-aware Design](technical/phase1_5_session_aware_design.md) - 세션 인식 패턴 학습
+- [Phase 3.1 INSERT Reverse Fix](technical/phase3_1_insert_reverse_fix.md) - INSERT 역변환 로직 수정 보고서
+- [Context-Conditioned Replay Experiment](technical/context-conditioned-replay-experiment.md) - Context-aware vs Random 성능 비교 실험
 - [Complete Achievement Report](technical/complete_achievement_report.md) - 완료 성과 보고서
 
 ### 🎨 UI/UX (User Interface)

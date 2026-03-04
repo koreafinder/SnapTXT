@@ -1,0 +1,10 @@
+{
+  "google_vision_text": "17\n17",
+  "easyocr_text": "l7",
+  "metrics": {
+    "google_vision_length": 5,
+    "easyocr_length": 2,
+    "similarity": 0.2857142857142857,
+    "length_diff_percent": 60.0
+  }
+}

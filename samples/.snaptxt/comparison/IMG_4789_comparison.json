@@ -1,0 +1,10 @@
+{
+  "google_vision_text": "마이클 싱어 지음 | 노진선 옮김\n명상저널\n상처받은 영혼을 위한 치유 라이팅북\nThe Unt\n고양시립높빛도서관\nurnal\nYM0026011\n라이팅하우스",
+  "easyocr_text": "말 싱 짐 _ 숲 움 빵 섬 방처받은 영혼을 위한 지유라이팅북 II 고양시림놈빛도 서관 Xhe Un urnsll YMOO260ll 그이팅하운스",
+  "metrics": {
+    "google_vision_length": 84,
+    "easyocr_length": 79,
+    "similarity": 0.49079754601226994,
+    "length_diff_percent": 5.952380952380952
+  }
+}

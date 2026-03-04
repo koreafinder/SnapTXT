@@ -1,0 +1,77 @@
+{
+  "processing_info": {
+    "timestamp": "2026-03-05T02:00:18.132507",
+    "samples_folder": "samples",
+    "total_samples": 10,
+    "successful_gt": 10,
+    "successful_comparisons": 10
+  },
+  "statistics": {
+    "average_similarity": 0.6488818339569994,
+    "average_length_difference": 7.889413659446123,
+    "google_vision_avg_length": 249.0,
+    "quality_assessment": "good"
+  },
+  "individual_results": {
+    "IMG_4811.JPG": {
+      "google_vision_length": 353,
+      "easyocr_length": 349,
+      "similarity": 0.7207977207977208,
+      "length_diff_percent": 1.13314447592068
+    },
+    "IMG_4804.JPG": {
+      "google_vision_length": 5,
+      "easyocr_length": 2,
+      "similarity": 0.2857142857142857,
+      "length_diff_percent": 60.0
+    },
+    "IMG_4816.JPG": {
+      "google_vision_length": 67,
+      "easyocr_length": 63,
+      "similarity": 0.8615384615384616,
+      "length_diff_percent": 5.970149253731343
+    },
+    "IMG_4798.JPG": {
+      "google_vision_length": 2,
+      "easyocr_length": 2,
+      "similarity": 0.0,
+      "length_diff_percent": 0.0
+    },
+    "IMG_4810.JPG": {
+      "google_vision_length": 540,
+      "easyocr_length": 534,
+      "similarity": 0.8733705772811918,
+      "length_diff_percent": 1.1111111111111112
+    },
+    "IMG_4789.JPG": {
+      "google_vision_length": 84,
+      "easyocr_length": 79,
+      "similarity": 0.49079754601226994,
+      "length_diff_percent": 5.952380952380952
+    },
+    "IMG_4793.JPG": {
+      "google_vision_length": 626,
+      "easyocr_length": 624,
+      "similarity": 0.8832,
+      "length_diff_percent": 0.3194888178913738
+    },
+    "IMG_4809.JPG": {
+      "google_vision_length": 237,
+      "easyocr_length": 239,
+      "similarity": 0.6596638655462185,
+      "length_diff_percent": 0.8368200836820083
+    },
+    "IMG_4805.JPG": {
+      "google_vision_length": 458,
+      "easyocr_length": 453,
+      "similarity": 0.8518111964873765,
+      "length_diff_percent": 1.0917030567685588
+    },
+    "IMG_4802.JPG": {
+      "google_vision_length": 118,
+      "easyocr_length": 121,
+      "similarity": 0.8619246861924686,
+      "length_diff_percent": 2.479338842975207
+    }
+  }
+}

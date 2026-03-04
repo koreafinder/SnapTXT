@@ -1,0 +1,40 @@
+{
+  "timestamp": "2026-03-04T19:42:00.998876",
+  "run_id": "20260304_194104_606112c8",
+  "insert_patterns": [
+    {
+      "rank": 2,
+      "signature": "INSERT[\".\"]",
+      "real_count": 30,
+      "synth_count": 47,
+      "application_rate": 156.66666666666666
+    },
+    {
+      "rank": 4,
+      "signature": "INSERT[\" \"]",
+      "real_count": 16,
+      "synth_count": 32,
+      "application_rate": 200.0
+    },
+    {
+      "rank": 5,
+      "signature": "INSERT[\",\"]",
+      "real_count": 16,
+      "synth_count": 12,
+      "application_rate": 75.0
+    },
+    {
+      "rank": 6,
+      "signature": "INSERT[\"\n\"]",
+      "real_count": 11,
+      "synth_count": 2,
+      "application_rate": 18.181818181818183
+    }
+  ],
+  "summary": {
+    "total_insert_patterns": 4,
+    "avg_application_rate": 112.4621212121212,
+    "fixed_count": 3,
+    "failed_count": 0
+  }
+}

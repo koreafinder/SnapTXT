@@ -1,0 +1,16 @@
+{
+  "timestamp": "2026-03-05T02:37:37.853742",
+  "request_type": "user_approval_required",
+  "context": {
+    "domain": "essay",
+    "safety_mode": "conservative",
+    "user_id": null,
+    "session_id": null
+  },
+  "text_preview": "눈 놀라운 변화에 대해 이야기할 것입니다:\n\n어떻계 하면, 우 리를 육아매떠 끊임없이 고통을 만들어내는 마음의 꿀레에 서 벗어날 수 있을까요. 어떻계 매일매일의 삶에서 선명한 깨달...",
+  "recommended_actions": [
+    "Review text for potential improvements",
+    "Approve automatic rule application",
+    "Switch to standard/aggressive mode for future"
+  ]
+}

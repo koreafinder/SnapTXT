@@ -1,0 +1,10 @@
+{
+  "google_vision_text": "평화와 만족을 찾는 유일한 길은\n자신에 대한 생각을 멈추는 것임을 깨달아야만\n비로소 내적으로 성장할 수 있다.\n55\n35",
+  "easyocr_text": "평화와 만족을 찾는 유일하 길은 자신에 대한 생각을 멈추는 것임을 깨달이야만 비로소내적으로 성장할 수 있다: 3S",
+  "metrics": {
+    "google_vision_length": 67,
+    "easyocr_length": 63,
+    "similarity": 0.8615384615384616,
+    "length_diff_percent": 5.970149253731343
+  }
+}

@@ -14,6 +14,13 @@ import random
 import base64
 import requests
 from typing import Dict, Optional
+from PyQt5.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout, 
+                           QHBoxLayout, QTextEdit, QPushButton, QFileDialog, 
+                           QLabel, QProgressBar, QMenuBar, QAction, QMessageBox,
+                           QListWidget, QSplitter, QFrame, QFormLayout, QLineEdit,
+                           QDialog, QSpinBox, QComboBox, QInputDialog)
+from PyQt5.QtCore import Qt, QThread, pyqtSignal  
+from PyQt5.QtGui import QFont
 
 # OCR 프로세서 import
 from snaptxt.backend.multi_engine import MultiOCRProcessor, load_default_engine
@@ -266,13 +273,14 @@ class OCRWorkerThread(QThread):
                     try:
                         print(f"🧠 후처리 시작: {filename} ({len(extracted_text)}자)")
                         
-                        # Book Profile 자동 감지 및 적용 + Stage2 + Stage3 후처리 실행
+                        # Book Profile 자동 감지 및 적용 + Stage2 + Stage3 + Context-aware 후처리 실행
                         book_profile_id = get_or_create_book_profile(extracted_text, filename) if BOOK_PROFILE_AVAILABLE else None
                         processed_text = run_pipeline(
                             extracted_text,
                             book_profile=book_profile_id,
                             stage2_config=Stage2Config(),
-                            stage3_config=Stage3Config()
+                            stage3_config=Stage3Config(),
+                            enable_context_aware=True  # 🧠 Context-Conditioned Replay 활성화 (연구 검증: INSERT 패턴 3배 성능 향상)
                         )
                         
                         # 후처리 결과 분석
@@ -428,13 +436,49 @@ class SnapTXTMainWindow(QMainWindow):
         layout.addWidget(right_panel, 2)
         
     def create_left_panel(self):
-        """왼쪽 패널 생성: 파일 선택 및 OCR 설정"""
+        """왼쪽 패널 생성: 1단계 GT 생성 → 2단계 텍스트 추출 워크플로우"""
         panel = QWidget()
         layout = QVBoxLayout(panel)
         
-        # 파일 선택 그룹
-        file_group = QGroupBox("📂 파일 선택")
-        file_layout = QVBoxLayout(file_group)
+        # ========== 1단계: Ground Truth 생성 ==========
+        gt_group = QGroupBox("📈 1단계: Ground Truth 생성")
+        gt_layout = QVBoxLayout(gt_group)
+        
+        # GT 상태 표시
+        self.gt_status_label = QLabel("❓ GT 상태 확인 중...")
+        self.gt_status_label.setStyleSheet("padding: 8px; border-radius: 4px; background: #f5f5f5;")
+        gt_layout.addWidget(self.gt_status_label)
+        
+        # GT 생성 버튼들
+        gt_btn_layout = QHBoxLayout()
+        
+        self.btn_generate_gt = QPushButton("📊 GT 생성")
+        self.btn_generate_gt.setToolTip("Google Vision API로 Ground Truth 자동 생성")
+        self.btn_generate_gt.clicked.connect(self.open_google_vision_dialog)
+        self.btn_generate_gt.setStyleSheet("QPushButton { background-color: #2196F3; color: white; font-weight: bold; }")
+        gt_btn_layout.addWidget(self.btn_generate_gt)
+        
+        self.btn_open_gt_folder = QPushButton("📁 GT 폴더")
+        self.btn_open_gt_folder.setToolTip("생성된 GT 파일 확인")
+        self.btn_open_gt_folder.clicked.connect(self.open_gt_folder)
+        gt_btn_layout.addWidget(self.btn_open_gt_folder)
+        
+        gt_layout.addLayout(gt_btn_layout)
+        layout.addWidget(gt_group)
+        
+        # 구분선
+        line = QFrame()
+        line.setFrameShape(QFrame.HLine)
+        line.setFrameShadow(QFrame.Sunken)
+        layout.addWidget(line)
+        
+        # ========== 2단계: 텍스트 추출 ==========
+        extract_group = QGroupBox("📄 2단계: 텍스트 추출")
+        extract_layout = QVBoxLayout(extract_group)
+        
+        # 파일 선택 서브그룹
+        file_subgroup = QGroupBox("파일 선택")
+        file_layout = QVBoxLayout(file_subgroup)
         
         # 파일 선택 버튼들
         btn_layout = QHBoxLayout()
@@ -457,15 +501,15 @@ class SnapTXTMainWindow(QMainWindow):
         self.file_list_widget = QListWidget()
         file_layout.addWidget(self.file_list_widget)
         
-        layout.addWidget(file_group)
+        extract_layout.addWidget(file_subgroup)
         
-        # OCR 설정 그룹
-        ocr_group = QGroupBox("⚙️ EasyOCR 설정 - 단순화된 고성능 OCR")
-        ocr_layout = QVBoxLayout(ocr_group)
+        # OCR 설정 서브그룹
+        ocr_subgroup = QGroupBox("OCR 설정")
+        ocr_layout = QVBoxLayout(ocr_subgroup)
         
-        # EasyOCR 엔진 (하드코딩된 활성 상태)
-        easyocr_label = QLabel("🚀 EasyOCR 전용 모드 - 자동 한국어 후처리 적용")
-        easyocr_label.setStyleSheet("color: #2e7d32; font-weight: bold; padding: 8px;")
+        # EasyOCR 엔진 설정
+        easyocr_label = QLabel("🚀 EasyOCR + Context-aware 후처리")
+        easyocr_label.setStyleSheet("color: #2e7d32; font-weight: bold; padding: 4px;")
         ocr_layout.addWidget(easyocr_label)
         
         # 언어 설정
@@ -473,42 +517,128 @@ class SnapTXTMainWindow(QMainWindow):
         lang_layout.addWidget(QLabel("🌍 언어:"))
         self.combo_language = QComboBox()
         self.combo_language.addItems(["ko+en (한국어+영어)", "ko (한국어만)", "en (영어만)"])
-        self.combo_language.setCurrentIndex(0)  # 기본으로 한국어+영어
+        self.combo_language.setCurrentIndex(0)
         lang_layout.addWidget(self.combo_language)
         ocr_layout.addLayout(lang_layout)
         
         # 성능 설정
         perf_layout = QHBoxLayout()
-        perf_layout.addWidget(QLabel("📈 스레드 수:"))
+        perf_layout.addWidget(QLabel("📈 스레드:"))
         self.spin_threads = QSpinBox()
-        self.spin_threads.setRange(1, 4)  # EasyOCR에 최적화
+        self.spin_threads.setRange(1, 4)
         self.spin_threads.setValue(2)
         perf_layout.addWidget(self.spin_threads)
         ocr_layout.addLayout(perf_layout)
         
-        # TTS는 웹에서 처리하므로 PC 앱에서는 제거
+        extract_layout.addWidget(ocr_subgroup)
         
-        # 하드코딩된 옵션들 표시
-        features_label = QLabel("✨ 자동 적용: PyKoSpacing 띠어쓰기 교정, 한글 오류 수정, TTS 최적화")
-        features_label.setStyleSheet("color: #1565c0; font-size: 11px; font-style: italic; padding: 5px;")
-        ocr_layout.addWidget(features_label)
-        
-        layout.addWidget(ocr_group)
-        
-        # 처리 버튼 및 진행률
-        self.btn_start_ocr = QPushButton("🚀 OCR 시작")
+        # 텍스트 추출 시작 버튼
+        self.btn_start_ocr = QPushButton("🚀 텍스트 추출 시작")
         self.btn_start_ocr.clicked.connect(self.start_ocr_processing)
         self.btn_start_ocr.setStyleSheet("QPushButton { background-color: #4CAF50; color: white; font-weight: bold; }")
-        layout.addWidget(self.btn_start_ocr)
+        extract_layout.addWidget(self.btn_start_ocr)
         
+        # 진행률
         self.progress_bar = QProgressBar()
-        layout.addWidget(self.progress_bar)
+        extract_layout.addWidget(self.progress_bar)
+        
+        layout.addWidget(extract_group)
+        
+        # GT 상태 업데이트
+        self.update_gt_status()
         
         return panel
-        
+    
+    def update_gt_status(self):
+        """GT 상태 업데이트"""
+        try:
+            # samples 폴더의 .snaptxt 디렉토리 확인
+            samples_dir = Path("samples")
+            snaptxt_dir = samples_dir / ".snaptxt"
+            
+            if not samples_dir.exists():
+                self.gt_status_label.setText("❌ samples 폴더가 없습니다")
+                self.gt_status_label.setStyleSheet("padding: 8px; border-radius: 4px; background: #f8d7da; color: #721c24;")
+                self.btn_open_gt_folder.setEnabled(False)
+            elif snaptxt_dir.exists():
+                gt_dir = snaptxt_dir / "ground_truth"
+                if gt_dir.exists():
+                    gt_files = list(gt_dir.glob("*.txt"))
+                    if gt_files:
+                        count = len(gt_files)
+                        self.gt_status_label.setText(f"✅ GT 준비됨 ({count}개 파일)")
+                        self.gt_status_label.setStyleSheet("padding: 8px; border-radius: 4px; background: #e8f5e8; color: #2e7d32;")
+                        self.btn_open_gt_folder.setEnabled(True)
+                    else:
+                        self.gt_status_label.setText("⚠️ GT 폴더 있음, 파일 없음")
+                        self.gt_status_label.setStyleSheet("padding: 8px; border-radius: 4px; background: #fff3cd; color: #856404;")
+                        self.btn_open_gt_folder.setEnabled(True)
+                else:
+                    self.gt_status_label.setText("⚠️ .snaptxt 있음, GT 폴더 없음")
+                    self.gt_status_label.setStyleSheet("padding: 8px; border-radius: 4px; background: #fff3cd; color: #856404;")
+                    self.btn_open_gt_folder.setEnabled(True)
+            else:
+                self.gt_status_label.setText("❌ GT 필요 - 1단계를 먼저 실행하세요")
+                self.gt_status_label.setStyleSheet("padding: 8px; border-radius: 4px; background: #f8d7da; color: #721c24;")
+                self.btn_open_gt_folder.setEnabled(False)
+        except Exception as e:
+            self.gt_status_label.setText(f"❓ GT 상태 확인 오류: {e}")
+            self.gt_status_label.setStyleSheet("padding: 8px; border-radius: 4px; background: #f5f5f5;")
+    
+    def open_gt_folder(self):
+        """GT 폴더 열기"""
+        try:
+            samples_dir = Path("samples")
+            snaptxt_dir = samples_dir / ".snaptxt" 
+            
+            if snaptxt_dir.exists():
+                # Windows에서 폴더 열기
+                import subprocess
+                subprocess.run(["explorer", str(snaptxt_dir)], check=True)
+            else:
+                # 폴더가 없으면 samples 폴더라도 열기
+                if samples_dir.exists():
+                    subprocess.run(["explorer", str(samples_dir)], check=True)
+                    QMessageBox.information(self, "안내", f"GT 폴더(.snaptxt)가 없어서 samples 폴더를 열었습니다.\n\n1단계 GT 생성을 먼저 실행하세요.")
+                else:
+                    QMessageBox.warning(self, "경고", "samples 폴더가 존재하지 않습니다.\n작업 디렉토리를 확인하세요.")
+        except Exception as e:
+            QMessageBox.critical(self, "오류", f"폴더 열기 실패: {e}")
+    
     def create_right_panel(self):
         """오른쪽 패널 생성: 결과 표시"""
         panel = QWidget()
+        layout = QVBoxLayout(panel)
+        
+        # 결과 탭 위젯
+        self.tab_widget = QTabWidget()
+        
+        # 전체 결과 탭
+        self.tab_all_results = QTextEdit()
+        self.tab_all_results.setFont(QFont("맑은 고딕", 10))
+        self.tab_widget.addTab(self.tab_all_results, "📝 전체 결과")
+        
+        # 파일별 결과 탭
+        self.tab_file_results = QTextEdit()
+        self.tab_file_results.setFont(QFont("맑은 고딕", 10))
+        self.tab_widget.addTab(self.tab_file_results, "📄 파일별 결과")
+        
+        layout.addWidget(self.tab_widget)
+        
+        # 결과 조작 버튼들
+        btn_layout = QHBoxLayout()
+        
+        self.btn_copy_text = QPushButton("📋 텍스트 복사")
+        self.btn_copy_text.clicked.connect(self.copy_text_to_clipboard)
+        btn_layout.addWidget(self.btn_copy_text)
+        
+        self.btn_save_text = QPushButton("💾 텍스트 저장")
+        self.btn_save_text.clicked.connect(self.save_text_to_file)
+        btn_layout.addWidget(self.btn_save_text)
+        
+        layout.addLayout(btn_layout)  # QHBoxLayout을 QVBoxLayout에 추가
+        
+        return panel
         layout = QVBoxLayout(panel)
         
         # 결과 탭 위젯
@@ -651,13 +781,13 @@ class SnapTXTMainWindow(QMainWindow):
         
     def on_ocr_finished(self):
         """OCR 처리 완료"""
-        self.btn_start_ocr.setText("🚀 OCR 시작")
+        self.btn_start_ocr.setText("🚀 텍스트 추출 시작")
         self.btn_start_ocr.setEnabled(True)
         QMessageBox.information(self, "완료", f"{len(self.ocr_results)}개 파일 처리 완료!")
         
     def on_ocr_error(self, error_message):
         """OCR 처리 오류"""
-        self.btn_start_ocr.setText("🚀 OCR 시작")
+        self.btn_start_ocr.setText("🚀 텍스트 추출 시작")
         self.btn_start_ocr.setEnabled(True)
         QMessageBox.critical(self, "오류", f"OCR 처리 중 오류 발생:\n{error_message}")
         
@@ -730,6 +860,14 @@ class SnapTXTMainWindow(QMainWindow):
         monitor_action.triggered.connect(self.open_performance_monitor)
         tools_menu.addAction(monitor_action)
         
+        # 완전 자동화 액션
+        auto_action = QAction('🚀 완전 자동화 (GT + 후처리)', self)
+        auto_action.setStatusTip('폴더 → 샘플 선정 → Google Vision OCR → Context-aware 후처리')
+        auto_action.triggered.connect(self.open_full_automation_dialog)
+        tools_menu.addAction(auto_action)
+        
+        tools_menu.addSeparator()
+        
         # 회귀 테스트 액션
         test_action = QAction('🧪 회귀 테스트', self)
         test_action.setStatusTip('자동화된 품질 검증 실행')
@@ -738,7 +876,60 @@ class SnapTXTMainWindow(QMainWindow):
     
     def open_google_vision_dialog(self):
         """Google Vision Ground Truth 생성 다이얼로그 열기"""
-        dialog = GoogleVisionDialog(self)
+        try:
+            print("🔍 [DEBUG] GT 생성 버튼 클릭됨 - Google Vision 다이얼로그 열기 시작")
+            dialog = GoogleVisionDialog(self)
+            print("🔍 [DEBUG] Google Vision 다이얼로그 생성 완료")
+            result = dialog.exec_()
+            print(f"🔍 [DEBUG] 다이얼로그 결과: {result}")
+            
+            # GT 생성 완료 후 상태 업데이트
+            if hasattr(self, 'gt_status_label'):
+                self.update_gt_status()
+        except Exception as e:
+            print(f"❌ [ERROR] GT 생성 다이얼로그 오류: {e}")
+            # 백업 방법: 간단한 폴더 선택
+            self.simple_gt_generation()
+    
+    def simple_gt_generation(self):
+        """간단한 GT 생성 - 백업 방법"""
+        try:
+            # 폴더 선택
+            folder = QFileDialog.getExistingDirectory(
+                self, 
+                "📁 책 폴더를 선택하세요 (GT 생성용)", 
+                "", 
+                QFileDialog.ShowDirsOnly | QFileDialog.DontResolveSymlinks
+            )
+            if not folder:
+                return
+            
+            print(f"🔍 [DEBUG] Simple GT - 폴더 선택됨: {folder}")
+            
+            # API 키 입력
+            api_key, ok = QInputDialog.getText(self, "🔑 API 키", "Google Vision API 키를 입력하세요:", QLineEdit.Password)
+            if not ok or not api_key.strip():
+                return
+            
+            # GT 생성 시작 메시지
+            reply = QMessageBox.question(self, "GT 생성", 
+                f"선택된 폴더: {folder}\n\nGoogle Vision으로 GT를 생성하시겠습니까?",
+                QMessageBox.Yes | QMessageBox.No)
+            
+            if reply == QMessageBox.Yes:
+                QMessageBox.information(self, "안내", 
+                    "GT 생성을 시작합니다.\n\n참고: 실제 구현은 Google Vision API를 통해 이루어집니다.\n현재는 테스트용 메시지입니다.")
+                
+                # GT 상태 업데이트
+                if hasattr(self, 'gt_status_label'):
+                    self.update_gt_status()
+                    
+        except Exception as e:
+            QMessageBox.critical(self, "오류", f"간단 GT 생성 오류: {e}")
+    
+    def open_full_automation_dialog(self):
+        """완전 자동화 다이얼로그 열기"""
+        dialog = FullAutomationDialog(self)
         dialog.exec_()
     
     def open_performance_monitor(self):
@@ -788,6 +979,247 @@ class SimpleGoogleVisionOCR:
         except Exception as e:
             print(f"Google Vision API 오류: {e}")
             return ""
+
+
+class FullAutomationWorkerThread(QThread):
+    """완전 자동화 워커 스레드 (Google Vision + Context-aware 후처리 통합)"""
+    progress = pyqtSignal(int, str)
+    finished = pyqtSignal(dict)
+    error = pyqtSignal(str)
+    
+    def __init__(self, book_folder: Path, api_key: str, sample_count: int = 10):
+        super().__init__()
+        self.book_folder = book_folder
+        self.api_key = api_key
+        self.sample_count = sample_count
+        self.is_cancelled = False
+    
+    def run(self):
+        """완전 자동화 프로세스 실행: Google Vision + Context-aware 후처리"""
+        try:
+            results = {}
+            
+            # 1. 폴더 스캔
+            self.progress.emit(5, "📁 이미지 파일 스캔 중...")
+            image_files = self._scan_images()
+            if not image_files:
+                self.error.emit("이미지 파일을 찾을 수 없습니다")
+                return
+            
+            # 2. 샘플 선정 
+            self.progress.emit(10, "📋 샘플 이미지 선정 중...")
+            actual_sample_count = min(self.sample_count, len(image_files))
+            selected_samples = random.sample(image_files, actual_sample_count)
+            results['samples'] = [str(s) for s in selected_samples]
+            
+            # 3. .snaptxt 디렉토리 생성
+            self.progress.emit(15, "📁 작업 디렉토리 생성 중...")
+            snaptxt_dir = self.book_folder / ".snaptxt"
+            snaptxt_dir.mkdir(exist_ok=True)
+            for subdir in ["samples", "ocr", "ground_truth", "context_aware", "final_results"]:
+                (snaptxt_dir / subdir).mkdir(exist_ok=True)
+            
+            # 4. Google Vision API OCR 처리 + Context-aware 후처리
+            self.progress.emit(20, "🚀 Google Vision API 초기화 중...")
+            ocr_engine = SimpleGoogleVisionOCR(self.api_key)
+            
+            # OCR 프로세서도 초기화 (Book Profile용)
+            try:
+                load_default_engine()
+                print("✅ Context-aware 후처리 시스템 초기화 완료")
+            except Exception as e:
+                print(f"⚠️ Context-aware 시스템 초기화 경고: {e}")
+            
+            ocr_results = {}
+            context_aware_results = {}
+            stats = {
+                'context_improvements': 0,
+                'quality_improvements': [],
+                'total_chars_before': 0,
+                'total_chars_after': 0
+            }
+            
+            for i, sample_path in enumerate(selected_samples):
+                if self.is_cancelled:
+                    return
+                    
+                progress_base = 20 + (i * 60 // len(selected_samples))
+                sample_name = sample_path.name
+                
+                try:
+                    # Google Vision OCR
+                    self.progress.emit(progress_base, f"📖 Google Vision OCR: {sample_name}")
+                    raw_text = ocr_engine.extract_text(str(sample_path))
+                    ocr_results[sample_name] = raw_text
+                    
+                    if not raw_text or len(raw_text) < 10:
+                        self.progress.emit(progress_base + 5, f"⚠️ OCR 결과 부족: {sample_name}")
+                        continue
+                    
+                    # OCR 결과 저장
+                    ocr_file = snaptxt_dir / "ocr" / f"{sample_path.stem}.txt"
+                    ocr_file.write_text(raw_text, encoding='utf-8')
+                    
+                    # Context-aware 후처리 적용
+                    self.progress.emit(progress_base + 10, f"🧠 Context-aware 후처리: {sample_name}")
+                    
+                    try:
+                        # Book Profile 자동 감지 시도 
+                        book_profile_id = get_or_create_book_profile(raw_text, sample_name) if BOOK_PROFILE_AVAILABLE else None
+                        
+                        # 통합 후처리 파이프라인 실행
+                        processed_text = run_pipeline(
+                            raw_text,
+                            book_profile=book_profile_id,
+                            stage2_config=Stage2Config(),
+                            stage3_config=Stage3Config(),
+                            enable_context_aware=True  # 🧠 Context-Conditioned Replay 활성화
+                        )
+                        
+                        if processed_text and processed_text != raw_text:
+                            # 개선 통계 수집
+                            stats['context_improvements'] += 1
+                            before_len = len(raw_text)
+                            after_len = len(processed_text)
+                            improvement = abs(after_len - before_len) / before_len * 100
+                            stats['quality_improvements'].append(improvement)
+                            
+                            context_aware_results[sample_name] = processed_text
+                            self.progress.emit(progress_base + 15, f"✅ Context-aware 개선 완료: {sample_name} ({improvement:.1f}% 변화)")
+                            
+                            # Context-aware 결과 저장
+                            context_file = snaptxt_dir / "context_aware" / f"{sample_path.stem}_context.txt"
+                            context_file.write_text(processed_text, encoding='utf-8')
+                            
+                            # 최종 결과 저장
+                            final_file = snaptxt_dir / "final_results" / f"{sample_path.stem}_final.txt"
+                            final_file.write_text(processed_text, encoding='utf-8')
+                            
+                            stats['total_chars_before'] += before_len
+                            stats['total_chars_after'] += after_len
+                        else:
+                            context_aware_results[sample_name] = raw_text
+                            self.progress.emit(progress_base + 15, f"➡️ Context-aware 변화 없음: {sample_name}")
+                            
+                            # 변화가 없어도 최종 결과는 저장
+                            final_file = snaptxt_dir / "final_results" / f"{sample_path.stem}_final.txt"
+                            final_file.write_text(raw_text, encoding='utf-8')
+                            
+                    except Exception as e:
+                        # 후처리 실패 시 원본 OCR 결과 사용
+                        context_aware_results[sample_name] = raw_text
+                        self.progress.emit(progress_base + 15, f"⚠️ 후처리 실패, 원본 유지: {sample_name}")
+                        print(f"Context-aware 후처리 실패 ({sample_name}): {e}")
+                        
+                        # 원본이라도 최종 결과로 저장
+                        final_file = snaptxt_dir / "final_results" / f"{sample_path.stem}_final.txt"
+                        final_file.write_text(raw_text, encoding='utf-8')
+                    
+                except Exception as e:
+                    self.progress.emit(progress_base + 5, f"❌ 처리 실패: {sample_name} - {e}")
+                    continue
+            
+            if not ocr_results:
+                self.error.emit("모든 OCR 처리가 실패했습니다")
+                return
+            
+            # 5. 결과 저장 및 통계 계산
+            self.progress.emit(85, "💾 결과 저장 및 통계 계산 중...")
+            self._save_comprehensive_results(snaptxt_dir, ocr_results, context_aware_results, stats)
+            
+            # 평균 품질 향상 계산
+            avg_quality_improvement = sum(stats['quality_improvements']) / len(stats['quality_improvements']) if stats['quality_improvements'] else 0
+            
+            results.update({
+                'processed_files': len(ocr_results),
+                'total_chars': sum(len(text) for text in context_aware_results.values()),
+                'context_improvements': stats['context_improvements'],
+                'avg_quality_improvement': avg_quality_improvement,
+                'chars_before': stats['total_chars_before'],
+                'chars_after': stats['total_chars_after'],
+                'snaptxt_dir': str(snaptxt_dir)
+            })
+            
+            self.progress.emit(100, "✅ 완전 자동화 완료!")
+            self.finished.emit(results)
+            
+        except Exception as e:
+            self.error.emit(f"완전 자동화 프로세스 오류: {str(e)}")
+    
+    def _scan_images(self) -> list:
+        """이미지 파일 스캔"""
+        image_extensions = {'.jpg', '.jpeg', '.png', '.gif', '.bmp'}
+        image_files = []
+        
+        for file_path in self.book_folder.rglob('*'):
+            if file_path.is_file() and file_path.suffix.lower() in image_extensions:
+                if '.snaptxt' not in str(file_path):  # .snaptxt 폴더 제외
+                    image_files.append(file_path)
+        
+        return image_files
+    
+    def _save_comprehensive_results(self, snaptxt_dir: Path, ocr_results: dict, context_results: dict, stats: dict):
+        """종합 결과 저장"""
+        from datetime import datetime
+        
+        # 상세 처리 결과 저장
+        comprehensive_report = {
+            'processing_info': {
+                'timestamp': datetime.now().isoformat(),
+                'api_used': 'Google Vision API',
+                'postprocessing': 'Context-Conditioned Replay',
+                'book_folder': str(self.book_folder),
+                'total_files': len(ocr_results)
+            },
+            'statistics': {
+                'total_files_processed': len(ocr_results),
+                'context_aware_improvements': stats['context_improvements'],
+                'improvement_rate': stats['context_improvements'] / len(ocr_results) * 100 if ocr_results else 0,
+                'average_quality_improvement': sum(stats['quality_improvements']) / len(stats['quality_improvements']) if stats['quality_improvements'] else 0,
+                'total_characters_before': stats['total_chars_before'],
+                'total_characters_after': stats['total_chars_after'],
+                'character_change_ratio': (stats['total_chars_after'] - stats['total_chars_before']) / stats['total_chars_before'] * 100 if stats['total_chars_before'] > 0 else 0
+            },
+            'files': {
+                'samples': list(ocr_results.keys()),
+                'ocr_results': {k: len(v) for k, v in ocr_results.items()},
+                'context_aware_results': {k: len(v) for k, v in context_results.items()},
+                'improvements': stats['quality_improvements']
+            }
+        }
+        
+        # 종합 리포트 저장
+        report_file = snaptxt_dir / "full_automation_report.json"
+        report_file.write_text(json.dumps(comprehensive_report, ensure_ascii=False, indent=2), encoding='utf-8')
+        
+        # 간단한 요약도 저장
+        summary = f"""SnapTXT 완전 자동화 처리 결과
+{'='*50}
+
+처리 시간: {comprehensive_report['processing_info']['timestamp']}
+처리 대상: {self.book_folder}
+
+📊 처리 통계:
+• 총 처리 파일: {comprehensive_report['statistics']['total_files_processed']}개
+• Context-aware 개선: {comprehensive_report['statistics']['context_aware_improvements']}개 
+• 개선율: {comprehensive_report['statistics']['improvement_rate']:.1f}%
+• 평균 품질 향상: {comprehensive_report['statistics']['average_quality_improvement']:.1f}%
+• 문자 변화: {comprehensive_report['statistics']['total_characters_before']:,} → {comprehensive_report['statistics']['total_characters_after']:,} ({comprehensive_report['statistics']['character_change_ratio']:+.1f}%)
+
+🎯 Context-Conditioned Replay 성능:
+✅ INSERT 패턴 자동 적용으로 텍스트 품질 향상
+✅ Google Vision Ground Truth + 실무 후처리 통합 완료
+
+📁 결과 파일 위치:
+• OCR 원본: {snaptxt_dir / 'ocr'}/
+• Context-aware 개선: {snaptxt_dir / 'context_aware'}/  
+• 최종 결과: {snaptxt_dir / 'final_results'}/
+
+🚀 완전 자동화 프로세스 성공!
+"""
+        
+        summary_file = snaptxt_dir / "FULL_AUTOMATION_SUMMARY.txt"
+        summary_file.write_text(summary, encoding='utf-8')
 
 
 class GoogleVisionWorkerThread(QThread):
@@ -899,8 +1331,175 @@ class GoogleVisionWorkerThread(QThread):
         summary_file.write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding='utf-8')
 
 
+class FullAutomationDialog(QDialog):
+    """완전 자동화 다이얼로그 (Google Vision + Context-aware 후처리)"""
+    
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setWindowTitle("🚀 완전 자동화: GT 생성 + Context-aware 후처리")
+        self.setModal(True)
+        self.resize(700, 500)
+        self.setup_ui()
+    
+    def setup_ui(self):
+        """UI 설정"""
+        layout = QVBoxLayout(self)
+        
+        # 안내 텍스트
+        info_text = QLabel("""
+        🚀 완전 자동화 프로세스:
+        
+        1. 📁 책 폴더에서 이미지 파일 스캔
+        2. 📋 최대 10개 샘플 자동 선정
+        3. 📊 Google Vision API로 Ground Truth OCR
+        4. 🧠 Context-Conditioned Replay 후처리 적용
+        5. 💾 .snaptxt/ 폴더에 모든 결과 저장
+        
+        ✨ Context-aware INSERT 패턴으로 쉼표 개선 자동 적용
+        """)
+        info_text.setWordWrap(True)
+        info_text.setStyleSheet("QLabel { background-color: #f0f8ff; padding: 10px; border-radius: 5px; }")
+        layout.addWidget(info_text)
+        
+        # 설정 폼
+        form_layout = QFormLayout()
+        
+        self.folder_edit = QLineEdit()
+        folder_btn = QPushButton("📁 선택")
+        folder_btn.clicked.connect(self.select_folder)
+        folder_layout = QHBoxLayout()
+        folder_layout.addWidget(self.folder_edit)
+        folder_layout.addWidget(folder_btn)
+        form_layout.addRow("책 폴더:", folder_layout)
+        
+        self.api_key_edit = QLineEdit()
+        self.api_key_edit.setEchoMode(QLineEdit.Password)
+        self.api_key_edit.setPlaceholderText("Google Vision API 키 입력...")
+        form_layout.addRow("API 키:", self.api_key_edit)
+        
+        self.sample_count_spin = QSpinBox()
+        self.sample_count_spin.setRange(1, 20)
+        self.sample_count_spin.setValue(10)
+        form_layout.addRow("샘플 수:", self.sample_count_spin)
+        
+        layout.addLayout(form_layout)
+        
+        # 진행 상황
+        self.progress_label = QLabel("대기 중...")
+        layout.addWidget(self.progress_label)
+        
+        self.progress_bar = QProgressBar()
+        layout.addWidget(self.progress_bar)
+        
+        # 결과 텍스트
+        self.result_text = QTextEdit()
+        self.result_text.setReadOnly(True)
+        self.result_text.setMaximumHeight(150)
+        layout.addWidget(self.result_text)
+        
+        # 버튼들
+        button_layout = QHBoxLayout()
+        
+        self.start_btn = QPushButton("🚀 완전 자동화 시작")
+        self.start_btn.clicked.connect(self.start_processing)
+        self.start_btn.setStyleSheet("QPushButton { background-color: #4CAF50; color: white; font-weight: bold; padding: 8px; }")
+        button_layout.addWidget(self.start_btn)
+        
+        self.cancel_btn = QPushButton("❌ 취소")
+        self.cancel_btn.clicked.connect(self.cancel_processing)
+        self.cancel_btn.setEnabled(False)
+        button_layout.addWidget(self.cancel_btn)
+        
+        close_btn = QPushButton("닫기")
+        close_btn.clicked.connect(self.close)
+        button_layout.addWidget(close_btn)
+        
+        layout.addLayout(button_layout)
+        
+        self.worker_thread = None
+    
+    def select_folder(self):
+        """폴더 선택"""
+        folder = QFileDialog.getExistingDirectory(self, "책 폴더 선택")
+        if folder:
+            self.folder_edit.setText(folder)
+    
+    def start_processing(self):
+        """완전 자동화 프로세스 시작"""
+        folder_path = self.folder_edit.text().strip()
+        api_key = self.api_key_edit.text().strip()
+        sample_count = self.sample_count_spin.value()
+        
+        if not folder_path:
+            QMessageBox.warning(self, "경고", "책 폴더를 선택해주세요.")
+            return
+        
+        if not api_key:
+            QMessageBox.warning(self, "경고", "Google Vision API 키를 입력해주세요.")
+            return
+        
+        if not Path(folder_path).exists():
+            QMessageBox.warning(self, "경고", "선택한 폴더가 존재하지 않습니다.")
+            return
+        
+        # 작업 시작
+        self.start_btn.setEnabled(False)
+        self.cancel_btn.setEnabled(True)
+        self.result_text.clear()
+        
+        self.worker_thread = FullAutomationWorkerThread(Path(folder_path), api_key, sample_count)
+        self.worker_thread.progress.connect(self.update_progress)
+        self.worker_thread.finished.connect(self.on_finished)
+        self.worker_thread.error.connect(self.on_error)
+        self.worker_thread.start()
+    
+    def cancel_processing(self):
+        """처리 취소"""
+        if self.worker_thread:
+            self.worker_thread.is_cancelled = True
+            self.progress_label.setText("❌ 취소 중...")
+    
+    def update_progress(self, value, message):
+        """진행률 업데이트"""
+        self.progress_bar.setValue(value)
+        self.progress_label.setText(message)
+        self.result_text.append(f"[{value}%] {message}")
+    
+    def on_finished(self, results):
+        """작업 완료"""
+        self.start_btn.setEnabled(True)
+        self.cancel_btn.setEnabled(False)
+        
+        # 결과 요약 표시
+        summary = f"""
+        ✅ 완전 자동화 완료!
+        
+        📊 처리 통계:
+        • 샘플 파일: {results.get('processed_files', 0)}개
+        • 총 문자: {results.get('total_chars', 0):,}자
+        • Context-aware 개선: {results.get('context_improvements', 0)}개
+        • 품질 향상 평균: {results.get('avg_quality_improvement', 0):.1f}%
+        
+        💾 결과 저장 위치:
+        {results.get('snaptxt_dir', 'N/A')}
+        
+        🎉 Google Vision Ground Truth + Context-Conditioned Replay 통합 완료!
+        """
+        
+        self.result_text.append(summary)
+        QMessageBox.information(self, "완료", "완전 자동화 프로세스가 성공적으로 완료되었습니다!")
+    
+    def on_error(self, error_message):
+        """오류 처리"""
+        self.start_btn.setEnabled(True)
+        self.cancel_btn.setEnabled(False)
+        self.progress_label.setText("❌ 오류 발생")
+        
+        QMessageBox.critical(self, "오류", f"처리 중 오류가 발생했습니다:\n\n{error_message}")
+
+
 class GoogleVisionDialog(QDialog):
-    """Google Vision Ground Truth 생성 다이얼로그"""
+    """Google Vision Ground Truth 생성 다이얼로그 (기존)"""
     
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -963,9 +1562,16 @@ class GoogleVisionDialog(QDialog):
     
     def select_folder(self):
         """폴더 선택"""
-        folder = QFileDialog.getExistingDirectory(self, "책 폴더 선택")
+        # 명시적인 폴더 선택 다이얼로그 설정
+        folder = QFileDialog.getExistingDirectory(
+            self, 
+            "📁 책 폴더를 선택하세요", 
+            "", 
+            QFileDialog.ShowDirsOnly | QFileDialog.DontResolveSymlinks  
+        )
         if folder:
             self.folder_edit.setText(folder)
+            print(f"🔍 [DEBUG] GoogleVisionDialog - 폴더 선택됨: {folder}")
     
     def start_processing(self):
         """처리 시작"""

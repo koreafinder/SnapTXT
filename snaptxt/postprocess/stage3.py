@@ -385,9 +385,12 @@ def _add_paragraph_breaks(text: str, logger: logging.Logger) -> str:
         elif i + 2 < len(sentences):
             result_parts.append(' ')
     
-    # 마지막 문장 추가        
+    # 마지막 문장 추가 (구두점이 없어서 분할되지 않은 경우도 처리)        
     if len(sentences) > 1:
         result_parts.append(sentences[-1])
+    elif len(sentences) == 1:
+        # 구두점이 없는 단일 문장인 경우
+        result_parts.append(sentences[0])
         
     final_text = ''.join(result_parts)
     

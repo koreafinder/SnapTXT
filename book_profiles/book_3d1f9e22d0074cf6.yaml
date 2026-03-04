@@ -1,0 +1,107 @@
+analysis_summary:
+  approval_required_rules: 0
+  avg_ocr_confidence: 0.9
+  confidence_score: 0.5
+  sample_count: 1
+  total_rules: 4
+book_info:
+  book_id: 3d1f9e22d0074cf6
+  created_at: '2026-03-05T02:37:37.547337'
+  domain: textbook
+  fingerprint_hash: f322dd8513961cfe56a4a35956516ac1
+  language_style: unknown
+  title: 자동생성_IMG_4981.JPG_3d1f9e22
+correction_rules:
+- confidence: 0.5
+  correction_type: language_specific
+  enabled: true
+  examples:
+  - ''''
+  - .
+  explanation: Phase 2.4 OCR 분석 - punct 버킷에서 발견된 오류 패턴
+  id: 1
+  pattern: ''''
+  priority_level: medium
+  replacement: .
+  requires_approval: false
+  risk_level: "low\n   컨텍스트: 에 대한 답은 바로['] 지금이 순간에 있..."
+  scope: book_only
+- confidence: 0.5
+  correction_type: language_specific
+  enabled: true
+  examples:
+  - ''''
+  - .
+  explanation: Phase 2.4 OCR 분석 - punct 버킷에서 발견된 오류 패턴
+  id: 2
+  pattern: ''''
+  priority_level: medium
+  replacement: .
+  requires_approval: false
+  risk_level: "low\n   컨텍스트: 있습니다: 이 책은['] 지금이 순간' 에..."
+  scope: book_only
+- confidence: 0.5
+  correction_type: language_specific
+  enabled: true
+  examples:
+  - ''''
+  - .
+  explanation: Phase 2.4 OCR 분석 - punct 버킷에서 발견된 오류 패턴
+  id: 3
+  pattern: ''''
+  priority_level: medium
+  replacement: .
+  requires_approval: false
+  risk_level: "low\n   컨텍스트: 책은' 지금이 순간['] 에 온전히 집중함..."
+  scope: book_only
+- confidence: 0.5
+  correction_type: language_specific
+  enabled: true
+  examples:
+  - ''' '' '''
+  - . . .
+  explanation: Phase 2.4 OCR 분석 - punct 버킷에서 발견된 오류 패턴
+  id: 4
+  pattern: ''' '' '''
+  priority_level: medium
+  replacement: . . .
+  requires_approval: false
+  risk_level: "low\n   컨텍스트: 던저줄 것입니다. [' ' '] 처음으로 나의 경..."
+  scope: book_only
+priority_matrix:
+  critical: []
+  high: []
+  low: []
+  medium:
+  - 1
+  - 2
+  - 3
+  - 4
+typography_profile:
+  avg_line_length: 545.0
+  formatting_style: plain_text
+  paragraph_style: single_newline
+  punctuation_density:
+    '''': 0.0148
+    (: 0.0025
+    .: 0.0123
+    ':': 0.0148
+usage_stats:
+  applied_count: 0
+  performance_score: 0.0
+  success_count: 0
+  user_overrides: 0
+user_settings:
+  auto_apply_safe_rules: true
+  custom_rules: []
+  disabled_rules: []
+  profile_approved: false
+  require_confirmation_for:
+  - high_risk
+  - domain_wide
+  - universal
+version_info:
+  created_by: SnapTXT Book Sense Engine v2.0
+  gpt_model_used: gpt-4-simulation
+  last_updated: '2026-03-05T02:37:37.547459'
+  version: 1.0.0
