@@ -15,7 +15,8 @@ from typing import Dict
 
 _RULES_ENV_VAR = "SNAPTXT_STAGE2_RULES_FILE"
 _CACHE: Dict[str, str] = {}
-_CACHE_MTIME: float | None = None
+_CACHE_MTIME_BASE: float | None = None
+_CACHE_MTIME_OVERLAY: float | None = None  # overlay mtime 추가
 _LOCK = RLock()
 
 
@@ -50,23 +51,42 @@ def _parse_yaml(text: str) -> Dict[str, str]:
 
 
 def _refresh_cache(force: bool = False) -> None:
-    global _CACHE_MTIME
+    global _CACHE_MTIME_BASE, _CACHE_MTIME_OVERLAY
     rules_file = _rules_path()
     try:
-        mtime = rules_file.stat().st_mtime
+        base_mtime = rules_file.stat().st_mtime
     except OSError as exc:  # pragma: no cover - catastrophic configuration issue
         raise FileNotFoundError(f"Stage 2 rules file not found: {rules_file}") from exc
 
-    if not force and _CACHE and _CACHE_MTIME and mtime <= _CACHE_MTIME:
-        return
+    # overlay mtime도 함께 체크 (감독관 지시 4번)
+    from .stage2_overlay_loader import get_overlay_file_info
+    overlay_info = get_overlay_file_info()
+    overlay_mtime = overlay_info.get("overlay_mtime", 0) or 0
 
+    if not force and _CACHE and _CACHE_MTIME_BASE and _CACHE_MTIME_OVERLAY is not None:
+        if base_mtime <= _CACHE_MTIME_BASE and overlay_mtime <= _CACHE_MTIME_OVERLAY:
+            return
+
+    # Base rules 로드
     parsed = _parse_yaml(rules_file.read_text(encoding="utf-8"))
     if not parsed:
         raise ValueError(f"No Stage 2 replacements loaded from {rules_file}")
 
+    # Overlay 로드 및 병합 (SNAPTXT_DISABLE_OVERLAY 체크)
+    if not os.getenv("SNAPTXT_DISABLE_OVERLAY"):
+        from .stage2_overlay_loader import load_stage2_overlay, apply_overlay_safe_limits
+        overlay_rules, overlay_info_msg = load_stage2_overlay()
+        
+        if overlay_rules:
+            limited_overlay, policy_info = apply_overlay_safe_limits(overlay_rules)
+            parsed.update(limited_overlay)
+            print(f"📊 Stage2 Overlay: {overlay_info_msg}")
+            print(f"📊 Overlay 제한: {policy_info}")
+
     _CACHE.clear()
     _CACHE.update(parsed)
-    _CACHE_MTIME = mtime
+    _CACHE_MTIME_BASE = base_mtime
+    _CACHE_MTIME_OVERLAY = overlay_mtime
 
 
 def get_replacements(*, force_refresh: bool = False) -> Dict[str, str]:
@@ -81,10 +101,33 @@ def reload_replacements() -> Dict[str, str]:
     return get_replacements(force_refresh=True)
 
 
-def rules_file_path() -> Path:
-    """현재 Stage 2 룰 파일 경로를 반환한다."""
-
-    return _rules_path()
+def get_runtime_rule_info() -> dict:
+    """관측용: 실제 사용 파일 정보 (side-effect 최소화 - 감독관 지시 9번)"""
+    base_path = _rules_path()
+    
+    # Base 파일 정보
+    base_info = {
+        "base_path": str(base_path),
+        "base_mtime": base_path.stat().st_mtime if base_path.exists() else 0,
+        "base_hash": "none"
+    }
+    
+    # Base 해시 계산 (파일이 있을 때만)
+    if base_path.exists():
+        import hashlib
+        base_info["base_hash"] = hashlib.md5(base_path.read_bytes()).hexdigest()[:8]
+    
+    # Overlay 파일 정보만 (파싱하지 않음)
+    from .stage2_overlay_loader import get_overlay_file_info
+    overlay_info = get_overlay_file_info()
+    
+    base_info.update({
+        "overlay_file": overlay_info.get("overlay_file"),
+        "overlay_mtime": overlay_info.get("overlay_mtime"),
+        "overlay_path": overlay_info.get("overlay_path")
+    })
+    
+    return base_info
 
 
 OCR_REPLACEMENTS = get_replacements(force_refresh=True)

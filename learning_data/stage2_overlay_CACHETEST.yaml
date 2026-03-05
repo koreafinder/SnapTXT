@@ -1,0 +1,6 @@
+metadata:
+  generated_by: cache_test
+  timestamp: '1772733456'
+patterns:
+  cache_test_pattern_1: original  corrected
+  cache_test_pattern_2: error  fixed

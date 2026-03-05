@@ -1,0 +1,83 @@
+graph TB
+    subgraph "📱 촬영 단계"
+        A[Office Lens 책 촬영] --> B[이미지 PC 전송]
+    end
+    
+    subgraph "🖥️ PC OCR 처리 시스템 (Local C:\\ - Real-time)"
+        B --> C[PC App 실행<br/>run_pc_app.py<br/>📍 C:\\dev\\SnapTXT 환경]
+        C --> D[이미지 선택]
+        
+        subgraph "🔧 OCR 파이프라인"
+            D --> E[1️⃣ 전처리<br/>apply_default_filters]
+            E --> F[2️⃣ EasyOCR 엔진<br/>easyocr_worker]
+            F --> G[3️⃣ Stage2 Rule Engine<br/>사전 기반 + 패턴 교정]
+            G --> H[4️⃣ Stage3 Context Engine<br/>지능형 문맥 인식]
+            H --> I[5️⃣ Book Profile<br/>책별 특화 교정]
+            
+            subgraph "🔧 Stage2 Rule Engine (333개 사전)"
+                G1[Dictionary Rules<br/>OCR 오류 사전 교정]
+                G2[Dynamic Patterns<br/>Regex 기반 패턴]  
+                G3[✅ Contextual Fixes<br/>문맥 기반 보정<br/>**우선순위 정책 적용**]
+                G4[Spacing Refinements<br/>띄어쓰기 정제]
+                G1 --> G2 --> G3 --> G4
+            end
+            
+            subgraph "🧠 Stage3 Context Framework"
+                H1[✅ Context-Conditioned Replay<br/>언어학적 패턴 엔진<br/>**중복 통제 적용**]
+                H2[Confidence Scoring<br/>신뢰도 기반 적용]  
+                H3[Pattern Risk Analysis<br/>안전성 검증]
+                H1 --> H2 --> H3
+            end
+            
+            subgraph "📚 Book Intelligence"
+                I1[Book Fingerprint<br/>책 식별 시스템]
+                I2[GPT Integration<br/>책별 교정 표준]
+                I3[Domain Patterns<br/>전문 분야 특화]
+                I1 --> I2 --> I3
+            end
+            
+            G --> G1
+            H --> H1
+            I --> I1
+            I3 --> O[최종 텍스트 출력]
+        end
+    end
+    
+    subgraph "📊 품질 학습 시스템 (Offline Learning)"
+        K[Google Vision API] --> L[Ground Truth 생성]
+        L --> M[오류 패턴 분석<br/>ErrorDistributionAnalyzer]
+        M --> N[자동 규칙 생성<br/>Pattern Learning Framework]
+        N --> P1[✅ Stage2 Overlay 생성<br/>stage2_overlay_*.yaml<br/>**OCR 깨짐 복원 전용**]
+        N --> P2[✅ Stage3 PostProc 생성<br/>stage3_postproc_*.yaml<br/>**문맥/정규화 전용**]
+        N --> P3[✅ 통합 학습 결과<br/>learned_rules_advanced.yaml<br/>**호환성 유지**]
+        P1 -.-> G1
+        P2 -.-> H1
+        P3 -.-> I1
+    end
+    
+    subgraph "📤 결과 활용 (분리됨)"
+        O --> Q1[텍스트 복사/저장]
+        O --> Q2[웹 업로드]
+        Q2 --> R[TTS 오디오북]
+        Q2 --> S[온라인 뷰어]
+    end
+
+    style A fill:#1976d2,stroke:#0d47a1,stroke-width:3px,color:#ffffff
+    style C fill:#7b1fa2,stroke:#4a148c,stroke-width:3px,color:#ffffff
+    style E fill:#f57c00,stroke:#e65100,stroke-width:3px,color:#ffffff
+    style F fill:#f57c00,stroke:#e65100,stroke-width:3px,color:#ffffff
+    style G fill:#388e3c,stroke:#1b5e20,stroke-width:3px,color:#ffffff
+    style H fill:#d32f2f,stroke:#b71c1c,stroke-width:3px,color:#ffffff
+    style I fill:#303f9f,stroke:#1a237e,stroke-width:3px,color:#ffffff
+    style G1 fill:#4caf50,stroke:#2e7d32,stroke-width:2px,color:#ffffff
+    style G2 fill:#66bb6a,stroke:#388e3c,stroke-width:2px,color:#ffffff
+    style G3 fill:#81c784,stroke:#4caf50,stroke-width:2px,color:#000000
+    style G4 fill:#a5d6a7,stroke:#66bb6a,stroke-width:2px,color:#000000
+    style H1 fill:#f44336,stroke:#d32f2f,stroke-width:2px,color:#ffffff
+    style H2 fill:#ef5350,stroke:#f44336,stroke-width:2px,color:#ffffff
+    style H3 fill:#e57373,stroke:#ef5350,stroke-width:2px,color:#ffffff
+    style I1 fill:#3f51b5,stroke:#303f9f,stroke-width:2px,color:#ffffff
+    style I2 fill:#5c6bc0,stroke:#3f51b5,stroke-width:2px,color:#ffffff
+    style I3 fill:#7986cb,stroke:#5c6bc0,stroke-width:2px,color:#ffffff
+    style K fill:#ff9800,stroke:#f57c00,stroke-width:3px,color:#ffffff
+    style O fill:#2196f3,stroke:#1976d2,stroke-width:3px,color:#ffffff

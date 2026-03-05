@@ -1,6 +1,7 @@
 @echo off
 chcp 65001 >nul 2>&1
-REM SnapTXT 작업 완료 및 정리 스크립트
+REM SnapTXT Development Compass - 작업 완료 및 정리 스크립트
+REM "증거 중심 문서화" 로 오늘의 성과 기록
 REM 사용법:
 REM   finish_work.bat "커밋 메시지"                     - 전체 완료 처리
 REM   finish_work.bat "커밋 메시지" --git-only          - Git 작업만

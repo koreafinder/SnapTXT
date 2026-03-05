@@ -1,18 +1,76 @@
-# SnapTXT 문서 시스템
+# SnapTXT 문서 시스템 📋
 
-SnapTXT 프로젝트의 모든 문서화 자료를 관리하는 중앙 허브입니다.
+**📍 [Current Work Status](status/current-work.md) - "30초 현황 파악" Single Source of Truth**  
+*지금 어디에 있고, 무엇을 해야 하는지 여기서만 확인*
 
-## 🚀 빠른 시작
+---
 
-### 필수 읽기 순서 (start_work.bat 워크플로우)
-1. **[Project Memory](foundation/project_memory.md)**: 프로젝트 목적·철학·실행 기준
-2. **[Architecture](foundation/architecture.md)**: 사용자 흐름과 시스템 구성  
-3. **[Current Work](status/current_work.md)**: 오늘의 진행 상황과 다음 할 일
-4. **[Progress Flow](status/progress_flow.md)**: 히스토리/로드맵
+## 🎯 **현재 위치** (You are here)
 
-### 작업 시작/완료 워크플로우
-- **작업 시작**: `.\start_work.bat` → 위 4개 문서 상태 확인 후 작업 준비 완료
-- **작업 완료**: `.\finish_work.bat "커밋메시지"` → 문서 정리 + GitHub 동기화
+**📍 v2.1.3 Stable Working Engine** - 고정점 (수정 금지)  
+**🔄 v2.2 Learning System** - 작업 영역 (진행 중)
+
+### **우선순위 작업** ⚡
+1. **Ground Truth 파일명 매핑 수정** (최우선)
+2. **샘플 복사 기능 정상화** (최우선)  
+3. **"샘플 폴더 열기" UI 추가** (높음)
+
+---
+
+## 🗺️ **SnapTXT System Layer Map**
+
+| Layer | 현재 상태 | 핵심 컴포넌트 |
+|-------|-----------|---------------|
+| **L1: Input** | ✅ 안정 | Office Lens, 폴더 드롭, 이미지 캡처 |
+| **L2: OCR** | ✅ 안정 | EasyOCR 엔진, Google Vision GT 생성 |
+| **L3: Postprocess** | ✅ 안정 | Stage1(전처리) → Stage2(교정) → Stage3(문맥) |  
+| **L4: Learning** | 🔄 **작업중** | Ground Truth 학습, Overlay 생성, Book Profile |
+| **L5: Output** | ✅ 안정 | 텍스트 저장, 웹 업로드, TTS |
+
+**🎯 현재 집중 영역**: **L4 Learning System** 실사용화
+
+## 🚀 빠른 시작 (start_work.bat 워크플로우)
+
+### **⚡ 업무 시작 체크리스트 (2분)**
+```bash
+# 1. 작업 환경 확인
+cd C:\dev\SnapTXT                    # ✅ 작업 폴더 확인
+.\.venv\Scripts\activate             # ✅ Python 환경 활성화
+
+# 2. 현재 상황 파악 (30초)
+# ✅ 현재 위치: v2.1.3 Stable Working Engine (고정점)
+# ✅ 오늘 작업: v2.2 Learning System 트랙
+# ✅ 오늘 목표: "작동 증거 1건" (예: 샘플 복사 버튼 → 로그 확인)
+```
+
+### **📋 필수 읽기 순서 (Progress > Perfection)**
+1. **[Project_Status_Summary_2026-03-06.md](Project_Status_Summary_2026-03-06.md)**: 전체 현황 30초 파악
+2. **[SnapTXT_v2.1.3_Development_Plan.md](SnapTXT_v2.1.3_Development_Plan.md)**: v2.1.3 안정 엔진 상세  
+3. **[v2.2_Future_Development_Plan.md](v2.2_Future_Development_Plan.md)**: 다음 4주 로드맵
+4. **[status/current_work.md](status/current_work.md)**: 오늘의 세부 작업
+
+### **작업 시작/완료 워크플로우**
+- **작업 시작**: `.\start_work.bat` → **30초 현황 파악** + Layer Map 위치 확인
+- **작업 완료**: `.\finish_work.bat "커밋메시지"` → 문서 정리 + 증거 기록
+
+---
+
+## 📐 **작업 원칙 (Progress > Perfection)**
+
+### **🔒 철칙 3개** 
+1. **v2.1.3는 고정점** - 안정버전은 더 이상 건드리지 않음
+2. **v2.2 트랙에서만 개선** - 실험/개선은 별도 트랙으로 분리
+3. **증거 있는 전진 우선** - "완벽" 보다 **작동 1건 + 로그 + 문서**
+
+### **💡 작업 시 Claude 지시 템플릿**
+```
+[Claude, SnapTXT Development Compass 기준 작업]
+1. 작업 위치 명시: Layer Map에서 현재 건드리는 영역 (L1~L5)
+2. 관련 파일/함수/라인 제시
+3. 재현 → 원인 → 수정 방향 → 검증(증거) 순서 준수
+4. "완료" 조건: (입력/출력/로그/파일명) 4종 증거 중 최소 2개 제출
+5. v2.1.3은 절대 수정 금지, v2.2 트랙에서만 작업
+```
 
 ## 📂 폴더 구조
 

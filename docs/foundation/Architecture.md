@@ -9,9 +9,19 @@
 4. **소비**: 크롬/사파리 등 브라우저에서 텍스트를 읽거나 Web TTS로 바로 듣는다.
 
 ## 2. 시스템 구성
-- **데스크톱 앱 (SnapTXT PC)**
+- **데스크톱 앱 (SnapTXT PC)**  
    - PyQt UI + 워커 스레드로 구성.
    - 사용자는 파일 선택, 진행률 확인, 결과 복사/저장 작업을 수행.
+   
+### PC 앱 실행 방법
+   - **권장**: `python run_pc_app.py` (환경 문제 자동 해결)
+     - 의존성 확인 (PyQt5, OpenCV, numpy, Pillow)
+     - PyTorch DLL 로딩 문제 해결 (GUI 환경 특화)
+     - Qt 플러그인 환경 설정
+     - `pc_app.py`의 main 함수 실행
+   - **직접 실행**: `python pc_app.py` (고급 사용자용)
+     - 1763줄의 완전한 PyQt5 GUI 애플리케이션
+     - OCR 처리 + Book Profile 시스템 + Phase 3 Production API
 - **공용 OCR 파이프라인**
    - `snaptxt.backend.multi_engine.MultiOCRProcessor` 한 곳에서 전처리 → EasyOCR 서브프로세스 → Stage2/Stage3 후처리까지 책임.
    - 모든 진입점(PyQt, Flask, CLI)이 동일 API를 호출해 품질을 일관되게 유지.

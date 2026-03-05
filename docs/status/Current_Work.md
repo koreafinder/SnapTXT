@@ -1,31 +1,86 @@
-# Current Work Snapshot
+# Current Work Status - SnapTXT Development Compass
+
+**🧭 "지금 어디까지 왔고, 지금 무엇을 해야 하는지"를 30초 안에 찾는 나침반**  
+**📍 Single Source of Truth - 모든 현재 상황은 여기서 확인**
 
 ---
-status: approved
-last_update: 2026-03-05
-current_phase: Phase 3.5 누적 학습 효과 검증 완료 → 프로덕션 시스템 완성
-key_achievement: Context-Conditioned Replay 프로덕션 통합 완료, 완전 자동화 워크플로우 구축, 누적 학습 효과 100% 검증
-category: status
-tags: [current-work, progress, context-aware, production, phase3, completed]
-document_type: status_tracking
-related_docs:
-  - ../foundation/project_memory.md
-  - ../foundation/architecture.md
-  - ./progress_flow.md
-  - ../technical/context-conditioned-replay-experiment.md
+
+## ⚡ **30초 현황 파악** - 2026-03-06
+
+### 📌 **현재 위치 (You are here)**
+**✅ v2.1.3 Stable Working Engine** - 고정점 (수정 금지)  
+**🔄 v2.2 Learning System** - 작업 영역 (4주 집중)
+
+### 🗺️ **System Layer Map**
+| Layer | 상태 | 현재 집중 영역 |
+|-------|------|----------------|
+| **L1: Input** | ✅ 안정 | Office Lens, 이미지 처리 |
+| **L2: OCR** | ✅ 안정 | EasyOCR, Google Vision GT |
+| **L3: Postprocess** | ✅ **고정점** | Stage2/3 overlay 시스템 |
+| **L4: Learning** | 🔄 **작업중** | Ground Truth 매핑, 샘플 복사 |
+| **L5: Output** | ✅ 안정 | 텍스트 저장, TTS |
+
+**🎯 현재 집중**: **L4 Learning System** 실사용화
+
 ---
 
-## 🎯 현재 위치 (한 눈에 보기)
+## 🔒 **철칙 3개**
+1. **v2.1.3는 고정점** - 안정버전 더 이상 수정 금지
+2. **v2.2 트랙에서만 개선** 
+3. **증거 있는 전진 우선** - 작동 1건 + 로그 + 문서
 
-### **✅ 완료되어 실제 사용 중인 것들**
-- **Phase 1 MVP**: 패턴 추천 엔진 → **CER: 23.94% → 21.72% (+2.22%p)** 실측 개선! ✅
-- **Phase 1.5**: Session-aware 학습 → 공백 복원 100% 기여, **pc_app.py Line 181에 통합됨** ✅
-- **Phase 1.8**: Pattern Scope Policy → 39→10개 안전 규칙, 과적합 방지 완료 ✅
-- **Phase 2.1-2.3**: Book Profile 시스템 → **+4.4%p CER 개선** 실측! **run_pipeline() 통합 완료** ✅
-- **Phase 2.4**: Book Profile Generation → **MockGPT → 실제 OCR 분석 교체 완료!** ✅
-- **Phase 2.5**: 축 확장 → **held-out 검증 PASS** (ΔCER -0.0074, 재현성 0.829) ✅
-- **🎉 Phase 3.0**: **실제 오류 분포 기반 합성 데이터셋 구축 시스템 완료!** ✅
-- **🚀 Phase 3.1**: **INSERT 패턴 완전 해결 + Coverage 90% 돌파!** ✅
+### 📐 **Claude 작업 지시 템플릿**  
+```
+[Claude, SnapTXT Development Compass 기준]
+1. Layer Map 위치 명시: L1~L5 중 작업 영역
+2. 파일/함수/라인 제시
+3. 재현→원인→수정→검증 순서
+4. 증거 2개 이상 제출 (입력/출력/로그/파일명)  
+5. v2.1.3 수정 금지, v2.2만 작업
+```
+
+### ⚙️ **빠른 실행 명령**
+```bash
+# 작업 시작
+.\start_work.bat
+
+# 메인 앱 실행  
+python main.py
+
+# PC 앱 실행
+python pc_app.py
+```
+
+---
+
+## ⚡ 우선순위 작업 (순서대로)
+
+### 1. **Ground Truth 파일명 매핑 수정** (최우선)
+- **문제**: `sample_XX_IMG_4975.JPG` → `sample_XX_IMG_4789.JPG` 불일치
+- **영향**: 학습 시스템 전체 불안정
+- **목표**: 매핑 파일 정확성 확보
+
+### 2. **샘플 복사 기능 완전 수정** (최우선)  
+- **문제**: `.snaptxt/samples/` 폴더 비어있음
+- **영향**: 학습 데이터 준비 과정 중단
+- **목표**: "버튼 한 번"으로 샘플 관리 자동화
+
+### 3. **"샘플 폴더 열기" UI 추가** (높음)
+- **목표**: "학습→overlay 생성→즉시 검증" 워크플로우
+- **효과**: GPT 업로드 과정 간소화
+
+---
+
+## 📊 v2.1.3 확정 사항 (건드리지 말 것)
+
+   
+2. **샘플 복사 기능 완전 수정** (최우선)  
+   - 문제: .snaptxt/samples/ 폴더 비어있음, book_profile_experiment_ui.py 오작동
+   - 목표: "버튼 한 번"으로 샘플 관리 완전 자동화
+
+3. **"샘플 폴더 열기" UI 추가** (높음)
+   - 목표: "학습→overlay 생성→즉시 검증" 워크플로우 완성
+   - GPT 업로드 워크플로우 개선
 
 ### **🎉 Phase 3.1 역사적 돌파! (2026-03-04)**
 **INSERT 패턴 완전 해결로 Event Replay 시스템 진정한 완성:**

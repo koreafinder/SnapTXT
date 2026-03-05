@@ -1,14 +1,20 @@
 @echo off
 chcp 65001 >nul 2>&1
-REM SnapTXT 작업 세션 시작 스크립트
-REM 목적: VS Code 실행 후 AI와 사용자가 현재 상황을 즉시 파악할 수 있도록 함
+REM SnapTXT 작업 세션 시작 - current-work.md가 Single Source of Truth
+REM 목적: "30초 현황 파악" 후 바로 작업 시작
 
 setlocal
 cd /d "%~dp0"
 
 echo.
-echo 🚀 SnapTXT 작업 세션 시작...
+echo 🧭 SnapTXT 작업 세션 시작
 echo ==========================================
+echo   현재 상황은 docs\status\current-work.md 에서 확인하세요
+echo   📍 Single Source of Truth
+echo.
+
+echo 📍 현재 위치: v2.1.3 Stable (고정점) + v2.2 Learning (작업 영역)
+echo 📋 오늘 할 일: docs\status\current-work.md 확인 필수
 echo.
 
 REM 가상환경 확인
@@ -26,7 +32,14 @@ echo ------------------------------------------
 call check_docs.bat
 
 echo.
-echo 📊 현재 작업 상황 분석...
+echo 🎯 우선순위 작업 현황...
+echo ------------------------------------------
+echo ✨ 상세 내용: docs\status\current-work.md 확인
+echo   📍 Single Source of Truth - 모든 현재 상황 집합
+echo   🔄 v2.2 Learning System 작업 영역
+
+echo.
+echo 📊 현재 시스템 상태 분석...
 echo ------------------------------------------
 "%PYTHON_EXE%" tools\show_current_status.py
 
@@ -90,10 +103,16 @@ echo.
 echo 💡 추천 다음 단계...
 echo ------------------------------------------
 echo 1. 메인 웹 서버 실행:     python main.py
-echo 2. PC 앱 실행:          python pc_app.py  
+echo 2. PC 앱 실행:          python run_pc_app.py  (권장 - 환경 문제 자동 해결)
+echo    └── 직접 실행:        python pc_app.py      (고급 사용자용)
 echo 3. 문서 전체 확인:       .\check_docs.bat optional
 echo 4. 회귀 테스트 실행:     powershell -ExecutionPolicy Bypass -File "scripts\run_regression.ps1"
 echo 5. 새 기획서 생성:       .\create_plan.bat "기획서명" "plans"
+echo.
+echo 📱 PC 앱 사용 팁:
+echo   run_pc_app.py = 런처 (의존성 확인 + DLL 문제 해결 + pc_app.py 실행)
+echo   pc_app.py     = 실제 PyQt5 GUI 애플리케이션
+echo   💡 처음 사용 시 run_pc_app.py 권장 (환경 문제 자동 해결)
 
 echo.
 echo 🎯 현재 우선순위: AI 워크플로우 자동화 시스템 구축

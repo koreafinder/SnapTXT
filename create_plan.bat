@@ -1,6 +1,7 @@
 @echo off
 chcp 65001 >nul 2>&1
-REM SnapTXT 새 기획서 생성 및 current_work.md 자동 연동 스크립트
+REM SnapTXT Development Compass - 새 기획서 생성 도구
+REM "증거 중심 개발" 원칙에 따른 문서화 자동화
 REM 사용법:
 REM   create_plan.bat "기획서명"                    - plans 카테고리로 생성
 REM   create_plan.bat "기획서명" "plans"            - plans 카테고리로 생성  

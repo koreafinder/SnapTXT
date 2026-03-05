@@ -1,0 +1,4 @@
+replacements:
+  cache_test_pattern_1: original  corrected
+  cache_test_pattern_2: error  fixed
+  cache_test_pattern_3: test  success

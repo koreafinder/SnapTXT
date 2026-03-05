@@ -20,10 +20,14 @@ class GroundTruthBasedLearner:
     """Ground Truth 기반 고급 Phase 2 학습 시스템"""
     
     def __init__(self):
-        self.learning_data_dir = Path("../learning_data")
+        # CWD 독립적 경로 설정 - 현재 파일 기준
+        script_dir = Path(__file__).resolve().parent
+        project_root = script_dir.parent
+        
+        self.learning_data_dir = project_root / "learning_data"
         self.learning_data_dir.mkdir(parents=True, exist_ok=True)
         
-        self.ground_truth_file = Path("../samples/ground_truth/ground_truth.json")
+        self.ground_truth_file = project_root / "samples/ground_truth/ground_truth.json"
         self.learned_rules_file = self.learning_data_dir / "learned_rules_advanced.yaml"
         
         # Ground Truth 데이터 로드
@@ -376,13 +380,52 @@ class GroundTruthBasedLearner:
             }
         }
         
-        # YAML 저장
+        # YAML 저장 - 기존 통합 파일 유지 (호환성)
         full_rules = {**metadata, **stage3_rules}
         
         with open(self.learned_rules_file, 'w', encoding='utf-8') as f:
-            yaml.dump(full_rules, f, indent=2, sort_keys=False, allow_unicode=True)
+            yaml.safe_dump(full_rules, f, indent=2, sort_keys=False, allow_unicode=True)
         
-        print(f"💾 학습 규칙 저장: {self.learned_rules_file}")
+        print(f"💾 통합 학습 규칙 저장: {self.learned_rules_file}")
+        
+        # 🔥 Stage2/Stage3 분리 저장 추가
+        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+        stage2_overlay = self._extract_stage2_overlay(stage3_rules)
+        stage3_postproc = stage3_rules['stage3_postprocessing']
+        
+        # Stage2 overlay 전용 파일
+        stage2_file = self.learning_data_dir / f"stage2_overlay_{timestamp}.yaml"
+        stage2_data = {
+            "metadata": {
+                "version": "stage2_overlay_v1.0",
+                "created_at": metadata['metadata']['created_at'],
+                "source": "GT 기반 OCR 깨짐 복원 패턴",
+                "total_patterns": len(stage2_overlay)
+            },
+            "replacements": stage2_overlay
+        }
+        
+        with open(stage2_file, 'w', encoding='utf-8') as f:
+            yaml.safe_dump(stage2_data, f, indent=2, sort_keys=False, allow_unicode=True)
+        
+        print(f"💾 Stage2 Overlay: {stage2_file.name} ({len(stage2_overlay)}개 규칙)")
+        
+        # Stage3 postprocessing 전용 파일  
+        stage3_file = self.learning_data_dir / f"stage3_postproc_{timestamp}.yaml"
+        stage3_data = {
+            "metadata": {
+                "version": "stage3_postproc_v1.0",
+                "created_at": metadata['metadata']['created_at'], 
+                "source": "GT 기반 문맥/정규화 패턴",
+                "total_patterns": sum(len(rules) for rules in stage3_postproc.values())
+            },
+            "stage3_postprocessing": stage3_postproc
+        }
+        
+        with open(stage3_file, 'w', encoding='utf-8') as f:
+            yaml.safe_dump(stage3_data, f, indent=2, sort_keys=False, allow_unicode=True)
+        
+        print(f"💾 Stage3 PostProc: {stage3_file.name}")
         
         # 카테고리별 요약
         categories = stage3_rules['stage3_postprocessing']
@@ -391,6 +434,52 @@ class GroundTruthBasedLearner:
                 print(f"   📁 {cat}: {len(rules)}개 규칙")
         
         return str(self.learned_rules_file)
+    
+    def _extract_stage2_overlay(self, stage3_rules: dict) -> dict:
+        """OCR 깨짐 복원 패턴만 Stage2 overlay로 추출"""
+        stage2_overlay = {}
+        
+        # 자모 유사성 혼동 쌍 (감독관 지시 반영)
+        confusion_pairs = {
+            ("o", "0"), ("0", "o"), ("l", "1"), ("1", "l"), 
+            ("rn", "m"), ("m", "rn"), ("기", "가"), ("가", "기"),
+            ("는", "능"), ("능", "는"), ("어", "여"), ("여", "어"),
+            ("마", "머"), ("머", "마"), ("에", "어"), ("어", "에")
+        }
+        
+        # 어미 정규화 금지 패턴
+        ending_blacklist = ["니다", "습니다", "했습니다", "합니다", "ㅂ니다"]
+        
+        for char_rule in stage3_rules['stage3_postprocessing'].get("characters", []):
+            pattern = char_rule.get("pattern", "")
+            replacement = char_rule.get("replacement", "")
+            
+            # 어미/정규화는 Stage2 진입 차단
+            if any(ending in pattern + replacement for ending in ending_blacklist):
+                continue
+                
+            # OCR 깨짐 신호 판별
+            if self._is_ocr_corruption_pattern(pattern, replacement, confusion_pairs):
+                stage2_overlay[pattern] = replacement
+        
+        return stage2_overlay
+    
+    def _is_ocr_corruption_pattern(self, pattern: str, replacement: str, confusion_pairs: set) -> bool:
+        """OCR 깨짐 복원 패턴 판별 (쌍 기반)"""
+        # 혼동 쌍 검사  
+        if (pattern, replacement) in confusion_pairs or (replacement, pattern) in confusion_pairs:
+            return True
+        
+        # 공백 오삽입/누락 (길이 제한)
+        if (" " in pattern or " " in replacement) and len(pattern) <= 6 and len(replacement) <= 6:
+            return True
+            
+        # 영숫자 혼동
+        import re
+        if len(pattern) <= 4 and re.search(r'[0-9]', pattern) and re.search(r'[a-zA-Zㄱ-ㅎ가-힣]', pattern):
+            return True
+            
+        return False
     
     def run_complete_learning_cycle(self, simulations: int = 100) -> dict:
         """전체 학습 사이클 실행"""

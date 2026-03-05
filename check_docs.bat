@@ -1,6 +1,7 @@
 @echo off
 chcp 65001 >nul 2>&1
-REM SnapTXT 문서 상태 빠른 확인 스크립트
+REM SnapTXT Development Compass - 문서 상태 빠른 확인
+REM "30초 현황 파악"을 위한 문서 검증
 REM 사용법: 
 REM   check_docs.bat          - 필수 문서만 확인
 REM   check_docs.bat optional - 선택 문서도 확인
@@ -9,7 +10,7 @@ REM   check_docs.bat ci       - CI 모드로 확인 (오류 시 종료)
 setlocal
 cd /d "%~dp0"
 
-echo 📋 SnapTXT 문서 상태 확인 중...
+echo 📋 SnapTXT Development Compass 문서 상태 확인...
 
 REM 가상환경 활성화
 if exist ".venv_new\Scripts\python.exe" (
