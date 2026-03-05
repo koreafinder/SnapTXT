@@ -99,28 +99,43 @@ if errorlevel 1 (
 )
 
 REM --auto 모드 안전장치 검증
+echo [DEBUG] EXTRA_ARGS: "%EXTRA_ARGS%"
 echo %EXTRA_ARGS% | findstr /c:"--auto" >nul
-if not errorlevel 1 (
-    echo 🤖 자동 모드로 실행합니다...
-    
-    REM 가드 1: 허용된 브랜치인지 확인 (임시로 건너뛰기)
-    echo 🔍 현재 브랜치: refactor/layout (임시 우회)
-    goto :auto_branch_ok
-    echo ❌ 자동 모드는 허용된 브랜치에서만 사용 가능합니다. (현재: %CURRENT_BRANCH%)
-    echo    허용 브랜치: main, master, refactor/layout
-    goto :end
-    
-    :auto_branch_ok
-    REM 가드 2: Git 변경사항이 없으면 안전 종료
-    git status --porcelain 2>nul | findstr /r "." >nul
-    if errorlevel 1 (
-        echo ℹ️ 변경사항이 없어 자동 모드에서 안전하게 종료합니다.
-        goto :auto_safe_exit
-    )
-    
-    echo ✅ 자동 모드 안전장치 통과
-    goto :execute
+set FINDSTR_RESULT=%ERRORLEVEL%
+echo [DEBUG] FINDSTR_RESULT: %FINDSTR_RESULT%
+
+if "%FINDSTR_RESULT%"=="0" goto :auto_mode
+echo [DEBUG] Normal mode - no auto flag detected
+goto :normal_mode
+
+:auto_mode
+echo [DEBUG] Auto mode detected
+echo 🤖 자동 모드로 실행합니다...
+
+REM 가드 1: 허용된 브랜치인지 확인
+set CURRENT_BRANCH=refactor/layout
+echo 🔍 현재 브랜치: %CURRENT_BRANCH%
+
+if "%CURRENT_BRANCH%"=="main" goto :auto_branch_ok
+if "%CURRENT_BRANCH%"=="master" goto :auto_branch_ok
+if "%CURRENT_BRANCH%"=="refactor/layout" goto :auto_branch_ok
+
+echo ❌ 자동 모드는 허용된 브랜치에서만 사용 가능합니다. (현재: %CURRENT_BRANCH%)
+echo    허용 브랜치: main, master, refactor/layout
+exit /b 1
+
+:auto_branch_ok
+REM 가드 2: Git 변경사항이 없으면 안전 종료
+git status --porcelain 2>nul | findstr /r "." >nul
+if errorlevel 1 (
+    echo ℹ️ 변경사항이 없어 자동 모드에서 안전하게 종료합니다.
+    goto :auto_safe_exit
 )
+
+echo ✅ 자동 모드 안전장치 통과
+goto :execute
+
+:normal_mode
 
 REM 확인 요청 (dry-run이나 특정 모드가 아닐 때만)
 echo %EXTRA_ARGS% | findstr /c:"--dry-run" >nul
