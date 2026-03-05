@@ -22,7 +22,7 @@ def get_git_status() -> bool:
     """Git 저장소 상태 확인"""
     try:
         result = subprocess.run(['git', 'status', '--porcelain'], 
-                              capture_output=True, text=True, cwd=PROJECT_ROOT)
+                              capture_output=True, text=True, encoding='utf-8', errors='replace', cwd=PROJECT_ROOT)
         return result.returncode == 0 and bool(result.stdout.strip())
     except FileNotFoundError:
         return False
@@ -32,7 +32,7 @@ def get_staged_files() -> List[str]:
     """스테이징된 파일 목록 반환"""
     try:
         result = subprocess.run(['git', 'diff', '--staged', '--name-only'], 
-                              capture_output=True, text=True, cwd=PROJECT_ROOT)
+                              capture_output=True, text=True, encoding='utf-8', errors='replace', cwd=PROJECT_ROOT)
         if result.returncode == 0:
             return [f for f in result.stdout.strip().split('\n') if f]
         return []
@@ -167,14 +167,14 @@ def git_add_and_commit(commit_message: str, dry_run: bool = False) -> bool:
         
         # git add -A
         result = subprocess.run(['git', 'add', '-A'], 
-                              capture_output=True, text=True, cwd=PROJECT_ROOT)
+                              capture_output=True, text=True, encoding='utf-8', errors='replace', cwd=PROJECT_ROOT)
         if result.returncode != 0:
             print(f"❌ git add 실패: {result.stderr}")
             return False
         
         # git commit
         result = subprocess.run(['git', 'commit', '-m', commit_message], 
-                              capture_output=True, text=True, cwd=PROJECT_ROOT)
+                              capture_output=True, text=True, encoding='utf-8', errors='replace', cwd=PROJECT_ROOT)
         if result.returncode != 0:
             print(f"❌ git commit 실패: {result.stderr}")
             if "nothing to commit" in result.stdout:
@@ -199,7 +199,7 @@ def git_push(dry_run: bool = False) -> bool:
             return True
         
         result = subprocess.run(['git', 'push'], 
-                              capture_output=True, text=True, cwd=PROJECT_ROOT)
+                              capture_output=True, text=True, encoding='utf-8', errors='replace', cwd=PROJECT_ROOT)
         if result.returncode != 0:
             print(f"❌ git push 실패: {result.stderr}")
             return False
@@ -216,9 +216,9 @@ def run_docs_verification() -> bool:
     """문서 시스템 무결성 검증"""
     
     try:
-        # check_docs.bat ci 실행
+        # check_docs.bat ci 실행 - UTF-8 인코딩으로 디코딩 오류 방지
         result = subprocess.run(['cmd', '/c', 'check_docs.bat', 'ci'], 
-                              capture_output=True, text=True, cwd=PROJECT_ROOT)
+                              capture_output=True, text=True, encoding='utf-8', errors='replace', cwd=PROJECT_ROOT)
         
         if result.returncode == 0:
             print("✅ 문서 시스템 검증 통과")
@@ -229,7 +229,7 @@ def run_docs_verification() -> bool:
             return False
             
     except Exception as e:
-        print(f"⚠️ 문서 검증 중 오류: {e}")
+        print(f"❌ 문서 검증 중 치명적 오류: {e}")
         return False
 
 
@@ -300,7 +300,9 @@ def main():
         print("-" * 30)
         
         if not args.dry_run:
-            run_docs_verification()
+            if not run_docs_verification():
+                print("❌ 문서 검증 실패로 인해 작업을 중단합니다.")
+                sys.exit(1)
         else:
             print("[DRY RUN] 문서 검증 시뮬레이션")
     
