@@ -99,21 +99,19 @@ if errorlevel 1 (
 )
 
 REM --auto 모드 안전장치 검증
-echo [DEBUG] EXTRA_ARGS: "%EXTRA_ARGS%"
 echo %EXTRA_ARGS% | findstr /c:"--auto" >nul
-set FINDSTR_RESULT=%ERRORLEVEL%
-echo [DEBUG] FINDSTR_RESULT: %FINDSTR_RESULT%
-
-if "%FINDSTR_RESULT%"=="0" goto :auto_mode
-echo [DEBUG] Normal mode - no auto flag detected
+if %ERRORLEVEL% EQU 0 goto :auto_mode
 goto :normal_mode
 
 :auto_mode
-echo [DEBUG] Auto mode detected
 echo 🤖 자동 모드로 실행합니다...
 
 REM 가드 1: 허용된 브랜치인지 확인
-set CURRENT_BRANCH=refactor/layout
+for /f "tokens=*" %%a in ('git rev-parse --abbrev-ref HEAD') do set CURRENT_BRANCH=%%a
+if "%CURRENT_BRANCH%"=="" (
+    echo ❌ 현재 브랜치를 확인할 수 없습니다.
+    exit /b 1
+)
 echo 🔍 현재 브랜치: %CURRENT_BRANCH%
 
 if "%CURRENT_BRANCH%"=="main" goto :auto_branch_ok
