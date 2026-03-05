@@ -6,6 +6,7 @@ REM 사용법:
 REM   finish_work.bat "커밋 메시지"                     - 전체 완료 처리
 REM   finish_work.bat "커밋 메시지" --git-only          - Git 작업만
 REM   finish_work.bat "커밋 메시지" --docs-only         - 문서 정리만
+REM   finish_work.bat "커밋 메시지" --auto              - 자동 모드 (프롬프트 없음)
 REM   finish_work.bat --dry-run                        - 시뮬레이션
 
 setlocal
@@ -30,12 +31,14 @@ if "%~1"=="" (
     echo ❓ 사용법:
     echo   finish_work.bat "커밋 메시지"                     - 전체 완료 처리
     echo   finish_work.bat "커밋 메시지" --git-only          - Git 작업만
-    echo   finish_work.bat "커밋 메시지" --docs-only         - 문서 정리만  
+    echo   finish_work.bat "커밋 메시지" --docs-only         - 문서 정리만
+    echo   finish_work.bat "커밋 메시지" --auto              - 자동 모드 (프롬프트 없음)
     echo   finish_work.bat --dry-run                        - 시뮬레이션
     echo.
     echo 💡 예시:
     echo   finish_work.bat "AI 워크플로우 자동화 완료"
     echo   finish_work.bat "문서 정리" --docs-only
+    echo   finish_work.bat "자동 커밋" --auto
     echo   finish_work.bat --dry-run
     echo.
     goto :show_current_status
@@ -95,6 +98,32 @@ if errorlevel 1 (
     )
 )
 
+REM --auto 모드 안전장치 검증
+echo %EXTRA_ARGS% | findstr /c:"--auto" >nul
+if not errorlevel 1 (
+    echo 🤖 자동 모드로 실행합니다...
+    
+    REM 가드 1: 허용된 브랜치인지 확인
+    for /f %%i in ('git rev-parse --abbrev-ref HEAD 2^>nul') do set CURRENT_BRANCH=%%i
+    if "%CURRENT_BRANCH%"=="main" goto :auto_branch_ok
+    if "%CURRENT_BRANCH%"=="master" goto :auto_branch_ok
+    if "%CURRENT_BRANCH%"=="refactor/layout" goto :auto_branch_ok
+    echo ❌ 자동 모드는 허용된 브랜치에서만 사용 가능합니다. (현재: %CURRENT_BRANCH%)
+    echo    허용 브랜치: main, master, refactor/layout
+    goto :end
+    
+    :auto_branch_ok
+    REM 가드 2: Git 변경사항이 없으면 안전 종료
+    git status --porcelain 2>nul | findstr /r "." >nul
+    if errorlevel 1 (
+        echo ℹ️ 변경사항이 없어 자동 모드에서 안전하게 종료합니다.
+        goto :auto_safe_exit
+    )
+    
+    echo ✅ 자동 모드 안전장치 통과
+    goto :execute
+)
+
 REM 확인 요청 (dry-run이나 특정 모드가 아닐 때만)
 echo %EXTRA_ARGS% | findstr /c:"--dry-run" >nul
 if not errorlevel 1 goto :execute
@@ -151,6 +180,11 @@ echo.
 
 goto :end
 
+:auto_safe_exit
+echo ✅ 자동 모드 안전 종료 완료
+echo.
+goto :final_end
+
 :show_current_status
 echo 📊 현재 활성 기획서 상태:
 echo ------------------------------------------
@@ -158,4 +192,8 @@ echo ------------------------------------------
 
 :end
 echo.
+echo %EXTRA_ARGS% | findstr /c:"--auto" >nul
+if not errorlevel 1 goto :final_end
 pause
+
+:final_end
